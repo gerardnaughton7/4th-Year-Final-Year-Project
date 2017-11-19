@@ -4,15 +4,9 @@ $font-path: "../assets/fonts";
 
 
 $app-direction: ltr;
-$background-color: #74efc4;
+$background-color: #5d5d5e;
 
 @import "ionic.globals";
-
-
-
-
-
-
 
 // Named Color Variables
 // --------------------------------------------------
@@ -26,7 +20,7 @@ $colors: (
   primary:    #488aff,
   secondary:  #32db64,
   danger:     #f53d3d,
-  light:      #f4f4f4,
+  light:      #cac6c6,
   dark:       #222
 );
 

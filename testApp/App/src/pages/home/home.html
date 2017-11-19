@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar transparent>
     <ion-title>
-      Review King
+      Available Accommodations
     </ion-title>
     <ion-buttons end>
       <button ion-button icon-only (click)="addReview()"><ion-icon class="test" name="ios-add-circle-outline"></ion-icon></button>
@@ -17,9 +17,7 @@
     
          <ion-item>
     
-           <ion-avatar item-left>
-             <img src="https://api.adorable.io/avatars/75/{{review.title}}">
-           </ion-avatar>
+           <ion-img width="200" height="200" item-left src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkryA5wR6mdMpRhf6upmgSlxfig_n7jzor-uol9tO6y9fd5hyv"></ion-img>
     
            <h2>{{review.title}}</h2>
            <p>{{review.description}}</p>
