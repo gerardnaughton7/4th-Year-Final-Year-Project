@@ -102,3 +102,15 @@ demos/src/**/*.ngfactory.ts
 demos/src/**/*.d.ts
 demos/src/**/*.metadata.json
 demos/src/**/*.css.shim.ts
+
+# DigsIonic stuff
+DigsIonic/node_modules
+DigsIonic/polyfills
+DigsIonic/css
+DigsIonic/fonts
+DigsIonic/src/**/*.js
+DigsIonic/src/**/*.map
+DigsIonic/src/**/*.ngfactory.ts
+DigsIonic/src/**/*.d.ts
+DigsIonic/src/**/*.metadata.json
+DigsIonic/src/**/*.css.shim.ts
