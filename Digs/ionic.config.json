@@ -1,0 +1,8 @@
+{
+  "name": "Digs",
+  "app_id": "9b75acdf",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
