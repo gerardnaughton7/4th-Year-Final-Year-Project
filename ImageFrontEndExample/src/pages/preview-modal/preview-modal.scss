@@ -1,0 +1,26 @@
+page-preview-modal {
+    .img-info {
+        padding-left: 20px;
+        background: #fff;
+    }
+    .desc-text {
+         font-weight: 500;
+         font-size: larger;
+         padding-bottom: 15px;
+         color: color($colors, dark);
+    }
+ 
+  .content-ios {
+    background: rgba(44, 39, 45, 0.84) !important;
+  }
+ 
+  .content-md {
+    background: rgba(44, 39, 45, 0.84) !important;
+  }
+ 
+  .close-fake {
+      background: transparent;
+      color: color($colors, light);
+      font-size: 3rem;
+  }
+}

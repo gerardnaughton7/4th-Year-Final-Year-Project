@@ -1,0 +1,17 @@
+<ion-content>
+  <div class="image-modal transparent">
+    <ion-item class="close-fake" no-lines (click)="close()">
+      <ion-icon name="close"></ion-icon>
+    </ion-item>
+    <img [src]="img.url" class="fullscreen-image transparent" (click)="close()">
+    <ion-card>
+      <ion-card-content class="img-info" *ngIf="img.desc">
+        <div class="desc-text">"{{ img.desc }}"</div>
+        <p>
+          <ion-icon name="calendar" item-left *ngIf="img.created"></ion-icon>
+          {{ img.created | date: 'short' }}
+        </p>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

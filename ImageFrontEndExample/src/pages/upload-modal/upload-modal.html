@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-buttons start>
+      <button ion-button icon-only (click)="dismiss()"><ion-icon name="close"></ion-icon></button>
+    </ion-buttons>
+    <ion-title>Upload Image</ion-title>
+  </ion-navbar>
+</ion-header>
+ 
+<ion-content padding>
+  <img [src]="imageData" style="width: 100%">
+  <ion-item>
+    <ion-input placeholder="My Awesome Image" [(ngModel)]="desc"></ion-input>
+  </ion-item>
+ 
+  <button ion-button full icon-left (click)="saveImage()">
+          <ion-icon name="checkmark"></ion-icon>
+          Save & Upload Image
+  </button>
+</ion-content>
