@@ -1,10 +1,15 @@
+import { ListOfRoomsPage } from './../pages/list-of-rooms/list-of-rooms';
+import { ListOfPropertiesPage } from './../pages/list-of-properties/list-of-properties';
+import { CreatePage } from './../pages/create/create';
+import { CreatePropertyAdPage } from './../pages/create-property-ad/create-property-ad';
+import { CreateRoomAdPage } from './../pages/create-room-ad/create-room-ad';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
+
 
 @Component({
   templateUrl: 'app.html'
@@ -22,7 +27,11 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage }
+      { title: 'listOfRooms', component: ListOfRoomsPage },
+      { title: 'listOfProperties', component: ListOfPropertiesPage },
+      { title: 'create', component: CreatePage },
+      { title: 'createPropertyAd', component: CreatePropertyAdPage },
+      { title: 'createRoomAd', component: CreateRoomAdPage }
     ];
 
   }
