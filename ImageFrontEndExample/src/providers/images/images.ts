@@ -6,7 +6,9 @@ import { FileTransfer, FileUploadOptions,  FileTransferObject } from '@ionic-nat
 @Injectable()
 export class ImagesProvider {
   //apiURL = 'http://localhost:3000/';
-  apiURL = 'http://54.187.101.201:3000/';
+  //apiURL = 'http://54.187.101.201:3000/'; //patrick
+  apiURL = 'http://52.56.193.204:3000/'; // andrei
+
  
   constructor(public http: Http, private transfer: FileTransfer) { }
  
@@ -39,7 +41,7 @@ export class ImagesProvider {
  
     // Use the FileTransfer to upload the image
     return fileTransfer.upload(targetPath, url, options).then(res => {
-      
+      console.log("Upload Success!");
 
     }).catch(err => {
       console.log("Error At Final Step!!!" + JSON.stringify(err));
