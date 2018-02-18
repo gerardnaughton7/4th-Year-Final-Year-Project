@@ -1,3 +1,4 @@
+import { RegisterPage } from './../pages/register/register';
 import { CreateRoomAdPage } from './../pages/create-room-ad/create-room-ad';
 import { CreatePropertyAdPage } from './../pages/create-property-ad/create-property-ad';
 import { CreatePage } from './../pages/create/create';
@@ -12,6 +13,7 @@ import { HomePage } from '../pages/home/home';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { LoginPage } from '../pages/login/login';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ListOfPropertiesPage,
     CreatePage,
     CreatePropertyAdPage,
-    CreateRoomAdPage
+    CreateRoomAdPage, 
+    LoginPage,
+    RegisterPage
   ],
   imports: [
     BrowserModule,
@@ -35,7 +39,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ListOfPropertiesPage,
     CreatePage,
     CreatePropertyAdPage,
-    CreateRoomAdPage
+    CreateRoomAdPage,
+    LoginPage,
+    RegisterPage
   ],
   providers: [
     StatusBar,

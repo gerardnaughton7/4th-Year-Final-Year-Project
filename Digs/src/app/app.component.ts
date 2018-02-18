@@ -1,3 +1,5 @@
+import { RegisterPage } from './../pages/register/register';
+import { LoginPage } from './../pages/login/login';
 import { ListOfRoomsPage } from './../pages/list-of-rooms/list-of-rooms';
 import { ListOfPropertiesPage } from './../pages/list-of-properties/list-of-properties';
 import { CreatePage } from './../pages/create/create';
@@ -31,7 +33,9 @@ export class MyApp {
       { title: 'listOfProperties', component: ListOfPropertiesPage },
       { title: 'create', component: CreatePage },
       { title: 'createPropertyAd', component: CreatePropertyAdPage },
-      { title: 'createRoomAd', component: CreateRoomAdPage }
+      { title: 'createRoomAd', component: CreateRoomAdPage },
+      { title: 'login', component: LoginPage },
+      { title: 'register', component: RegisterPage },
     ];
 
   }
