@@ -41,9 +41,9 @@
   <ion-item>
     <ion-label color="primary" floating>Location description</ion-label>
     <ion-select >
-      <ion-option value="Single">City Centre</ion-option>
-      <ion-option value="Double">Close to Campus</ion-option>
-      <ion-option value="Twin-Room">City Suburbs</ion-option>
+      <ion-option value="City Centre">City Centre</ion-option>
+      <ion-option value="Close to Campus">Close to Campus</ion-option>
+      <ion-option value="City Suburbs">City Suburbs</ion-option>
     </ion-select>
   </ion-item>
 
@@ -53,8 +53,8 @@
   </ion-item>
 
   <ion-item>
-      <ion-label color="primary" type="date" floating>Availabilty (dd/mm/yy)</ion-label>
-      <ion-input></ion-input>
+      <ion-label color="primary" floating>Availabilty (dd/mm/yy)</ion-label>
+      <ion-datetime displayFormat="MM/DD/YYYY" min="2018" max="2020"></ion-datetime>
   </ion-item>
 
   <ion-item>
@@ -76,6 +76,11 @@
   </ion-item>
 
   <ion-item>
+    <ion-label color="primary" floating>Description</ion-label>
+    <ion-textarea type="text"></ion-textarea>
+  </ion-item>
+
+  <ion-item>
     <ion-label color="primary" floating>Parking</ion-label>
     <ion-select >
       <ion-option value="Yes">Yes</ion-option>
@@ -83,7 +88,7 @@
     </ion-select>
   </ion-item>
 
-  <button full ion-button color="primary" (click)="uploadImages()">Upload Images</button>
+  <button full ion-button color="light" (click)="uploadImages()">Upload Images</button>
   <br/>
   <button full ion-button color="primary" (click)="publishAd()">Publish Ad</button>
 

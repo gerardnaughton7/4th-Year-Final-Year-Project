@@ -15,6 +15,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class CreateRoomAdPage {
 
+  private UID: String;
+  private AdID: String;
+  private RoomType: String;
+  private College: String;
+  private Eircode: String;
+  private LocationDes: String;
+  private Price: any;
+  private Availability: any;
+  private Email: String;
+
+  public newAd: any;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 

@@ -1,6 +1,6 @@
+import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
 /**
  * Generated class for the CreatePropertyAdPage page.
  *
@@ -20,6 +20,14 @@ export class CreatePropertyAdPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CreatePropertyAdPage');
+  }
+
+  uploadImages() {
+    
+  }
+
+  publishAd() {
+    this.navCtrl.setRoot(HomePage);
   }
 
 }
