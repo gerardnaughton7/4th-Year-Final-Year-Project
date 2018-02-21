@@ -1,19 +1,90 @@
 <!--
-  Generated template for the CreateRoomAdPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
 -->
 <ion-header>
   <ion-navbar>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>createRoomAd</ion-title>
+    <ion-title>Create Ad</ion-title>
   </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
+  <ion-item>
+    <ion-label color="primary" floating>Room Type</ion-label>
+    <ion-select >
+      <ion-option value="Single">Single</ion-option>
+      <ion-option value="Double">Double</ion-option>
+      <ion-option value="Twin-Room">Twin-Room</ion-option>
+      <ion-option value="En-suite">En-suite</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="primary" floating>College Campus</ion-label>
+    <ion-select multiple="true">
+      <ion-option>GMIT</ion-option>
+      <ion-option>NUIG</ion-option>
+      <ion-option>LIT</ion-option>
+      <ion-option>Mary I</ion-option>
+      <ion-option>LU</ion-option>
+      <ion-option>DIT</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+      <ion-label color="primary" floating>Eircode</ion-label>
+      <ion-input></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="primary" floating>Location description</ion-label>
+    <ion-select >
+      <ion-option value="Single">City Centre</ion-option>
+      <ion-option value="Double">Close to Campus</ion-option>
+      <ion-option value="Twin-Room">City Suburbs</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+      <ion-label color="primary" floating>Price</ion-label>
+      <ion-input type="number"></ion-input>
+  </ion-item>
+
+  <ion-item>
+      <ion-label color="primary" type="date" floating>Availabilty (dd/mm/yy)</ion-label>
+      <ion-input></ion-input>
+  </ion-item>
+
+  <ion-item>
+      <ion-label color="primary" floating>Email Address</ion-label>
+      <ion-input type="email"></ion-input>
+  </ion-item>
+
+  <ion-item>
+      <ion-label color="primary" floating>Phone Number</ion-label>
+      <ion-input type="tel"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="primary" floating>How of Contact</ion-label>
+    <ion-select >
+      <ion-option value="Email">Email</ion-option>
+      <ion-option value="phone">Phone</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="primary" floating>Parking</ion-label>
+    <ion-select >
+      <ion-option value="Yes">Yes</ion-option>
+      <ion-option value="No">No</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <button full ion-button color="primary" (click)="uploadImages()">Upload Images</button>
+  <br/>
+  <button full ion-button color="primary" (click)="publishAd()">Publish Ad</button>
 
 </ion-content>

@@ -1,12 +1,8 @@
+import { CreatePropertyAdPage } from './../create-property-ad/create-property-ad';
+import { CreateRoomAdPage } from './../create-room-ad/create-room-ad';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the CreatePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -20,6 +16,14 @@ export class CreatePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CreatePage');
+  }
+
+  navToCreateRoom(){
+    this.navCtrl.setRoot(CreateRoomAdPage);
+  }
+
+  navToCreateProperty(){
+    this.navCtrl.setRoot(CreatePropertyAdPage);
   }
 
 }

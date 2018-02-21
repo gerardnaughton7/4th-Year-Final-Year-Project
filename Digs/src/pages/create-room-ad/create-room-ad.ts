@@ -1,6 +1,6 @@
+import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
 /**
  * Generated class for the CreateRoomAdPage page.
  *
@@ -18,8 +18,12 @@ export class CreateRoomAdPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CreateRoomAdPage');
+  uploadImages() {
+    
+  }
+
+  publishAd() {
+    this.navCtrl.setRoot(HomePage);
   }
 
 }
