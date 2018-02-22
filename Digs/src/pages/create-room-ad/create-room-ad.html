@@ -88,11 +88,10 @@
     </ion-select>
   </ion-item>
 
-  <button full ion-button color="light" (click)="uploadImages()">Upload Images</button>
+  <button full ion-button color="light" (click)="presentActionSheet()">Upload Images</button>
   <br/>
   <button full ion-button color="primary" (click)="publishAd()">Publish Ad</button>
 
-  
 
   <h3 [hidden]="images.length !== 0" text-center>No Images found!</h3>
  
@@ -119,7 +118,5 @@
   <ion-fab right bottom>
     <button ion-fab (click)="presentActionSheet()"><ion-icon name="camera"></ion-icon></button>
   </ion-fab>
-
-
-
+  
 </ion-content>
