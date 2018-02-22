@@ -15,6 +15,11 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { LoginPage } from '../pages/login/login';
 
+import { ImagesProvider } from '../providers/images/images';
+import { HttpModule } from '@angular/http';
+import { Camera } from '@ionic-native/camera';
+import { FileTransfer } from '@ionic-native/file-transfer';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -29,6 +34,7 @@ import { LoginPage } from '../pages/login/login';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
@@ -46,7 +52,10 @@ import { LoginPage } from '../pages/login/login';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ImagesProvider,
+    Camera,
+    FileTransfer
   ]
 })
 export class AppModule {}
