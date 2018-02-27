@@ -1,3 +1,4 @@
+import { FIREBASE_CONFIG } from './app.firebase.config';
 import { RegisterPage } from './../pages/register/register';
 import { CreateRoomAdPage } from './../pages/create-room-ad/create-room-ad';
 import { CreatePropertyAdPage } from './../pages/create-property-ad/create-property-ad';
@@ -15,6 +16,13 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { LoginPage } from '../pages/login/login';
 
+import { ImagesProvider } from '../providers/images/images';
+import { HttpModule } from '@angular/http';
+import { Camera } from '@ionic-native/camera';
+import { FileTransfer } from '@ionic-native/file-transfer';
+
+import { AngularFireModule } from 'angularfire2';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -29,7 +37,9 @@ import { LoginPage } from '../pages/login/login';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(FIREBASE_CONFIG)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -46,7 +56,10 @@ import { LoginPage } from '../pages/login/login';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ImagesProvider,
+    Camera,
+    FileTransfer
   ]
 })
 export class AppModule {}
