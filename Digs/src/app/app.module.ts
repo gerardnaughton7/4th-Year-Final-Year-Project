@@ -1,5 +1,4 @@
 import { FIREBASE_CONFIG } from './app.firebase.config';
-import { RegisterPage } from './../pages/register/register';
 import { CreateRoomAdPage } from './../pages/create-room-ad/create-room-ad';
 import { CreatePropertyAdPage } from './../pages/create-property-ad/create-property-ad';
 import { CreatePage } from './../pages/create/create';
@@ -22,6 +21,7 @@ import { Camera } from '@ionic-native/camera';
 import { FileTransfer } from '@ionic-native/file-transfer';
 
 import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule} from 'angularfire2/auth';
 
 @NgModule({
   declarations: [
@@ -32,14 +32,14 @@ import { AngularFireModule } from 'angularfire2';
     CreatePage,
     CreatePropertyAdPage,
     CreateRoomAdPage, 
-    LoginPage,
-    RegisterPage
+    LoginPage
   ],
   imports: [
     BrowserModule,
     HttpModule,
     IonicModule.forRoot(MyApp),
-    AngularFireModule.initializeApp(FIREBASE_CONFIG)
+    AngularFireModule.initializeApp(FIREBASE_CONFIG),
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -50,8 +50,7 @@ import { AngularFireModule } from 'angularfire2';
     CreatePage,
     CreatePropertyAdPage,
     CreateRoomAdPage,
-    LoginPage,
-    RegisterPage
+    LoginPage
   ],
   providers: [
     StatusBar,

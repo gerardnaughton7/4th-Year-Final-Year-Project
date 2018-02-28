@@ -26,8 +26,6 @@ $app-direction: ltr;
 $toolbar-background: #9900ff;
 
 
-
-
 // Named Color Variables
 // --------------------------------------------------
 // Named colors makes it easy to reuse colors on various components.
@@ -37,7 +35,7 @@ $toolbar-background: #9900ff;
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  primary:    #9900ff,
+  primary:    rgb(153, 0, 255),
   secondary:  #0000FF,
   danger:     #f53d3d,
   light:      #E4DFDA ,
