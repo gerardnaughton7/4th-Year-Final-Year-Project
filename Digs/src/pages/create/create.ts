@@ -25,5 +25,4 @@ export class CreatePage {
   navToCreateProperty(){
     this.navCtrl.setRoot(CreatePropertyAdPage);
   }
-
 }

@@ -1,3 +1,4 @@
+import { RegisterPage } from './../pages/register/register';
 import { FIREBASE_CONFIG } from './app.firebase.config';
 import { CreateRoomAdPage } from './../pages/create-room-ad/create-room-ad';
 import { CreatePropertyAdPage } from './../pages/create-property-ad/create-property-ad';
@@ -32,7 +33,8 @@ import { AngularFireAuthModule} from 'angularfire2/auth';
     CreatePage,
     CreatePropertyAdPage,
     CreateRoomAdPage, 
-    LoginPage
+    LoginPage,
+    RegisterPage
   ],
   imports: [
     BrowserModule,
@@ -50,7 +52,8 @@ import { AngularFireAuthModule} from 'angularfire2/auth';
     CreatePage,
     CreatePropertyAdPage,
     CreateRoomAdPage,
-    LoginPage
+    LoginPage,
+    RegisterPage
   ],
   providers: [
     StatusBar,

@@ -7,19 +7,26 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content class="background">
 
-    <ion-item>
-        <ion-label floating>Email Address</ion-label>
-        <ion-input type="text" [(ngModel)]="user.email"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label floating>Password</ion-label>
-        <ion-input type="password" [(ngModel)]="user.password"></ion-input>
-      </ion-item>
-      <ion-item>
-        <p><a>Forget Password?</a></p>
-      </ion-item>
-      <button ion-button color="primary" block outline (click)="register(user)">Register</button>
+  <img id="main-logo" src="assets/imgs/digs.png">
+  <ion-card>
+      <ion-card-content>
+        <ion-list no-lines>
+          <ion-item>
+            <ion-label floating>Email Address</ion-label>
+            <ion-input type="text" [(ngModel)]="user.email"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Password</ion-label>
+            <ion-input type="password" [(ngModel)]="user.password"></ion-input>
+          </ion-item>
+          <ion-item>
+            <p><a>Forget Password?</a></p>
+          </ion-item>
+          <button ion-button color="primary" block outline (click)="register(user)">Register</button>
+        </ion-list>
+      </ion-card-content>
+  </ion-card>
 
 </ion-content>
