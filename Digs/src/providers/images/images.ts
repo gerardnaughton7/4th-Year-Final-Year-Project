@@ -4,13 +4,6 @@ import 'rxjs/add/operator/map';
 import { Http } from '@angular/http';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 
-/*
-  Generated class for the ImagesProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
-
 @Injectable()
 export class ImagesProvider {
    //apiURL = 'http://localhost:3000/';
