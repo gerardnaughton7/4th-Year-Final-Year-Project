@@ -23,6 +23,11 @@ import { FileTransfer } from '@ionic-native/file-transfer';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule} from 'angularfire2/auth';
+import { GooglePlus } from '@ionic-native/google-plus';
+
+import firebase from 'firebase';
+
+firebase.initializeApp(FIREBASE_CONFIG);
 
 @NgModule({
   declarations: [
@@ -61,7 +66,8 @@ import { AngularFireAuthModule} from 'angularfire2/auth';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ImagesProvider,
     Camera,
-    FileTransfer
+    FileTransfer,
+    GooglePlus
   ]
 })
 export class AppModule {}
