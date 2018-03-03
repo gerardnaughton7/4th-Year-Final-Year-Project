@@ -10,7 +10,18 @@ app.post('/images', upload.single('image'), (req, res, next) => {
     let newImage = new Image();
     newImage.filename = req.file.filename;
     newImage.originalName = req.file.originalname;
-    newImage.desc = req.body.desc
+    newImage.desc = req.body.desc;
+	newImage.roomType = req.body.roomType;
+	newImage.college = req.body.college;
+	newImage.eircode = req.body.eircode;
+	newImage.location = req.body.location;
+	newImage.price = req.body.price;
+	newImage.availabilty = req.body.availabilty;
+	newImage.email = req.body.email;
+	newImage.phone = req.body.phone;
+	newImage.howContact = req.body.howContact;
+	newImage.parking = req.body.parking;
+	
     newImage.save(err => {
         if (err) {
             return res.sendStatus(400);
