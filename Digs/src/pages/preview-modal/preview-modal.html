@@ -12,10 +12,50 @@
     <img [src]="img.url" class="fullscreen-image transparent" (click)="close()">
     <ion-card>
       <ion-card-content class="img-info" *ngIf="img.desc">
-        <div class="desc-text">"{{ img.desc }}"</div>
+        <div class="desc-text">Description: {{ img.desc }}</div>
+        <p>
+          <ion-icon name="roomType" item-left *ngIf="img.roomType"></ion-icon>
+          Room Type: {{ img.roomType }}
+        </p>
+        <p>
+          <ion-icon name="college" item-left *ngIf="img.college"></ion-icon>
+          College: {{ img.college }}
+        </p>
+        <p>
+          <ion-icon name="eircode" item-left *ngIf="img.eircode"></ion-icon>
+          Eircode: {{ img.eircode }}
+        </p>
+        <p>
+          <ion-icon name="location" item-left *ngIf="img.location"></ion-icon>
+          Location: {{ img.location }}
+        </p>
+        <p>
+          <ion-icon name="price" item-left *ngIf="img.price"></ion-icon>
+          Price: {{ img.price }}
+        </p>
+        <p>
+          <ion-icon name="calendar" item-left *ngIf="img.availabilty"></ion-icon>
+          Available from: {{ img.availabilty }}
+        </p>
+        <p>
+          <ion-icon name="email" item-left *ngIf="img.email"></ion-icon>
+          College: {{ img.email }}
+        </p>
+        <p>
+          <ion-icon name="phone" item-left *ngIf="img.phone"></ion-icon>
+          Phone: {{ img.phone }}
+        </p>
+        <p>
+          <ion-icon name="howContact" item-left *ngIf="img.howContact"></ion-icon>
+          How to contact: {{ img.howContact }}
+        </p>
+        <p>
+          <ion-icon name="parking" item-left *ngIf="img.parking"></ion-icon>
+          Parking: {{ img.parking }}
+        </p>
         <p>
           <ion-icon name="calendar" item-left *ngIf="img.created"></ion-icon>
-          {{ img.created | date: 'short' }}
+         Created: {{ img.created | date: 'short' }}
         </p>
       </ion-card-content>
     </ion-card>

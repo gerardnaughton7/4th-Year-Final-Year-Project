@@ -19,14 +19,14 @@ export class UploadModalPage {
   desc: string;
   roomType: string;
   college: string; 
-  eircode: string
-  location: string 
-  price: string 
-  availabilty: string
-  email: string
-  phone: string
-  howContact: string
-  parking: string
+  eircode: string;
+  location: string; 
+  price: string; 
+  availabilty: string;
+  email: string;
+  phone: string;
+  howContact: string;
+  parking: string;
 
   constructor(public navCtrl: NavController, private navParams: NavParams, private viewCtrl: ViewController, private imagesProvider: ImagesProvider) {
     this.imageData = this.navParams.get('data');
