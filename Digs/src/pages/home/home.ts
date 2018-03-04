@@ -12,16 +12,16 @@ import { GooglePlus } from '@ionic-native/google-plus';
 })
 export class HomePage {
   loggedIn: boolean = false;
+  gLoggedIn: boolean = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,  
     private afAuth: AngularFireAuth, private toast: ToastController, public googleplus: GooglePlus) {
-
+      this.gLoggedIn = navParams.get('param1'); 
   }
 
   ionViewWillLoad(){
 
     this.afAuth.authState.subscribe(data => {
-
       if(data && data.email && data.uid){
         this.loggedIn = true;
         this.toast.create({
@@ -29,44 +29,46 @@ export class HomePage {
           duration: 3000     
         }).present();
       }
-      else{
-        this.loggedIn = false;
-        this.toast.create({
-          message: "Could Not Find Authentification Details",
-          duration: 3000     
-        }).present();
-      }
     });
   }
-
+/* ******************************* LOGOUT FUNCTIONALITY *************************************************/
   logout(){
     console.log("Logout");
     if(this.loggedIn == true){
       
       this.afAuth.auth.signOut().then(() => {
-        console.log("logging out...");
+        this.toast.create({
+          message: "Successfully Logged Out User!",
+          duration: 3000     
+        }).present();
+        this.loggedIn = false;
         this.navCtrl.setRoot(LoginPage);
       }).catch(e => {
-        alert("Error Logging Out!");
+        alert("Error Logging Out!: " + e);
       });    
     }
   }
 
-  // glogout(){
-   
-  //   this.googleplus.disconnect().then(
-  //     (msg) => {
-  //           if(firebase.auth().currentUser){
-  //             firebase.auth().signOut();
+  glogout(){
+    
+    this.googleplus.disconnect().then(
+      (msg) => {
+            if(firebase.auth().currentUser){
+              firebase.auth().signOut();
+              this.gLoggedIn = false;
+              this.toast.create({
+                message: "Successfully Logged Out Google!",
+                duration: 3000     
+              }).present();
 
-  //             alert("Sucessfully Logged Out"); 
-  //             return this.navCtrl.setRoot(LoginPage); 
-  //           }
-  //     }).catch(
-  //     (msg) => {
-  //         alert('logout error: '+ msg);
-  //     })
-  // }
-
+              return this.navCtrl.setRoot(LoginPage); 
+            }
+      }).catch(
+      (msg) => {
+          alert('logout error: '+ msg);
+      });
+    
+  }
+/********************************************************************************************************/
 }
 

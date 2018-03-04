@@ -34,7 +34,7 @@ export class LoginPage {
       }     
     }
     catch(e){
-      console.log("Login Error: " + e);
+      alert("Error Logging In: " + e)
     }
     
   }
@@ -48,11 +48,10 @@ export class LoginPage {
       'webClientId': '899080047110-r464tup6omrqfci8lce54nhtlm8j4gp0.apps.googleusercontent.com',
       'offline': true
     }).then(res => {
-      // Store the Id Token
       firebase.auth().signInWithCredential(firebase.auth.GoogleAuthProvider.credential(res.idToken)).then(suc => {
-        this.navCtrl.setRoot(HomePage);
-        alert("Google Login Success!");
-
+        this.navCtrl.setRoot(HomePage, {
+          param1: "true"
+        })
       }).catch(err => {
         alert("Google Login Failed!");
       })
