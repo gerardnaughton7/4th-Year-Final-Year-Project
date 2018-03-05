@@ -14,12 +14,15 @@
       <ion-card-content>
         <ion-list no-lines>
           <ion-item>
-            <ion-label floating>Email Address</ion-label>
+            <ion-label stacked>Email Address</ion-label>
             <ion-input type="text" [(ngModel)]="user.email"></ion-input>
           </ion-item>
           <ion-item>
-            <ion-label floating>Password</ion-label>
-            <ion-input type="password" [(ngModel)]="user.password"></ion-input>
+            <ion-label stacked>Password</ion-label>
+            <ion-input [type]="passwordType" clearOnEdit="false" [(ngModel)]="user.password"></ion-input>
+            <button ion-button clear item-end (click)='hideShowPassword()' style="height:32px;">
+              <ion-icon name="eye" [name]="passwordIcon" style="font-size:32px;"></ion-icon>
+            </button>
           </ion-item>
           <ion-item>
             <p><a (click)="resetPassword()">Forget Password?</a></p>

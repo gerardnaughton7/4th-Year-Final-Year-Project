@@ -9,6 +9,8 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { GooglePlus } from '@ionic-native/google-plus';
 import firebase from 'firebase';
 
+import { LoadingController } from 'ionic-angular';
+
 @IonicPage()
 @Component({
   selector: 'page-login',
@@ -19,25 +21,37 @@ export class LoginPage {
   //Initialize a new User Object Here
   user = {} as User;
 
+  passwordType: string = 'password';
+  passwordIcon: string = 'eye-off';
+
   constructor(public navCtrl: NavController, public navParams: NavParams, 
-    private afAuth: AngularFireAuth, public googlePlus: GooglePlus) {
+    private afAuth: AngularFireAuth, public googlePlus: GooglePlus, public loadingController: LoadingController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
   }
 
+  hideShowPassword() {
+    console.log('Hide Show Password');
+    this.passwordType = this.passwordType === 'text' ? 'password' : 'text';
+    this.passwordIcon = this.passwordIcon === 'eye-off' ? 'eye' : 'eye-off';
+  }
+
   async login(user: User){
+    let loading = this.loadingController.create({content : "Logging in, please wait..."});
+    loading.present();
     try{
       const result = await this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password);
       if(result){
+        loading.dismissAll();
         this.navCtrl.setRoot(HomePage);
       }     
     }
-    catch(e){
-      alert("Error Logging In: " + e)
-    }
-    
+    catch(e){  
+      alert("Error Logging In: " + e);
+      loading.dismissAll();
+    }  
   }
 
   register(){
@@ -62,5 +76,4 @@ export class LoginPage {
       })
     });
   }
-
 }
