@@ -25,7 +25,7 @@ export class LoginPage {
   passwordIcon: string = 'eye-off';
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
-    private afAuth: AngularFireAuth, public googlePlus: GooglePlus, public loadingController: LoadingController) {
+    private afAuth: AngularFireAuth, public googlePlus: GooglePlus, public loadingController: LoadingController) {    
   }
 
   ionViewDidLoad() {

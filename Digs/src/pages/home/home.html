@@ -8,14 +8,18 @@
 </ion-header>
 
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+  <ion-item *ngIf="userProfile">
+    <ion-avatar item-left>
+      <img *ngIf="userProfile.photoURL" [src]="userProfile.photoURL"> 
+    </ion-avatar>
+    <h2>{{ userProfile.displayName }}</h2>
+    <h3>{{ userProfile.email }}</h3> 
+  </ion-item>
 
   <button ion-button secondary menuToggle>Toggle Menu</button>
   <button ion-button danger *ngIf="loggedIn" (click)="logout()">Logout</button>
-  <button ion-button danger *ngIf="gLoggedIn" (click)="glogout()">Google Logout</button>
+  <button ion-button danger *ngIf="gLoggedIn" (click)="glogout()">Google Logout</button><br />
+  <button ion-button primary (click)="goToLogin()">Login Page</button>
 </ion-content>
 
