@@ -1,9 +1,9 @@
-# Fourth Year Final Project
+# <p align="center">Fourth Year Final Project</p>
 
 <p align="center"><img src="https://github.com/gerardnaughton7/4th-Year-Final-Year-Project/blob/master/Digs/src/assets/imgs/digs.png" width="250" height="250"></p>
 
 ## [Contents](#contents)
-* [Project Members](#details)
+* [Project Details](#details)
 * [Introduction](#intro)
 * [Project Wiki](#wiki) 
 * [Deployment](#deploy)

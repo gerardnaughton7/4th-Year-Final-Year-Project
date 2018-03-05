@@ -1,3 +1,4 @@
+import { ForgetPasswordPage } from './../forget-password/forget-password';
 import { RegisterPage } from './../register/register';
 import { HomePage } from './../home/home';
 import { User } from './../../models/user';
@@ -16,7 +17,7 @@ import firebase from 'firebase';
 export class LoginPage {
 
   //Initialize a new User Object Here
-  user = {} as User
+  user = {} as User;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
     private afAuth: AngularFireAuth, public googlePlus: GooglePlus) {
@@ -41,6 +42,10 @@ export class LoginPage {
 
   register(){
     this.navCtrl.push(RegisterPage);
+  }
+
+  resetPassword(){
+    this.navCtrl.push(ForgetPasswordPage);
   }
 
   googleLogin(){

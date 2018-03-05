@@ -1,3 +1,4 @@
+import { ForgetPasswordPage } from './../pages/forget-password/forget-password';
 import { RegisterPage } from './../pages/register/register';
 import { FIREBASE_CONFIG } from './app.firebase.config';
 import { CreateRoomAdPage } from './../pages/create-room-ad/create-room-ad';
@@ -39,7 +40,8 @@ firebase.initializeApp(FIREBASE_CONFIG);
     CreatePropertyAdPage,
     CreateRoomAdPage, 
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    ForgetPasswordPage
   ],
   imports: [
     BrowserModule,
@@ -58,7 +60,8 @@ firebase.initializeApp(FIREBASE_CONFIG);
     CreatePropertyAdPage,
     CreateRoomAdPage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    ForgetPasswordPage
   ],
   providers: [
     StatusBar,

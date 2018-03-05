@@ -2,6 +2,7 @@ import { User } from './../../models/user';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { LoginPage } from '../login/login';
 
 @IonicPage()
 @Component({
@@ -22,6 +23,7 @@ export class RegisterPage {
     try{
       //Result object of creating a user with an email and password
       const result = await this.afAuth.auth.createUserWithEmailAndPassword(user.email, user.password);
+      this.navCtrl.push(LoginPage);
       console.log(result);
     }
     catch(e){
