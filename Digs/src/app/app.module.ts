@@ -1,3 +1,4 @@
+import { RoomAd } from './../providers/roomAd';
 import { ForgetPasswordPage } from './../pages/forget-password/forget-password';
 import { RegisterPage } from './../pages/register/register';
 import { FIREBASE_CONFIG } from './app.firebase.config';
@@ -17,7 +18,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { LoginPage } from '../pages/login/login';
 
-import { ImagesProvider } from '../providers/images/images';
 import { HttpModule } from '@angular/http';
 import { Camera } from '@ionic-native/camera';
 import { FileTransfer } from '@ionic-native/file-transfer';
@@ -67,9 +67,9 @@ firebase.initializeApp(FIREBASE_CONFIG);
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ImagesProvider,
     Camera,
     FileTransfer,
+    RoomAd,
     GooglePlus
   ]
 })
