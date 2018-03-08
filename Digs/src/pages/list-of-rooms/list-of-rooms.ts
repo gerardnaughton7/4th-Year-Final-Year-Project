@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, ActionSheetController } from 'ionic-angular';
+import { Camera, CameraOptions } from '@ionic-native/camera';
+import { RoomAd } from './../../providers/roomAd';
 
 
 /**
@@ -16,10 +18,23 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ListOfRoomsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  rooms: any;
+
+  constructor(public navCtrl: NavController,public roomAdService: RoomAd, public navParams: NavParams, public modalCtrl: ModalController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ListOfRoomsPage');
+    this.roomAdService.getRooms().then((data) => {
+      console.log(data);
+      this.rooms = data;
+    });
   }
+
+  openRoom(room) {
+    let modal = this.modalCtrl.create('PreviewModalPage', { room: room });
+    modal.present();
+  }
+
+  
 }

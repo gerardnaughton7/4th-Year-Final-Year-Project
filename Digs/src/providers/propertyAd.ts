@@ -3,7 +3,7 @@ import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
  
 @Injectable()
-export class RoomAd {
+export class PropertyAd {
  
   data: any;
  
@@ -11,7 +11,7 @@ export class RoomAd {
     this.data = null;
   }
  
-  getRooms(){
+  getProperties(){
  
     if (this.data) {
       return Promise.resolve(this.data);
@@ -19,7 +19,7 @@ export class RoomAd {
  
     return new Promise(resolve => {
  
-      this.http.get('http://localhost:8080/api/rooms')
+      this.http.get('http://localhost:8080/api/properties')
         .map(res => res.json())
         .subscribe(data => {
           this.data = data;
@@ -29,21 +29,21 @@ export class RoomAd {
  
   }
  
-  createRoom(room){
+  createProperty(property){
  
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
  
-    this.http.post('http://localhost:8080/api/rooms', JSON.stringify(room), {headers: headers})
+    this.http.post('http://localhost:8080/api/properties', JSON.stringify(property), {headers: headers})
       .subscribe(res => {
         console.log(res.json());
       });
  
   }
  
-  deleteRoom(id){
+  deleteProperty(id){
  
-    this.http.delete('http://localhost:8080/api/rooms/' + id).subscribe((res) => {
+    this.http.delete('http://localhost:8080/api/properties/' + id).subscribe((res) => {
       console.log(res.json());
     });   
  

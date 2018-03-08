@@ -16,5 +16,23 @@
 
 <ion-content padding>
   
+  <!--<h3 [hidden]="rooms.length !== 0" text-center>No Images found!</h3>-->
  
+  <ion-list>
+      <ion-item *ngFor="let room of rooms">
+    
+        <ion-item tappable (click)="openRoom(room)">
+          <ion-thumbnail item-start>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3dwR7pTQktOXEYkN_xM_7_giTBePhX2kHZslR0BnGbhU-LLdqLA">
+          </ion-thumbnail>
+          <h2>Price: {{ room.Price }}</h2>
+          <p>Room Type: {{ room.RoomType }}</p>
+          <p>Address: {{ room.Address }}</p>
+          <button ion-button clear icon-only item-end> <ion-icon name="arrow-forward"></ion-icon></button>
+        </ion-item>
+    
+      </ion-item>
+    </ion-list>
+  
 </ion-content>
+

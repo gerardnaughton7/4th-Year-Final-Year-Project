@@ -1,3 +1,4 @@
+import { PropertyAd } from './../providers/propertyAd';
 import { RoomAd } from './../providers/roomAd';
 import { ForgetPasswordPage } from './../pages/forget-password/forget-password';
 import { RegisterPage } from './../pages/register/register';
@@ -70,6 +71,7 @@ firebase.initializeApp(FIREBASE_CONFIG);
     Camera,
     FileTransfer,
     RoomAd,
+    PropertyAd,
     GooglePlus
   ]
 })

@@ -42,31 +42,69 @@ var Room = mongoose.model('Room', {
     Parking: String
    
 });
+
+var Property = mongoose.model('Property', {
+    UID: String,
+    AdID: String,
+    PropertyType: String,
+	SingleBeds: Number,
+	DoubleBeds: Number,
+	TwinBeds: Number,
+	EnSuite: Number,
+    College: String,
+	Address: String,
+    Eircode: String,
+    LocationDes: String,
+    Price: Number,
+    Availability: String,
+    Email: String,
+    Phone: Number,
+    Contact: String,
+    Description: String,
+    Parking: String
+   
+});
  
 // Routes
  
-    // Get reviews
+    // Get rooms
     app.get('/api/rooms', function(req, res) {
  
         console.log("fetching rooms");
  
-        // use mongoose to get all reviews in the database
+        // use mongoose to get all rooms in the database
         Room.find(function(err, rooms) {
  
             // if there is an error retrieving, send the error. nothing after res.send(err) will execute
             if (err)
                 res.send(err)
  
-            res.json(rooms); // return all reviews in JSON format
+            res.json(rooms); // return all rooms in JSON format
+        });
+    });
+	
+	// Get Properties
+    app.get('/api/properties', function(req, res) {
+ 
+        console.log("fetching properties");
+ 
+        // use mongoose to get all rooms in the database
+        Property.find(function(err, properties) {
+ 
+            // if there is an error retrieving, send the error. nothing after res.send(err) will execute
+            if (err)
+                res.send(err)
+ 
+            res.json(properties); // return all rooms in JSON format
         });
     });
  
-    // create review and send back all reviews after creation
+    // create rooms and send back all rooms after creation
     app.post('/api/rooms', function(req, res) {
  
         console.log("creating room");
  
-        // create a review, information comes from request from Ionic
+        // create a properties, information comes from request from Ionic
         Room.create({
             UID: req.body.UID,
             AdID: req.body.AdID,
@@ -87,11 +125,51 @@ var Room = mongoose.model('Room', {
             if (err)
                 res.send(err);
  
-            // get and return all the reviews after you create another
+            // get and return all the rooms after you create another
             Room.find(function(err, rooms) {
                 if (err)
                     res.send(err)
                 res.json(rooms);
+            });
+        });
+ 
+    });
+	
+	// create properties and send back all properties after creation
+    app.post('/api/properties', function(req, res) {
+ 
+        console.log("creating properties");
+ 
+        // create a properties, information comes from request from Ionic
+        Property.create({
+            UID: req.body.UID,
+            AdID: req.body.AdID,
+            PropertyType: req.body.PropertyType,
+			SingleBeds: req.body.SingleBeds,
+			DoubleBeds: req.body.DoubleBeds,
+			TwinBeds: req.body.TwinBeds,
+			EnSuite: req.body.EnSuite,
+            College: req.body.College,
+            Eircode: req.body.Eircode,
+			Address: req.body.Address,
+            LocationDes: req.body.LocationDes,
+            Price: req.body.Price,
+            Availability: req.body.Availability,
+            Email: req.body.Email,
+            Phone: req.body.Phone,
+            Contact: req.body.Contact,
+            Description: req.body.Description,
+            Parking: req.body.Parking,
+            done : false
+        }, function(err, property) {
+            if (err)
+                res.send(err);
+ 
+            // get and return all the properties after you create another
+            Property.find(function(err, properties) {
+                if (err)
+                    res.send(err)
+                res.json(properties);
             });
         });
  
@@ -102,6 +180,15 @@ var Room = mongoose.model('Room', {
         Room.remove({
             _id : req.params.room_id
         }, function(err, room) {
+ 
+        });
+    });
+	
+	// delete a property
+    app.delete('/api/properties/:property_id', function(req, res) {
+        Property.remove({
+            _id : req.params.property_id
+        }, function(err, property) {
  
         });
     });

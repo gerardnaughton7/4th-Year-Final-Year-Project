@@ -14,10 +14,10 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
   templateUrl: 'preview-modal.html',
 })
 export class PreviewModalPage {
-  img: any;
+  room: any;
  
   constructor(public navCtrl: NavController, public navParams: NavParams, private viewCtrl: ViewController) {
-    this.img = this.navParams.get('img');
+    this.room = this.navParams.get('room');
   }
  
   close() {

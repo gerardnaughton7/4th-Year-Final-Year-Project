@@ -1,0 +1,39 @@
+<!--
+  Generated template for the PreviewModalPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-content>
+  <div >
+    <ion-item class="close-fake" no-lines (click)="close()">
+      <ion-icon name="close"></ion-icon>
+    </ion-item>
+    <ion-card>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3dwR7pTQktOXEYkN_xM_7_giTBePhX2kHZslR0BnGbhU-LLdqLA"/>
+        <ion-card-content>
+          <ion-card-title>
+            €{{room.Price}}
+          </ion-card-title>
+          <p>Room Type: {{room.RoomType}}</p>
+          <p>College: {{room.College}}</p>
+          <p>Address: {{room.Address}}</p>
+          <p>Location: {{room.LocationDes}}</p>
+          <p>Availabilty: {{room.Availability}}</p>
+          <!--<script type="text/javascript">
+            if ( == "Email")
+            {
+            document.write("<p>Email: {{room.Email}}</p>")
+            }
+            else
+            {
+            document.write("<p>Phone: {{room.Phone}}</p>")
+            }
+          </script>-->
+          <p>Phone: {{room.Phone}}</p>
+          <p>Email: {{room.Email}}</p>
+          <p>Parking: {{room.Parking}}</p>
+        </ion-card-content>
+    </ion-card> 
+  </div>
+</ion-content>

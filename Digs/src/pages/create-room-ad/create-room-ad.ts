@@ -52,8 +52,12 @@ export class CreateRoomAdPage {
       Description: this.Description,
       Parking: this.Parking
     };
-    this.roomAdService.createReview(room);  
+    this.roomAdService.createRoom(room);  
     this.navCtrl.setRoot(HomePage);
+  }
+
+  uploadImage() {
+
   }
   
 }

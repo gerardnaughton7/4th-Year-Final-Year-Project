@@ -1,5 +1,6 @@
+import { PropertyAd } from './../../providers/propertyAd';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 
 /**
  * Generated class for the ListOfPropertiesPage page.
@@ -15,11 +16,23 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ListOfPropertiesPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  properties: any;
+
+  constructor(public navCtrl: NavController,public propertyAdService: PropertyAd, public navParams: NavParams, public modalCtrl: ModalController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ListOfPropertiesPage');
+    this.propertyAdService.getProperties().then((data) => {
+      console.log(data);
+      this.properties = data;
+      console.log('loadlist'+ this.properties);
+    });
+  }
+
+  openProperty(property) {
+    let modal = this.modalCtrl.create('PreviewPropertyModalPage', { property: property });
+    modal.present();
   }
 
 }
