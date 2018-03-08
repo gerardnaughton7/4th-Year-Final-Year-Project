@@ -25,7 +25,9 @@ export class LoginPage {
   passwordIcon: string = 'eye-off';
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
-    private afAuth: AngularFireAuth, public googlePlus: GooglePlus, public loadingController: LoadingController) {    
+    private afAuth: AngularFireAuth, public googlePlus: GooglePlus, 
+    public loadingController: LoadingController) {
+
   }
 
   ionViewDidLoad() {
@@ -33,24 +35,24 @@ export class LoginPage {
   }
 
   hideShowPassword() {
-    console.log('Hide Show Password');
     this.passwordType = this.passwordType === 'text' ? 'password' : 'text';
     this.passwordIcon = this.passwordIcon === 'eye-off' ? 'eye' : 'eye-off';
   }
 
   async login(user: User){
+
     let loading = this.loadingController.create({content : "Logging in, please wait..."});
     loading.present();
-    try{
+    try{         
       const result = await this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password);
       if(result){
-        loading.dismissAll();
         this.navCtrl.setRoot(HomePage);
+        loading.dismissAll();
       }     
     }
-    catch(e){  
-      alert("Error Logging In: " + e);
-      loading.dismissAll();
+    catch(e){ 
+      loading.dismiss(); 
+      alert("Error Logging In: " + e);      
     }  
   }
 
