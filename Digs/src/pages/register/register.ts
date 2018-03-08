@@ -4,7 +4,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { LoginPage } from '../login/login';
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
-import { matchingPasswords } from '../../validators/validators';
+import { matchingPasswords, emailValidator } from '../../validators/validators';
 
 
 @IonicPage()
@@ -19,7 +19,7 @@ export class RegisterPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, private afAuth: AngularFireAuth, public formBuilder: FormBuilder) {
     
     this.validations_form = formBuilder.group({
-      email: ['', Validators.required],
+      email: ['', Validators.compose([Validators.required,  emailValidator])],
       password: ['', Validators.required],
       confirmPassword: ['', Validators.required],
     }, {validator: matchingPasswords('password', 'confirmPassword')})
@@ -44,6 +44,8 @@ export class RegisterPage {
     }
     catch(e){
       console.error("Error Registering: " + e);
+      alert("Error Registering: " + e);
+      this.validations_form.reset();
     }
   }
 }

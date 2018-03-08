@@ -16,7 +16,7 @@ page-register {
     }
 
     ion-card.card{
-        background: rgba(232, 230, 230, 0.6px);
+        background: rgba(232, 230, 230, 0.6px);  
         border-radius: 10px;
         margin-bottom: 5px;
     }
@@ -24,4 +24,12 @@ page-register {
     .item{
         background: rgba(232, 230, 230, 0px);
     }
+
+    .error {
+        color: #FF4500;
+        font-size: small;
+        margin-left: 17px;
+        margin-right: auto;
+        margin-top: 2px;
+      }
 }

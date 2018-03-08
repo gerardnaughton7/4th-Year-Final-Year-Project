@@ -10,41 +10,37 @@
 <ion-content class="background">
 
   <img id="main-logo" src="assets/imgs/digs.png">
-  <!-- <ion-card>
-      <ion-card-content>
-        <ion-list no-lines>
-          <ion-item>
-            <ion-label floating>Email Address</ion-label>
-            <ion-input type="text" [(ngModel)]="user.email"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label floating>Password</ion-label>
-            <ion-input type="password" [(ngModel)]="user.password"></ion-input>
-          </ion-item>
-          <button ion-button color="primary" block outline (click)="register(user)">Register</button>
-        </ion-list>
-      </ion-card-content>
-  </ion-card> -->
 
   <form class="form" [formGroup]="validations_form" (ngSubmit)="onSubmit(validations_form.value)">
     <ion-card>
       <ion-card-content>
         <ion-list no-lines>
-          <ion-item>
-            <ion-label floating color="primary">Email Address</ion-label>
-            <ion-input type="text" formControlName="email"></ion-input>
-          </ion-item>
           
           <ion-item>
-            <ion-label floating color="primary">Password</ion-label>
+            <ion-label stacked color="primary">Email Address</ion-label>
+            <ion-input type="text" formControlName="email"></ion-input>
+          </ion-item>
+          <div class="error" *ngIf="validations_form.controls['email'].touched">
+              <div *ngIf="validations_form.controls['email'].hasError('required')">Email is required.</div>
+              <div *ngIf="validations_form.controls['email'].hasError('invalidEmail')">Email is invalid.</div>
+          </div>
+                  
+          <ion-item>
+            <ion-label stacked color="primary">Password</ion-label>
             <ion-input type="password" formControlName="password" minlength='6'></ion-input>
           </ion-item>
-
+          <div class='error' *ngIf="validations_form.controls['password'].touched">
+            <div *ngIf="validations_form.controls['password'].hasError('required')">Password is required.</div>
+            <div *ngIf="validations_form.controls['password'].hasError('minlength')">Password isn't long enough.</div>
+          </div>
 
           <ion-item>
-            <ion-label floating color="primary">Confirm Password</ion-label>
+            <ion-label stacked color="primary">Confirm Password</ion-label>
             <ion-input type="password" formControlName="confirmPassword"></ion-input>
           </ion-item>
+          <div class='error' *ngIf="validations_form.controls['confirmPassword'].touched">
+            <div *ngIf="validations_form.hasError('mismatchedPasswords')">Passwords do not match.</div>
+          </div>
 
           <button ion-button full type="submit" [disabled]="!validations_form.valid">Submit</button>
         </ion-list>
