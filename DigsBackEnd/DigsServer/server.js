@@ -29,7 +29,7 @@ var Room = mongoose.model('Room', {
     UID: String,
     AdID: String,
     RoomType: String,
-    College: String,
+	College: [String],
 	Address: String,
     Eircode: String,
     LocationDes: String,
@@ -39,8 +39,8 @@ var Room = mongoose.model('Room', {
     Phone: Number,
     Contact: String,
     Description: String,
-    Parking: String
-   
+    Parking: String,
+	ImagesUrl: [String],
 });
 
 var Property = mongoose.model('Property', {
@@ -51,7 +51,7 @@ var Property = mongoose.model('Property', {
 	DoubleBeds: Number,
 	TwinBeds: Number,
 	EnSuite: Number,
-    College: String,
+    College: [String],
 	Address: String,
     Eircode: String,
     LocationDes: String,
@@ -61,8 +61,8 @@ var Property = mongoose.model('Property', {
     Phone: Number,
     Contact: String,
     Description: String,
-    Parking: String
-   
+    Parking: String,
+	ImagesUrl: [String],
 });
  
 // Routes
@@ -120,6 +120,7 @@ var Property = mongoose.model('Property', {
             Contact: req.body.Contact,
             Description: req.body.Description,
             Parking: req.body.Parking,
+			ImagesUrl: req.body.ImagesUrl,
             done : false
         }, function(err, room) {
             if (err)
@@ -160,6 +161,7 @@ var Property = mongoose.model('Property', {
             Contact: req.body.Contact,
             Description: req.body.Description,
             Parking: req.body.Parking,
+			ImagesUrl: req.body.ImagesUrl,
             done : false
         }, function(err, property) {
             if (err)
