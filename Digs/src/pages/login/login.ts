@@ -65,15 +65,19 @@ export class LoginPage {
   }
 
   googleLogin(){
+    
     this.googlePlus.login({
       'webClientId': '899080047110-r464tup6omrqfci8lce54nhtlm8j4gp0.apps.googleusercontent.com',
       'offline': true
     }).then(res => {
       firebase.auth().signInWithCredential(firebase.auth.GoogleAuthProvider.credential(res.idToken)).then(suc => {
+        alert("Google Login Success!!!");
+        console.log("Success Google");
         this.navCtrl.setRoot(HomePage, {
           param1: "true"
         })
       }).catch(err => {
+        console.log("Google Login Failed!!")
         alert("Google Login Failed!");
       })
     });
