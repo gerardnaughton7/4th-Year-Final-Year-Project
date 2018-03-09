@@ -16,6 +16,9 @@ lib-cov
 
 # DigsBackend
 DigsBackEnd/DigsServer/node_modules
+DigsBackEnd/DigsImageServer/node_modules
+DigsBackEnd/DigsImageServer/image-uploads
+DigsBackEnd/DigsImageServer/dist
 
 # Coverage directory used by tools like istanbul
 coverage
