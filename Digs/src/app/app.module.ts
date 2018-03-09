@@ -1,3 +1,4 @@
+import { ImagesProvider } from './../providers/images/images';
 import { PropertyAd } from './../providers/propertyAd';
 import { RoomAd } from './../providers/roomAd';
 import { ForgetPasswordPage } from './../pages/forget-password/forget-password';
@@ -72,7 +73,8 @@ firebase.initializeApp(FIREBASE_CONFIG);
     FileTransfer,
     RoomAd,
     PropertyAd,
-    GooglePlus
+    GooglePlus,
+    ImagesProvider
   ]
 })
 export class AppModule {}

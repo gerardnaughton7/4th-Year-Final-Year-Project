@@ -3,14 +3,6 @@ import { IonicPage, NavController, NavParams, ModalController, ActionSheetContro
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { RoomAd } from './../../providers/roomAd';
 
-
-/**
- * Generated class for the ListOfRoomsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-list-of-rooms',
@@ -35,6 +27,4 @@ export class ListOfRoomsPage {
     let modal = this.modalCtrl.create('PreviewModalPage', { room: room });
     modal.present();
   }
-
-  
 }

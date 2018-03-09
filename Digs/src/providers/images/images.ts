@@ -7,8 +7,8 @@ import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-nati
 @Injectable()
 export class ImagesProvider {
   //apiURL = 'http://localhost:3000/';
-  //  apiURL = 'http://54.187.101.201:3000/'; //patrick
-  apiURL = 'http://52.56.193.204:3000/'; // andrei
+  apiURL = 'http://54.187.101.201:3000/'; //patrick
+  //apiURL = 'http://52.56.193.204:3000/'; // andrei
 
 
   constructor(public http: Http, private transfer: FileTransfer) { }
@@ -17,11 +17,15 @@ export class ImagesProvider {
     return this.http.get(this.apiURL + 'images').map(res => res.json());
   }
 
+  getImageId(img){
+    return this.http.get(this.apiURL + 'images/' + img._id);
+  }
+
   deleteImage(img) {
     return this.http.delete(this.apiURL + 'images/' + img._id);
   }
 
-  uploadImage(img, desc, roomType, college, eircode, location, price, availabilty, email, phone, howContact, parking) {
+  uploadImage(img) {
 
     // Destination URL
     let url = this.apiURL + 'images';
@@ -33,15 +37,12 @@ export class ImagesProvider {
       fileKey: 'image',
       chunkedMode: false,
       mimeType: 'multipart/form-data',
-      params: {
-        'desc': desc, 'roomType': roomType, 'college': college, 'eircode': eircode, 'location': location,
-        'price': price, 'availabilty': availabilty, 'email': email, 'phone': phone, 'howContact': howContact, 'parking': parking
-      }
     };
 
     const fileTransfer: FileTransferObject = this.transfer.create();
 
     // Use the FileTransfer to upload the image
+    console.log("In Provider: About to call upload()");
     return fileTransfer.upload(targetPath, url, options);
   }
 

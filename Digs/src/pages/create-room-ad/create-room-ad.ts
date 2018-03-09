@@ -1,13 +1,8 @@
+import { Camera } from '@ionic-native/camera';
 import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController} from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, ActionSheetController, ModalController } from 'ionic-angular';
 import {RoomAd} from '../../providers/roomAd';
-/**
- * Generated class for the CreateRoomAdPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -19,7 +14,7 @@ export class CreateRoomAdPage {
   UID: String;
   AdID: String;
   RoomType: String;
-  College: String;
+  College: String[];
   Address: String;
   Eircode: String;
   LocationDes: String;
@@ -30,8 +25,10 @@ export class CreateRoomAdPage {
   Contact: String;
   Description: String;
   Parking: String;
+  ImageURL: String[]
 
-  constructor(public navCtrl: NavController,public roomAdService: RoomAd, public navParams: NavParams, public viewCtrl: ViewController) {
+  constructor(public navCtrl: NavController,public roomAdService: RoomAd, public navParams: NavParams, private modalCtrl: ModalController,
+              public viewCtrl: ViewController, private actionSheetCtrl: ActionSheetController, private camera: Camera) {
   }
 
   publishAd() {
@@ -50,13 +47,67 @@ export class CreateRoomAdPage {
       Phone: this.Phone,
       Contact: this.Contact,
       Description: this.Description,
-      Parking: this.Parking
+      Parking: this.Parking,
+      ImageURL: this.ImageURL
     };
     this.roomAdService.createRoom(room);  
     this.navCtrl.setRoot(HomePage);
   }
 
-  uploadImage() {
+  getImageURL(){
+
+
+
+  }
+
+  uploadOption() {
+    let actionSheet = this.actionSheetCtrl.create({
+      title: 'Select Image Source',
+      buttons: [
+        {
+          text: 'Load from Library',
+          handler: () => {
+            this.takePicture(this.camera.PictureSourceType.PHOTOLIBRARY);
+          }
+        },
+        {
+          text: 'Use Camera',
+          handler: () => {
+            this.takePicture(this.camera.PictureSourceType.CAMERA);
+          }
+        },
+        {
+          text: 'Cancel',
+          role: 'cancel'
+        }
+      ]
+    });
+    actionSheet.present();
+  }
+
+  takePicture(sourceType){
+    // Create options for the Camera Dialog
+    var options = {
+      quality: 100,
+      destinationType: this.camera.DestinationType.FILE_URI,
+      sourceType: sourceType,
+      saveToPhotoAlbum: false,
+      correctOrientation: true
+    };
+
+    // Get the data of an image
+    this.camera.getPicture(options).then((imagePath) => {
+      let modal = this.modalCtrl.create('UploadModalPage', { data: imagePath });
+      modal.present();
+      
+      modal.onDidDismiss(data => {
+        alert("TP + Data Returned: " + JSON.stringify(data));
+        console.log("TP + Data Returned: " + JSON.stringify(data));
+      });
+
+    }, (err) => {
+      console.log('Error: ', err);
+    });
 
   }
   
