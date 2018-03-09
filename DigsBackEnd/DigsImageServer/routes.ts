@@ -11,6 +11,9 @@ app.post('/images', upload.single('image'), (req, res, next) => {
     
     let newImage = new Image();
     newImage.filename = req.file.filename;
+    newImage.adID = req.body.adID;
+
+    console.log("Ad ID: " + newImage.adID);
 
     newImage.save(err => {
         if (err) {
