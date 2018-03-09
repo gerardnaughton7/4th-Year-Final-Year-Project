@@ -3,6 +3,7 @@ import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController, ActionSheetController, ModalController } from 'ionic-angular';
 import {RoomAd} from '../../providers/roomAd';
+import {Md5} from 'ts-md5/dist/md5';
 
 @IonicPage()
 @Component({
@@ -11,8 +12,10 @@ import {RoomAd} from '../../providers/roomAd';
 })
 export class CreateRoomAdPage {
 
+  time: any = new String(new Date());
+  
   UID: String;
-  AdID: String;
+  AdID: any = Md5.hashStr(this.time);
   RoomType: String;
   College: String[];
   Address: String;
@@ -94,14 +97,13 @@ export class CreateRoomAdPage {
       saveToPhotoAlbum: false,
       correctOrientation: true
     };
-
+    alert("in take picture"+ this.AdID);
     // Get the data of an image
     this.camera.getPicture(options).then((imagePath) => {
-      let modal = this.modalCtrl.create('UploadModalPage', { data: imagePath });
+      let modal = this.modalCtrl.create('UploadModalPage', { data: imagePath, adID: this.AdID });
       modal.present();
       
       modal.onDidDismiss(data => {
-        alert("TP + Data Returned: " + JSON.stringify(data));
         console.log("TP + Data Returned: " + JSON.stringify(data));
       });
 

@@ -25,18 +25,21 @@ export class ImagesProvider {
     return this.http.delete(this.apiURL + 'images/' + img._id);
   }
 
-  uploadImage(img) {
+  uploadImage(img, adID) {
 
     // Destination URL
     let url = this.apiURL + 'images';
 
     // File for Upload
     var targetPath = img;
-
+    alert("in image provider"+ adID);
     var options: FileUploadOptions = {
       fileKey: 'image',
       chunkedMode: false,
       mimeType: 'multipart/form-data',
+      params: {
+        'adID': adID
+      }
     };
 
     const fileTransfer: FileTransferObject = this.transfer.create();
