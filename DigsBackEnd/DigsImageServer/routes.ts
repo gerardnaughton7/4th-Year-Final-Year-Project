@@ -55,6 +55,42 @@ app.get('/images/:id', (req, res, next) => {
     })
 });
 
+// Get images for ad
+app.get('/images/getAdID/:adID', (req, res, next) => {
+    // use lean() to get a plain JS object
+    // remove the version key from the response
+	let ID = req.params.adID;
+    Image.find({"adID": ID}, '-__v').lean().exec((err, images) => {
+        if (err) {
+            res.sendStatus(400);
+        }
+		let arrUrl: string[] = []; 
+        // Manually set the correct URL to each image
+        for (let i = 0; i < images.length; i++) {
+            var img = images[i];
+            img.url = req.protocol + '://' + req.get('host') + '/images/' + img._id;
+			arrUrl.push(img.url);
+        }
+        res.json(arrUrl);
+    })
+});
+
+/* Get one image by its adID
+app.get('/images/getAdID/:adID', (req, res, next) => {
+	let ID: string = String(req.params.adID);
+	var query = { address: ID };
+    //ID = String(req.params.adID);
+	console.log("in adID " + ID);
+    Image.find({query}, (err, image) => {
+        if (err) {
+            res.sendStatus(400);
+        }
+        // stream the image back by loading the file
+        res.setHeader('Content-Type', 'image/jpeg');
+        fs.createReadStream(path.join(UPLOAD_PATH, image.filename)).pipe(res);
+    })
+});*/
+
 // Delete one image by its ID
 app.delete('/images/:id', (req, res, next) => {
     let imgId = req.params.id;

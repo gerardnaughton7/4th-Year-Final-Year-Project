@@ -19,7 +19,6 @@ export class UploadModalPage {
   saveImage() {
     this.imagesProvider.uploadImage(this.imageData, this.adID).then(res => {
       this.viewCtrl.dismiss({reload: true});
-      alert("in ssave image"+JSON.stringify(this.imageData));
     }, err => {
       this.dismiss();
     });

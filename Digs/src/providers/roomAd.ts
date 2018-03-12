@@ -19,7 +19,7 @@ export class RoomAd {
  
     return new Promise(resolve => {
  
-      this.http.get('http://localhost:8080/api/rooms')
+      this.http.get('http://52.56.193.204:8080/api/rooms')
         .map(res => res.json())
         .subscribe(data => {
           this.data = data;
@@ -34,7 +34,7 @@ export class RoomAd {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
  
-    this.http.post('http://localhost:8080/api/rooms', JSON.stringify(room), {headers: headers})
+    this.http.post('http://52.56.193.204:8080/api/rooms', JSON.stringify(room), {headers: headers})
       .subscribe(res => {
         console.log(res.json());
       });
@@ -43,7 +43,7 @@ export class RoomAd {
  
   deleteRoom(id){
  
-    this.http.delete('http://localhost:8080/api/rooms/' + id).subscribe((res) => {
+    this.http.delete('http://52.56.193.204:8080/api/rooms/' + id).subscribe((res) => {
       console.log(res.json());
     });   
  

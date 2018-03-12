@@ -1,9 +1,11 @@
+import { ImagesProvider } from './../../providers/images/images';
 import { Camera } from '@ionic-native/camera';
 import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController, ActionSheetController, ModalController } from 'ionic-angular';
 import {RoomAd} from '../../providers/roomAd';
 import {Md5} from 'ts-md5/dist/md5';
+
 
 @IonicPage()
 @Component({
@@ -31,11 +33,10 @@ export class CreateRoomAdPage {
   ImageURL: String[]
 
   constructor(public navCtrl: NavController,public roomAdService: RoomAd, public navParams: NavParams, private modalCtrl: ModalController,
-              public viewCtrl: ViewController, private actionSheetCtrl: ActionSheetController, private camera: Camera) {
+              public viewCtrl: ViewController, private actionSheetCtrl: ActionSheetController,private imagesProvider: ImagesProvider, private camera: Camera) {
   }
 
   publishAd() {
-
     let room = {
       UID: this.UID,
       AdID: this.AdID,
@@ -51,16 +52,12 @@ export class CreateRoomAdPage {
       Contact: this.Contact,
       Description: this.Description,
       Parking: this.Parking,
-      ImageURL: this.ImageURL
+      ImageURL: this.imagesProvider.getImageAdID(this.AdID)
     };
+    alert("in the save adID "+room.ImageURL)
+    alert("in the save url "+this.imagesProvider.getImageAdID(this.AdID));
     this.roomAdService.createRoom(room);  
     this.navCtrl.setRoot(HomePage);
-  }
-
-  getImageURL(){
-
-
-
   }
 
   uploadOption() {
@@ -97,7 +94,7 @@ export class CreateRoomAdPage {
       saveToPhotoAlbum: false,
       correctOrientation: true
     };
-    alert("in take picture"+ this.AdID);
+    
     // Get the data of an image
     this.camera.getPicture(options).then((imagePath) => {
       let modal = this.modalCtrl.create('UploadModalPage', { data: imagePath, adID: this.AdID });
