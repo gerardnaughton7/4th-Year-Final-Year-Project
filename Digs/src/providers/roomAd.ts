@@ -6,6 +6,10 @@ import 'rxjs/add/operator/map';
 export class RoomAd {
  
   data: any;
+  //apiURL = 'http://localhost:8080/';
+  apiURL = 'http://54.73.1.214:8080/'; //patrick
+  //apiURL = 'http://52.56.193.204:8080/'; // andrei
+  //apiURL = 'http://54.72.69.79:8080/'; //gerard
  
   constructor(public http: Http) {
     this.data = null;
@@ -19,7 +23,7 @@ export class RoomAd {
  
     return new Promise(resolve => {
  
-      this.http.get('http://54.73.1.214:8080/api/rooms')
+      this.http.get(this.apiURL+'api/rooms')
         .map(res => res.json())
         .subscribe(data => {
           this.data = data;
@@ -33,7 +37,7 @@ export class RoomAd {
  
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    this.http.post('http://54.73.1.214:8080/api/rooms', JSON.stringify(room), {headers: headers})
+    this.http.post(this.apiURL+'api/rooms', JSON.stringify(room), {headers: headers})
       .subscribe(res => {
         console.log(res.json());
       },
@@ -44,7 +48,7 @@ export class RoomAd {
  
   deleteRoom(id){
  
-    this.http.delete('http://54.73.1.214:8080/api/rooms/' + id).subscribe((res) => {
+    this.http.delete(this.apiURL+'api/rooms/' + id).subscribe((res) => {
       console.log(res.json());
     });   
  
