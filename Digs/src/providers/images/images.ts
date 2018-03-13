@@ -7,8 +7,8 @@ import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-nati
 @Injectable()
 export class ImagesProvider {
   //apiURL = 'http://localhost:3000/';
-  //apiURL = 'http://54.187.101.201:3000/'; //patrick
-  apiURL = 'http://52.56.193.204:3000/'; // andrei
+  apiURL = 'http://54.73.1.214:3000/'; //patrick
+  //apiURL = 'http://52.56.193.204:3000/'; // andrei
   //apiURL = 'http://54.72.69.79:3000/'; //gerard
 
   data: any;
@@ -21,10 +21,17 @@ export class ImagesProvider {
     return this.http.get(this.apiURL + 'images').map(res => res.json());
   }
 
-  getImageAdID(adID){
-
+  getImageAdID(adID){  
+    let imgUrl = [];
     
-    var imgUrl = this.http.get(this.apiURL + 'images/getAdID/' + adID).map(res => res.json());
+    this.http.get(this.apiURL + 'images/getAdID/' + adID).subscribe((data)=>{
+        
+      alert("DATA BACK from getAdID: " + data["_body"]);      
+      imgUrl = data["_body"];      
+    },
+    error => {
+      
+    });
     return imgUrl;
   }
 

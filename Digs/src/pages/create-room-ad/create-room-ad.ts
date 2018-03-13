@@ -37,6 +37,8 @@ export class CreateRoomAdPage {
   }
 
   publishAd() {
+    this.ImageURL = this.imagesProvider.getImageAdID(this.AdID)
+
     let room = {
       UID: this.UID,
       AdID: this.AdID,
@@ -52,10 +54,12 @@ export class CreateRoomAdPage {
       Contact: this.Contact,
       Description: this.Description,
       Parking: this.Parking,
-      ImageURL: this.imagesProvider.getImageAdID(this.AdID)
+      ImageURL: this.ImageURL
     };
-    alert("in the save adID "+room.ImageURL)
-    alert("in the save url "+this.imagesProvider.getImageAdID(this.AdID));
+    //alert("in the save adID "+room.ImageURL)
+    //alert("in the save url "+this.imagesProvider.getImageAdID(this.AdID));
+    alert("Room Made with image url: " + room.ImageURL);
+    
     this.roomAdService.createRoom(room);  
     this.navCtrl.setRoot(HomePage);
   }
