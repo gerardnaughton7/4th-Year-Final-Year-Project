@@ -12,6 +12,8 @@ import { ListOfPropertiesPage } from './../pages/list-of-properties/list-of-prop
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { MessageboardPage } from './../pages/messageboard/messageboard';
+
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -44,7 +46,8 @@ firebase.initializeApp(FIREBASE_CONFIG);
     CreateRoomAdPage, 
     LoginPage,
     RegisterPage,
-    ForgetPasswordPage
+    ForgetPasswordPage,
+    MessageboardPage
   ],
   imports: [
     BrowserModule,
@@ -65,7 +68,8 @@ firebase.initializeApp(FIREBASE_CONFIG);
     CreateRoomAdPage,
     LoginPage,
     RegisterPage,
-    ForgetPasswordPage
+    ForgetPasswordPage,
+    MessageboardPage
   ],
   providers: [
     StatusBar,
