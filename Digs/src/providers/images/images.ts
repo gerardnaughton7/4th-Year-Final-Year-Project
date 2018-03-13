@@ -22,17 +22,9 @@ export class ImagesProvider {
   }
 
   getImageAdID(adID){  
-    let imgUrl = [];
-    
-    this.http.get(this.apiURL + 'images/getAdID/' + adID).subscribe((data)=>{
-        
-      alert("DATA BACK from getAdID: " + data["_body"]);      
-      imgUrl = data["_body"];      
-    },
-    error => {
       
-    });
-    return imgUrl;
+    return this.http.get(this.apiURL + 'images/getAdID/' + adID);
+
   }
 
   deleteImage(img) {

@@ -30,38 +30,45 @@ export class CreateRoomAdPage {
   Contact: String;
   Description: String;
   Parking: String;
-  ImageURL: String[]
+  ImageURL: String[];
 
   constructor(public navCtrl: NavController,public roomAdService: RoomAd, public navParams: NavParams, private modalCtrl: ModalController,
-              public viewCtrl: ViewController, private actionSheetCtrl: ActionSheetController,private imagesProvider: ImagesProvider, private camera: Camera) {
+              public viewCtrl: ViewController, private actionSheetCtrl: ActionSheetController,private imagesProvider: ImagesProvider, 
+              private camera: Camera) {
+                
   }
 
   publishAd() {
-    this.ImageURL = this.imagesProvider.getImageAdID(this.AdID)
 
-    let room = {
-      UID: this.UID,
-      AdID: this.AdID,
-      RoomType: this.RoomType,
-      College: this.College,
-      Address: this.Address,
-      Eircode: this.Eircode,
-      LocationDes: this.LocationDes,
-      Price: this.Price,
-      Availability: this.Availability,
-      Email: this.Email,
-      Phone: this.Phone,
-      Contact: this.Contact,
-      Description: this.Description,
-      Parking: this.Parking,
-      ImageURL: this.ImageURL
-    };
-    //alert("in the save adID "+room.ImageURL)
-    //alert("in the save url "+this.imagesProvider.getImageAdID(this.AdID));
-    alert("Room Made with image url: " + room.ImageURL);
-    
-    this.roomAdService.createRoom(room);  
-    this.navCtrl.setRoot(HomePage);
+    this.imagesProvider.getImageAdID(this.AdID)
+    .map(res => res.json())
+    .subscribe(data => {
+      
+      alert('My Data: ' + data + " And Data is a: " + typeof(data));
+
+      let room = {
+        UID: this.UID,
+        AdID: this.AdID,
+        RoomType: this.RoomType,
+        College: this.College,
+        Address: this.Address,
+        Eircode: this.Eircode,
+        LocationDes: this.LocationDes,
+        Price: this.Price,
+        Availability: this.Availability,
+        Email: this.Email,
+        Phone: this.Phone,
+        Contact: this.Contact,
+        Description: this.Description,
+        Parking: this.Parking,
+        ImageURL: data
+      };
+
+      alert("Room Made with image url: " + room.ImageURL + " And AdID is: " + room.AdID + " And Price: " + room.Price);
+      
+      this.roomAdService.createRoom(room);  
+      this.navCtrl.setRoot(HomePage);
+    });
   }
 
   uploadOption() {

@@ -102,7 +102,10 @@ var Property = mongoose.model('Property', {
     // create rooms and send back all rooms after creation
     app.post('/api/rooms', function(req, res) {
  
-        console.log("creating room");
+        console.log("******Creating room******");
+		console.log("Images URL coming through: " + req.body.ImageURL);
+		console.log("ADID coming through: " + req.body.AdID);
+		
  
         // create a properties, information comes from request from Ionic
         Room.create({
@@ -120,7 +123,7 @@ var Property = mongoose.model('Property', {
             Contact: req.body.Contact,
             Description: req.body.Description,
             Parking: req.body.Parking,
-			ImagesUrl: req.body.ImagesUrl,
+			ImagesUrl: req.body.ImageURL,
             done : false
         }, function(err, room) {
             if (err)
@@ -161,7 +164,7 @@ var Property = mongoose.model('Property', {
             Contact: req.body.Contact,
             Description: req.body.Description,
             Parking: req.body.Parking,
-			ImagesUrl: req.body.ImagesUrl,
+			ImagesUrl: req.body.ImageURL,
             done : false
         }, function(err, property) {
             if (err)
