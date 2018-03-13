@@ -14,7 +14,7 @@ export class RoomAd {
   constructor(public http: Http) {
     this.data = null;
   }
- 
+  
   getRooms(){
  
     if (this.data) {

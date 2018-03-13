@@ -47,7 +47,7 @@
 
     <ion-item>
         <ion-label color="primary" floating>College Campus</ion-label>
-        <ion-select [(ngModel)]="College">
+        <ion-select [(ngModel)]="College" multiple="true">
           <ion-option>GMIT</ion-option>
           <ion-option>NUIG</ion-option>
           <ion-option>LIT</ion-option>
@@ -117,7 +117,7 @@
         </ion-select>
       </ion-item>
   
-    <button full ion-button color="primary" (click)="uploadImage()">Upload Images</button>
+    <button full ion-button color="primary" (click)="uploadOption()">Upload Images</button>
     <br/>
     <button full ion-button color="primary" (click)="publishAd()">Publish Ad</button>
   

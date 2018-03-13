@@ -37,10 +37,12 @@ export class PropertyAd {
  
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
- 
-    this.http.post(this.apiURL+'properties', JSON.stringify(property), {headers: headers})
+    this.http.post(this.apiURL+'api/properties', JSON.stringify(property), {headers: headers})
       .subscribe(res => {
         console.log(res.json());
+      },
+      error => {
+        alert("ERROR CREATING Property: " + error);
       });
  
   }

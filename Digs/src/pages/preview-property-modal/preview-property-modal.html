@@ -19,7 +19,11 @@
           <ion-icon name="close"></ion-icon>
         </ion-item>
         <ion-card>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3dwR7pTQktOXEYkN_xM_7_giTBePhX2kHZslR0BnGbhU-LLdqLA"/>
+          <ion-slides class="image-slider" loop="false" slidesPerView="1">
+            <ion-slide *ngFor="let img of property.ImagesUrl">
+              <img src="{{img}}" class="thumb-img" imageViewer>
+            </ion-slide>
+          </ion-slides>
             <ion-card-content>
               <ion-card-title>
                 €{{property.Price}}
