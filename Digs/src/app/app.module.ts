@@ -29,6 +29,7 @@ import { AngularFireAuthModule} from 'angularfire2/auth';
 import { GooglePlus } from '@ionic-native/google-plus';
 
 import firebase from 'firebase';
+import { IonicImageViewerModule} from 'ionic-img-viewer'
 
 firebase.initializeApp(FIREBASE_CONFIG);
 
@@ -50,7 +51,8 @@ firebase.initializeApp(FIREBASE_CONFIG);
     HttpModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    IonicImageViewerModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

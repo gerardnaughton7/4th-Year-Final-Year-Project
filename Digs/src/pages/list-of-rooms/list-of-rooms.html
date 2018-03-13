@@ -17,7 +17,7 @@
     
         <ion-item tappable (click)="openRoom(room)">
           <ion-thumbnail item-start>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3dwR7pTQktOXEYkN_xM_7_giTBePhX2kHZslR0BnGbhU-LLdqLA">
+            <img *ngIf="room.ImagesUrl" [src]="room.ImagesUrl[0]">
           </ion-thumbnail>
           <h2>Price: {{ room.Price }}</h2>
           <p>Room Type: {{ room.RoomType }}</p>

@@ -18,7 +18,7 @@ export class ListOfRoomsPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad ListOfRoomsPage');
     this.roomAdService.getRooms().then((data) => {
-      console.log(data);
+      console.log("Data returned from ListRooms on Load: " + JSON.stringify(data));
       this.rooms = data;
     });
   }
