@@ -10,6 +10,7 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { MessageboardPage } from './../pages/messageboard/messageboard';
+import { CreatemessagePage } from './../pages/createmessage/createmessage';
 
 import { HomePage } from '../pages/home/home';
 
@@ -35,6 +36,7 @@ export class MyApp {
       { title: 'List Of Properties', component: ListOfPropertiesPage },
       { title: 'Create Ad', component: CreatePage },
       { title: 'Message Board', component: MessageboardPage },
+      { title: 'Create New Message', component: CreatemessagePage }
     ];
 
   }

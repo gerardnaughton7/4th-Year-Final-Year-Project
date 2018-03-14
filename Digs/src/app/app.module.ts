@@ -13,7 +13,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MessageboardPage } from './../pages/messageboard/messageboard';
-
+import { CreatemessagePage } from './../pages/createmessage/createmessage';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -47,7 +47,8 @@ firebase.initializeApp(FIREBASE_CONFIG);
     LoginPage,
     RegisterPage,
     ForgetPasswordPage,
-    MessageboardPage
+    MessageboardPage,
+    CreatemessagePage
   ],
   imports: [
     BrowserModule,
@@ -69,7 +70,8 @@ firebase.initializeApp(FIREBASE_CONFIG);
     LoginPage,
     RegisterPage,
     ForgetPasswordPage,
-    MessageboardPage
+    MessageboardPage,
+    CreatemessagePage
   ],
   providers: [
     StatusBar,
