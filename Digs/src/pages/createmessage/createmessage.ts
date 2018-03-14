@@ -25,7 +25,7 @@ export class CreatemessagePage {
   Name: String;
   Email: String;
 
-  constructor(public navCtrl: NavController, public messageService: Message, public navParams: NavParams,
+  constructor(public navCtrl: NavController, /*public messageService: Message,*/ public navParams: NavParams,
     public viewCtrl: ViewController, private imagesProvider: ImagesProvider) {
   }
 
@@ -41,10 +41,11 @@ export class CreatemessagePage {
     let message = {
       UID: this.UID,
       AdID: this.AdID,
+      Message: this.Message,
       Name: this.Name,
       Email: this.Email
     };
-    this.messageService.createMessage(message);  
+   // this.messageService.createMessage(message);  
     this.navCtrl.setRoot(HomePage);
   });
   }

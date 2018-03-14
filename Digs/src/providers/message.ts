@@ -23,7 +23,7 @@ export class Message {
  
     return new Promise(resolve => {
  
-      this.http.get(this.apiURL+'api/message')
+      this.http.get(this.apiURL+'api/messages')
         .map(res => res.json())
         .subscribe(data => {
           this.data = data;
@@ -37,7 +37,7 @@ export class Message {
  
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    this.http.post(this.apiURL+'api/message', JSON.stringify(message), {headers: headers})
+    this.http.post(this.apiURL+'api/messages', JSON.stringify(message), {headers: headers})
       .subscribe(res => {
         console.log(res.json());
       },
@@ -49,7 +49,7 @@ export class Message {
  
   deleteMessage(id){
  
-    this.http.delete(this.apiURL+'message/' + id).subscribe((res) => {
+    this.http.delete(this.apiURL+'messages/' + id).subscribe((res) => {
       console.log(res.json());
     });   
  
