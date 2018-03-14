@@ -5,14 +5,33 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>Post new message on board</ion-title>
   </ion-navbar>
-
 </ion-header>
 
 
 <ion-content padding>
+      
+    <ion-item>
+        <ion-label color="primary" floating>Message</ion-label>
+        <ion-textarea [(ngModel)]="Message" type="text"></ion-textarea>
+    </ion-item>
 
-</ion-content>
+    <ion-item>
+          <ion-label color="primary" floating>Name</ion-label>
+          <ion-textarea [(ngModel)]="Name"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+          <ion-label color="primary" floating>Email Address</ion-label>
+          <ion-input [(ngModel)]="Email" type="email"></ion-input>
+    </ion-item>
+
+    <br/>
+    <button full ion-button color="primary" (click)="postMessage()">Post Message</button>
+  
+  </ion-content>
