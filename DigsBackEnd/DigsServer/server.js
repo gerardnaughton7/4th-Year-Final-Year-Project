@@ -218,7 +218,7 @@ app.post('/api/messages', function (req, res) {
     console.log("creating messages");
 
     // create a messages, information comes from request from Ionic
-    Property.create({
+    Messages.create({
         UID: req.body.UID,
         AdID: req.body.AdID,
         Message: req.body.Message,
@@ -230,7 +230,7 @@ app.post('/api/messages', function (req, res) {
             res.send(err);
 
         // get and return all the messages after you create another
-        Property.find(function (err, messages) {
+        Messages.find(function (err, messages) {
             if (err)
                 res.send(err)
             res.json(messages);
