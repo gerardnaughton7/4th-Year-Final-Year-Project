@@ -41,6 +41,7 @@ var Room = mongoose.model('Room', {
     Description: String,
     Parking: String,
 	ImagesUrl: [String],
+	Date: Date,
 });
 
 var Property = mongoose.model('Property', {
@@ -63,6 +64,7 @@ var Property = mongoose.model('Property', {
     Description: String,
     Parking: String,
 	ImagesUrl: [String],
+	Date: Date,
 });
  
 // Routes
@@ -124,6 +126,7 @@ var Property = mongoose.model('Property', {
             Description: req.body.Description,
             Parking: req.body.Parking,
 			ImagesUrl: req.body.ImageURL,
+			Date: req.body.Date,
             done : false
         }, function(err, room) {
             if (err)
@@ -165,6 +168,7 @@ var Property = mongoose.model('Property', {
             Description: req.body.Description,
             Parking: req.body.Parking,
 			ImagesUrl: req.body.ImageURL,
+			Date: req.body.Date,
             done : false
         }, function(err, property) {
             if (err)

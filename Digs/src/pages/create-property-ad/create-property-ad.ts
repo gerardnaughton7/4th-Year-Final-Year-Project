@@ -41,6 +41,7 @@ export class CreatePropertyAdPage {
   Description: String;
   Parking: String;
   ImageURL: String[];
+  Date: Date;
 
   constructor(public navCtrl: NavController,public propertyAdService: PropertyAd, public navParams: NavParams, private modalCtrl: ModalController,
     public viewCtrl: ViewController, private actionSheetCtrl: ActionSheetController,private imagesProvider: ImagesProvider, 
@@ -75,7 +76,8 @@ export class CreatePropertyAdPage {
       Contact: this.Contact,
       Description: this.Description,
       Parking: this.Parking,
-      ImageURL: data
+      ImageURL: data,
+      Date: new Date()
     };
     this.propertyAdService.createProperty(room);  
     this.navCtrl.setRoot(HomePage);

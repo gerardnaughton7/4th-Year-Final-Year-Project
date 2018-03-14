@@ -31,6 +31,7 @@ export class CreateRoomAdPage {
   Description: String;
   Parking: String;
   ImageURL: String[];
+  Date: Date;
 
   constructor(public navCtrl: NavController,public roomAdService: RoomAd, public navParams: NavParams, private modalCtrl: ModalController,
               public viewCtrl: ViewController, private actionSheetCtrl: ActionSheetController,private imagesProvider: ImagesProvider, 
@@ -61,7 +62,8 @@ export class CreateRoomAdPage {
         Contact: this.Contact,
         Description: this.Description,
         Parking: this.Parking,
-        ImageURL: data
+        ImageURL: data,
+        Date: new Date()
       };
 
       alert("Room Made with image url: " + room.ImageURL + " And AdID is: " + room.AdID + " And Price: " + room.Price);
