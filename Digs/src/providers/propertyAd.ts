@@ -1,3 +1,4 @@
+import { globalVar } from './globalVar';
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
@@ -6,12 +7,13 @@ import 'rxjs/add/operator/map';
 export class PropertyAd {
  
   data: any;
+  myData: any;
   //apiURL = 'http://localhost:8080/';
   apiURL = 'http://54.73.1.214:8080/'; //patrick
   //apiURL = 'http://52.56.193.204:8080/'; // andrei
   //apiURL = 'http://54.72.69.79:8080/'; //gerard
  
-  constructor(public http: Http) {
+  constructor(public http: Http,private globalVar: globalVar) {
     this.data = null;
   }
  
@@ -28,6 +30,24 @@ export class PropertyAd {
         .subscribe(data => {
           this.data = data;
           resolve(this.data);
+        });
+    });
+ 
+  }
+
+  getMyProperties(){
+    
+    if (this.myData) {
+      return Promise.resolve(this.myData);
+    }
+ 
+    return new Promise(resolve => {
+ 
+      this.http.get(this.apiURL+'api/myProperties/'+ this.globalVar.getLoginUser())
+        .map(res => res.json())
+        .subscribe(myData => {
+          this.myData = myData;
+          resolve(this.myData);
         });
     });
  

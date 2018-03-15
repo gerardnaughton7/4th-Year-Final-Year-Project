@@ -98,14 +98,14 @@ app.get('/api/properties', function(req, res) {
 
 	console.log("fetching properties");
 
-	// use mongoose to get all rooms in the database
+	// use mongoose to get all properties in the database
 	Property.find(function(err, properties) {
 
 		// if there is an error retrieving, send the error. nothing after res.send(err) will execute
 		if (err)
 			res.send(err)
 
-		res.json(properties); // return all rooms in JSON format
+		res.json(properties); // return all properties in JSON format
 	});
 });
 
@@ -114,7 +114,7 @@ app.get('/api/myRooms/:UID', function(req, res) {
 	let UID = req.params.UID;
 	console.log("fetching my rooms" + UID);
 
-	// use mongoose to get all rooms in the database
+	// use mongoose to get all rooms belonging to user with UID in the database
 	Room.find({"UID": UID}, function(err, rooms) {
 
 		// if there is an error retrieving, send the error. nothing after res.send(err) will execute
@@ -122,6 +122,22 @@ app.get('/api/myRooms/:UID', function(req, res) {
 			res.send(err)
 
 		res.json(rooms); // return all rooms in JSON format
+	});
+});
+
+// Get myProperties
+app.get('/api/myProperties/:UID', function(req, res) {
+	let UID = req.params.UID;
+	console.log("fetching my properties" + UID);
+
+	// use mongoose to get all properties belonging to user with UID in the database
+	Room.find({"UID": UID}, function(err, properties) {
+
+		// if there is an error retrieving, send the error. nothing after res.send(err) will execute
+		if (err)
+			res.send(err)
+
+		res.json(properties); // return all properties in JSON format
 	});
 });
 
@@ -149,7 +165,7 @@ app.post('/api/rooms', function(req, res) {
 	console.log("ADID coming through: " + req.body.AdID);
 	
 
-	// create a properties, information comes from request from Ionic
+	// create room, information comes from request from Ionic
 	Room.create({
 		UID: req.body.UID,
 		AdID: req.body.AdID,
@@ -187,7 +203,7 @@ app.post('/api/properties', function(req, res) {
 
 	console.log("creating properties");
 
-	// create a properties, information comes from request from Ionic
+	// create a property, information comes from request from Ionic
 	Property.create({
 		UID: req.body.UID,
 		AdID: req.body.AdID,
