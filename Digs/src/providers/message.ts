@@ -21,38 +21,33 @@ export class Message {
       return Promise.resolve(this.data);
     }
  
-    return new Promise(resolve => {
- 
-      this.http.get(this.apiURL+'api/messages')
+    return new Promise(resolve => { 
+      this.http.get(this.apiURL + 'api/messages')
         .map(res => res.json())
         .subscribe(data => {
           this.data = data;
           resolve(this.data);
         });
-    });
- 
+    }); 
   }
  
   createMessage(message){
+    console.log("In Message Provider - about to post a message to api");
  
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    this.http.post(this.apiURL+'api/messages', JSON.stringify(message), {headers: headers})
+    this.http.post(this.apiURL + 'api/messages', JSON.stringify(message), {headers: headers})
       .subscribe(res => {
         console.log(res.json());
       },
       error => {
         alert("ERROR CREATING Message: " + error);
       });
- 
   }
  
-  deleteMessage(id){
- 
-    this.http.delete(this.apiURL+'messages/' + id).subscribe((res) => {
+  deleteMessage(id){ 
+    this.http.delete(this.apiURL + 'messages/' + id).subscribe((res) => {
       console.log(res.json());
-    });   
- 
+    });    
   }
- 
 }

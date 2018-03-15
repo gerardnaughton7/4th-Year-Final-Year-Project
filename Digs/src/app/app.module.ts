@@ -1,3 +1,4 @@
+import { Message } from './../providers/message';
 import { ImagesProvider } from './../providers/images/images';
 import { PropertyAd } from './../providers/propertyAd';
 import { RoomAd } from './../providers/roomAd';
@@ -82,7 +83,8 @@ firebase.initializeApp(FIREBASE_CONFIG);
     RoomAd,
     PropertyAd,
     GooglePlus,
-    ImagesProvider
+    ImagesProvider,
+    Message
   ]
 })
 export class AppModule {}

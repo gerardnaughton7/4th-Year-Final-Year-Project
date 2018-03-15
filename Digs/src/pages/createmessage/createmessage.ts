@@ -1,16 +1,8 @@
-import { ImagesProvider } from './../../providers/images/images';
+import { MessageboardPage } from './../messageboard/messageboard';
 import { Md5 } from 'ts-md5/dist/md5';
 import { Message } from './../../providers/message';
-import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, ViewController, NavParams} from 'ionic-angular';
-
-/**
- * Generated class for the CreatemessagePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -18,6 +10,7 @@ import { IonicPage, NavController, ViewController, NavParams} from 'ionic-angula
   templateUrl: 'createmessage.html',
 })
 export class CreatemessagePage {
+  
   time: any = new String(new Date());
   UID: String;
   AdID: any = Md5.hashStr(this.time);
@@ -25,8 +18,8 @@ export class CreatemessagePage {
   Name: String;
   Email: String;
 
-  constructor(public navCtrl: NavController, /*public messageService: Message,*/ public navParams: NavParams,
-    public viewCtrl: ViewController, private imagesProvider: ImagesProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+                public viewCtrl: ViewController, public messageProvider: Message) {
   }
 
   ionViewDidLoad() {
@@ -34,10 +27,8 @@ export class CreatemessagePage {
   }
 
   postMessage() {
-
-    this.imagesProvider.getImageAdID(this.AdID).map(res => res.json()).subscribe(data => {
-      alert('My Data: ' + data + " And Data is a: " + typeof(data));
-
+    console.log("In Post Message Function");
+    
     let message = {
       UID: this.UID,
       AdID: this.AdID,
@@ -45,9 +36,9 @@ export class CreatemessagePage {
       Name: this.Name,
       Email: this.Email
     };
-   // this.messageService.createMessage(message);  
-    this.navCtrl.setRoot(HomePage);
-  });
+
+    this.messageProvider.createMessage(message);  
+    this.navCtrl.setRoot(MessageboardPage);
   }
 
 }
