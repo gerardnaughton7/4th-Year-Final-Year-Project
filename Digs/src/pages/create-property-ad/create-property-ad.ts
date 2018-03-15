@@ -1,3 +1,4 @@
+import { globalVar} from './../../providers/globalVar';
 import { RoomAd } from './../../providers/roomAd';
 import { Camera } from '@ionic-native/camera';
 import { ImagesProvider } from './../../providers/images/images';
@@ -45,7 +46,7 @@ export class CreatePropertyAdPage {
 
   constructor(public navCtrl: NavController,public propertyAdService: PropertyAd, public navParams: NavParams, private modalCtrl: ModalController,
     public viewCtrl: ViewController, private actionSheetCtrl: ActionSheetController,private imagesProvider: ImagesProvider, 
-    private camera: Camera) {
+    private camera: Camera, private globalVar: globalVar) {
   }
 
   ionViewDidLoad() {
@@ -58,7 +59,7 @@ export class CreatePropertyAdPage {
       alert('My Data: ' + data + " And Data is a: " + typeof(data));
 
     let room = {
-      UID: this.UID,
+      UID: this.globalVar.getLoginUser,
       AdID: this.AdID,
       PropertyType: this.PropertyType,
       SingleBeds: this.SingleBeds,

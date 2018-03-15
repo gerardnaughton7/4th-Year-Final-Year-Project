@@ -1,3 +1,4 @@
+import { globalVar } from './../providers/globalVar';
 import { MyRoomAdsPage } from './../pages/my-room-ads/my-room-ads';
 import { Message } from './../providers/message';
 import { ImagesProvider } from './../providers/images/images';
@@ -85,6 +86,7 @@ firebase.initializeApp(FIREBASE_CONFIG);
     FileTransfer,
     RoomAd,
     PropertyAd,
+    globalVar,
     GooglePlus,
     ImagesProvider,
     Message

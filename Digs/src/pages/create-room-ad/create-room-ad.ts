@@ -1,3 +1,4 @@
+import { globalVar } from './../../providers/globalVar';
 import { ImagesProvider } from './../../providers/images/images';
 import { Camera } from '@ionic-native/camera';
 import { HomePage } from './../home/home';
@@ -35,7 +36,7 @@ export class CreateRoomAdPage {
 
   constructor(public navCtrl: NavController,public roomAdService: RoomAd, public navParams: NavParams, private modalCtrl: ModalController,
               public viewCtrl: ViewController, private actionSheetCtrl: ActionSheetController,private imagesProvider: ImagesProvider, 
-              private camera: Camera) {
+              private camera: Camera, private globalVar: globalVar) {
                 
   }
 
@@ -48,7 +49,7 @@ export class CreateRoomAdPage {
       alert('My Data: ' + data + " And Data is a: " + typeof(data));
 
       let room = {
-        UID: this.UID,
+        UID: this.globalVar.getLoginUser(),
         AdID: this.AdID,
         RoomType: this.RoomType,
         College: this.College,
@@ -66,7 +67,7 @@ export class CreateRoomAdPage {
         Date: new Date()
       };
 
-      alert("Room Made with image url: " + room.ImageURL + " And AdID is: " + room.AdID + " And Price: " + room.Price);
+      alert("Room Made with image url: " + room.ImageURL + " And UID is: " + room.UID + " And Price: " + room.Price);
       this.roomAdService.createRoom(room);  
       this.navCtrl.setRoot(HomePage);
     });

@@ -1,3 +1,4 @@
+import { globalVar } from './../../providers/globalVar';
 import { LoginPage } from './../login/login';
 import { Component } from '@angular/core';
 import { NavController, NavParams, ToastController } from 'ionic-angular';
@@ -18,12 +19,13 @@ export class HomePage {
   userProfile: any = null;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,  
-    private afAuth: AngularFireAuth, private toast: ToastController, public googleplus: GooglePlus) {
+    private afAuth: AngularFireAuth, private toast: ToastController, public googleplus: GooglePlus, public globalVar: globalVar) {
       this.gLoggedIn = navParams.get('param1'); 
 
       firebase.auth().onAuthStateChanged(user => {
         if (user){
           this.userProfile = user;
+          globalVar.setLoginUser(user.email);
         } else { 
           this.userProfile = null; 
         }
