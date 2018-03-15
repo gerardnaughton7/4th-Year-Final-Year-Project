@@ -32,6 +32,10 @@
           <p>Email: {{room.Email}}</p>
           <p>Parking: {{room.Parking}}</p>
         </ion-card-content>
+        <button ion-button icon-end (click)="findOnMap()">
+          Find on Map
+          <ion-icon name="map"></ion-icon>
+        </button>
     </ion-card> 
   </div>
 </ion-content>
