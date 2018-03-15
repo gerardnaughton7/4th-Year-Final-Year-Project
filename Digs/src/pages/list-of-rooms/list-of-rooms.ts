@@ -15,11 +15,10 @@ export class ListOfRoomsPage {
   constructor(public navCtrl: NavController,public roomAdService: RoomAd, public navParams: NavParams, public modalCtrl: ModalController) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ListOfRoomsPage');
+  ionViewDidEnter() {
     this.roomAdService.getRooms().then((data) => {
       console.log("Data returned from ListRooms on Load: " + JSON.stringify(data));
-      this.rooms = data;
+      this.rooms = data; 
     });
   }
 

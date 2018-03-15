@@ -13,7 +13,7 @@ import {Md5} from 'ts-md5/dist/md5';
   templateUrl: 'create-room-ad.html',
 })
 export class CreateRoomAdPage {
-
+  imageButton: String = "Upload Image";
   time: any = new String(new Date());
   
   UID: String;
@@ -67,7 +67,6 @@ export class CreateRoomAdPage {
       };
 
       alert("Room Made with image url: " + room.ImageURL + " And AdID is: " + room.AdID + " And Price: " + room.Price);
-      
       this.roomAdService.createRoom(room);  
       this.navCtrl.setRoot(HomePage);
     });
@@ -96,6 +95,7 @@ export class CreateRoomAdPage {
       ]
     });
     actionSheet.present();
+    this.imageButton = "Add Another Image";
   }
 
   takePicture(sourceType){

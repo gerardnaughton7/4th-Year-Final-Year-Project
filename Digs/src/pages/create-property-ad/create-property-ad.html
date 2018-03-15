@@ -16,109 +16,110 @@
   
   
   <ion-content padding>
-    
-    <ion-item>
-        <ion-label color="primary" floating>Type of Property</ion-label>
-        <ion-select [(ngModel)]="PropertyType" >
-          <ion-option value="House">House</ion-option>
-          <ion-option value="Apartment">Apartment</ion-option>
-        </ion-select>
-    </ion-item>
+    <form (ngSubmit)="publishAd()">
+      <ion-item>
+          <ion-label color="primary" floating>Type of Property</ion-label>
+          <ion-select [(ngModel)]="PropertyType" required>
+            <ion-option value="House">House</ion-option>
+            <ion-option value="Apartment">Apartment</ion-option>
+          </ion-select>
+      </ion-item>
 
-    <ion-item>
-        <ion-label color="primary" floating>Number of Single Beds</ion-label>
-        <ion-input [(ngModel)]="SingleBeds" type="number"></ion-input>
-    </ion-item>
+      <ion-item>
+          <ion-label color="primary" floating>Number of Single Beds</ion-label>
+          <ion-input [(ngModel)]="SingleBeds" type="number"></ion-input>
+      </ion-item>
 
-    <ion-item>
-        <ion-label color="primary" floating>Number of Double Beds</ion-label>
-        <ion-input [(ngModel)]="DoubleBeds" type="number"></ion-input>
-    </ion-item>
+      <ion-item>
+          <ion-label color="primary" floating>Number of Double Beds</ion-label>
+          <ion-input [(ngModel)]="DoubleBeds" type="number"></ion-input>
+      </ion-item>
+      
+      <ion-item>
+          <ion-label color="primary" floating>Number of Twin Beds</ion-label>
+          <ion-input [(ngModel)]="TwinBeds" type="number"></ion-input>
+      </ion-item>
     
-    <ion-item>
-        <ion-label color="primary" floating>Number of Twin Beds</ion-label>
-        <ion-input [(ngModel)]="TwinBeds" type="number"></ion-input>
-    </ion-item>
-  
-    <ion-item>
-        <ion-label color="primary" floating>Number of En-suite Beds</ion-label>
-        <ion-input [(ngModel)]="EnSuite" type="number"></ion-input>
-    </ion-item>
+      <ion-item>
+          <ion-label color="primary" floating>Number of En-suite Beds</ion-label>
+          <ion-input [(ngModel)]="EnSuite" type="number"></ion-input>
+      </ion-item>
 
-    <ion-item>
-        <ion-label color="primary" floating>College Campus</ion-label>
-        <ion-select [(ngModel)]="College" multiple="true">
-          <ion-option>GMIT</ion-option>
-          <ion-option>NUIG</ion-option>
-          <ion-option>LIT</ion-option>
-          <ion-option>Mary I</ion-option>
-          <ion-option>LU</ion-option>
-          <ion-option>DIT</ion-option>
-        </ion-select>
-      </ion-item>
-    
       <ion-item>
-        <ion-label color="primary" floating>Address</ion-label>
-        <ion-input [(ngModel)]="Address"></ion-input>
-    </ion-item>
-    
-      <ion-item>
-          <ion-label color="primary" floating>Eircode</ion-label>
-          <ion-input [(ngModel)]="Eircode"></ion-input>
+          <ion-label color="primary" floating>College Campus</ion-label>
+          <ion-select [(ngModel)]="College" multiple="true" required>
+            <ion-option>GMIT</ion-option>
+            <ion-option>NUIG</ion-option>
+            <ion-option>LIT</ion-option>
+            <ion-option>Mary I</ion-option>
+            <ion-option>LU</ion-option>
+            <ion-option>DIT</ion-option>
+          </ion-select>
+        </ion-item>
+      
+        <ion-item>
+          <ion-label color="primary" floating>Address</ion-label>
+          <ion-input [(ngModel)]="Address" type="text" required></ion-input>
       </ion-item>
+      
+        <ion-item>
+            <ion-label color="primary" floating>Eircode</ion-label>
+            <ion-input [(ngModel)]="Eircode" required></ion-input>
+        </ion-item>
+      
+        <ion-item>
+          <ion-label color="primary" floating>Location description</ion-label>
+          <ion-select [(ngModel)]="LocationDes" required>
+            <ion-option value="City Centre">City Centre</ion-option>
+            <ion-option value="Close to Campus">Close to Campus</ion-option>
+            <ion-option value="City Suburbs">City Suburbs</ion-option>
+          </ion-select>
+        </ion-item>
+      
+        <ion-item>
+            <ion-label color="primary" floating>Price</ion-label>
+            <ion-input [(ngModel)]="Price" type="number" required></ion-input>
+        </ion-item>
+      
+        <ion-item>
+            <ion-label color="primary" floating>Availabilty (dd/mm/yy)</ion-label>
+            <ion-datetime [(ngModel)]="Availability" displayFormat="MM/DD/YYYY" min="2018" max="2020" required></ion-datetime>
+        </ion-item>
+      
+        <ion-item>
+            <ion-label color="primary" floating>Email Address</ion-label>
+            <ion-input [(ngModel)]="Email" type="email" required></ion-input>
+        </ion-item>
+      
+        <ion-item>
+            <ion-label color="primary" floating>Phone Number</ion-label>
+            <ion-input [(ngModel)]="Phone" type="tel" required></ion-input>
+        </ion-item>
+      
+        <ion-item>
+          <ion-label color="primary" floating>How of Contact</ion-label>
+          <ion-select [(ngModel)]="Contact" required>
+            <ion-option value="Email">Email</ion-option>
+            <ion-option value="phone">Phone</ion-option>
+          </ion-select>
+        </ion-item>
+      
+        <ion-item>
+          <ion-label color="primary" floating>Description</ion-label>
+          <ion-textarea [(ngModel)]="Description" type="text" required></ion-textarea>
+        </ion-item>
+      
+        <ion-item>
+          <ion-label color="primary" floating>Parking</ion-label>
+          <ion-select [(ngModel)]="Parking" required>
+            <ion-option value="Yes">Yes</ion-option>
+            <ion-option value="No">No</ion-option>
+          </ion-select>
+        </ion-item>
     
-      <ion-item>
-        <ion-label color="primary" floating>Location description</ion-label>
-        <ion-select [(ngModel)]="LocationDes" >
-          <ion-option value="City Centre">City Centre</ion-option>
-          <ion-option value="Close to Campus">Close to Campus</ion-option>
-          <ion-option value="City Suburbs">City Suburbs</ion-option>
-        </ion-select>
-      </ion-item>
-    
-      <ion-item>
-          <ion-label color="primary" floating>Price</ion-label>
-          <ion-input [(ngModel)]="Price" type="number"></ion-input>
-      </ion-item>
-    
-      <ion-item>
-          <ion-label color="primary" floating>Availabilty (dd/mm/yy)</ion-label>
-          <ion-datetime [(ngModel)]="Availability" displayFormat="MM/DD/YYYY" min="2018" max="2020"></ion-datetime>
-      </ion-item>
-    
-      <ion-item>
-          <ion-label color="primary" floating>Email Address</ion-label>
-          <ion-input [(ngModel)]="Email" type="email"></ion-input>
-      </ion-item>
-    
-      <ion-item>
-          <ion-label color="primary" floating>Phone Number</ion-label>
-          <ion-input [(ngModel)]="Phone" type="tel"></ion-input>
-      </ion-item>
-    
-      <ion-item>
-        <ion-label color="primary" floating>How of Contact</ion-label>
-        <ion-select [(ngModel)]="Contact" >
-          <ion-option value="Email">Email</ion-option>
-          <ion-option value="phone">Phone</ion-option>
-        </ion-select>
-      </ion-item>
-    
-      <ion-item>
-        <ion-label color="primary" floating>Description</ion-label>
-        <ion-textarea [(ngModel)]="Description" type="text"></ion-textarea>
-      </ion-item>
-    
-      <ion-item>
-        <ion-label color="primary" floating>Parking</ion-label>
-        <ion-select [(ngModel)]="Parking">
-          <ion-option value="Yes">Yes</ion-option>
-          <ion-option value="No">No</ion-option>
-        </ion-select>
-      </ion-item>
-  
-    <button full ion-button color="primary" (click)="uploadOption()">Upload Images</button>
-    <br/>
-    <button full ion-button color="primary" (click)="publishAd()">Publish Ad</button>
+      <button full ion-button color="primary" (click)="uploadOption()">{{imageButton}}</button>
+      <br/>
+      <button full ion-button color="primary" type="submit">Publish Ad</button>
+    </form>
   
   </ion-content>

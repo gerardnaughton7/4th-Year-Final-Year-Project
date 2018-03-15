@@ -14,12 +14,10 @@ export class ListOfPropertiesPage {
   constructor(public navCtrl: NavController,public propertyAdService: PropertyAd, public navParams: NavParams, public modalCtrl: ModalController) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ListOfPropertiesPage');
+  ionViewDidEnter() {
     this.propertyAdService.getProperties().then((data) => {
       console.log(data);
       this.properties = data;
-      console.log('loadlist'+ this.properties);
     });
   }
 

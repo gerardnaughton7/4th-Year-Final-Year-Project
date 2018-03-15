@@ -19,7 +19,7 @@ import { IonicPage, NavController, ViewController, NavParams, ActionSheetControl
   templateUrl: 'create-property-ad.html',
 })
 export class CreatePropertyAdPage {
- 
+  imageButton: String = "Add Another Image";
   time: any = new String(new Date());
   
   UID: String;
@@ -107,6 +107,7 @@ export class CreatePropertyAdPage {
       ]
     });
     actionSheet.present();
+    this.imageButton = "Add Another Image";
   }
 
   takePicture(sourceType){
