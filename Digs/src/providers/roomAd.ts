@@ -7,6 +7,7 @@ import 'rxjs/add/operator/map';
 export class RoomAd {
  
   data: any;
+  myData: any;
   //apiURL = 'http://localhost:8080/';
   apiURL = 'http://54.73.1.214:8080/'; //patrick
   //apiURL = 'http://52.56.193.204:8080/'; // andrei
@@ -14,6 +15,7 @@ export class RoomAd {
  
   constructor(public http: Http, private globalVar: globalVar) {
     this.data = null;
+    this.myData = null;
   }
   
   getRooms(){
@@ -35,18 +37,18 @@ export class RoomAd {
   }
 
   getMyRooms(){
- 
-    if (this.data) {
-      return Promise.resolve(this.data);
+    
+    if (this.myData) {
+      return Promise.resolve(this.myData);
     }
  
     return new Promise(resolve => {
  
-      this.http.get(this.apiURL+'api/myRooms'+ this.globalVar.getLoginUser())
+      this.http.get(this.apiURL+'api/myRooms/'+ this.globalVar.getLoginUser())
         .map(res => res.json())
-        .subscribe(data => {
-          this.data = data;
-          resolve(this.data);
+        .subscribe(myData => {
+          this.myData = myData;
+          resolve(this.myData);
         });
     });
  

@@ -20,7 +20,7 @@ export class MyRoomAdsPage {
   constructor(public navCtrl: NavController,public roomAdService: RoomAd, public navParams: NavParams, public modalCtrl: ModalController) {
   }
 
-  ionViewDidEnter() {
+  ionViewDidLoad() {
     this.roomAdService.getMyRooms().then((data) => {
       console.log("Data returned from MyRooms on Load: " + JSON.stringify(data));
       this.rooms = data; 

@@ -109,6 +109,22 @@ app.get('/api/properties', function(req, res) {
 	});
 });
 
+// Get myRooms
+app.get('/api/myRooms/:UID', function(req, res) {
+	let UID = req.params.UID;
+	console.log("fetching my rooms" + UID);
+
+	// use mongoose to get all rooms in the database
+	Room.find({"UID": UID}, function(err, rooms) {
+
+		// if there is an error retrieving, send the error. nothing after res.send(err) will execute
+		if (err)
+			res.send(err)
+
+		res.json(rooms); // return all rooms in JSON format
+	});
+});
+
 // Get Messages
 app.get('/api/messages', function (req, res) {
 
