@@ -1,3 +1,4 @@
+import { MyRoomAdsPage } from './../pages/my-room-ads/my-room-ads';
 import { RegisterPage } from './../pages/register/register';
 import { LoginPage } from './../pages/login/login';
 import { ListOfRoomsPage } from './../pages/list-of-rooms/list-of-rooms';
@@ -11,7 +12,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { MessageboardPage } from './../pages/messageboard/messageboard';
 import { CreatemessagePage } from './../pages/createmessage/createmessage';
-
 import { HomePage } from '../pages/home/home';
 
 
@@ -35,6 +35,7 @@ export class MyApp {
       { title: 'List Of Rooms', component: ListOfRoomsPage },
       { title: 'List Of Properties', component: ListOfPropertiesPage },
       { title: 'Create Ad', component: CreatePage },
+      { title: 'My Room Ads', component: MyRoomAdsPage },
       { title: 'Message Board', component: MessageboardPage },
       { title: 'Create New Message', component: CreatemessagePage }
     ];

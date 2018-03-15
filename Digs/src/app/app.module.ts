@@ -1,3 +1,4 @@
+import { MyRoomAdsPage } from './../pages/my-room-ads/my-room-ads';
 import { Message } from './../providers/message';
 import { ImagesProvider } from './../providers/images/images';
 import { PropertyAd } from './../providers/propertyAd';
@@ -49,7 +50,8 @@ firebase.initializeApp(FIREBASE_CONFIG);
     RegisterPage,
     ForgetPasswordPage,
     MessageboardPage,
-    CreatemessagePage
+    CreatemessagePage,
+    MyRoomAdsPage
   ],
   imports: [
     BrowserModule,
@@ -72,7 +74,8 @@ firebase.initializeApp(FIREBASE_CONFIG);
     RegisterPage,
     ForgetPasswordPage,
     MessageboardPage,
-    CreatemessagePage
+    CreatemessagePage,
+    MyRoomAdsPage
   ],
   providers: [
     StatusBar,

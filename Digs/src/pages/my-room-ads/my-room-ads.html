@@ -1,0 +1,36 @@
+<!--
+  Generated template for the MyRoomAdsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>My Rooms</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+ <!--<h3 [hidden]="rooms.length !== 0" text-center>No Images found!</h3>-->
+ 
+ <ion-list>
+  <ion-item *ngFor="let room of rooms">
+
+    <ion-item tappable (click)="openRoom(room)">
+      <ion-thumbnail item-start>
+        <img *ngIf="room.ImagesUrl" [src]="room.ImagesUrl[0]">
+      </ion-thumbnail>
+      <h2>Price: {{ room.Price }}</h2>
+      <p>Room Type: {{ room.RoomType }}</p>
+      <p>Address: {{ room.Address }}</p>
+      <p>Published: {{ room.Date }}</p>
+      <button ion-button clear icon-only item-end> <ion-icon name="arrow-forward"></ion-icon></button>
+    </ion-item>
+
+  </ion-item>
+</ion-list>
+</ion-content>
