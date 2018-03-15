@@ -89,4 +89,5 @@
     </plugin>
     <engine name="android" spec="6.4.0" />
     <engine name="browser" spec="4.1.0" />
+    <plugin name="uk.co.workingedge.phonegap.plugin.launchnavigator" spec="~4.1.5" />
 </widget>

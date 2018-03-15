@@ -123,5 +123,9 @@ export class CreateRoomAdPage {
     });
 
   }
+
+  getEircode(){
+    console.log("...getting your eir code!");
+  }
   
 }

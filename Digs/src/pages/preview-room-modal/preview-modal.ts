@@ -1,3 +1,4 @@
+import { LaunchNavigator } from '@ionic-native/launch-navigator';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 
@@ -10,7 +11,7 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 export class PreviewModalPage {
   room: any;
  
-  constructor(public navCtrl: NavController, public navParams: NavParams, private viewCtrl: ViewController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private viewCtrl: ViewController, private launchNavigator: LaunchNavigator) {
     this.room = this.navParams.get('room');
   }
  
@@ -18,5 +19,16 @@ export class PreviewModalPage {
     this.viewCtrl.dismiss();
   }
 
- 
+  findOnMap(){
+    if(this.room.Eircode != null){
+      this.launchNavigator.navigate(this.room.Eircode)
+      .then(
+        success => console.log('Launched navigator'),
+        error => console.log('Error launching navigator', error)
+      );
+    }
+    else{
+      alert("No Eircode Supplied!");
+    }
+  }
 }
