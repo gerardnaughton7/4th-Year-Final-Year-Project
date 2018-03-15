@@ -1,3 +1,4 @@
+import { MyPropertyAdsPage } from './../pages/my-property-ads/my-property-ads';
 import { globalVar } from './../providers/globalVar';
 import { MyRoomAdsPage } from './../pages/my-room-ads/my-room-ads';
 import { Message } from './../providers/message';
@@ -52,7 +53,8 @@ firebase.initializeApp(FIREBASE_CONFIG);
     ForgetPasswordPage,
     MessageboardPage,
     CreatemessagePage,
-    MyRoomAdsPage
+    MyRoomAdsPage,
+    MyPropertyAdsPage
   ],
   imports: [
     BrowserModule,
@@ -76,7 +78,8 @@ firebase.initializeApp(FIREBASE_CONFIG);
     ForgetPasswordPage,
     MessageboardPage,
     CreatemessagePage,
-    MyRoomAdsPage
+    MyRoomAdsPage,
+    MyPropertyAdsPage
   ],
   providers: [
     StatusBar,

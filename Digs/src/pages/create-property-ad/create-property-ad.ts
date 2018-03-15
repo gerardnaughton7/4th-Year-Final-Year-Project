@@ -23,7 +23,7 @@ export class CreatePropertyAdPage {
   imageButton: String = "Upload Image";
   time: any = new String(new Date());
   
-  UID: String;
+  UID: String; 
   AdID: any = Md5.hashStr(this.time);
   PropertyType: String;
   SingleBeds: any;
@@ -58,8 +58,8 @@ export class CreatePropertyAdPage {
     this.imagesProvider.getImageAdID(this.AdID).map(res => res.json()).subscribe(data => {
       alert('My Data: ' + data + " And Data is a: " + typeof(data));
 
-    let room = {
-      UID: this.globalVar.getLoginUser,
+    let property = {
+      UID: this.globalVar.getLoginUser(),
       AdID: this.AdID,
       PropertyType: this.PropertyType,
       SingleBeds: this.SingleBeds,
@@ -80,7 +80,7 @@ export class CreatePropertyAdPage {
       ImageURL: data,
       Date: new Date()
     };
-    this.propertyAdService.createProperty(room);  
+    this.propertyAdService.createProperty(property);  
     this.navCtrl.setRoot(HomePage);
   });
   }

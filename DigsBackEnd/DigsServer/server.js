@@ -131,7 +131,7 @@ app.get('/api/myProperties/:UID', function(req, res) {
 	console.log("fetching my properties" + UID);
 
 	// use mongoose to get all properties belonging to user with UID in the database
-	Room.find({"UID": UID}, function(err, properties) {
+	Property.find({"UID": UID}, function(err, properties) {
 
 		// if there is an error retrieving, send the error. nothing after res.send(err) will execute
 		if (err)

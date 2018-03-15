@@ -1,3 +1,4 @@
+import { MyPropertyAdsPage } from './../pages/my-property-ads/my-property-ads';
 import { MyRoomAdsPage } from './../pages/my-room-ads/my-room-ads';
 import { RegisterPage } from './../pages/register/register';
 import { LoginPage } from './../pages/login/login';
@@ -36,7 +37,8 @@ export class MyApp {
       { title: 'List Of Properties', component: ListOfPropertiesPage },
       { title: 'Create Ad', component: CreatePage },
       { title: 'My Room Ads', component: MyRoomAdsPage },
-      { title: 'Message Board', component: MessageboardPage },
+      { title: 'My Property Ads', component: MyPropertyAdsPage },
+      { title: 'Digs Message Board', component: MessageboardPage },
       { title: 'Create New Message', component: CreatemessagePage }
     ];
 
