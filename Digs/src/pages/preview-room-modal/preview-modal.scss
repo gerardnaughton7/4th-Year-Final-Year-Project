@@ -1,13 +1,12 @@
 page-preview-modal {
    
-    ion-slide.swiper-slide{
-        left: 25%;       
-    }
-
     .thumb-img{
-        padding: 15px;
+        align-content: center;
+        align-self: center;
+        padding: 5px;
         min-width: auto;
-        min-height: 200px;
-        max-height: 200px;
+        max-width: auto;
+        min-height: 250px;
+        max-height: auto;
     }
 }

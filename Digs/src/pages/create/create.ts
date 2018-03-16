@@ -15,11 +15,11 @@ export class CreatePage {
 
   }
   navToCreateRoom(){
-    this.navCtrl.setRoot(CreateRoomAdPage);
+    this.navCtrl.push(CreateRoomAdPage);
   }
 
   navToCreateProperty(){
-    this.navCtrl.setRoot(CreatePropertyAdPage);
+    this.navCtrl.push(CreatePropertyAdPage);
   }
 
 }

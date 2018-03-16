@@ -1,3 +1,4 @@
+import { ListOfPropertiesPage } from './../list-of-properties/list-of-properties';
 import { globalVar} from './../../providers/globalVar';
 import { RoomAd } from './../../providers/roomAd';
 import { Camera } from '@ionic-native/camera';
@@ -50,13 +51,12 @@ export class CreatePropertyAdPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CreatePropertyAdPage');
+    
   }
 
   publishAd() {
 
     this.imagesProvider.getImageAdID(this.AdID).map(res => res.json()).subscribe(data => {
-      alert('My Data: ' + data + " And Data is a: " + typeof(data));
 
     let property = {
       UID: this.globalVar.getLoginUser(),
@@ -81,7 +81,7 @@ export class CreatePropertyAdPage {
       Date: new Date()
     };
     this.propertyAdService.createProperty(property);  
-    this.navCtrl.setRoot(HomePage);
+    this.navCtrl.setRoot(ListOfPropertiesPage);
   });
   }
 

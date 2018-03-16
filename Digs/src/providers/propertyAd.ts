@@ -18,39 +18,11 @@ export class PropertyAd {
   }
  
   getProperties(){
- 
-    if (this.data) {
-      return Promise.resolve(this.data);
-    }
- 
-    return new Promise(resolve => {
- 
-      this.http.get(this.apiURL+'api/properties')
-        .map(res => res.json())
-        .subscribe(data => {
-          this.data = data;
-          resolve(this.data);
-        });
-    });
- 
+    return this.http.get(this.apiURL + 'api/properties').map(res => res.json());
   }
 
   getMyProperties(){
-    
-    if (this.myData) {
-      return Promise.resolve(this.myData);
-    }
- 
-    return new Promise(resolve => {
- 
-      this.http.get(this.apiURL+'api/myProperties/'+ this.globalVar.getLoginUser())
-        .map(res => res.json())
-        .subscribe(myData => {
-          this.myData = myData;
-          resolve(this.myData);
-        });
-    });
- 
+    return this.http.get(this.apiURL + 'api/myProperties/' + this.globalVar.getLoginUser()); 
   }
  
   createProperty(property){

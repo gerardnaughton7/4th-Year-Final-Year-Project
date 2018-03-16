@@ -1,12 +1,6 @@
 import { RoomAd } from './../../providers/roomAd';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
-/**
- * Generated class for the MyRoomAdsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -21,9 +15,12 @@ export class MyRoomAdsPage {
   }
 
   ionViewDidLoad() {
-    this.roomAdService.getMyRooms().then((data) => {
+    this.roomAdService.getMyRooms().subscribe((data) => {
       console.log("Data returned from MyRooms on Load: " + JSON.stringify(data));
       this.rooms = data; 
+    },
+    error => {
+      alert("ERROR Retrieving My Room Ads: " + error);
     });
   }
 

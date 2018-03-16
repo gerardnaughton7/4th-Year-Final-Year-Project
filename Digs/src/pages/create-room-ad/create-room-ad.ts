@@ -1,3 +1,4 @@
+import { ListOfRoomsPage } from './../list-of-rooms/list-of-rooms';
 import { globalVar } from './../../providers/globalVar';
 import { ImagesProvider } from './../../providers/images/images';
 import { Camera } from '@ionic-native/camera';
@@ -45,8 +46,6 @@ export class CreateRoomAdPage {
     this.imagesProvider.getImageAdID(this.AdID)
     .map(res => res.json())
     .subscribe(data => {
-      
-      alert('My Data: ' + data + " And Data is a: " + typeof(data));
 
       let room = {
         UID: this.globalVar.getLoginUser(),
@@ -66,10 +65,9 @@ export class CreateRoomAdPage {
         ImageURL: data,
         Date: new Date()
       };
-
-      alert("Room Made with image url: " + room.ImageURL + " And UID is: " + room.UID + " And Price: " + room.Price);
+      
       this.roomAdService.createRoom(room);  
-      this.navCtrl.setRoot(HomePage);
+      this.navCtrl.setRoot(ListOfRoomsPage);
     });
   }
 
@@ -121,6 +119,5 @@ export class CreateRoomAdPage {
     }, (err) => {
       console.log('Error: ', err);
     });
-
   }
 }
