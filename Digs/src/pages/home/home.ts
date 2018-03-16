@@ -50,23 +50,6 @@ export class HomePage {
     this.navCtrl.push(LoginPage);
   }
 /* ******************************* LOGOUT FUNCTIONALITY *************************************************/
-  logout(){
-    console.log("Logout");
-    if(this.loggedIn == true){
-      
-      this.afAuth.auth.signOut().then(() => {
-        this.toast.create({
-          message: "Successfully Logged Out, " + this.email,
-          duration: 3000     
-        }).present();
-        this.loggedIn = false;
-        this.navCtrl.setRoot(LoginPage);
-      }).catch(e => {
-        alert("Error Logging Out!: " + e);
-      });    
-    }
-  }
-
   glogout(){
     
     this.googleplus.disconnect().then(

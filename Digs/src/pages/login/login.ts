@@ -3,7 +3,7 @@ import { RegisterPage } from './../register/register';
 import { HomePage } from './../home/home';
 import { User } from './../../models/user';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Events } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 
 import { GooglePlus } from '@ionic-native/google-plus';
@@ -26,7 +26,7 @@ export class LoginPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
     private afAuth: AngularFireAuth, public googlePlus: GooglePlus, 
-    public loadingController: LoadingController) {
+    public loadingController: LoadingController, public events : Events) {
 
   }
 
@@ -46,6 +46,7 @@ export class LoginPage {
     try{         
       const result = await this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password);
       if(result){
+        this.events.publish('loggedin');
         this.navCtrl.setRoot(HomePage);
         loading.dismissAll();
       }     
@@ -70,7 +71,6 @@ export class LoginPage {
       'offline': true
     }).then(res => {
       firebase.auth().signInWithCredential(firebase.auth.GoogleAuthProvider.credential(res.idToken)).then(suc => {
-        alert("Google Login Success!!!: " + suc);
         console.log("Success Google");
         this.navCtrl.setRoot(HomePage, {
           param1: "true"

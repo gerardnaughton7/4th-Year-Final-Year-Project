@@ -12,6 +12,15 @@
       </ion-list-header>
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
         {{p.title}}
+      </button>  
+    </ion-list>
+
+    <ion-list *ngIf="showAccount">
+      <ion-list-header>
+        Account
+      </ion-list-header>
+      <button menuClose ion-item (click)="logout()">Log Out
+        <ion-icon item-start name="log-out"></ion-icon>
       </button>
     </ion-list>
   </ion-content>

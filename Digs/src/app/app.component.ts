@@ -1,3 +1,4 @@
+import { AngularFireAuth } from 'angularfire2/auth';
 import { MyPropertyAdsPage } from './../pages/my-property-ads/my-property-ads';
 import { MyRoomAdsPage } from './../pages/my-room-ads/my-room-ads';
 import { RegisterPage } from './../pages/register/register';
@@ -8,12 +9,13 @@ import { CreatePage } from './../pages/create/create';
 import { CreatePropertyAdPage } from './../pages/create-property-ad/create-property-ad';
 import { CreateRoomAdPage } from './../pages/create-room-ad/create-room-ad';
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
+import { Nav, Platform, Events, ToastController, NavController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { MessageboardPage } from './../pages/messageboard/messageboard';
 import { CreatemessagePage } from './../pages/createmessage/createmessage';
 import { HomePage } from '../pages/home/home';
+
 
 
 @Component({
@@ -24,11 +26,23 @@ export class MyApp {
 
   //rootPage: any = HomePage;
   rootPage: any = LoginPage;
+  showAccount : any = false;
+  email: string = '';
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public events: Events,
+                private afAuth: AngularFireAuth, private toast: ToastController) {
+
     this.initializeApp();
+         
+    // Check to see if logged in with firebase
+    this.afAuth.authState.subscribe(data => {
+      if(data && data.email && data.uid){
+        this.email = data.email;
+        this.showAccount = true;
+      }       
+    });
 
     // used for an example of ngFor and navigation
     this.pages = [
@@ -57,5 +71,23 @@ export class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
+  }
+
+  /***************** LOGOUT FUNCTIONALITY ********************************* */
+  logout(){
+    console.log("Logout");
+    if(this.showAccount == true){
+      
+      this.afAuth.auth.signOut().then(() => {
+        this.toast.create({
+          message: "Successfully Logged Out, " + this.email,
+          duration: 3000     
+        }).present();
+        this.showAccount = false;
+        this.nav.setRoot(LoginPage);
+      }).catch(e => {
+        alert("Error Logging Out!: " + e);
+      });    
+    }
   }
 }
