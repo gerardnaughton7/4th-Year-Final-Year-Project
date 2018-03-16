@@ -1,3 +1,4 @@
+import { globalVar } from './../providers/globalVar';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { MyPropertyAdsPage } from './../pages/my-property-ads/my-property-ads';
 import { MyRoomAdsPage } from './../pages/my-room-ads/my-room-ads';
@@ -9,12 +10,13 @@ import { CreatePage } from './../pages/create/create';
 import { CreatePropertyAdPage } from './../pages/create-property-ad/create-property-ad';
 import { CreateRoomAdPage } from './../pages/create-room-ad/create-room-ad';
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform, Events, ToastController, NavController } from 'ionic-angular';
+import { Nav, Platform, Events, ToastController, NavController, AlertController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { MessageboardPage } from './../pages/messageboard/messageboard';
 import { CreatemessagePage } from './../pages/createmessage/createmessage';
 import { HomePage } from '../pages/home/home';
+import firebase from 'firebase';
 
 
 
@@ -28,17 +30,18 @@ export class MyApp {
   rootPage: any = LoginPage;
   showAccount : any = false;
   email: string = '';
+  googleUser: any;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string, component: any, icon: string}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public events: Events,
-                private afAuth: AngularFireAuth, private toast: ToastController) {
+                private afAuth: AngularFireAuth, private toast: ToastController, globalVar: globalVar, private alertCtrl: AlertController) {
 
     this.initializeApp();
          
     // Check to see if logged in with firebase
     this.afAuth.authState.subscribe(data => {
-      if(data && data.email && data.uid){
+      if(data && data.uid){
         this.email = data.email;
         this.showAccount = true;
       }       
@@ -46,16 +49,15 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'List Of Rooms', component: ListOfRoomsPage },
-      { title: 'List Of Properties', component: ListOfPropertiesPage },
-      { title: 'Create Ad', component: CreatePage },
-      { title: 'My Room Ads', component: MyRoomAdsPage },
-      { title: 'My Property Ads', component: MyPropertyAdsPage },
-      { title: 'Digs Message Board', component: MessageboardPage },
-      { title: 'Create New Message', component: CreatemessagePage }
+      { title: 'Home', component: HomePage, icon: 'home'},
+      { title: 'List Of Rooms', component: ListOfRoomsPage, icon: 'list-box' },
+      { title: 'List Of Properties', component: ListOfPropertiesPage, icon: 'list-box' },
+      { title: 'Create Ad', component: CreatePage, icon: 'create' },
+      { title: 'My Room Ads', component: MyRoomAdsPage, icon: 'list-box' },
+      { title: 'My Property Ads', component: MyPropertyAdsPage, icon: 'list-box' },
+      { title: 'Digs Message Board', component: MessageboardPage, icon: 'clipboard' },
+      { title: 'Create New Message', component: CreatemessagePage, icon: 'create' }
     ];
-
   }
 
   initializeApp() {
@@ -76,18 +78,16 @@ export class MyApp {
   /***************** LOGOUT FUNCTIONALITY ********************************* */
   logout(){
     console.log("Logout");
-    if(this.showAccount == true){
-      
-      this.afAuth.auth.signOut().then(() => {
-        this.toast.create({
-          message: "Successfully Logged Out, " + this.email,
-          duration: 3000     
-        }).present();
-        this.showAccount = false;
-        this.nav.setRoot(LoginPage);
-      }).catch(e => {
-        alert("Error Logging Out!: " + e);
-      });    
-    }
+    this.afAuth.auth.signOut();
+    this.showAccount = false;
+    this.nav.setRoot(LoginPage);
+    
+    let alert = this.alertCtrl.create({
+      title: 'Logout',
+      subTitle: 'Successfully Logged Out ' + this.email,
+      buttons: ['Dismiss']
+    });
+    alert.present();
   }
 }
+ 

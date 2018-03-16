@@ -35,11 +35,11 @@ export class HomePage {
   ionViewWillLoad(){
 
     this.afAuth.authState.subscribe(data => {
-      if(data && data.email && data.uid){
+      if(data && data.uid){
         this.loggedIn = true;
         this.email = data.email;
         this.toast.create({
-          message: "Welcome To Digs App, " + data.email,
+          message: "Welcome To Digs App " + data.email,
           duration: 3000     
         }).present();
       }
@@ -49,27 +49,4 @@ export class HomePage {
   goToLogin(){
     this.navCtrl.push(LoginPage);
   }
-/* ******************************* LOGOUT FUNCTIONALITY *************************************************/
-  glogout(){
-    
-    this.googleplus.disconnect().then(
-      (msg) => {
-            if(firebase.auth().currentUser){
-              firebase.auth().signOut();
-              this.gLoggedIn = false;
-              this.toast.create({
-                message: "Successfully Logged Out, " + firebase.auth().currentUser.displayName,
-                duration: 3000     
-              }).present();
-
-              return this.navCtrl.setRoot(LoginPage); 
-            }
-      }).catch(
-      (msg) => {
-          alert('logout error: '+ msg);
-      });
-    
-  }
-/********************************************************************************************************/
 }
-

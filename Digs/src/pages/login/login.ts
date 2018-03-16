@@ -1,9 +1,10 @@
+import { globalVar } from './../../providers/globalVar';
 import { ForgetPasswordPage } from './../forget-password/forget-password';
 import { RegisterPage } from './../register/register';
 import { HomePage } from './../home/home';
 import { User } from './../../models/user';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, Events } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 
 import { GooglePlus } from '@ionic-native/google-plus';
@@ -26,7 +27,7 @@ export class LoginPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
     private afAuth: AngularFireAuth, public googlePlus: GooglePlus, 
-    public loadingController: LoadingController, public events : Events) {
+    public loadingController: LoadingController, public globalVar: globalVar) {
 
   }
 
@@ -46,7 +47,6 @@ export class LoginPage {
     try{         
       const result = await this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password);
       if(result){
-        this.events.publish('loggedin');
         this.navCtrl.setRoot(HomePage);
         loading.dismissAll();
       }     
@@ -66,6 +66,7 @@ export class LoginPage {
   }
 
   googleLogin(){
+    
     this.googlePlus.login({
       'webClientId': '899080047110-r464tup6omrqfci8lce54nhtlm8j4gp0.apps.googleusercontent.com',
       'offline': true
