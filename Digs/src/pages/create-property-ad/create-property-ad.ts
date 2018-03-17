@@ -8,12 +8,7 @@ import { PropertyAd } from './../../providers/propertyAd';
 import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, ViewController, NavParams, ActionSheetController, ModalController  } from 'ionic-angular';
-/**
- * Generated class for the CreatePropertyAdPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { InAppBrowser, InAppBrowserOptions } from "@ionic-native/in-app-browser";
 
 @IonicPage()
 @Component({
@@ -47,7 +42,7 @@ export class CreatePropertyAdPage {
 
   constructor(public navCtrl: NavController,public propertyAdService: PropertyAd, public navParams: NavParams, private modalCtrl: ModalController,
     public viewCtrl: ViewController, private actionSheetCtrl: ActionSheetController,private imagesProvider: ImagesProvider, 
-    private camera: Camera, private globalVar: globalVar) {
+    private camera: Camera, private globalVar: globalVar, private inAppBrowser: InAppBrowser) {
   }
 
   ionViewDidLoad() {
@@ -134,6 +129,14 @@ export class CreatePropertyAdPage {
       console.log('Error: ', err);
     });
 
+  }
+
+  moreInfo(){
+    const options: InAppBrowserOptions = {
+      zoom: 'no'
+    }
+    // Opening a URL and returning an InAppBrowserObject
+    const browser = this.inAppBrowser.create("https://finder.eircode.ie/#/", '_self', options);
   }
 
 }

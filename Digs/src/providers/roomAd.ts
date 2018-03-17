@@ -23,6 +23,7 @@ export class RoomAd {
   }
 
   getMyRooms(){
+    console.log("Login User: " + this.globalVar.getLoginUser());
     return this.http.get(this.apiURL + 'api/myRooms/' + this.globalVar.getLoginUser());
   }
  

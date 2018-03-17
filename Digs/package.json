@@ -25,6 +25,7 @@
     "@ionic-native/core": "4.4.0",
     "@ionic-native/file-transfer": "^4.5.3",
     "@ionic-native/google-plus": "^4.5.3",
+    "@ionic-native/in-app-browser": "^4.5.3",
     "@ionic-native/launch-navigator": "^4.5.3",
     "@ionic-native/splash-screen": "4.4.0",
     "@ionic-native/status-bar": "4.4.0",

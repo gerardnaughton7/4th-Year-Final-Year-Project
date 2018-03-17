@@ -37,6 +37,7 @@ import { GooglePlus } from '@ionic-native/google-plus';
 import firebase from 'firebase';
 import { IonicImageViewerModule} from 'ionic-img-viewer'
 import { LaunchNavigator } from '@ionic-native/launch-navigator';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 firebase.initializeApp(FIREBASE_CONFIG);
 
@@ -94,7 +95,8 @@ firebase.initializeApp(FIREBASE_CONFIG);
     GooglePlus,
     ImagesProvider,
     Message,
-    LaunchNavigator
+    LaunchNavigator,
+    InAppBrowser
   ]
 })
 export class AppModule {}

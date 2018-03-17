@@ -15,6 +15,4 @@ export class globalVar  {
     getLoginUser() {
         return this.UID;
     }
-
-
-};
+}

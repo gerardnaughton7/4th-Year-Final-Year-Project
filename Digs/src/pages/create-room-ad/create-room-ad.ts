@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController, ActionSheetController, ModalController } from 'ionic-angular';
 import {RoomAd} from '../../providers/roomAd';
 import {Md5} from 'ts-md5/dist/md5';
-
+import { InAppBrowser, InAppBrowserOptions } from "@ionic-native/in-app-browser";
 
 @IonicPage()
 @Component({
@@ -37,7 +37,7 @@ export class CreateRoomAdPage {
 
   constructor(public navCtrl: NavController,public roomAdService: RoomAd, public navParams: NavParams, private modalCtrl: ModalController,
               public viewCtrl: ViewController, private actionSheetCtrl: ActionSheetController,private imagesProvider: ImagesProvider, 
-              private camera: Camera, private globalVar: globalVar) {
+              private camera: Camera, private globalVar: globalVar, private inAppBrowser: InAppBrowser) {
                 
   }
 
@@ -119,5 +119,13 @@ export class CreateRoomAdPage {
     }, (err) => {
       console.log('Error: ', err);
     });
+  }
+
+  moreInfo(){
+    const options: InAppBrowserOptions = {
+      zoom: 'no'
+    }
+    // Opening a URL and returning an InAppBrowserObject
+    const browser = this.inAppBrowser.create("https://finder.eircode.ie/#/", '_self', options);
   }
 }
