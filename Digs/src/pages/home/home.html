@@ -9,12 +9,12 @@
 
 <ion-content padding>
 
-  <ion-item *ngIf="userProfile">
+  <ion-item>
     <ion-avatar item-left>
-      <img *ngIf="userProfile.photoURL" [src]="userProfile.photoURL"> 
+      <img *ngIf="photoURL" [src]="photoURL"> 
     </ion-avatar>
-    <h2>{{ userProfile.displayName }}</h2>
-    <h3>{{ userProfile.email }}</h3> 
+    <h2 *ngIf="displayName">{{ displayName }}</h2>
+    <h3 *ngIf="email">{{ email }}</h3> 
   </ion-item>
 
   <button ion-button secondary menuToggle>Toggle Menu</button>

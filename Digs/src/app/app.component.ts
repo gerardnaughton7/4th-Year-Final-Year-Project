@@ -1,4 +1,5 @@
 import { globalVar } from './../providers/globalVar';
+
 import { AngularFireAuth } from 'angularfire2/auth';
 import { MyPropertyAdsPage } from './../pages/my-property-ads/my-property-ads';
 import { MyRoomAdsPage } from './../pages/my-room-ads/my-room-ads';
@@ -8,16 +9,13 @@ import { ListOfRoomsPage } from './../pages/list-of-rooms/list-of-rooms';
 import { ListOfPropertiesPage } from './../pages/list-of-properties/list-of-properties';
 import { CreatePage } from './../pages/create/create';
 import { CreatePropertyAdPage } from './../pages/create-property-ad/create-property-ad';
-import { CreateRoomAdPage } from './../pages/create-room-ad/create-room-ad';
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform, Events, ToastController, NavController, AlertController } from 'ionic-angular';
+import { Nav, Platform, Events, ToastController, AlertController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { MessageboardPage } from './../pages/messageboard/messageboard';
 import { CreatemessagePage } from './../pages/createmessage/createmessage';
 import { HomePage } from '../pages/home/home';
-import firebase from 'firebase';
-
 
 
 @Component({
@@ -35,14 +33,15 @@ export class MyApp {
   pages: Array<{title: string, component: any, icon: string}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public events: Events,
-                private afAuth: AngularFireAuth, private toast: ToastController, globalVar: globalVar, private alertCtrl: AlertController) {
+                private afAuth: AngularFireAuth, private toast: ToastController, private alertCtrl: AlertController, public globalVar: globalVar) {
 
     this.initializeApp();
          
     // Check to see if logged in with firebase
     this.afAuth.authState.subscribe(data => {
       if(data && data.uid){
-        this.email = data.email;
+        //this.email = data.email;
+        this.email = globalVar.getLoginUser();
         this.showAccount = true;
       }       
     });
@@ -81,7 +80,8 @@ export class MyApp {
     this.afAuth.auth.signOut();
     this.showAccount = false;
     this.nav.setRoot(LoginPage);
-    
+    this.email = this.globalVar.getLoginUser();
+
     let alert = this.alertCtrl.create({
       title: 'Logout',
       subTitle: 'Successfully Logged Out ' + this.email,
