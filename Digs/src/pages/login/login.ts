@@ -1,4 +1,3 @@
-import { globalVar } from './../../providers/globalVar';
 import { ForgetPasswordPage } from './../forget-password/forget-password';
 import { RegisterPage } from './../register/register';
 import { HomePage } from './../home/home';
@@ -32,7 +31,7 @@ export class LoginPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
     private afAuth: AngularFireAuth, public googlePlus: GooglePlus, 
-    public loadingController: LoadingController, public globalVar: globalVar, private storage: Storage) {
+    public loadingController: LoadingController, private storage: Storage) {
 
   }
 

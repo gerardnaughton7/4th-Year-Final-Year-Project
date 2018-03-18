@@ -1,20 +1,21 @@
-import { globalVar } from './globalVar';
+import { Storage } from '@ionic/storage';
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
  
 @Injectable()
 export class PropertyAd {
- 
-  data: any;
-  myData: any;
+
+  email: String;
   //apiURL = 'http://localhost:8080/';
   apiURL = 'http://54.73.1.214:8080/'; //patrick
   //apiURL = 'http://52.56.193.204:8080/'; // andrei
   //apiURL = 'http://54.72.69.79:8080/'; //gerard
  
-  constructor(public http: Http,private globalVar: globalVar) {
-    this.data = null;
+  constructor(public http: Http,private storage: Storage) {
+    this.storage.get('email').then((val) => {
+      this.email = val;
+    });
   }
  
   getProperties(){
@@ -22,7 +23,8 @@ export class PropertyAd {
   }
 
   getMyProperties(){
-    return this.http.get(this.apiURL + 'api/myProperties/' + this.globalVar.getLoginUser()); 
+    alert("in property provider constructor email is"+ this.email);
+    return this.http.get(this.apiURL + 'api/myProperties/' + this.email).map(res => res.json()); 
   }
  
   createProperty(property){

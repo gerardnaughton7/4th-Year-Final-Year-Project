@@ -1,5 +1,6 @@
+import { StatusBar } from '@ionic-native/status-bar';
+import { Storage } from '@ionic/storage';
 import { ListOfRoomsPage } from './../list-of-rooms/list-of-rooms';
-import { globalVar } from './../../providers/globalVar';
 import { ImagesProvider } from './../../providers/images/images';
 import { Camera } from '@ionic-native/camera';
 import { HomePage } from './../home/home';
@@ -17,7 +18,7 @@ import { InAppBrowser, InAppBrowserOptions } from "@ionic-native/in-app-browser"
 export class CreateRoomAdPage {
   imageButton: String = "Upload Image";
   time: any = new String(new Date());
-  
+  email: String;
   UID: String;
   AdID: any = Md5.hashStr(this.time);
   RoomType: String;
@@ -37,8 +38,15 @@ export class CreateRoomAdPage {
 
   constructor(public navCtrl: NavController,public roomAdService: RoomAd, public navParams: NavParams, private modalCtrl: ModalController,
               public viewCtrl: ViewController, private actionSheetCtrl: ActionSheetController,private imagesProvider: ImagesProvider, 
-              private camera: Camera, private globalVar: globalVar, private inAppBrowser: InAppBrowser) {
+              private camera: Camera, private storage: Storage, private inAppBrowser: InAppBrowser) {
                 
+  }
+
+  ionViewDidLoad() {
+    this.storage.get('email').then((val) => {
+      this.email = val;
+    });
+    
   }
 
   publishAd() {
@@ -48,7 +56,7 @@ export class CreateRoomAdPage {
     .subscribe(data => {
 
       let room = {
-        UID: this.globalVar.getLoginUser(),
+        UID: this.email,
         AdID: this.AdID,
         RoomType: this.RoomType,
         College: this.College,

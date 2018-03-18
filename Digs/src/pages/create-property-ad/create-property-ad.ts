@@ -1,3 +1,4 @@
+import { Storage } from '@ionic/storage';
 import { ListOfPropertiesPage } from './../list-of-properties/list-of-properties';
 import { globalVar} from './../../providers/globalVar';
 import { RoomAd } from './../../providers/roomAd';
@@ -18,7 +19,7 @@ import { InAppBrowser, InAppBrowserOptions } from "@ionic-native/in-app-browser"
 export class CreatePropertyAdPage {
   imageButton: String = "Upload Image";
   time: any = new String(new Date());
-  
+  email: String;
   UID: String; 
   AdID: any = Md5.hashStr(this.time);
   PropertyType: String;
@@ -42,10 +43,13 @@ export class CreatePropertyAdPage {
 
   constructor(public navCtrl: NavController,public propertyAdService: PropertyAd, public navParams: NavParams, private modalCtrl: ModalController,
     public viewCtrl: ViewController, private actionSheetCtrl: ActionSheetController,private imagesProvider: ImagesProvider, 
-    private camera: Camera, private globalVar: globalVar, private inAppBrowser: InAppBrowser) {
+    private camera: Camera, private storage: Storage, private inAppBrowser: InAppBrowser) {
   }
 
   ionViewDidLoad() {
+    this.storage.get('email').then((val) => {
+      this.email = val;
+    });
     
   }
 
@@ -54,7 +58,7 @@ export class CreatePropertyAdPage {
     this.imagesProvider.getImageAdID(this.AdID).map(res => res.json()).subscribe(data => {
 
     let property = {
-      UID: this.globalVar.getLoginUser(),
+      UID: this.email,
       AdID: this.AdID,
       PropertyType: this.PropertyType,
       SingleBeds: this.SingleBeds,
