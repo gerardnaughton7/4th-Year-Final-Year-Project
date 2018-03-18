@@ -4,20 +4,33 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Digs Home</ion-title>
+
+    
+    <ion-buttons *ngIf="email" end>
+        <div *ngIf="photoURL; else regularUser">
+          <ion-avatar>
+            <img [src]="photoURL"> 
+          </ion-avatar>
+        </div>
+        
+        <ng-template #regularUser>
+          <ion-avatar>
+            <img src="assets/imgs/default-avatar.png"> 
+          </ion-avatar>        
+        </ng-template>
+    </ion-buttons>
+   
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
 
-  <ion-item>
-    <ion-avatar item-left>
-      <img *ngIf="photoURL" [src]="photoURL"> 
-    </ion-avatar>
+  <ion-item *ngIf="email">
+    <h1>Welcome To Digs</h1>
     <h2 *ngIf="displayName">{{ displayName }}</h2>
     <h3 *ngIf="email">{{ email }}</h3> 
   </ion-item>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
   <button ion-button primary (click)="goToLogin()">Login Page</button>
 </ion-content>
 

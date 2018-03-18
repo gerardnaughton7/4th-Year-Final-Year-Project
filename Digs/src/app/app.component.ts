@@ -24,8 +24,7 @@ import { HomePage } from '../pages/home/home';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  //rootPage: any = HomePage;
-  rootPage: any = LoginPage;
+  rootPage: any;
   showAccount : any = false;
   email: string = '';
   googleUser: any;
@@ -42,10 +41,15 @@ export class MyApp {
       if(data && data.uid){
         this.storage.get('email').then((val) => {
           this.email = val;
-          console.log("Logging Out Soon Get Email: " + this.email);
+          this.rootPage = HomePage;
         });
         this.showAccount = true;
+      }
+      else{
+        this.rootPage = LoginPage;
       }       
+    },error => {
+      this.rootPage = LoginPage;
     });
 
     // used for an example of ngFor and navigation
