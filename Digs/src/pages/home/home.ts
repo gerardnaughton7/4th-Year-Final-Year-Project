@@ -1,4 +1,3 @@
-import { globalVar } from './../../providers/globalVar';
 import { LoginPage } from './../login/login';
 import { Component } from '@angular/core';
 import { NavController, NavParams, ToastController } from 'ionic-angular';
@@ -18,7 +17,7 @@ export class HomePage {
   photoURL: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private afAuth: AngularFireAuth, 
-              private toast: ToastController, public googleplus: GooglePlus, public globalVar: globalVar, private storage: Storage) {
+              private toast: ToastController, public googleplus: GooglePlus, private storage: Storage) {
       
   }
 
