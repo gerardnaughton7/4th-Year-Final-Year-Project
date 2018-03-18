@@ -1,6 +1,5 @@
 import { Storage } from '@ionic/storage';
 import { ListOfPropertiesPage } from './../list-of-properties/list-of-properties';
-import { globalVar} from './../../providers/globalVar';
 import { RoomAd } from './../../providers/roomAd';
 import { Camera } from '@ionic-native/camera';
 import { ImagesProvider } from './../../providers/images/images';

@@ -1,4 +1,3 @@
-import { globalVar } from './../providers/globalVar';
 import { Storage } from '@ionic/storage';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { MyPropertyAdsPage } from './../pages/my-property-ads/my-property-ads';
@@ -32,7 +31,7 @@ export class MyApp {
   pages: Array<{title: string, component: any, icon: string}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public events: Events,
-                private afAuth: AngularFireAuth, private toast: ToastController, private alertCtrl: AlertController, public globalVar: globalVar, private storage: Storage) {
+                private afAuth: AngularFireAuth, private toast: ToastController, private alertCtrl: AlertController, private storage: Storage) {
 
     this.initializeApp();
          
