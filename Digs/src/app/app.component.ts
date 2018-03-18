@@ -1,5 +1,5 @@
 import { globalVar } from './../providers/globalVar';
-
+import { Storage } from '@ionic/storage';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { MyPropertyAdsPage } from './../pages/my-property-ads/my-property-ads';
 import { MyRoomAdsPage } from './../pages/my-room-ads/my-room-ads';
@@ -33,15 +33,17 @@ export class MyApp {
   pages: Array<{title: string, component: any, icon: string}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public events: Events,
-                private afAuth: AngularFireAuth, private toast: ToastController, private alertCtrl: AlertController, public globalVar: globalVar) {
+                private afAuth: AngularFireAuth, private toast: ToastController, private alertCtrl: AlertController, public globalVar: globalVar, private storage: Storage) {
 
     this.initializeApp();
          
     // Check to see if logged in with firebase
     this.afAuth.authState.subscribe(data => {
       if(data && data.uid){
-        //this.email = data.email;
-        this.email = globalVar.getLoginUser();
+        this.storage.get('email').then((val) => {
+          this.email = val;
+          console.log("Logging Out Soon Get Email: " + this.email);
+        });
         this.showAccount = true;
       }       
     });
@@ -76,18 +78,26 @@ export class MyApp {
 
   /***************** LOGOUT FUNCTIONALITY ********************************* */
   logout(){
-    console.log("Logout");
     this.afAuth.auth.signOut();
     this.showAccount = false;
-    this.nav.setRoot(LoginPage);
-    this.email = this.globalVar.getLoginUser();
+    
 
+    this.storage.get('email').then((val) => {
+      this.email = val;
+      console.log("Logging Out!!!: " + this.email);
+    });
+    
+    this.storage.remove('email');
+    this.storage.remove('displayName');
+    this.storage.remove('photoURL');
     let alert = this.alertCtrl.create({
       title: 'Logout',
       subTitle: 'Successfully Logged Out ' + this.email,
       buttons: ['Dismiss']
     });
     alert.present();
+
+    this.nav.setRoot(LoginPage);
   }
 }
  

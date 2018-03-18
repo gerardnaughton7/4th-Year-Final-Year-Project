@@ -11,6 +11,7 @@ import { GooglePlus } from '@ionic-native/google-plus';
 import firebase from 'firebase';
 
 import { LoadingController } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 
 @IonicPage()
 @Component({
@@ -31,7 +32,7 @@ export class LoginPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
     private afAuth: AngularFireAuth, public googlePlus: GooglePlus, 
-    public loadingController: LoadingController, public globalVar: globalVar) {
+    public loadingController: LoadingController, public globalVar: globalVar, private storage: Storage) {
 
   }
 
@@ -51,10 +52,9 @@ export class LoginPage {
     try{         
       const result = await this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password);
       if(result){
-        this.globalVar.setLoginUser(user.email);
-        this.navCtrl.setRoot(HomePage, {
-          param1: user.email,      
-        });
+        this.storage.set('email', user.email);
+
+        this.navCtrl.setRoot(HomePage);
         loading.dismissAll();
       }     
     }
@@ -80,38 +80,15 @@ export class LoginPage {
       const googleCredential = firebase.auth.GoogleAuthProvider.credential(res.idToken, res.accessToken);
       
       firebase.auth().signInWithCredential(googleCredential).then( response => {
-        //alert("Firebase success With Google: " + JSON.stringify(response));
-        //alert(JSON.stringify(res));
-        this.email = res.email;
-        this.displayName = res.displayName;
-        this.photoURL = res.imageUrl;
 
-        this.navCtrl.setRoot(HomePage, {
-          param1: this.email,
-          param2: this.displayName,
-          param3: this.photoURL
-        });
+        this.storage.set('email', res.email);
+        this.storage.set('displayName', res.displayName);
+        this.storage.set('photoURL', res.imageUrl);
+
+        this.navCtrl.setRoot(HomePage);
       });
     }, err => {
         console.error("Error: ", err)
     });
   }
-
-  // googleLogin(){
-    
-  //   this.googlePlus.login({
-  //     'webClientId': '899080047110-r464tup6omrqfci8lce54nhtlm8j4gp0.apps.googleusercontent.com',
-  //     'offline': true
-  //   }).then(res => {
-  //     firebase.auth().signInWithCredential(firebase.auth.GoogleAuthProvider.credential(res.idToken)).then(suc => {
-  //       console.log("Success Google");
-  //       this.navCtrl.setRoot(HomePage, {
-  //         param1: "true"
-  //       })
-  //     }).catch(err => {
-  //       console.log("Google Login Failed!!")
-  //       alert("Oops - Google Login Failed!");
-  //     })
-  //   });
-  // }
 }

@@ -3,7 +3,7 @@ import { LoginPage } from './../login/login';
 import { Component } from '@angular/core';
 import { NavController, NavParams, ToastController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
-
+import { Storage } from '@ionic/storage';
 import firebase from 'firebase';
 import { GooglePlus } from '@ionic-native/google-plus';
 
@@ -18,18 +18,21 @@ export class HomePage {
   photoURL: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private afAuth: AngularFireAuth, 
-              private toast: ToastController, public googleplus: GooglePlus, public globalVar: globalVar) {
+              private toast: ToastController, public googleplus: GooglePlus, public globalVar: globalVar, private storage: Storage) {
       
-      this.email = navParams.get('param1'); 
-      this.displayName = navParams.get('param2');
-      this.photoURL = navParams.get('param3');
-
-      if(this.email){
-        globalVar.setLoginUser(this.email);
-      };
   }
 
   ionViewWillLoad(){
+
+    this.storage.get('email').then((val) => {
+      this.email = val;
+    });
+    this.storage.get('displayName').then((val) => {
+      this.displayName = val;      
+    });
+    this.storage.get('photoURL').then((val) => {
+      this.photoURL = val;
+    });
 
     if(this.email){
       this.toast.create({

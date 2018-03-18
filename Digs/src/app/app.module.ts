@@ -39,6 +39,8 @@ import { IonicImageViewerModule} from 'ionic-img-viewer'
 import { LaunchNavigator } from '@ionic-native/launch-navigator';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 
+import { IonicStorageModule } from '@ionic/storage';
+
 firebase.initializeApp(FIREBASE_CONFIG);
 
 @NgModule({
@@ -64,7 +66,8 @@ firebase.initializeApp(FIREBASE_CONFIG);
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
     AngularFireAuthModule,
-    IonicImageViewerModule
+    IonicImageViewerModule,
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
