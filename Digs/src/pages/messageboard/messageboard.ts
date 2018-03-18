@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { IonicPage, NavController, NavParams, ModalController, ActionSheetController } from 'ionic-angular';
+import { Message } from './../../providers/message';
 /**
  * Generated class for the MessageboardPage page.
  *
@@ -15,11 +15,35 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class MessageboardPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  messages: any;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public messageService: Message, public modalCtrl: ModalController) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad MessageboardPage');
+   ionViewDidLoad() {
+     console.log('ionViewDidLoad MessageboardPage');
+   }
+
+  ionViewDidEnter() {
+    this.messageService.getMessage().subscribe((data) => {
+      console.log("Data returned from ListRooms on Load: " + JSON.stringify(data));
+      this.messages = data; 
+    },
+    error => {
+      alert("ERROR Retrieving Messages: " + error);
+    });
+
+  }
+
+  doRefresh(refresher) {
+
+    this.messageService.getMessage().subscribe(data => {
+      this.messages = data;
+    },
+    error => {
+      alert("ERROR Retrieving Messages: " + error);
+    });
+    refresher.complete();
   }
 
 }

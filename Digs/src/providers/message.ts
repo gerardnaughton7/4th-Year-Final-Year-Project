@@ -17,18 +17,19 @@ export class Message {
  
   getMessage(){
  
-    if (this.data) {
-      return Promise.resolve(this.data);
-    }
+    return this.http.get(this.apiURL + 'api/messages').map(res => res.json());
+    // if (this.data) {
+    //   return Promise.resolve(this.data);
+    // }
  
-    return new Promise(resolve => { 
-      this.http.get(this.apiURL + 'api/messages')
-        .map(res => res.json())
-        .subscribe(data => {
-          this.data = data;
-          resolve(this.data);
-        });
-    }); 
+    // return new Promise(resolve => { 
+    //   this.http.get(this.apiURL + 'api/messages')
+    //     .map(res => res.json())
+    //     .subscribe(data => {
+    //       this.data = data;
+    //       resolve(this.data);
+    //     });
+    // }); 
   }
  
   createMessage(message){
