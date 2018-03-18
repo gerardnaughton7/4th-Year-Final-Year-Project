@@ -36,6 +36,10 @@ import { GooglePlus } from '@ionic-native/google-plus';
 
 import firebase from 'firebase';
 import { IonicImageViewerModule} from 'ionic-img-viewer'
+import { LaunchNavigator } from '@ionic-native/launch-navigator';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
+
+import { IonicStorageModule } from '@ionic/storage';
 
 firebase.initializeApp(FIREBASE_CONFIG);
 
@@ -62,7 +66,8 @@ firebase.initializeApp(FIREBASE_CONFIG);
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
     AngularFireAuthModule,
-    IonicImageViewerModule
+    IonicImageViewerModule,
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -92,7 +97,9 @@ firebase.initializeApp(FIREBASE_CONFIG);
     globalVar,
     GooglePlus,
     ImagesProvider,
-    Message
+    Message,
+    LaunchNavigator,
+    InAppBrowser
   ]
 })
 export class AppModule {}

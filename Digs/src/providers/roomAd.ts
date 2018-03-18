@@ -19,39 +19,12 @@ export class RoomAd {
   }
   
   getRooms(){
- 
-    if (this.data) {
-      return Promise.resolve(this.data);
-    }
- 
-    return new Promise(resolve => {
- 
-      this.http.get(this.apiURL+'api/rooms')
-        .map(res => res.json())
-        .subscribe(data => {
-          this.data = data;
-          resolve(this.data);
-        });
-    });
- 
+    return this.http.get(this.apiURL + 'api/rooms').map(res => res.json());
   }
 
   getMyRooms(){
-    
-    if (this.myData) {
-      return Promise.resolve(this.myData);
-    }
- 
-    return new Promise(resolve => {
- 
-      this.http.get(this.apiURL+'api/myRooms/'+ this.globalVar.getLoginUser())
-        .map(res => res.json())
-        .subscribe(myData => {
-          this.myData = myData;
-          resolve(this.myData);
-        });
-    });
- 
+    console.log("Login User: " + this.globalVar.getLoginUser());
+    return this.http.get(this.apiURL + 'api/myRooms/' + this.globalVar.getLoginUser());
   }
  
   createRoom(room){

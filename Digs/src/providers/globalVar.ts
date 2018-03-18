@@ -9,11 +9,10 @@ export class globalVar  {
     }
 
     setLoginUser(value) {
-    this.UID = value;
+        this.UID = value;
     }
 
     getLoginUser() {
-    return this.UID;
+        return this.UID;
     }
-
-};
+}

@@ -1,0 +1,162 @@
+[33mcommit c0e57361b41f357721d9e55d823e122e2db1bd3a[m
+Author: gerard naughton <gerard naughton>
+Date:   Thu Mar 15 13:07:40 2018 +0000
+
+    Bug occured when added form tags. resolved now
+
+[33mcommit 761a99ed2bbee4331d0670e77d33bd9211fca197[m
+Author: gerard naughton <gerard naughton>
+Date:   Thu Mar 15 12:02:47 2018 +0000
+
+    Editing upload image buttons to change and wrapped create ads in a form for validations
+
+[33mcommit fa75d5cbe4c7acf7720a1ec7a1f4658531fc123c[m
+Author: moranpatrick <patrickmoran121@gmail.com>
+Date:   Thu Mar 15 11:01:38 2018 +0000
+
+    Messages are now posting to our api and saving in mongodb
+
+[33mcommit bf8c718afc84da38d8a92a745b08af8b12b873d3[m
+Author: andryuha77 <andryuha1977@gmail.com>
+Date:   Wed Mar 14 23:38:06 2018 +0000
+
+    small fix
+
+[33mcommit d8d0275268b23c364b13605c5e53cf46dacf7306[m
+Author: andryuha77 <andryuha1977@gmail.com>
+Date:   Wed Mar 14 23:32:18 2018 +0000
+
+    Added mesage variables to server
+
+[33mcommit 238dc23172dbcdef363812a42b326ad592a2c907[m
+Author: andryuha77 <andryuha1977@gmail.com>
+Date:   Wed Mar 14 23:27:32 2018 +0000
+
+    Added mesage variables to server
+
+[33mcommit e443041429b8cccc0bf30498c77283d8ecdda4dc[m
+Author: andryuha77 <andryuha1977@gmail.com>
+Date:   Wed Mar 14 22:25:41 2018 +0000
+
+    Front end for create message page, geting error: No provider for Message!
+
+[33mcommit a566a362454fc8b94cd27d0664e7640e39c9eecf[m
+Author: andryuha77 <andryuha1977@gmail.com>
+Date:   Wed Mar 14 19:18:37 2018 +0000
+
+    Create  Message Page added
+
+[33mcommit 8266b7b42b58a79c44713b7f51cfe54ae1a38f2e[m
+Author: gerard naughton <gerard naughton>
+Date:   Wed Mar 14 16:26:19 2018 +0000
+
+    Edited ads to incorporate date and changed digs server to do the same
+
+[33mcommit 68a0870ad5e149784dd9a4babd2005275a884242[m
+Author: moranpatrick <patrickmoran121@gmail.com>
+Date:   Tue Mar 13 23:29:54 2018 +0000
+
+    Made some small changes to the slider that displays the ad images - images are displayed cleaner, added pager and looping functionality
+
+[33mcommit 3aa91bd78fe2de10cb032ca706226cd1633771b0[m
+Author: gerard naughton <gerard naughton>
+Date:   Tue Mar 13 22:38:33 2018 +0000
+
+    Creating and receiving property objects functioning perfect. css still needs to be updated
+
+[33mcommit a5efd62a22b32e3511c42620de1fad7c65bc244c[m
+Author: andryuha77 <andryuha1977@gmail.com>
+Date:   Tue Mar 13 22:19:17 2018 +0000
+
+    Messageboard Page added
+
+[33mcommit bdf9b66cadbad76f4d7743ebd0ed6ba6c47303ea[m
+Author: moranpatrick <patrickmoran121@gmail.com>
+Date:   Tue Mar 13 20:13:13 2018 +0000
+
+    List of Rooms Page now shows full add along with the images for each
+
+[33mcommit b2e3789a2e66b7fc62af8712245e84be3b831dec[m
+Author: moranpatrick <patrickmoran121@gmail.com>
+Date:   Tue Mar 13 19:18:07 2018 +0000
+
+    Full Ad for a Room now saves to Backend including an array of image urls that match each the images for each adID
+
+[33mcommit 4cee492be637d8c130cfa093e775a87fbaac9f8f[m
+Author: gerard naughton <gerard naughton>
+Date:   Tue Mar 13 11:16:51 2018 +0000
+
+    edited providers to allow easier switching of aws accounts for testing
+
+[33mcommit 1e2075b4da4f3b27c3e490dfd1cd4107b72fefd4[m
+Author: moranpatrick <patrickmoran121@gmail.com>
+Date:   Tue Mar 13 00:41:40 2018 +0000
+
+    Continuing to work on saving image url to ads database
+
+[33mcommit 2c7300f1a91af4d4726a84cfc825449b2c573609[m
+Author: gerard naughton <gerard naughton>
+Date:   Mon Mar 12 20:42:14 2018 +0000
+
+    Working on saving image url to ads database
+
+[33mcommit 6beee325c39c886f4dd660801a5374d80b235f32[m
+Author: moranpatrick <patrickmoran121@gmail.com>
+Date:   Sun Mar 11 23:03:12 2018 +0000
+
+    Fixed Google Login Problem: Had to give the app a unique name in config.xml (com.ionic.digs) and generated a new SHA1 Certificate
+
+[33mcommit b67ff82858c827f523137f5535113328e00d0cfd[m
+Author: moranpatrick <patrickmoran121@gmail.com>
+Date:   Fri Mar 9 18:14:45 2018 +0000
+
+    Added adID parameter to backend so we can search via unique adID
+
+[33mcommit 5367e5bc40764ebcefecad944b44ecf27d58003e[m
+Merge: a6e5c77 4052a56
+Author: moranpatrick <patrickmoran121@gmail.com>
+Date:   Fri Mar 9 17:55:42 2018 +0000
+
+    Fixing Merge Conflict
+
+[33mcommit a6e5c7740c6a1d293dcdae75dcc1345baba52f6f[m
+Author: moranpatrick <patrickmoran121@gmail.com>
+Date:   Fri Mar 9 17:50:31 2018 +0000
+
+    Trying to fix Google Login - Still in progress...
+
+[33mcommit 4052a56b0c25b4746625e7cf7c3286ab5d0f401a[m
+Author: gerard naughton <gerard naughton>
+Date:   Fri Mar 9 17:47:47 2018 +0000
+
+    created unique identifer using md5 to search for images
+
+[33mcommit aee453dbd7536f616d1fb420072c88a7a7257f99[m
+Author: moranpatrick <patrickmoran121@gmail.com>
+Date:   Fri Mar 9 15:16:59 2018 +0000
+
+    Added functionality for taking images and saving them to our Backend
+
+[33mcommit af1f2e35f7d39f6e1a050b6e33bbca8d4f4aa7e7[m
+Author: moranpatrick <patrickmoran121@gmail.com>
+Date:   Fri Mar 9 13:46:44 2018 +0000
+
+    Created Custom Backend for Image Uploads and Requests
+
+[33mcommit 680764580640a7733f39865bf2107c46a876a457[m
+Author: gerard naughton <gerard naughton>
+Date:   Fri Mar 9 13:32:28 2018 +0000
+
+    Update digs server to images url and multilple college strings
+
+[33mcommit dc102fcaf6e32776e29c782812b3fa25163bb23f[m
+Author: gerard naughton <gerard naughton>
+Date:   Thu Mar 8 22:28:17 2018 +0000
+
+    Posting and getting to and from database through our custom backend and working front end
+
+[33mcommit b6d03b8887bf07bd8e7beb6bc8878e282acee360[m
+Author: moranpatrick <patrickmoran121@gmail.com>
+Date:   Thu Mar 8 16:43:32 2018 +0000
+
+    Added error messages for form validation on register page

@@ -1,3 +1,6 @@
+import { globalVar } from './../providers/globalVar';
+import { Storage } from '@ionic/storage';
+import { AngularFireAuth } from 'angularfire2/auth';
 import { MyPropertyAdsPage } from './../pages/my-property-ads/my-property-ads';
 import { MyRoomAdsPage } from './../pages/my-room-ads/my-room-ads';
 import { RegisterPage } from './../pages/register/register';
@@ -6,9 +9,8 @@ import { ListOfRoomsPage } from './../pages/list-of-rooms/list-of-rooms';
 import { ListOfPropertiesPage } from './../pages/list-of-properties/list-of-properties';
 import { CreatePage } from './../pages/create/create';
 import { CreatePropertyAdPage } from './../pages/create-property-ad/create-property-ad';
-import { CreateRoomAdPage } from './../pages/create-room-ad/create-room-ad';
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
+import { Nav, Platform, Events, ToastController, AlertController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { MessageboardPage } from './../pages/messageboard/messageboard';
@@ -22,26 +24,45 @@ import { HomePage } from '../pages/home/home';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  //rootPage: any = HomePage;
-  rootPage: any = LoginPage;
+  rootPage: any;
+  showAccount : any = false;
+  email: string = '';
+  googleUser: any;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string, component: any, icon: string}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public events: Events,
+                private afAuth: AngularFireAuth, private toast: ToastController, private alertCtrl: AlertController, public globalVar: globalVar, private storage: Storage) {
+
     this.initializeApp();
+         
+    // Check to see if logged in with firebase
+    this.afAuth.authState.subscribe(data => {
+      if(data && data.uid){
+        this.storage.get('email').then((val) => {
+          this.email = val;
+          this.rootPage = HomePage;
+        });
+        this.showAccount = true;
+      }
+      else{
+        this.rootPage = LoginPage;
+      }       
+    },error => {
+      this.rootPage = LoginPage;
+    });
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'List Of Rooms', component: ListOfRoomsPage },
-      { title: 'List Of Properties', component: ListOfPropertiesPage },
-      { title: 'Create Ad', component: CreatePage },
-      { title: 'My Room Ads', component: MyRoomAdsPage },
-      { title: 'My Property Ads', component: MyPropertyAdsPage },
-      { title: 'Digs Message Board', component: MessageboardPage },
-      { title: 'Create New Message', component: CreatemessagePage }
+      { title: 'Home', component: HomePage, icon: 'home'},
+      { title: 'List Of Rooms', component: ListOfRoomsPage, icon: 'list-box' },
+      { title: 'List Of Properties', component: ListOfPropertiesPage, icon: 'list-box' },
+      { title: 'Create Ad', component: CreatePage, icon: 'create' },
+      { title: 'My Room Ads', component: MyRoomAdsPage, icon: 'list-box' },
+      { title: 'My Property Ads', component: MyPropertyAdsPage, icon: 'list-box' },
+      { title: 'Digs Message Board', component: MessageboardPage, icon: 'clipboard' },
+      { title: 'Create New Message', component: CreatemessagePage, icon: 'create' }
     ];
-
   }
 
   initializeApp() {
@@ -58,4 +79,29 @@ export class MyApp {
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
   }
+
+  /***************** LOGOUT FUNCTIONALITY ********************************* */
+  logout(){
+    this.afAuth.auth.signOut();
+    this.showAccount = false;
+    
+
+    this.storage.get('email').then((val) => {
+      this.email = val;
+      console.log("Logging Out!!!: " + this.email);
+    });
+    
+    this.storage.remove('email');
+    this.storage.remove('displayName');
+    this.storage.remove('photoURL');
+    let alert = this.alertCtrl.create({
+      title: 'Logout',
+      subTitle: 'Successfully Logged Out ' + this.email,
+      buttons: ['Dismiss']
+    });
+    alert.present();
+
+    this.nav.setRoot(LoginPage);
+  }
 }
+ 

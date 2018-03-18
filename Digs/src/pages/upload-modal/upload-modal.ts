@@ -13,6 +13,7 @@ export class UploadModalPage {
 
   constructor(public navCtrl: NavController, private navParams: NavParams, private viewCtrl: ViewController, 
               private imagesProvider: ImagesProvider, public loadingController: LoadingController) {
+                
     this.imageData = this.navParams.get('data');
     this.adID = this.navParams.get("adID");
   }

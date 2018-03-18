@@ -1,3 +1,4 @@
+import { globalVar } from './../../providers/globalVar';
 import { ForgetPasswordPage } from './../forget-password/forget-password';
 import { RegisterPage } from './../register/register';
 import { HomePage } from './../home/home';
@@ -10,6 +11,7 @@ import { GooglePlus } from '@ionic-native/google-plus';
 import firebase from 'firebase';
 
 import { LoadingController } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 
 @IonicPage()
 @Component({
@@ -17,6 +19,10 @@ import { LoadingController } from 'ionic-angular';
   templateUrl: 'login.html',
 })
 export class LoginPage {
+
+  displayName: any;
+  email: any;
+  photoURL: any;
 
   //Initialize a new User Object Here
   user = {} as User;
@@ -26,7 +32,7 @@ export class LoginPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
     private afAuth: AngularFireAuth, public googlePlus: GooglePlus, 
-    public loadingController: LoadingController) {
+    public loadingController: LoadingController, public globalVar: globalVar, private storage: Storage) {
 
   }
 
@@ -46,6 +52,8 @@ export class LoginPage {
     try{         
       const result = await this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password);
       if(result){
+        this.storage.set('email', user.email);
+
         this.navCtrl.setRoot(HomePage);
         loading.dismissAll();
       }     
@@ -64,21 +72,23 @@ export class LoginPage {
     this.navCtrl.push(ForgetPasswordPage);
   }
 
-  googleLogin(){
+  googleLogin(): void {
     this.googlePlus.login({
       'webClientId': '899080047110-r464tup6omrqfci8lce54nhtlm8j4gp0.apps.googleusercontent.com',
       'offline': true
-    }).then(res => {
-      firebase.auth().signInWithCredential(firebase.auth.GoogleAuthProvider.credential(res.idToken)).then(suc => {
-        alert("Google Login Success!!!: " + suc);
-        console.log("Success Google");
-        this.navCtrl.setRoot(HomePage, {
-          param1: "true"
-        })
-      }).catch(err => {
-        console.log("Google Login Failed!!")
-        alert("Oops - Google Login Failed!");
-      })
+    }).then( res => {
+      const googleCredential = firebase.auth.GoogleAuthProvider.credential(res.idToken, res.accessToken);
+      
+      firebase.auth().signInWithCredential(googleCredential).then( response => {
+
+        this.storage.set('email', res.email);
+        this.storage.set('displayName', res.displayName);
+        this.storage.set('photoURL', res.imageUrl);
+
+        this.navCtrl.setRoot(HomePage);
+      });
+    }, err => {
+        console.error("Error: ", err)
     });
   }
 }

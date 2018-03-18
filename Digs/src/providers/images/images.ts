@@ -38,7 +38,6 @@ export class ImagesProvider {
 
     // File for Upload
     var targetPath = img;
-    alert("in image provider"+ adID);
     var options: FileUploadOptions = {
       fileKey: 'image',
       chunkedMode: false,

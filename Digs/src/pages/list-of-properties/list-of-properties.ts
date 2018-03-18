@@ -15,15 +15,29 @@ export class ListOfPropertiesPage {
   }
 
   ionViewDidEnter() {
-    this.propertyAdService.getProperties().then((data) => {
+    this.propertyAdService.getProperties().subscribe((data) => {
       console.log(data);
       this.properties = data;
+    },
+    error => {
+      alert("ERROR Retrieving Property Ads: " + error);
     });
   }
 
   openProperty(property) {
     let modal = this.modalCtrl.create('PreviewPropertyModalPage', { property: property });
     modal.present();
+  }
+
+  doRefresh(refresher) {
+
+    this.propertyAdService.getProperties().subscribe(data => {
+      this.properties = data;
+    },
+    error => {
+      alert("ERROR Retrieving Property Ads: " + error);
+    });
+    refresher.complete();
   }
 
 }

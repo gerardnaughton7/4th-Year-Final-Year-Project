@@ -1,3 +1,4 @@
+import { ListOfRoomsPage } from './../list-of-rooms/list-of-rooms';
 import { globalVar } from './../../providers/globalVar';
 import { ImagesProvider } from './../../providers/images/images';
 import { Camera } from '@ionic-native/camera';
@@ -6,7 +7,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController, ActionSheetController, ModalController } from 'ionic-angular';
 import {RoomAd} from '../../providers/roomAd';
 import {Md5} from 'ts-md5/dist/md5';
-
+import { InAppBrowser, InAppBrowserOptions } from "@ionic-native/in-app-browser";
 
 @IonicPage()
 @Component({
@@ -36,7 +37,7 @@ export class CreateRoomAdPage {
 
   constructor(public navCtrl: NavController,public roomAdService: RoomAd, public navParams: NavParams, private modalCtrl: ModalController,
               public viewCtrl: ViewController, private actionSheetCtrl: ActionSheetController,private imagesProvider: ImagesProvider, 
-              private camera: Camera, private globalVar: globalVar) {
+              private camera: Camera, private globalVar: globalVar, private inAppBrowser: InAppBrowser) {
                 
   }
 
@@ -45,8 +46,6 @@ export class CreateRoomAdPage {
     this.imagesProvider.getImageAdID(this.AdID)
     .map(res => res.json())
     .subscribe(data => {
-      
-      alert('My Data: ' + data + " And Data is a: " + typeof(data));
 
       let room = {
         UID: this.globalVar.getLoginUser(),
@@ -66,10 +65,9 @@ export class CreateRoomAdPage {
         ImageURL: data,
         Date: new Date()
       };
-
-      alert("Room Made with image url: " + room.ImageURL + " And UID is: " + room.UID + " And Price: " + room.Price);
+      
       this.roomAdService.createRoom(room);  
-      this.navCtrl.setRoot(HomePage);
+      this.navCtrl.setRoot(ListOfRoomsPage);
     });
   }
 
@@ -121,7 +119,13 @@ export class CreateRoomAdPage {
     }, (err) => {
       console.log('Error: ', err);
     });
-
   }
-  
+
+  moreInfo(){
+    const options: InAppBrowserOptions = {
+      zoom: 'no'
+    }
+    // Opening a URL and returning an InAppBrowserObject
+    const browser = this.inAppBrowser.create("https://finder.eircode.ie/#/", '_self', options);
+  }
 }

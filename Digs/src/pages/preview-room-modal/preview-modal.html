@@ -4,7 +4,7 @@
       <ion-icon name="close"></ion-icon>
     </ion-item>
     <ion-card>
-        <ion-slides class="image-slider" loop="false" autoplay="3000" pager="true" paginationType="fraction" zoom="true" effect="coverflow" slidesPerView="1">
+        <ion-slides class="image-slider" loop="false" autoplay="3000" pager="true" paginationType="bullets" zoom="true" effect="slide" slidesPerView="1">
           <ion-slide *ngFor="let img of room.ImagesUrl">
             <img src="{{img}}" class="thumb-img" imageViewer>
           </ion-slide>
@@ -32,6 +32,10 @@
           <p>Email: {{room.Email}}</p>
           <p>Parking: {{room.Parking}}</p>
         </ion-card-content>
+        <button ion-button icon-end (click)="findOnMap()">
+          Find on Map
+          <ion-icon name="map"></ion-icon>
+        </button>
     </ion-card> 
   </div>
 </ion-content>

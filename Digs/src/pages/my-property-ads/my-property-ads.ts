@@ -20,9 +20,12 @@ export class MyPropertyAdsPage {
   }
 
   ionViewDidLoad() {
-    this.propertyAdService.getMyProperties().then((data) => {
+    this.propertyAdService.getMyProperties().subscribe((data) => {
       console.log("Data returned from MyProperty on Load: " + JSON.stringify(data));
       this.properties = data; 
+    },
+    error => {
+      alert("ERROR Retrieving My Property Ads: " + error);
     });
   }
 

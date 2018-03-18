@@ -7,13 +7,25 @@
 
   <ion-content>
     <ion-list>
+      <ion-list-header>
+        Navigate
+      </ion-list-header>
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        <ion-icon item-start [name]="p.icon"></ion-icon>
         {{p.title}}
+      </button>  
+    </ion-list>
+
+    <ion-list *ngIf="showAccount">
+      <ion-list-header>
+        Account
+      </ion-list-header>
+      <button menuClose ion-item (click)="logout()">Log Out
+        <ion-icon item-start name="log-out"></ion-icon>
       </button>
     </ion-list>
   </ion-content>
 
 </ion-menu>
 
-<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
 <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

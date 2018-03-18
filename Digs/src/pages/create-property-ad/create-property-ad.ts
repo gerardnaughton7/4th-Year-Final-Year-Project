@@ -1,3 +1,4 @@
+import { ListOfPropertiesPage } from './../list-of-properties/list-of-properties';
 import { globalVar} from './../../providers/globalVar';
 import { RoomAd } from './../../providers/roomAd';
 import { Camera } from '@ionic-native/camera';
@@ -7,12 +8,7 @@ import { PropertyAd } from './../../providers/propertyAd';
 import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, ViewController, NavParams, ActionSheetController, ModalController  } from 'ionic-angular';
-/**
- * Generated class for the CreatePropertyAdPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { InAppBrowser, InAppBrowserOptions } from "@ionic-native/in-app-browser";
 
 @IonicPage()
 @Component({
@@ -46,17 +42,16 @@ export class CreatePropertyAdPage {
 
   constructor(public navCtrl: NavController,public propertyAdService: PropertyAd, public navParams: NavParams, private modalCtrl: ModalController,
     public viewCtrl: ViewController, private actionSheetCtrl: ActionSheetController,private imagesProvider: ImagesProvider, 
-    private camera: Camera, private globalVar: globalVar) {
+    private camera: Camera, private globalVar: globalVar, private inAppBrowser: InAppBrowser) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CreatePropertyAdPage');
+    
   }
 
   publishAd() {
 
     this.imagesProvider.getImageAdID(this.AdID).map(res => res.json()).subscribe(data => {
-      alert('My Data: ' + data + " And Data is a: " + typeof(data));
 
     let property = {
       UID: this.globalVar.getLoginUser(),
@@ -81,7 +76,7 @@ export class CreatePropertyAdPage {
       Date: new Date()
     };
     this.propertyAdService.createProperty(property);  
-    this.navCtrl.setRoot(HomePage);
+    this.navCtrl.setRoot(ListOfPropertiesPage);
   });
   }
 
@@ -134,6 +129,14 @@ export class CreatePropertyAdPage {
       console.log('Error: ', err);
     });
 
+  }
+
+  moreInfo(){
+    const options: InAppBrowserOptions = {
+      zoom: 'no'
+    }
+    // Opening a URL and returning an InAppBrowserObject
+    const browser = this.inAppBrowser.create("https://finder.eircode.ie/#/", '_self', options);
   }
 
 }

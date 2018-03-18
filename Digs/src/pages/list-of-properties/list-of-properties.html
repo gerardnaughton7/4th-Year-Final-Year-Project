@@ -9,7 +9,14 @@
  
 <ion-content padding>
 
-  <!--<h3 [hidden]="rooms.length !== 0" text-center>No Images found!</h3>-->
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon = "arrow-dropdown"
+      pullingText = "Pull to refresh"
+      refreshingSpinner = "circles"
+      refreshingText = "Refreshing Ads...">
+    </ion-refresher-content>
+  </ion-refresher>
  
   <ion-list>
       <ion-item *ngFor="let property of properties">
