@@ -1,3 +1,4 @@
+import { Storage } from '@ionic/storage';
 import { RoomAd } from './../../providers/roomAd';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
@@ -10,23 +11,29 @@ import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angu
 export class MyRoomAdsPage {
 
   rooms: any;
-  navFrom: boolean = true;
+  email: any;
 
-  constructor(public navCtrl: NavController,public roomAdService: RoomAd, public navParams: NavParams, public modalCtrl: ModalController) {
+  constructor(public navCtrl: NavController,public roomAdService: RoomAd, public navParams: NavParams, public modalCtrl: ModalController, private storage: Storage) {
+    
   }
 
   ionViewDidLoad() {
-    this.roomAdService.getMyRooms().subscribe((data) => {
-      console.log("Data returned from MyRooms on Load: " + JSON.stringify(data));
-      this.rooms = data; 
-    },
-    error => {
-      alert("ERROR Retrieving My Room Ads: " + error);
+    this.storage.get('email').then((val) => {
+      
+      this.email = val;
+
+      this.roomAdService.getMyRooms(this.email).subscribe((data) => {
+        console.log("Data returned from MyRooms on Load: " + JSON.stringify(data));
+        this.rooms = data; 
+      },
+      error => {
+        alert("ERROR Retrieving My Room Ads: " + error);
+      });
     });
   }
 
-  openRoom(room, navFrom) {
-    let modal = this.modalCtrl.create('PreviewModalPage', { room: room, navFrom: this.navFrom });
+  openRoom(room) {
+    let modal = this.modalCtrl.create('PreviewModalPage', { room: room });
     modal.present();
   }
 }
