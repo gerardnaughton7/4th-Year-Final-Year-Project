@@ -12,6 +12,7 @@ export class MyRoomAdsPage {
 
   rooms: any;
   email: any;
+  navFrom: boolean = true;
 
   constructor(public navCtrl: NavController,public roomAdService: RoomAd, public navParams: NavParams, public modalCtrl: ModalController, private storage: Storage) {
     
@@ -32,8 +33,8 @@ export class MyRoomAdsPage {
     });
   }
 
-  openRoom(room) {
-    let modal = this.modalCtrl.create('PreviewModalPage', { room: room });
+  openRoom(room, navFrom) {
+    let modal = this.modalCtrl.create('PreviewModalPage', { room: room, navFrom: this.navFrom });
     modal.present();
   }
 }
