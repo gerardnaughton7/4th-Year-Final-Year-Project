@@ -1,4 +1,3 @@
-import { Storage } from '@ionic/storage';
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
@@ -12,18 +11,16 @@ export class RoomAd {
   //apiURL = 'http://52.56.193.204:8080/'; // andrei
   //apiURL = 'http://54.72.69.79:8080/'; //gerard
  
-  constructor(public http: Http, private storage: Storage) {
-    this.storage.get('email').then((val) => {
-      this.email = val;
-    });
+  constructor(public http: Http) {
   }
   
   getRooms(){
     return this.http.get(this.apiURL + 'api/rooms').map(res => res.json());
   }
 
-  getMyRooms(){
-    return this.http.get(this.apiURL + 'api/myRooms/' + this.email).map(res => res.json());
+  getMyRooms(email){
+    console.log("now in getMyRooms(): " + email);
+    return this.http.get(this.apiURL + 'api/myRooms/' + email).map(res => res.json());
   }
  
   createRoom(room){
