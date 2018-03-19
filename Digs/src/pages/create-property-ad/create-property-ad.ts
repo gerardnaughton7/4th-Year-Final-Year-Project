@@ -103,7 +103,7 @@ export class CreatePropertyAdPage {
         },
         {
           text: 'Cancel',
-          icon: 'cancel',
+          icon: 'close',
           role: 'cancel'
         }
       ]

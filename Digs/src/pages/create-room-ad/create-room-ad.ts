@@ -99,7 +99,7 @@ export class CreateRoomAdPage {
         },
         {
           text: 'Cancel',
-          icon: 'cancel',
+          icon: 'close',
           role: 'cancel'
         }
       ]

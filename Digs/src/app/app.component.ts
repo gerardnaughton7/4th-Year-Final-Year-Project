@@ -29,6 +29,7 @@ export class MyApp {
   googleUser: any;
 
   pages: Array<{title: string, component: any, icon: string}>;
+  loggedInPages: Array<{title: string, component: any, icon: string}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public events: Events,
                 private afAuth: AngularFireAuth, private toast: ToastController, private alertCtrl: AlertController, private storage: Storage) {
@@ -56,10 +57,17 @@ export class MyApp {
       { title: 'Home', component: HomePage, icon: 'home'},
       { title: 'List Of Rooms', component: ListOfRoomsPage, icon: 'list-box' },
       { title: 'List Of Properties', component: ListOfPropertiesPage, icon: 'list-box' },
+      //{ title: 'Create Ad', component: CreatePage, icon: 'create' },
+      //{ title: 'My Room Ads', component: MyRoomAdsPage, icon: 'list-box' },
+     // { title: 'My Property Ads', component: MyPropertyAdsPage, icon: 'list-box' },
+      { title: 'Digs Message Board', component: MessageboardPage, icon: 'clipboard' },
+      //{ title: 'Create New Message', component: CreatemessagePage, icon: 'create' }
+    ];
+
+    this.loggedInPages = [
       { title: 'Create Ad', component: CreatePage, icon: 'create' },
       { title: 'My Room Ads', component: MyRoomAdsPage, icon: 'list-box' },
       { title: 'My Property Ads', component: MyPropertyAdsPage, icon: 'list-box' },
-      { title: 'Digs Message Board', component: MessageboardPage, icon: 'clipboard' },
       { title: 'Create New Message', component: CreatemessagePage, icon: 'create' }
     ];
   }

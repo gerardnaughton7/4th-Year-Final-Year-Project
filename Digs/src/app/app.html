@@ -20,6 +20,10 @@
       <ion-list-header>
         Account
       </ion-list-header>
+      <button menuClose ion-item *ngFor="let p of loggedInPages" (click)="openPage(p)">
+        <ion-icon item-start [name]="p.icon"></ion-icon>
+        {{p.title}}
+      </button>  
       <button menuClose ion-item (click)="logout()">Log Out
         <ion-icon item-start name="log-out"></ion-icon>
       </button>
