@@ -15,7 +15,7 @@ import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angu
 })
 export class MyPropertyAdsPage {
   properties: any;
-  email: String;
+  navFrom: boolean = true;
   constructor(public navCtrl: NavController,public propertyAdService: PropertyAd, public navParams: NavParams, public modalCtrl: ModalController) {
   }
 
@@ -29,8 +29,8 @@ export class MyPropertyAdsPage {
     });
   }
 
-  openProperty(property) {
-    let modal = this.modalCtrl.create('PreviewPropertyModalPage', { property: property });
+  openProperty(property, navFrom) {
+    let modal = this.modalCtrl.create('PreviewPropertyModalPage', { property: property , navFrom: this.navFrom});
     modal.present();
   }
 }

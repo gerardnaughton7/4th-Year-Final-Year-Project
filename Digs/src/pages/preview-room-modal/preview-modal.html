@@ -36,7 +36,7 @@
           Find on Map
           <ion-icon name="map"></ion-icon>
         </button>
-        <button ion-button color="danger" (click)="deleteRoom()">
+        <button ion-button color="danger" *ngIf="navFrom" (click)="deleteRoom()">
           Delete Ad
         </button>
     </ion-card> 

@@ -11,9 +11,11 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 
 export class PreviewModalPage {
   room: any;
+  navFrom: boolean;
  
   constructor(public navCtrl: NavController, public navParams: NavParams, private roomAd: RoomAd, private viewCtrl: ViewController, private launchNavigator: LaunchNavigator) {
     this.room = this.navParams.get('room');
+    this.navFrom = this.navParams.get('navFrom');
   }
  
   close() {

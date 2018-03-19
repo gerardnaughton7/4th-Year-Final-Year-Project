@@ -49,7 +49,7 @@
                 Find on Map
                 <ion-icon name="map"></ion-icon>
             </button>
-            <button ion-button color="danger" (click)="deleteProperty()">
+            <button ion-button color="danger" *ngIf="navFrom" (click)="deleteProperty()">
               Delete Ad
             </button>
         </ion-card> 

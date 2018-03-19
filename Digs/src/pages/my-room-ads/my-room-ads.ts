@@ -10,6 +10,7 @@ import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angu
 export class MyRoomAdsPage {
 
   rooms: any;
+  navFrom: boolean = true;
 
   constructor(public navCtrl: NavController,public roomAdService: RoomAd, public navParams: NavParams, public modalCtrl: ModalController) {
   }
@@ -24,8 +25,8 @@ export class MyRoomAdsPage {
     });
   }
 
-  openRoom(room) {
-    let modal = this.modalCtrl.create('PreviewModalPage', { room: room });
+  openRoom(room, navFrom) {
+    let modal = this.modalCtrl.create('PreviewModalPage', { room: room, navFrom: this.navFrom });
     modal.present();
   }
 }
