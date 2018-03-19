@@ -1,57 +1,37 @@
-
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>preview-property-modal</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
 <ion-content padding>
-    <div >
-        <ion-item class="close-fake" no-lines (click)="close()">
-          <ion-icon name="close"></ion-icon>
-        </ion-item>
-        <ion-card>
-          <ion-slides class="image-slider" loop="false" autoplay="3000" pager="true" paginationType="bullets" zoom="true" effect="slide" slidesPerView="1">
-            <ion-slide *ngFor="let img of property.ImagesUrl">
-              <img src="{{img}}" class="thumb-img" imageViewer>
-            </ion-slide>
-          </ion-slides>
-            <ion-card-content>
-              <ion-card-title>
-                €{{property.Price}}
-              </ion-card-title>
-              <p>No of Single Beds: {{property.SingleBeds}}</p>
-              <p>No of Double Beds: {{property.DoubleBeds}}</p>
-              <p>No of Twin Beds: {{property.TwinBeds}}</p>
-              <p>No of En-Suite Beds: {{property.EnSuite}}</p>
-              <p>College: {{property.College}}</p>
-              <p>Address: {{property.Address}}</p>
-              <p>Location: {{property.LocationDes}}</p>
-              <p>Availabilty: {{property.Availability}}</p>
-              <!--<script type="text/javascript">
-                if ( == "Email")
-                {
-                document.write("<p>Email: {{room.Email}}</p>")
-                }
-                else
-                {
-                document.write("<p>Phone: {{room.Phone}}</p>")
-                }
-              </script>-->
-              <p>Phone: {{property.Phone}}</p>
-              <p>Email: {{property.Email}}</p>
-              <p>Parking: {{property.Parking}}</p>
-            </ion-card-content>
-            <button ion-button icon-end (click)="findOnMap()">
-                Find on Map
-                <ion-icon name="map"></ion-icon>
-            </button>
-            <button ion-button color="danger" *ngIf="navFrom" (click)="deleteProperty()">
-              Delete Ad
-            </button>
-        </ion-card> 
-    </div>
+  <div >
+    <ion-item class="close-fake" no-lines (click)="close()">
+      <ion-icon name="close"></ion-icon>
+    </ion-item>
+    <ion-card>
+      <ion-slides class="image-slider" loop="false" autoplay="3000" pager="true" paginationType="bullets" zoom="true" effect="slide" slidesPerView="1">
+        <ion-slide *ngFor="let img of property.ImagesUrl">
+          <img src="{{img}}" class="thumb-img" imageViewer>
+        </ion-slide>
+      </ion-slides>
+      <ion-card-content>
+        <ion-card-title>
+          €{{property.Price}}
+        </ion-card-title>
+        <p>No of Single Beds: {{property.SingleBeds}}</p>
+        <p>No of Double Beds: {{property.DoubleBeds}}</p>
+        <p>No of Twin Beds: {{property.TwinBeds}}</p>
+        <p>No of En-Suite Beds: {{property.EnSuite}}</p>
+        <p>College: {{property.College}}</p>
+        <p>Address: {{property.Address}}</p>
+        <p>Location: {{property.LocationDes}}</p>
+        <p>Availabilty: {{property.Availability}}</p>
+        <p>Phone: {{property.Phone}}</p>
+        <p>Email: {{property.Email}}</p>
+        <p>Parking: {{property.Parking}}</p>
+      </ion-card-content>
+      <button ion-button icon-end (click)="findOnMap()">
+        Find on Map
+        <ion-icon name="map"></ion-icon>
+      </button>
+      <button ion-button color="danger" *ngIf="navFrom" (click)="deleteProperty()">
+        Delete Ad
+      </button>
+    </ion-card> 
+  </div>
 </ion-content>

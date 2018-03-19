@@ -89,18 +89,21 @@ export class CreatePropertyAdPage {
       buttons: [
         {
           text: 'Load from Library',
+          icon: 'folder',
           handler: () => {
             this.takePicture(this.camera.PictureSourceType.PHOTOLIBRARY);
           }
         },
         {
           text: 'Use Camera',
+          icon: 'camera',
           handler: () => {
             this.takePicture(this.camera.PictureSourceType.CAMERA);
           }
         },
         {
           text: 'Cancel',
+          icon: 'cancel',
           role: 'cancel'
         }
       ]
@@ -112,7 +115,7 @@ export class CreatePropertyAdPage {
   takePicture(sourceType){
     // Create options for the Camera Dialog
     var options = {
-      quality: 100,
+      quality: 75,
       destinationType: this.camera.DestinationType.FILE_URI,
       sourceType: sourceType,
       saveToPhotoAlbum: false,

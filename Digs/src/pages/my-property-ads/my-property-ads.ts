@@ -1,12 +1,8 @@
+import { Storage } from '@ionic/storage';
 import { PropertyAd } from './../../providers/propertyAd';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
-/**
- * Generated class for the MyPropertyAdsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 
 @IonicPage()
 @Component({
@@ -16,21 +12,29 @@ import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angu
 export class MyPropertyAdsPage {
   properties: any;
   navFrom: boolean = true;
-  constructor(public navCtrl: NavController,public propertyAdService: PropertyAd, public navParams: NavParams, public modalCtrl: ModalController) {
+  email: any;
+
+  constructor(public navCtrl: NavController,public propertyAdService: PropertyAd, public navParams: NavParams, 
+              public modalCtrl: ModalController, private storage: Storage) {
   }
 
   ionViewDidLoad() {
-    this.propertyAdService.getMyProperties().subscribe((data) => {
-      console.log("Data returned from MyProperty on Load: " + JSON.stringify(data));
-      this.properties = data; 
-    },
-    error => {
-      alert("ERROR Retrieving My Property Ads: " + error);
+    this.storage.get('email').then((val) => {
+      
+      this.email = val;
+
+      this.propertyAdService.getMyProperties(this.email).subscribe((data) => {
+        console.log("Data returned from MyRooms on Load: " + JSON.stringify(data));
+        this.properties = data; 
+      },
+      error => {
+        alert("ERROR Retrieving My Room Ads: " + error);
+      });
     });
   }
 
   openProperty(property, navFrom) {
     let modal = this.modalCtrl.create('PreviewPropertyModalPage', { property: property , navFrom: this.navFrom});
-    modal.present();
+    modal.present();  
   }
 }

@@ -36,5 +36,15 @@ export class MyRoomAdsPage {
   openRoom(room, navFrom) {
     let modal = this.modalCtrl.create('PreviewModalPage', { room: room, navFrom: this.navFrom });
     modal.present();
+
+    modal.onDidDismiss(data => {
+      this.roomAdService.getMyRooms(this.email).subscribe((data) => {
+        console.log("Data returned from MyRooms on Load: " + JSON.stringify(data));
+        this.rooms = data; 
+      },
+      error => {
+        alert("ERROR Retrieving My Room Ads: " + error);
+      });
+    });
   }
 }
