@@ -9,6 +9,17 @@
 
 
 <ion-content padding>
+
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content
+          pullingIcon = "arrow-dropdown"
+          pullingText = "Pull to refresh"
+          refreshingSpinner = "circles"
+          refreshingText = "Refreshing messages...">
+        </ion-refresher-content>
+    </ion-refresher>
+
+
   <ion-list>
       <ion-item *ngFor="let message of messages">
         <ion-item text-wrap>

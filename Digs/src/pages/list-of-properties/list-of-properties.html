@@ -28,7 +28,7 @@
           <h2>Price: {{ property.Price }}</h2>
           <p>Number of Rooms: {{ property.SingleBeds + property.DoubleBeds + property.TwinBeds + property.EnSuite }}</p>
           <p>Address: {{ property.Address }}</p>
-          <p>Published: {{ property.Date }}</p>
+          <p>Published: {{ property.Date | date: 'short' }}</p>
           <button ion-button clear icon-only item-end> <ion-icon name="arrow-forward"></ion-icon></button>
         </ion-item>
     
