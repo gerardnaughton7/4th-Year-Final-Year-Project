@@ -1,3 +1,4 @@
+import { PropertyAd } from './../../providers/propertyAd';
 import { LaunchNavigator } from '@ionic-native/launch-navigator';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
@@ -11,7 +12,7 @@ export class PreviewPropertyModalPage {
 
   property: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private viewCtrl: ViewController, private launchNavigator: LaunchNavigator) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,private propertyAd: PropertyAd, private viewCtrl: ViewController, private launchNavigator: LaunchNavigator) {
     this.property = this.navParams.get('property');
   }
 
@@ -34,5 +35,10 @@ export class PreviewPropertyModalPage {
     else{
       alert("No Eircode Supplied!");
     }
+  }
+
+  deleteProperty(){
+    this.propertyAd.deleteProperty(this.property._id);
+    this.viewCtrl.dismiss();
   }
 }

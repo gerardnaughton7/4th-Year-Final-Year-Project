@@ -15,7 +15,7 @@ import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angu
 })
 export class MyPropertyAdsPage {
   properties: any;
-
+  email: String;
   constructor(public navCtrl: NavController,public propertyAdService: PropertyAd, public navParams: NavParams, public modalCtrl: ModalController) {
   }
 

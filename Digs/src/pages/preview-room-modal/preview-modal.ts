@@ -1,3 +1,4 @@
+import { RoomAd } from './../../providers/roomAd';
 import { LaunchNavigator } from '@ionic-native/launch-navigator';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
@@ -11,7 +12,7 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 export class PreviewModalPage {
   room: any;
  
-  constructor(public navCtrl: NavController, public navParams: NavParams, private viewCtrl: ViewController, private launchNavigator: LaunchNavigator) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private roomAd: RoomAd, private viewCtrl: ViewController, private launchNavigator: LaunchNavigator) {
     this.room = this.navParams.get('room');
   }
  
@@ -30,5 +31,10 @@ export class PreviewModalPage {
     else{
       alert("No Eircode Supplied!");
     }
+  }
+
+  deleteRoom(){
+    this.roomAd.deleteRoom(this.room._id);
+    this.viewCtrl.dismiss();
   }
 }

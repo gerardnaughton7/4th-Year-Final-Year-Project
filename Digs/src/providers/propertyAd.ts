@@ -23,7 +23,6 @@ export class PropertyAd {
   }
 
   getMyProperties(){
-    alert("in property provider constructor email is"+ this.email);
     return this.http.get(this.apiURL + 'api/myProperties/' + this.email).map(res => res.json()); 
   }
  
@@ -42,8 +41,7 @@ export class PropertyAd {
   }
  
   deleteProperty(id){
- 
-    this.http.delete(this.apiURL+'properties/' + id).subscribe((res) => {
+    this.http.delete(this.apiURL+'api/properties/' + id).subscribe((res) => {
       console.log(res.json());
     });   
  

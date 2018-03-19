@@ -270,7 +270,7 @@ app.post('/api/messages', function (req, res) {
 // delete a room
 app.delete('/api/rooms/:room_id', function(req, res) {
 	Room.remove({
-		_id : req.params.room_id
+		"_id" : req.params.room_id
 	}, function(err, room) {
 
 	});
@@ -279,7 +279,7 @@ app.delete('/api/rooms/:room_id', function(req, res) {
 // delete a property
 app.delete('/api/properties/:property_id', function(req, res) {
 	Property.remove({
-		_id : req.params.property_id
+		"_id" : req.params.property_id
 	}, function(err, property) {
 
 	});
