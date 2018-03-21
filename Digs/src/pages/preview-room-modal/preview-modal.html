@@ -18,8 +18,8 @@
         <p>Address: {{room.Address}}</p>
         <p>Location: {{room.LocationDes}}</p>
         <p>Availabilty: {{room.Availability}}</p>
-        <p>Phone: {{room.Phone}}</p>
-        <p>Email: {{room.Email}}</p>
+        <p *ngIf="room.Contact == 'Phone'">Phone: {{room.Phone}}</p>
+        <p *ngIf="room.Contact == 'Email'">Email: {{room.Email}}</p>
         <p>Parking: {{room.Parking}}</p>
       </ion-card-content>
       <button ion-button icon-end (click)="findOnMap()">
