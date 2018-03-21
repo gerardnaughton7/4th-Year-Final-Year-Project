@@ -17,7 +17,7 @@ export class ListOfPropertiesPage {
   ionViewDidEnter() {
     this.propertyAdService.getProperties().subscribe((data) => {
       console.log(data);
-      this.properties = data;
+      this.properties = data.reverse();
     },
     error => {
       alert("ERROR Retrieving Property Ads: " + error);
@@ -32,7 +32,7 @@ export class ListOfPropertiesPage {
   doRefresh(refresher) {
 
     this.propertyAdService.getProperties().subscribe(data => {
-      this.properties = data;
+      this.properties = data.reverse();
     },
     error => {
       alert("ERROR Retrieving Property Ads: " + error);

@@ -20,7 +20,7 @@ export class ListOfRoomsPage {
   ionViewDidEnter() {
     this.roomAdService.getRooms().subscribe((data) => {
       console.log("Data returned from ListRooms on Load: " + JSON.stringify(data));
-      this.rooms = data; 
+      this.rooms = data.reverse(); 
     },
     error => {
       alert("ERROR Retrieving Room Ads: " + error);
@@ -36,7 +36,7 @@ export class ListOfRoomsPage {
   doRefresh(refresher) {
 
     this.roomAdService.getRooms().subscribe(data => {
-      this.rooms = data;
+      this.rooms = data.reverse();
     },
     error => {
       alert("ERROR Retrieving Room Ads: " + error);
