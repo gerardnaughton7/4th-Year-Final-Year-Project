@@ -15,7 +15,7 @@
 
 
 <ion-content padding>
- <!--<h3 [hidden]="properties.length !== 0" text-center>No Properties found!</h3>-->
+    <p *ngIf = "properties != null">Found {{properties.length}} Properties</p>
  
  <ion-list>
   <ion-item *ngFor="let property of properties">

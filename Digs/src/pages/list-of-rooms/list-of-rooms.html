@@ -10,6 +10,8 @@
 
 <ion-content padding>
 
+    <p *ngIf = "rooms != null">Found {{rooms.length}} Rooms</p>
+
   <ion-refresher (ionRefresh)="doRefresh($event)">
       <ion-refresher-content
         pullingIcon = "arrow-dropdown"
