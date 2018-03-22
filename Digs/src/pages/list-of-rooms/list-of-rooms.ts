@@ -13,7 +13,8 @@ export class ListOfRoomsPage {
 
   rooms: any;
 
-  constructor(public navCtrl: NavController,public roomAdService: RoomAd, public navParams: NavParams, public modalCtrl: ModalController) {
+  constructor(public navCtrl: NavController,public roomAdService: RoomAd, public navParams: NavParams, 
+              public modalCtrl: ModalController) {
     
   }
 
@@ -43,4 +44,5 @@ export class ListOfRoomsPage {
     });
     refresher.complete();
   }
+
 }

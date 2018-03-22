@@ -2,6 +2,8 @@ import { RoomAd } from './../../providers/roomAd';
 import { LaunchNavigator } from '@ionic-native/launch-navigator';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { ImageViewerController } from 'ionic-img-viewer';
+
 
 @IonicPage()
 @Component({
@@ -12,10 +14,14 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 export class PreviewModalPage {
   room: any;
   navFrom: boolean;
+  imageViewer: ImageViewerController;
+
  
-  constructor(public navCtrl: NavController, public navParams: NavParams, private roomAd: RoomAd, private viewCtrl: ViewController, private launchNavigator: LaunchNavigator) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private roomAd: RoomAd, private viewCtrl: ViewController, 
+              private launchNavigator: LaunchNavigator, public imageViewerCtrl: ImageViewerController) {
     this.room = this.navParams.get('room');
     this.navFrom = this.navParams.get('navFrom');
+    this.imageViewer = imageViewerCtrl;
   }
  
   close() {
@@ -38,5 +44,16 @@ export class PreviewModalPage {
   deleteRoom(){
     this.roomAd.deleteRoom(this.room._id);
     this.viewCtrl.dismiss();
+  }
+
+  presentImage(myImage) {
+    
+    try {
+      const Viewer = this.imageViewer.create(myImage);
+      Viewer.present();
+   
+    } catch (error) {
+      console.log("Image Error: " + error);
+    }
   }
 }
