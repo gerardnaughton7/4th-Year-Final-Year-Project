@@ -9,7 +9,7 @@
           <img src="{{img}}" class="thumb-img" imageViewer>
         </ion-slide>
       </ion-slides>
-      <img src="https://thumbs.dreamstime.com/z/cartoon-house-vector-illustration-white-background-56861518.jpg" class="thumb-img" imageViewer>
+      <img *ngIf ="property.ImagesUrl[0] == null" src="https://thumbs.dreamstime.com/z/cartoon-house-vector-illustration-white-background-56861518.jpg" class="thumb-img" imageViewer>
       <ion-card-content>
         <ion-card-title>
           €{{property.Price}}
