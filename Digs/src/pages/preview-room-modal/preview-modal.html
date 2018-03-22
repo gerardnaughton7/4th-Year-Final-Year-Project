@@ -6,7 +6,7 @@
     <ion-card>
       <ion-slides class="image-slider" loop="false" autoplay="3000" pager="true" paginationType="bullets" zoom="true" effect="slide" slidesPerView="1">
         <ion-slide *ngFor="let img of room.ImagesUrl">
-          <img src="{{img}}" class="thumb-img" imageViewer>
+          <img src="{{img}}" class="thumb-img" #myImage (click)="presentImage(myImage)">
         </ion-slide>
       </ion-slides>
       <ion-card-content>
