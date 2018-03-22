@@ -2,6 +2,7 @@ import { PropertyAd } from './../../providers/propertyAd';
 import { LaunchNavigator } from '@ionic-native/launch-navigator';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { ImageViewerController } from 'ionic-img-viewer';
 
 @IonicPage()
 @Component({
@@ -12,10 +13,13 @@ export class PreviewPropertyModalPage {
 
   property: any;
   navFrom: boolean;
+  imageViewer: ImageViewerController;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,private propertyAd: PropertyAd, private viewCtrl: ViewController, private launchNavigator: LaunchNavigator) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,private propertyAd: PropertyAd, 
+              private viewCtrl: ViewController, private launchNavigator: LaunchNavigator, public imageViewerCtrl: ImageViewerController) {
     this.property = this.navParams.get('property');
     this.navFrom = this.navParams.get('navFrom');
+    this.imageViewer = imageViewerCtrl;
   }
 
   ionViewDidLoad() {
@@ -42,5 +46,16 @@ export class PreviewPropertyModalPage {
   deleteProperty(){
     this.propertyAd.deleteProperty(this.property._id);
     this.viewCtrl.dismiss();
+  }
+
+  presentImage(myImage) {
+    
+    try {
+      const Viewer = this.imageViewer.create(myImage);
+      Viewer.present();
+   
+    } catch (error) {
+      console.log("Image Error: " + error);
+    }
   }
 }

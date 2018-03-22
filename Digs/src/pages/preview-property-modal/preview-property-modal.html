@@ -6,7 +6,7 @@
     <ion-card>
       <ion-slides *ngIf="property.ImagesUrl[0] != null" class="image-slider" loop="false" autoplay="3000" pager="true" paginationType="bullets" zoom="true" effect="slide" slidesPerView="1">
         <ion-slide *ngFor="let img of property.ImagesUrl">
-          <img src="{{img}}" class="thumb-img" imageViewer>
+          <img src="{{img}}" class="thumb-img" #myImage (click)="presentImage(myImage)">
         </ion-slide>
       </ion-slides>
       <img *ngIf ="property.ImagesUrl[0] == null" src="https://thumbs.dreamstime.com/z/cartoon-house-vector-illustration-white-background-56861518.jpg" class="thumb-img" imageViewer>
@@ -21,7 +21,7 @@
         <p>College: {{property.College}}</p>
         <p>Address: {{property.Address}}</p>
         <p>Location: {{property.LocationDes}}</p>
-        <p>Availabilty: {{property.Availability}}</p>
+        <p>Availability: {{property.Availability}}</p>
         <p *ngIf="property.Contact == 'Phone'">Phone: {{property.Phone}}</p>
         <p *ngIf="property.Contact == 'Email'">Email: {{property.Email}}</p>
         <p>Parking: {{property.Parking}}</p>
