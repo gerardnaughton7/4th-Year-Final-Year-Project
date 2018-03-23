@@ -13,7 +13,7 @@ export class ListOfPropertiesPage {
   properties: any;
   descending: boolean = false;
   order: number;
-  column: string = 'name';
+  column: number = 0;
 
   constructor(public navCtrl: NavController,public propertyAdService: PropertyAd, public navParams: NavParams, public modalCtrl: ModalController) {
   }

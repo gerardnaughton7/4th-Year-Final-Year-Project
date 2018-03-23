@@ -12,12 +12,12 @@ export class SearchPipe implements PipeTransform {
   /**
    * Takes a value and makes it lowercase.
    */
-  transform(items: any[], terms: string): any[] {
-    if(!items) return [];
-    if(!terms) return items;
-    terms = terms.toLowerCase();
+  transform(items: any[], terms: number): any[] {
+      if(!items) return [];
+      if(!terms) return items;
+  //  terms = terms.toLowerCase();
     return items.filter( it => {
-      return it.name.toLowerCase().includes(terms); // only filter College
+      return it.Price; // only filter College
     });
   }
 }
