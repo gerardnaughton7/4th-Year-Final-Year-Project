@@ -23,7 +23,7 @@ export class PropertyAd {
     return this.http.get(this.apiURL + 'api/myProperties/' + email).map(res => res.json()); 
   }
  
-  createProperty(property){
+  createProperty(property){ 
  
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
@@ -43,5 +43,13 @@ export class PropertyAd {
     });   
  
   }
+
+  updateProperty(update,id){
+    let headers = new Headers();
+    this.http.put(this.apiURL+'api/properties/'+ id, JSON.stringify(update), {headers: headers}).map(res => res.json()); 
+ 
+  }
+
+
  
 }

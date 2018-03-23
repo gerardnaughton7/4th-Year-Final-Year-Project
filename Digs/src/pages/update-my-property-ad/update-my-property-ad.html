@@ -14,5 +14,112 @@
 
 
 <ion-content padding>
-
-</ion-content>
+    <form (ngSubmit)="publishUpdate()" *ngIf="property !=null">
+      <ion-item>
+        <ion-label color="primary" floating>Type of Property</ion-label>
+        <ion-select [(ngModel)]="PropertyType" name = "PropertyType" required>
+          <ion-option value="House">House</ion-option>
+          <ion-option value="Apartment">Apartment</ion-option>
+        </ion-select>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label color="primary" floating>Number of Single Beds</ion-label>
+        <ion-input [(ngModel)]="SingleBeds" type="number" name = "SingleBeds"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label color="primary" floating>Number of Double Beds</ion-label>
+        <ion-input [(ngModel)]="DoubleBeds" type="number" name = "DoubleBeds"></ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label color="primary" floating>Number of Twin Beds</ion-label>
+        <ion-input [(ngModel)]="TwinBeds" type="number" name = "TwinBeds"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label color="primary" floating>Number of En-suite Beds</ion-label>
+        <ion-input [(ngModel)]="EnSuite" type="number" name = "EnSuite"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label color="primary" floating>College Campus</ion-label>
+        <ion-select [(ngModel)]="College" multiple="true" name = "College">
+          <ion-option>GMIT</ion-option>
+          <ion-option>NUIG</ion-option>
+          <ion-option>LIT</ion-option>
+          <ion-option>Mary I</ion-option>
+          <ion-option>LU</ion-option>
+          <ion-option>DIT</ion-option>
+        </ion-select>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label color="primary" floating>Address</ion-label>
+        <ion-input [(ngModel)]="Address" type="text" name = "Address"></ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label color="primary" floating>Eircode</ion-label>
+        <ion-input [(ngModel)]="Eircode" name = "Eircode"></ion-input>
+        <button ion-button icon-only clear item-end type="button" class="info-circle" (click)="moreInfo()">
+          <p style="margin-right: 10px">Find Your Eircode</p>
+          <ion-icon name="information-circle"></ion-icon>
+        </button>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label color="primary" floating>Location description</ion-label>
+        <ion-select [(ngModel)]="LocationDes" name = "LocationDes">
+          <ion-option value="City Centre">City Centre</ion-option>
+          <ion-option value="Close to Campus">Close to Campus</ion-option>
+          <ion-option value="City Suburbs">City Suburbs</ion-option>
+        </ion-select>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label color="primary" floating>Price</ion-label>
+        <ion-input [(ngModel)]="Price" type="number" name = "price"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label color="primary" floating>Availabilty (dd/mm/yy)</ion-label>
+        <ion-datetime [(ngModel)]="Availability" displayFormat="MM/DD/YYYY" min="2018" max="2020" name = "Availability"></ion-datetime>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label color="primary" floating>Email Address</ion-label>
+        <ion-input [(ngModel)]="Email" type="email" name = "Email"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label color="primary" floating>Phone Number</ion-label>
+        <ion-input [(ngModel)]="Phone" type="tel" name = "Phone"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label color="primary" floating>How of Contact</ion-label>
+        <ion-select [(ngModel)]="Contact" name = "Contact">
+          <ion-option value="Email">Email</ion-option>
+          <ion-option value="Phone">Phone</ion-option>
+        </ion-select>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label color="primary" floating>Description</ion-label>
+        <ion-textarea [(ngModel)]="Description" type="text" name = "Description"></ion-textarea>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label color="primary" floating>Parking</ion-label>
+        <ion-select [(ngModel)]="Parking" name = "Parking">
+          <ion-option value="Yes">Yes</ion-option>
+          <ion-option value="No">No</ion-option>
+        </ion-select>
+      </ion-item>
+      
+      <button full ion-button color="primary" type="submit" name= "submit">Publish Update</button>
+    </form>
+  
+  </ion-content>
