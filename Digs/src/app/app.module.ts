@@ -1,3 +1,4 @@
+import { SearchPage } from './../pages/search/search';
 import { MyPropertyAdsPage } from './../pages/my-property-ads/my-property-ads';
 import { MyRoomAdsPage } from './../pages/my-room-ads/my-room-ads';
 import { Message } from './../providers/message';
@@ -57,7 +58,8 @@ firebase.initializeApp(FIREBASE_CONFIG);
     MessageboardPage,
     CreatemessagePage,
     MyRoomAdsPage,
-    MyPropertyAdsPage
+    MyPropertyAdsPage,
+    SearchPage
   ],
   imports: [
     BrowserModule,
@@ -83,7 +85,8 @@ firebase.initializeApp(FIREBASE_CONFIG);
     MessageboardPage,
     CreatemessagePage,
     MyRoomAdsPage,
-    MyPropertyAdsPage
+    MyPropertyAdsPage,
+    SearchPage
   ],
   providers: [
     StatusBar,
