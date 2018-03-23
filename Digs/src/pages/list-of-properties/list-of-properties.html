@@ -13,6 +13,9 @@
 </ion-header>
  
 <ion-content padding>
+    <ion-searchbar placeholder="Search by College" [(ngModel)]="terms"></ion-searchbar>
+    <button ion-button type="button" (click)="sort()">Sort</button>
+  
   <p *ngIf = "properties != null">Found {{properties.length}} Properties</p>
   <ion-refresher (ionRefresh)="doRefresh($event)">
     <ion-refresher-content
@@ -24,7 +27,7 @@
   </ion-refresher>
  
   <ion-list>
-      <ion-item *ngFor="let property of properties">
+      <ion-item *ngFor="let property of properties | search : terms | sort: {property: column, order: order}">
     
         <ion-item tappable (click)="openProperty(property)">
           <ion-thumbnail item-start>

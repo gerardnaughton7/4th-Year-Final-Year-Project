@@ -20,6 +20,8 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MessageboardPage } from './../pages/messageboard/messageboard';
 import { CreatemessagePage } from './../pages/createmessage/createmessage';
+import { SearchPipe } from '../pipes/search/search';
+import { SortPipe } from '../pipes/sort/sort';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -63,7 +65,9 @@ firebase.initializeApp(FIREBASE_CONFIG);
     MyPropertyAdsPage,
     SearchPage,
     UpdateMyPropertyAdPage,
-    UpdateMyRoomAdPage
+    UpdateMyRoomAdPage,
+    SearchPipe,
+    SortPipe
   ],
   imports: [
     BrowserModule,

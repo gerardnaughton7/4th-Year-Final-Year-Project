@@ -11,6 +11,9 @@ import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angu
 export class ListOfPropertiesPage {
 
   properties: any;
+  descending: boolean = false;
+  order: number;
+  column: string = 'name';
 
   constructor(public navCtrl: NavController,public propertyAdService: PropertyAd, public navParams: NavParams, public modalCtrl: ModalController) {
   }
@@ -43,6 +46,11 @@ export class ListOfPropertiesPage {
 
   navToSearchPage(){
     this.navCtrl.push(SearchPage);
+  }
+
+  sort(){
+    this.descending = !this.descending;
+    this.order = this.descending ? 1 : -1;
   }
 
 }
