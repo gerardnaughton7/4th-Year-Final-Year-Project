@@ -48,6 +48,10 @@ export class PreviewPropertyModalPage {
     this.viewCtrl.dismiss();
   }
 
+  updateProperty(){
+    this.viewCtrl.dismiss();
+  }
+
   presentImage(myImage) {
     
     try {

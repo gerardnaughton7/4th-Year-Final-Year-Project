@@ -1,3 +1,4 @@
+import { SearchPage } from './../search/search';
 import { ImagesProvider } from './../../providers/images/images';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController, ActionSheetController } from 'ionic-angular';
@@ -43,6 +44,10 @@ export class ListOfRoomsPage {
       alert("ERROR Retrieving Room Ads: " + error);
     });
     refresher.complete();
+  }
+
+  navToSearchPage(){
+    this.navCtrl.push(SearchPage);
   }
 
 }

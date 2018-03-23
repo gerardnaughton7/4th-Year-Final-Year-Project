@@ -1,3 +1,4 @@
+import { SearchPage } from './../search/search';
 import { PropertyAd } from './../../providers/propertyAd';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
@@ -38,6 +39,10 @@ export class ListOfPropertiesPage {
       alert("ERROR Retrieving Property Ads: " + error);
     });
     refresher.complete();
+  }
+
+  navToSearchPage(){
+    this.navCtrl.push(SearchPage);
   }
 
 }
