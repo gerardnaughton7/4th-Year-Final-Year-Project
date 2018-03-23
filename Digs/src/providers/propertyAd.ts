@@ -46,7 +46,12 @@ export class PropertyAd {
 
   updateProperty(update,id){
     let headers = new Headers();
-    this.http.put(this.apiURL+'api/properties/'+ id, JSON.stringify(update), {headers: headers}).map(res => res.json()); 
+    this.http.put(this.apiURL+'api/properties/'+ id, JSON.stringify(update), {headers: headers}).subscribe(res => {
+      console.log(res.json());
+    },
+    error => {
+      alert("ERROR UPDATING Property: " + error);
+    });
  
   }
 
