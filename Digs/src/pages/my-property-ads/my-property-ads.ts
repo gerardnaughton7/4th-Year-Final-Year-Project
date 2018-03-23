@@ -27,7 +27,7 @@ export class MyPropertyAdsPage {
         console.log("Data returned from MyRooms on Load: " + JSON.stringify(data));
         this.properties = data; 
       },
-      error => {
+      error => { 
         alert("ERROR Retrieving My Room Ads: " + error);
       });
     });

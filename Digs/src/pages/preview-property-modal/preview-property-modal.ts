@@ -1,3 +1,4 @@
+import { UpdateMyPropertyAdPage } from './../update-my-property-ad/update-my-property-ad';
 import { PropertyAd } from './../../providers/propertyAd';
 import { LaunchNavigator } from '@ionic-native/launch-navigator';
 import { Component } from '@angular/core';
@@ -49,7 +50,7 @@ export class PreviewPropertyModalPage {
   }
 
   updateProperty(){
-    this.viewCtrl.dismiss();
+    this.navCtrl.push(UpdateMyPropertyAdPage);
   }
 
   presentImage(myImage) {

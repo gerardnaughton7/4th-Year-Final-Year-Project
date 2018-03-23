@@ -26,15 +26,16 @@
         <p *ngIf="property.Contact == 'Email'">Email: {{property.Email}}</p>
         <p>Parking: {{property.Parking}}</p>
       </ion-card-content>
-      <button ion-button icon-end (click)="findOnMap()">
+      <button ion-button icon-end block (click)="findOnMap()">
         Find on Map
         <ion-icon name="map"></ion-icon>
       </button>
+      <br/>
       <button ion-button color="danger" *ngIf="navFrom" (click)="deleteProperty()">
         Delete Ad
       </button>
-      <button ion-button color="danger" *ngIf="navFrom" (click)="updateProperty()">
-          Delete Ad
+      <button ion-button color="secondary" *ngIf="navFrom" (click)="updateProperty()">
+          Update Ad
         </button>
     </ion-card> 
   </div>

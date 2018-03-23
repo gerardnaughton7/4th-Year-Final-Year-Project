@@ -1,3 +1,4 @@
+import { UpdateMyRoomAdPage } from './../update-my-room-ad/update-my-room-ad';
 import { RoomAd } from './../../providers/roomAd';
 import { LaunchNavigator } from '@ionic-native/launch-navigator';
 import { Component } from '@angular/core';
@@ -55,5 +56,9 @@ export class PreviewModalPage {
     } catch (error) {
       console.log("Image Error: " + error);
     }
+  }
+
+  updateRoom(){
+    this.navCtrl.push(UpdateMyRoomAdPage);
   }
 }
