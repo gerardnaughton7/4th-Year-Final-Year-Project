@@ -14,7 +14,7 @@
  
 <ion-content padding>
     <ion-searchbar placeholder="Search by Price" [(ngModel)]="terms"></ion-searchbar>
-    <button ion-button type="button" (click)="sort()">Sort</button>
+    <button ion-button type="button" (click)="sort()">Sort by College</button>
   
   <p *ngIf = "properties != null">Found {{properties.length}} Properties</p>
   <ion-refresher (ionRefresh)="doRefresh($event)">
