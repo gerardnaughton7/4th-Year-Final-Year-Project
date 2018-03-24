@@ -22,10 +22,10 @@ export class CreatePropertyAdPage {
   UID: String; 
   AdID: any = Md5.hashStr(this.time);
   PropertyType: String;
-  SingleBeds: any;
-  DoubleBeds: any;
-  TwinBeds: any;
-  EnSuite: any;
+  SingleBeds: any = 0;
+  DoubleBeds: any = 0;
+  TwinBeds: any = 0;
+  EnSuite: any = 0;
   College: String[];
   Address: String;
   Eircode: String;

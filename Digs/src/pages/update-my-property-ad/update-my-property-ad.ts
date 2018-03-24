@@ -1,4 +1,4 @@
-import { ListOfPropertiesPage } from './../list-of-properties/list-of-properties';
+import { MyPropertyAdsPage } from './../my-property-ads/my-property-ads';
 import { PropertyAd } from './../../providers/propertyAd';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
@@ -23,7 +23,7 @@ export class UpdateMyPropertyAdPage {
   email: String;
   UID: String; 
   AdID: any ;
-  PropertyType: String;
+  PropertyType: any;
   SingleBeds: any ;
   DoubleBeds: any;
   TwinBeds: any;
@@ -43,15 +43,29 @@ export class UpdateMyPropertyAdPage {
   Date: Date;
   constructor(public navCtrl: NavController, public navParams: NavParams, private propertyAdService: PropertyAd,private inAppBrowser: InAppBrowser) {
     this.property = navParams.get('property');
+    this.PropertyType = this.property.PropertyType;
+    this.SingleBeds = this.property.SingleBeds;
+    this.DoubleBeds = this.property.DoubleBeds;
+    this.TwinBeds = this.property.TwinBeds;
+    this.EnSuite = this.property.EnSuite;
+    this.College = this.property.College;
+    this.Address = this.property.Address;
+    this.Eircode = this.property.Eircode;
+    this.Price = this.property.Price;
+    this.Availability = this.property.Availability;
+    this.Email = this.property.Email;
+    this.Phone = this.property.Phone;
+    this.Contact = this.property.Contact;
+    this.Description = this.property.Description;
+    this.Parking = this.property.Parking;
   }
-
   ionViewDidLoad() {
     console.log('ionViewDidLoad UpdateMyPropertyAdPage');
   }
 
   publishUpdate(){
     let updatedProperty = {
-      UID: this.email,
+      UID: this.property.UID,
       AdID: this.property.AdID,
       PropertyType: this.PropertyType,
       SingleBeds: this.SingleBeds,
@@ -69,12 +83,11 @@ export class UpdateMyPropertyAdPage {
       Contact: this.Contact,
       Description: this.Description,
       Parking: this.Parking,
-      ImageURL: this.property.ImageURL,
+      ImageURL: this.property.ImagesUrl,
       Date: new Date()
     };
-    
     this.propertyAdService.updateProperty(updatedProperty, this.property._id);  
-    this.navCtrl.setRoot(ListOfPropertiesPage);
+    this.navCtrl.setRoot(MyPropertyAdsPage);
   }
 
   moreInfo(){

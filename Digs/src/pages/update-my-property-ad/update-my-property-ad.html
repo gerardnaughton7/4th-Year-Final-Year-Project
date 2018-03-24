@@ -14,10 +14,10 @@
 
 
 <ion-content padding>
-    <form (ngSubmit)="publishUpdate()" *ngIf="property !=null">
+    <form (ngSubmit)="publishUpdate()" *ngIf="property">
       <ion-item>
         <ion-label color="primary" floating>Type of Property</ion-label>
-        <ion-select [(ngModel)]="PropertyType" name = "PropertyType" required>
+        <ion-select [(ngModel)]="PropertyType" name = "PropertyType">
           <ion-option value="House">House</ion-option>
           <ion-option value="Apartment">Apartment</ion-option>
         </ion-select>

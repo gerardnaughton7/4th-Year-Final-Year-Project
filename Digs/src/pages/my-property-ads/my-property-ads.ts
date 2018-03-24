@@ -18,7 +18,7 @@ export class MyPropertyAdsPage {
               public modalCtrl: ModalController, private storage: Storage) {
   }
 
-  ionViewDidLoad() {
+  ionViewDidEnter() {
     this.storage.get('email').then((val) => {
       
       this.email = val;
@@ -31,7 +31,7 @@ export class MyPropertyAdsPage {
         alert("ERROR Retrieving My Room Ads: " + error);
       });
     });
-  }
+  } 
 
   openProperty(property, navFrom) {
     let modal = this.modalCtrl.create('PreviewPropertyModalPage', { property: property , navFrom: this.navFrom});

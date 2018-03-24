@@ -46,6 +46,7 @@ export class PropertyAd {
 
   updateProperty(update,id){
     let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
     this.http.put(this.apiURL+'api/properties/'+ id, JSON.stringify(update), {headers: headers}).subscribe(res => {
       console.log(res.json());
     },
@@ -54,7 +55,5 @@ export class PropertyAd {
     });
  
   }
-
-
  
 }
