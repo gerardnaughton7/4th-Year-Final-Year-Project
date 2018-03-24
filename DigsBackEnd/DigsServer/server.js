@@ -81,9 +81,8 @@ var Message = mongoose.model('Message', {
 app.get('/api/rooms', function(req, res) {
 
 	console.log("fetching rooms");
-
 	// use mongoose to get all rooms in the database
-	Room.find(function(err, rooms) {
+	Room.find(function( err, rooms) {
 
 		// if there is an error retrieving, send the error. nothing after res.send(err) will execute
 		if (err)
@@ -290,6 +289,55 @@ app.delete('/api/messages/:message_id', function (req, res) {
 		_id: req.params.message_id
 	}, function (err, message) {
 
+	});
+});
+
+// update property ad
+app.put('/api/properties/:UID', function(req, res) {
+	
+	let UID = req.body.UID;
+	//delete old ad
+	Property.remove({
+		"_id" : req.params.UID
+	}, function(err, property) {
+
+	});
+	
+	//create new ad
+	Property.create({
+		UID: req.body.UID,
+		AdID: req.body.AdID,
+		PropertyType: req.body.PropertyType,
+		SingleBeds: req.body.SingleBeds,
+		DoubleBeds: req.body.DoubleBeds,
+		TwinBeds: req.body.TwinBeds,
+		EnSuite: req.body.EnSuite,
+		College: req.body.College,
+		Eircode: req.body.Eircode,
+		Address: req.body.Address,
+		LocationDes: req.body.LocationDes,
+		Price: req.body.Price,
+		Availability: req.body.Availability,
+		Email: req.body.Email,
+		Phone: req.body.Phone,
+		Contact: req.body.Contact,
+		Description: req.body.Description,
+		Parking: req.body.Parking,
+		ImagesUrl: req.body.ImageURL,
+		Date: req.body.Date,
+		done : false
+	}, function(err, property) {
+		if (err)
+			res.send(err);
+		// use mongoose to get all properties belonging to user with UID in the database
+		Property.find({"UID": UID}, function(err, properties) {
+
+			// if there is an error retrieving, send the error. nothing after res.send(err) will execute
+			if (err)
+				res.send(err)
+
+			res.json(properties); // return all properties in JSON format
+		});
 	});
 });
  
