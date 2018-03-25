@@ -16,11 +16,16 @@
 <ion-content padding>
 
     <button ion-button type="button" (click)="sort()">Sort by College</button>
-    <P>Use slider to sort properties by mimimum Price</P>
-    <ion-item>
-        <ion-range pin ="true" max ="2000" [(ngModel)]="terms"></ion-range>
-    </ion-item>
-  
+
+    <ion-list>
+       <ion-item>
+         <ion-note item-start>
+             Max Price €
+         </ion-note>
+        <ion-range pin ="true" max ="2000" step="10" [(ngModel)]="terms"></ion-range>
+      </ion-item>
+     </ion-list>
+
   <p *ngIf = "properties != null">Found {{properties.length}} Properties</p>
   <ion-refresher (ionRefresh)="doRefresh($event)">
     <ion-refresher-content
@@ -40,7 +45,7 @@
               <img *ngIf="property.ImagesUrl[0] != null" [src]="property.ImagesUrl[0]">
               <img *ngIf="property.ImagesUrl[0] == null" src = "https://thumbs.dreamstime.com/z/cartoon-house-vector-illustration-white-background-56861518.jpg">
           </ion-thumbnail>
-          <h2>Price: {{ property.Price }}</h2>
+          <h2>Price: € {{ property.Price }}</h2>
           <p>Number of Rooms: {{ property.SingleBeds + property.DoubleBeds + property.TwinBeds + property.EnSuite }}</p>
           <p>Address: {{ property.Address }}</p>
           <p>Published: {{ property.Date | date: 'short' }}</p>

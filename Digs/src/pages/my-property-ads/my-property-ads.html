@@ -25,7 +25,7 @@
           <img *ngIf="property.ImagesUrl[0] != null" [src]="property.ImagesUrl[0]">
           <img *ngIf="property.ImagesUrl[0] == null" src = "https://thumbs.dreamstime.com/z/cartoon-house-vector-illustration-white-background-56861518.jpg">
       </ion-thumbnail>
-      <h2>Price: {{ property.Price }}</h2>
+      <h2>Price: € {{ property.Price }}</h2>
       <p>Number of Rooms: {{ property.SingleBeds + property.DoubleBeds + property.TwinBeds + property.EnSuite }}</p>
       <p>Address: {{ property.Address }}</p>
       <p>Published: {{ property.Date | date: 'short' }}</p>

@@ -35,7 +35,7 @@
               <img *ngIf="room.ImagesUrl[0] != null" [src]="room.ImagesUrl[0]">
               <img *ngIf="room.ImagesUrl[0] == null" src = "https://thumbs.dreamstime.com/z/cartoon-house-vector-illustration-white-background-56861518.jpg">
           </ion-thumbnail>
-          <h2>Price: {{ room.Price }}</h2>
+          <h2>Price: € {{ room.Price }}</h2>
           <p>Room Type: {{ room.RoomType }}</p>
           <p>Address: {{ room.Address }}</p>
           <p>Published: {{ room.Date | date: 'short'}}</p>
