@@ -340,6 +340,49 @@ app.put('/api/properties/:UID', function(req, res) {
 		});
 	});
 });
+
+// update Room ad
+app.put('/api/rooms/:UID', function(req, res) {
+	
+	let UID = req.body.UID;
+	//delete old ad
+	Room.remove({
+		"_id" : req.params.UID
+	}, function(err, room) {
+
+	});
+	
+	//create new ad
+	Room.create({
+		UID: req.body.UID,
+		AdID: req.body.AdID,
+		RoomType: req.body.RoomType,
+		College: req.body.College,
+		Eircode: req.body.Eircode,
+		Address: req.body.Address,
+		LocationDes: req.body.LocationDes,
+		Price: req.body.Price,
+		Availability: req.body.Availability,
+		Email: req.body.Email,
+		Phone: req.body.Phone,
+		Contact: req.body.Contact,
+		Description: req.body.Description,
+		Parking: req.body.Parking,
+		ImagesUrl: req.body.ImageURL,
+		Date: req.body.Date,
+		done : false
+	}, function(err, room) {
+		if (err)
+			res.send(err);
+
+		// get and return all the rooms after you create another
+		Room.find(function(err, rooms) {
+			if (err)
+				res.send(err)
+			res.json(rooms);
+		});
+	});
+});
  
  
 // listen (start app with node server.js) ======================================
