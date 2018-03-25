@@ -14,8 +14,12 @@
  <!--[(ngModel)]="terms"-->
  
 <ion-content padding>
-    <ion-searchbar placeholder="Search by Price"></ion-searchbar>
+
     <button ion-button type="button" (click)="sort()">Sort by College</button>
+    <P>Use slider to sort properties by mimimum Price</P>
+    <ion-item>
+        <ion-range pin ="true" max ="2000" [(ngModel)]="terms"></ion-range>
+    </ion-item>
   
   <p *ngIf = "properties != null">Found {{properties.length}} Properties</p>
   <ion-refresher (ionRefresh)="doRefresh($event)">
@@ -27,8 +31,9 @@
     </ion-refresher-content>
   </ion-refresher>
  <!--| search : terms | sort: {property: column, order: order}-->
+
   <ion-list>
-      <ion-item *ngFor="let property of properties">
+      <ion-item *ngFor="let property of properties | search : terms | sort: {property: column, order: order}">
     
         <ion-item tappable (click)="openProperty(property)">
           <ion-thumbnail item-start>

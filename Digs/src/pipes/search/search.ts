@@ -16,8 +16,8 @@ export class SearchPipe implements PipeTransform {
       if(!items) return [];
       if(!terms) return items;
   //  terms = terms.toLowerCase();
-    return items.filter( it => {
-      return it.Price; // only filter College
+      return items.filter( it => {
+      return it.Price < terms; // only filter College
     });
   }
 }
