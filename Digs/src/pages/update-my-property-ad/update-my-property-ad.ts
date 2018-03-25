@@ -5,13 +5,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { InAppBrowser, InAppBrowserOptions } from "@ionic-native/in-app-browser";
 
-/**
- * Generated class for the UpdateMyPropertyAdPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-update-my-property-ad',
@@ -42,7 +35,9 @@ export class UpdateMyPropertyAdPage {
   Parking: String;
   ImageURL: String[];
   Date: Date;
-  constructor(public navCtrl: NavController, public navParams: NavParams, private propertyAdService: PropertyAd,private inAppBrowser: InAppBrowser) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private propertyAdService: PropertyAd,
+              private inAppBrowser: InAppBrowser) {
+                
     this.property = navParams.get('property');
     this.PropertyType = this.property.PropertyType;
     this.SingleBeds = this.property.SingleBeds;

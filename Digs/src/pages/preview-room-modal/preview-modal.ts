@@ -59,6 +59,7 @@ export class PreviewModalPage {
   }
 
   updateRoom(){
-    this.navCtrl.push(UpdateMyRoomAdPage);
+    this.viewCtrl.dismiss();
+    this.navCtrl.push(UpdateMyRoomAdPage, {room: this.room, view: this.viewCtrl});   
   }
 }

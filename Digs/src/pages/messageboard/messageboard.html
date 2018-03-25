@@ -4,6 +4,11 @@
           <ion-icon name="menu"></ion-icon>
         </button>
         <ion-title>Message Board</ion-title>
+        <ion-buttons *ngIf="loggedIn" end>       
+          <button ion-button icon-only (click)="createMessage()" end>
+           <ion-icon name="add"></ion-icon>
+         </button>
+       </ion-buttons>
       </ion-navbar>
 </ion-header>
 

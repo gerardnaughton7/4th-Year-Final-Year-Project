@@ -14,11 +14,12 @@ export class MyRoomAdsPage {
   email: any;
   navFrom: boolean = true;
 
-  constructor(public navCtrl: NavController,public roomAdService: RoomAd, public navParams: NavParams, public modalCtrl: ModalController, private storage: Storage) {
-    
+  constructor(public navCtrl: NavController,public roomAdService: RoomAd, public navParams: NavParams, 
+              public modalCtrl: ModalController, private storage: Storage) {
+
   }
 
-  ionViewDidLoad() {
+  ionViewDidEnter(){
     this.storage.get('email').then((val) => {
       
       this.email = val;
@@ -30,7 +31,7 @@ export class MyRoomAdsPage {
       error => {
         alert("ERROR Retrieving My Room Ads: " + error);
       });
-    });
+    });  
   }
 
   openRoom(room, navFrom) {

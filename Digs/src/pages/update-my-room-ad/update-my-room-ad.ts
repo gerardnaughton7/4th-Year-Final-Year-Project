@@ -1,12 +1,10 @@
+import { HomePage } from './../home/home';
+import { PreviewModalPage } from './../preview-room-modal/preview-modal';
+import { MyRoomAdsPage } from './../my-room-ads/my-room-ads';
+import { InAppBrowser, InAppBrowserOptions  } from '@ionic-native/in-app-browser';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the UpdateMyRoomAdPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { RoomAd } from '../../providers/roomAd';
 
 @IonicPage()
 @Component({
@@ -15,11 +13,76 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class UpdateMyRoomAdPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  room: any;
+ 
+  email: String;
+  UID: String;
+  AdID: any;
+  RoomType: String;
+  College: String[];
+  Address: String;
+  Eircode: String;
+  LocationDes: String;
+  Price: any;
+  Availability: any;
+  Email: String;
+  Phone: any;
+  Contact: String;
+  Description: String;
+  Parking: String;
+  ImageURL: String[];
+  Date: Date;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private inAppBrowser: InAppBrowser, 
+              private roomAdService: RoomAd) {
+    this.room = navParams.get('room');
+    this.RoomType = this.room.RoomType;
+    this.College = this.room.College;
+    this.Address = this.room.Address;
+    this.Eircode = this.room.Eircode;
+    this.LocationDes = this.room.LocationDes;
+    this.Price = this.room.price;
+    this.Availability = this.room.Availability;
+    this.email = this.room.email;
+    this.Phone = this.room.Phone;
+    this.Contact = this.room.Contact;
+    this.Description = this.room.Description;
+    this.Parking = this.room.Parking;
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad UpdateMyRoomAdPage');
+  }
+
+  moreInfo(){
+    const options: InAppBrowserOptions = {
+      zoom: 'no'
+    }
+    // Opening a URL and returning an InAppBrowserObject
+    const browser = this.inAppBrowser.create("https://finder.eircode.ie/#/", '_self', options); 
+  }
+
+  publishUpdate(){
+    let updatedRoom = {
+      UID: this.room.UID,
+      AdID: this.room.AdID,
+      RoomType: this.RoomType,
+      College: this.College,
+      Address: this.Address,
+      Eircode: this.Eircode,
+      LocationDes: this.LocationDes,
+      Price: this.Price,
+      Availability: this.Availability,
+      Email: this.Email,
+      Phone: this.Phone,
+      Contact: this.Contact,
+      Description: this.Description,
+      Parking: this.Parking,
+      ImageURL: this.room.ImagesUrl,
+      Date: new Date()
+    };
+    this.roomAdService.updateRoom(updatedRoom, this.room._id);     
+    this.navCtrl.pop(); 
   }
 
 }

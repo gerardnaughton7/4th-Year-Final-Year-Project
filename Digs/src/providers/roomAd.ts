@@ -43,5 +43,17 @@ export class RoomAd {
     });   
  
   }
+
+  updateRoom(update, id){
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    this.http.put(this.apiURL + 'api/rooms/' + id, JSON.stringify(update), {headers: headers}).subscribe(res => {
+      console.log(res.json());
+    },
+    error => {
+      alert("ERROR UPDATING Property: " + error);
+    });
+ 
+  }
  
 }
