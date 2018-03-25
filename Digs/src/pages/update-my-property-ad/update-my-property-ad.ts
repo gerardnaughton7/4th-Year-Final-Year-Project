@@ -1,3 +1,4 @@
+import { ListOfPropertiesPage } from './../list-of-properties/list-of-properties';
 import { MyPropertyAdsPage } from './../my-property-ads/my-property-ads';
 import { PropertyAd } from './../../providers/propertyAd';
 import { Component } from '@angular/core';
@@ -86,8 +87,8 @@ export class UpdateMyPropertyAdPage {
       ImageURL: this.property.ImagesUrl,
       Date: new Date()
     };
-    this.propertyAdService.updateProperty(updatedProperty, this.property._id);  
-    this.navCtrl.setRoot(MyPropertyAdsPage);
+    this.propertyAdService.updateProperty(updatedProperty, this.property._id); 
+    this.navCtrl.pop();
   }
 
   moreInfo(){

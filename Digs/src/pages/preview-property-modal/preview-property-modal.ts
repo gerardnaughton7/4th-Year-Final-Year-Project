@@ -50,7 +50,8 @@ export class PreviewPropertyModalPage {
   }
 
   updateProperty(){
-    this.navCtrl.push(UpdateMyPropertyAdPage, {property: this.property});
+    this.viewCtrl.dismiss();
+    this.navCtrl.setRoot(UpdateMyPropertyAdPage, {property: this.property});
   }
 
   presentImage(myImage) {
