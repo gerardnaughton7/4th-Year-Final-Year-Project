@@ -31,6 +31,20 @@
     <h3 *ngIf="email">{{ email }}</h3> 
   </ion-item>
 
+  <br />
+
+  <ion-item *ngIf="email" (click)="goToRooms()">
+    <ion-icon name="list-box" item-start></ion-icon>
+    Number of Rooms
+    <ion-badge *ngIf = "rooms != null" item-end>{{ rooms.length }}</ion-badge>
+  </ion-item>
+
+  <ion-item *ngIf="email" (click)="goToProperties()">
+    <ion-icon name="list-box" item-start></ion-icon>
+    Number of Properties
+    <ion-badge *ngIf = "properties != null" item-end>{{ properties.length }}</ion-badge>
+  </ion-item>
+
   <button ion-button primary (click)="goToLogin()">Login Page</button>
 </ion-content>
 

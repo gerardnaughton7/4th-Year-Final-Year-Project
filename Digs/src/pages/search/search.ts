@@ -23,15 +23,10 @@ export class SearchPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private propertyAd: PropertyAd, private roomAd: RoomAd) {
     this.navFrom = navParams.get("navFrom");
-    console.log("in search cons"+ navParams.get('navFrom'));
   }
 
   ionViewDidEnter(){
    this.navFrom = this.navParams.get("navFrom");
-  }
-  
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SearchPage');
   }
 
   SearchAds(){

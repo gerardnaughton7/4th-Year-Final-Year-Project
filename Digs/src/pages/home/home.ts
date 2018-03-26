@@ -1,3 +1,7 @@
+import { RoomAd } from './../../providers/roomAd';
+import { ListOfRoomsPage } from './../list-of-rooms/list-of-rooms';
+import { ListOfPropertiesPage } from './../list-of-properties/list-of-properties';
+import { PropertyAd } from './../../providers/propertyAd';
 import { LoginPage } from './../login/login';
 import { Component } from '@angular/core';
 import { NavController, NavParams, ToastController } from 'ionic-angular';
@@ -15,10 +19,27 @@ export class HomePage {
   displayName: any;
   email: any;
   photoURL: any;
+  properties: any;
+  rooms: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private afAuth: AngularFireAuth, 
-              private toast: ToastController, public googleplus: GooglePlus, private storage: Storage) {
-      
+              private toast: ToastController, public googleplus: GooglePlus, private storage: Storage, 
+              private propertyAdService: PropertyAd, private roomAdService: RoomAd) {
+    
+    this.propertyAdService.getProperties().subscribe((data) => {
+      this.properties = data;
+    },
+    error => {
+      console.log("ERROR Retrieving Property Ads: " + error);
+    });
+
+    this.roomAdService.getRooms().subscribe((data) => {
+      console.log("Data returned from ListRooms on Load: " + JSON.stringify(data));
+      this.rooms = data.reverse(); 
+    },
+    error => {
+      alert("ERROR Retrieving Room Ads: " + error);
+    });
   }
 
   ionViewWillLoad(){
@@ -44,5 +65,13 @@ export class HomePage {
   /*TODO *** Remove later - handy for debugging */
   goToLogin(){
     this.navCtrl.push(LoginPage);
+  }
+
+  goToRooms(){
+    this.navCtrl.push(ListOfRoomsPage);
+  }
+
+  goToProperties(){
+    this.navCtrl.push(ListOfPropertiesPage);
   }
 }

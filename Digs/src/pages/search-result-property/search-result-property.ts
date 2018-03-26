@@ -11,7 +11,6 @@ export class SearchResultPropertyPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
     this.properties = this.navParams.get("data");
-    console.log("In Search Results: " + JSON.stringify(this.properties));
   }
 
   ionViewDidLoad() {
