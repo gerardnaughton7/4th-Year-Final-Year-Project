@@ -17,10 +17,10 @@
   <form (ngSubmit)="SearchAds()" ngNativeValidate>
 
     <ion-item>
-      <ion-label color="primary" start>Max Price</ion-label>
+      <ion-label color="primary" start>Max Price: {{Price}}</ion-label>
       <ion-range min="0" max="3000" [(ngModel)]="Price" name = "Price" color="primary">
         <ion-label range-left>0</ion-label>
-        <ion-label range-right>200</ion-label>
+        <ion-label range-right>3000</ion-label>
       </ion-range>
 
     </ion-item>
