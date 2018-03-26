@@ -16,7 +16,7 @@ export class MyRoomAdsPage {
   navFrom: boolean = true;
 
   constructor(public navCtrl: NavController,public roomAdService: RoomAd, public navParams: NavParams, 
-              public modalCtrl: ModalController, private storage: Storage) {
+              public modalCtrl: ModalController, private storage: Storage, private roomAd: RoomAd) {
 
   }
 
@@ -52,5 +52,17 @@ export class MyRoomAdsPage {
 
   updateAd(room){
     this.navCtrl.push(UpdateMyRoomAdPage, {room: room});
+  }
+
+  deleteAd(room){
+    console.log("Deleting...");
+    try{
+      this.roomAd.deleteRoom(room._id);
+    }
+    catch(e){
+      console.log("Error deleting...: " + e);
+    }
+    let hideFooterTimeout = setTimeout( () => { this.navCtrl.setRoot(MyRoomAdsPage); }, 700);
+   
   }
 }

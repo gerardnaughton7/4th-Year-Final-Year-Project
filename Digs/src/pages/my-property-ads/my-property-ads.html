@@ -33,6 +33,10 @@
     </ion-item>
 
     <ion-item-options side="right">
+      <button ion-button color="danger" (click)="deleteAd(property)">
+        <ion-icon name="trash" ></ion-icon>
+        Delete
+      </button>
       <button ion-button (click)="updateAd(property);">
         <ion-icon name="create"></ion-icon>
         Edit

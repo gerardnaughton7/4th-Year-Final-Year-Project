@@ -42,11 +42,6 @@ export class PreviewModalPage {
     }
   }
 
-  deleteRoom(){
-    this.roomAd.deleteRoom(this.room._id);
-    this.viewCtrl.dismiss();
-  }
-
   presentImage(myImage) {
     
     try {
