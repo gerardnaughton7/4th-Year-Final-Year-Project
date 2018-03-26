@@ -16,7 +16,7 @@ export class MyPropertyAdsPage {
   email: any;
 
   constructor(public navCtrl: NavController,public propertyAdService: PropertyAd, public navParams: NavParams, 
-              public modalCtrl: ModalController, private storage: Storage) {
+              public modalCtrl: ModalController, private storage: Storage, private propertyService: PropertyAd) {
   }
 
   ionViewDidEnter() {
@@ -41,5 +41,16 @@ export class MyPropertyAdsPage {
 
   updateAd(property){
     this.navCtrl.push(UpdateMyPropertyAdPage, {property: property});
+  }
+
+  deleteAd(property){
+    try{
+      this.propertyService.deleteProperty(property._id);
+    }
+    catch(e){
+      console.log("Error deleting...: " + e);
+    }
+    let hideFooterTimeout = setTimeout( () => { this.navCtrl.setRoot(MyPropertyAdsPage); }, 700);
+  
   }
 }
