@@ -390,7 +390,44 @@ app.put('/api/rooms/:UID', function(req, res) {
 		});
 	});
 });
- 
+
+//search function college parking and number of rooms properties
+app.get('/api/searchProperties/:Col/:numRooms/:parking', function(req, res) {
+	let Col = req.params.Col;
+	let numRooms = req.params.numRooms;
+	let Parking = req.params.parking;
+	console.log("fetching Search properties" + Col + numRooms);
+
+	// use mongoose to get all properties with this earch criteria in the database
+	Property.find({"College": Col, "NoRooms":numRooms, "Parking": Parking}, function(err, properties) {
+
+		// if there is an error retrieving, send the error. nothing after res.send(err) will execute
+		if (err)
+			res.send(err)
+
+		res.json(properties); // return all properties in JSON format
+	});
+});
+
+//search function on college parking price and number of rooms properties
+app.get('/api/searchProperties/:col/:numRooms/:parking/:price', function(req, res) {
+	let Col = req.params.col;
+	let numRooms = req.params.numRooms;
+	let Parking = req.params.parking;
+	let Price = req.params.price
+	console.log("fetching Search properties" + Col + numRooms);
+
+	// use mongoose to get all properties with this earch criteria in the database
+	Property.find({"College": Col, "NoRooms":numRooms, "Parking": Parking, "Price": {$lt: Price }}, function(err, properties) {
+
+		// if there is an error retrieving, send the error. nothing after res.send(err) will execute
+		if (err)
+			res.send(err)
+
+		res.json(properties); // return all properties in JSON format
+	});
+});
+  
  
 // listen (start app with node server.js) ======================================
 app.listen(8080);
