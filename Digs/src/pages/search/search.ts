@@ -48,12 +48,23 @@ export class SearchPage {
     }
     else//search for properties
     {
-      this.propertyAd.searchPropertyOnThreeParams(this.College, this.NoOfRooms, this.Parking).subscribe(data => {
-        this.navCtrl.push(SearchResultPropertyPage, {data: data});
-      }),
-      error => {
-        alert("ERROR Retrieving Search Results: " + error);
-      };
+      if(this.Price != null || this.Price == 0){
+        this.propertyAd.searchPropertyOnFourParams(this.College, this.NoOfRooms, this.Parking, this.Price).subscribe(data => {
+          this.navCtrl.push(SearchResultPropertyPage, {data: data});
+        }),
+        error => {
+          alert("ERROR Retrieving Search Results: " + error);
+        };
+      }
+      else{
+        this.propertyAd.searchPropertyOnThreeParams(this.College, this.NoOfRooms, this.Parking).subscribe(data => {
+          this.navCtrl.push(SearchResultPropertyPage, {data: data});
+        }),
+        error => {
+          alert("ERROR Retrieving Search Results: " + error);
+        };
+      }
+  
     }
     
   }

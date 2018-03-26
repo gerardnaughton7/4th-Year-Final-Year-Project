@@ -59,5 +59,9 @@ export class PropertyAd {
   searchPropertyOnThreeParams(College, numRooms, Parking){
     return this.http.get(this.apiURL + 'api/searchProperties/' + College + "/" + numRooms + "/" + Parking).map(res => res.json());
   }
+
+  searchPropertyOnFourParams(College, numRooms, Parking, Price){
+    return this.http.get(this.apiURL + 'api/searchProperties/' + College + "/" + numRooms + "/" + Parking + "/" + Price).map(res => res.json());
+  }
  
 }
