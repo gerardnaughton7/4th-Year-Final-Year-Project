@@ -52,6 +52,7 @@ var Property = mongoose.model('Property', {
 	DoubleBeds: Number,
 	TwinBeds: Number,
 	EnSuite: Number,
+	NoRooms: Number,
     College: [String],
 	Address: String,
     Eircode: String,
@@ -201,6 +202,11 @@ app.post('/api/rooms', function(req, res) {
 app.post('/api/properties', function(req, res) {
 
 	console.log("creating properties");
+	let d = Number(req.body.DoubleBeds);
+	let s = Number(req.body.SingleBeds);
+	let t = Number(req.body.TwinBeds);
+	let e = Number(req.body.EnSuite);
+	total = d + s + t + e;
 
 	// create a property, information comes from request from Ionic
 	Property.create({
@@ -211,6 +217,7 @@ app.post('/api/properties', function(req, res) {
 		DoubleBeds: req.body.DoubleBeds,
 		TwinBeds: req.body.TwinBeds,
 		EnSuite: req.body.EnSuite,
+		NoRooms: total,
 		College: req.body.College,
 		Eircode: req.body.Eircode,
 		Address: req.body.Address,
