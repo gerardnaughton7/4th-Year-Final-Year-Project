@@ -15,6 +15,15 @@
 
 <ion-content padding>
 
+    <ion-list>
+        <ion-item>
+          <ion-note item-start>
+              Max Price €
+          </ion-note>
+         <ion-range pin ="true" max ="2000" step="10" [(ngModel)]="terms"></ion-range>
+       </ion-item>
+      </ion-list>
+
   <p *ngIf = "rooms != null">Found {{rooms.length}} Rooms</p>
 
   <ion-refresher (ionRefresh)="doRefresh($event)">
@@ -28,7 +37,7 @@
   
  
   <ion-list>
-      <ion-item *ngFor="let room of rooms">
+      <ion-item *ngFor="let room of rooms  | search : terms | sort: {property: column, order: order}">
     
         <ion-item tappable (click)="openRoom(room)">
           <ion-thumbnail item-start>
