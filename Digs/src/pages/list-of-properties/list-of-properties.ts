@@ -45,7 +45,7 @@ export class ListOfPropertiesPage {
   }
 
   navToSearchPage(){
-    this.navCtrl.push(SearchPage);
+    this.navCtrl.push(SearchPage, {navFrom: false});
   }
 
   sort(){

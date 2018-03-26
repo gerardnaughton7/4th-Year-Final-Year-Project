@@ -47,7 +47,7 @@ export class ListOfRoomsPage {
   }
 
   navToSearchPage(){
-    this.navCtrl.push(SearchPage);
+    this.navCtrl.push(SearchPage, {navFrom: true});
   }
 
 }

@@ -8,10 +8,10 @@
 </ion-header>
 
   <ion-content padding>
-    <form (ngSubmit)="publishAd()">
+    <form (ngSubmit)="publishAd()" ngNativeValidate>
 
       <ion-item>
-        <ion-label color="primary" floating>Room Type</ion-label>
+        <ion-label color="primary" floating>Room Type*</ion-label>
         <ion-select [(ngModel)]="RoomType" name = "RoomType">
           <ion-option value="Single">Single</ion-option>
           <ion-option value="Double">Double</ion-option>
@@ -21,7 +21,7 @@
       </ion-item>
 
       <ion-item>
-        <ion-label color="primary" floating>College Campus</ion-label>
+        <ion-label color="primary" floating>College Campus*</ion-label>
         <ion-select [(ngModel)]="College" multiple="true" name = "College">
           <ion-option>GMIT</ion-option>
           <ion-option>NUIG</ion-option>
@@ -33,13 +33,13 @@
       </ion-item>
       
       <ion-item>
-          <ion-label color="primary" floating>Address</ion-label>
-          <ion-input [(ngModel)]="Address" type="text" name = "Address"></ion-input>
+          <ion-label color="primary" floating>Address*</ion-label>
+          <ion-input [(ngModel)]="Address" type="text" name = "Address" required></ion-input>
       </ion-item>
       
       <ion-item>
-          <ion-label color="primary" floating>Eircode</ion-label>
-          <ion-input [(ngModel)]="Eircode" name = "Eircode"></ion-input>
+          <ion-label color="primary" floating>Eircode*</ion-label>
+          <ion-input [(ngModel)]="Eircode" name = "Eircode" type="text" required></ion-input>
           <button ion-button icon-only clear item-end type="button" class="info" (click)="moreInfo()">
             <p style="margin-right: 10px">Find Your Eircode</p>
             <ion-icon name="information-circle" item-end></ion-icon>          
@@ -47,7 +47,7 @@
       </ion-item>
     
       <ion-item>
-        <ion-label color="primary" floating>Location description</ion-label>
+        <ion-label color="primary" floating>Location description*</ion-label>
         <ion-select [(ngModel)]="LocationDes" name = "LocationDes">
           <ion-option value="City Centre">City Centre</ion-option>
           <ion-option value="Close to Campus">Close to Campus</ion-option>
@@ -56,27 +56,27 @@
       </ion-item>
     
       <ion-item>
-          <ion-label color="primary" floating>Price</ion-label>
-          <ion-input [(ngModel)]="Price" type="number" name = "price"></ion-input>
+          <ion-label color="primary" floating>Price*</ion-label>
+          <ion-input [(ngModel)]="Price" type="number" name = "price" required></ion-input>
       </ion-item>
     
       <ion-item>
-          <ion-label color="primary" floating>Availabilty (dd/mm/yy)</ion-label>
-          <ion-datetime [(ngModel)]="Availability" displayFormat="MM/DD/YYYY" min="2018" max="2020" name = "Availability"></ion-datetime>
+          <ion-label color="primary" floating>Availabilty*</ion-label>
+          <ion-datetime [(ngModel)]="Availability" displayFormat="MM/DD/YYYY" min="2018" max="2020" name = "Availability" required></ion-datetime>
       </ion-item>
     
       <ion-item>
-          <ion-label color="primary" floating>Email Address</ion-label>
-          <ion-input [(ngModel)]="Email" type="email" name = "Email"></ion-input>
+          <ion-label color="primary" floating>Email Address*</ion-label>
+          <ion-input [(ngModel)]="Email" type="email" name = "Email" required></ion-input>
       </ion-item>
     
       <ion-item>
-          <ion-label color="primary" floating>Phone Number</ion-label>
-          <ion-input [(ngModel)]="Phone" type="tel" name = "Phone"></ion-input>
+          <ion-label color="primary" floating>Phone Number*</ion-label>
+          <ion-input [(ngModel)]="Phone" type="tel" name = "Phone" required></ion-input>
       </ion-item>
     
       <ion-item>
-        <ion-label color="primary" floating>How of Contact</ion-label>
+        <ion-label color="primary" floating>How of Contact*</ion-label>
         <ion-select [(ngModel)]="Contact" name = "Contact">
           <ion-option value="Email">Email</ion-option>
           <ion-option value="Phone">Phone</ion-option>
@@ -84,12 +84,12 @@
       </ion-item>
     
       <ion-item>
-        <ion-label color="primary" floating>Description</ion-label>
-        <ion-textarea [(ngModel)]="Description" type="text" name = "Description"></ion-textarea>
+        <ion-label color="primary" floating>Description*</ion-label>
+        <ion-textarea [(ngModel)]="Description" type="text" name = "Description" required></ion-textarea>
       </ion-item>
     
       <ion-item>
-        <ion-label color="primary" floating>Parking</ion-label>
+        <ion-label color="primary" floating>Parking*</ion-label>
         <ion-select [(ngModel)]="Parking" name = "Parking">
           <ion-option value="Yes">Yes</ion-option>
           <ion-option value="No">No</ion-option>
@@ -98,7 +98,8 @@
 
       <button full ion-button color="primary" type ="button" name="imageUpload" (click)="uploadOption()">{{imageButton}}</button>
       <br/>
-      <button full ion-button color="primary" type="submit" name= "submit">Publish Ad</button>
+      <button full ion-button color="primary" type="submit" name= "submit" [disabled]="RoomType == null|| Availability == null || College == null || LocationDes == null || Contact == null || Parking== null">Publish Ad</button>
+      <p [hidden]= "!(Parking == null || RoomType == null || College == null || Availability == null || LocationDes == null || Contact == null)" style=" text-align: center">* All Fields must be Entered</p>
     </form>
 
 </ion-content>

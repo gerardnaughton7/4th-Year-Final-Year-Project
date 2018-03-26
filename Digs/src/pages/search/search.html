@@ -14,5 +14,59 @@
 
 
 <ion-content padding>
-hello everyone
+  <form (ngSubmit)="SearchAds()" ngNativeValidate>
+
+    <ion-item>
+      <ion-label color="primary" start>Max Price</ion-label>
+      <ion-range min="0" max="2000" [(ngModel)]="Price" name = "Price" color="primary">
+        <ion-label range-left>0</ion-label>
+        <ion-label range-right>200</ion-label>
+      </ion-range>
+
+    </ion-item>
+    <ion-item>
+        <ion-label color="primary" floating>College Campus*</ion-label>
+        <ion-select [(ngModel)]="College" name = "College">
+          <ion-option>GMIT</ion-option>
+          <ion-option>NUIG</ion-option>
+          <ion-option>LIT</ion-option>
+          <ion-option>Mary I</ion-option>
+          <ion-option>LU</ion-option>
+          <ion-option>DIT</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item [hidden] ="navFrom">
+        <ion-label color="primary" floating>Number of Rooms*</ion-label>
+        <ion-input [(ngModel)]="NoOfRooms" type="number" name = "NoOfRooms"></ion-input>
+      </ion-item>
+
+      <ion-item [hidden] ="!navFrom">
+          <ion-label color="primary" floating>Room Type*</ion-label>
+          <ion-select [(ngModel)]="RoomType" name = "RoomType">
+            <ion-option value="Single">Single</ion-option>
+            <ion-option value="Double">Double</ion-option>
+            <ion-option value="Twin-Room">Twin-Room</ion-option>
+            <ion-option value="En-suite">En-suite</ion-option>
+          </ion-select>
+        </ion-item>
+
+      <ion-item>
+        <ion-label color="primary" floating>Parking*</ion-label>
+        <ion-select [(ngModel)]="Parking" name = "Parking">
+          <ion-option value="Yes">Yes</ion-option>
+          <ion-option value="No">No</ion-option>
+        </ion-select>
+      </ion-item>
+      <div *ngIf="navFrom">
+        <button full ion-button color="primary" type="submit" name= "submit" [disabled]="Parking == null || RoomType == null || College == null">Search Ads</button>
+        <p [hidden]= "!(Parking == null || RoomType == null || College == null)" style="text-align: center">*Required Fields must be Entered</p>
+      </div>
+      <div *ngIf="!navFrom">
+      <button full ion-button color="primary" type="submit" name= "submit" [disabled]="Parking == null || NoOfRooms == null || College == null">Search Ads</button>
+        <p [hidden]= "!(Parking == null || NoOfRooms == null || College == null)" style=" text-align: center">*Required Fields must be Entered</p>
+      </div>
+  </form>
+    
+
 </ion-content>
