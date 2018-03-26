@@ -1,3 +1,4 @@
+import { UpdateMyPropertyAdPage } from './../update-my-property-ad/update-my-property-ad';
 import { Storage } from '@ionic/storage';
 import { PropertyAd } from './../../providers/propertyAd';
 import { Component } from '@angular/core';
@@ -36,5 +37,9 @@ export class MyPropertyAdsPage {
   openProperty(property, navFrom) {
     let modal = this.modalCtrl.create('PreviewPropertyModalPage', { property: property , navFrom: this.navFrom});
     modal.present();  
+  }
+
+  updateAd(property){
+    this.navCtrl.push(UpdateMyPropertyAdPage, {property: property});
   }
 }

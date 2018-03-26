@@ -36,14 +36,15 @@ export class UpdateMyRoomAdPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, private inAppBrowser: InAppBrowser, 
               private roomAdService: RoomAd) {
     this.room = navParams.get('room');
+    console.log("In Update Room, Price passed over: " + this.room.Price);
     this.RoomType = this.room.RoomType;
     this.College = this.room.College;
     this.Address = this.room.Address;
     this.Eircode = this.room.Eircode;
     this.LocationDes = this.room.LocationDes;
-    this.Price = this.room.price;
+    this.Price = this.room.Price;
     this.Availability = this.room.Availability;
-    this.email = this.room.email;
+    this.email = this.room.Email;
     this.Phone = this.room.Phone;
     this.Contact = this.room.Contact;
     this.Description = this.room.Description;
@@ -82,7 +83,7 @@ export class UpdateMyRoomAdPage {
       Date: new Date()
     };
     this.roomAdService.updateRoom(updatedRoom, this.room._id);     
-    this.navCtrl.pop(); 
+    this.navCtrl.pop();
   }
 
 }

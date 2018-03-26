@@ -57,9 +57,4 @@ export class PreviewModalPage {
       console.log("Image Error: " + error);
     }
   }
-
-  updateRoom(){
-    this.viewCtrl.dismiss();
-    this.navCtrl.push(UpdateMyRoomAdPage, {room: this.room, view: this.viewCtrl});   
-  }
 }

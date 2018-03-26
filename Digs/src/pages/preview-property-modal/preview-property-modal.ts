@@ -49,11 +49,6 @@ export class PreviewPropertyModalPage {
     this.viewCtrl.dismiss();
   }
 
-  updateProperty(){
-    this.viewCtrl.dismiss();
-    this.navCtrl.setRoot(UpdateMyPropertyAdPage, {property: this.property});
-  }
-
   presentImage(myImage) {
     
     try {

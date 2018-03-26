@@ -1,3 +1,4 @@
+import { UpdateMyRoomAdPage } from './../update-my-room-ad/update-my-room-ad';
 import { Storage } from '@ionic/storage';
 import { RoomAd } from './../../providers/roomAd';
 import { Component } from '@angular/core';
@@ -25,7 +26,7 @@ export class MyRoomAdsPage {
       this.email = val;
 
       this.roomAdService.getMyRooms(this.email).subscribe((data) => {
-        console.log("Data returned from MyRooms on Load: " + JSON.stringify(data));
+        //console.log("Data returned from MyRooms on Load: " + JSON.stringify(data));
         this.rooms = data; 
       },
       error => {
@@ -47,5 +48,9 @@ export class MyRoomAdsPage {
         alert("ERROR Retrieving My Room Ads: " + error);
       });
     });
+  }
+
+  updateAd(room){
+    this.navCtrl.push(UpdateMyRoomAdPage, {room: room});
   }
 }
