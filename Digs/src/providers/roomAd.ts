@@ -55,5 +55,14 @@ export class RoomAd {
     });
  
   }
+
+  // Search Functionality - Searching on three params and then on four params
+  searchRoomOnThreeParams(College, RoomType, Parking){
+    return this.http.get(this.apiURL + 'api/searchRooms/' + College + "/" + RoomType + "/" + Parking).map(res => res.json());
+  }
+
+  searchRoomOnFourParams(College, RoomType, Parking, Price){
+    return this.http.get(this.apiURL + 'api/searchRooms/' + College + "/" + RoomType + "/" + Parking + "/" + Price).map(res => res.json());
+  }
  
 }

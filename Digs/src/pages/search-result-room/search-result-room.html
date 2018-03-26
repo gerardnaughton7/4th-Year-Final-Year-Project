@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Rooms</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <p *ngIf = "rooms != null">Found {{rooms.length}} Rooms</p>
+
+  <ion-list>
+      <ion-item *ngFor="let room of rooms">
+    
+        <ion-item tappable (click)="openRoom(room)">
+          <ion-thumbnail item-start>
+              <img *ngIf="room.ImagesUrl[0] != null" [src]="room.ImagesUrl[0]">
+              <img *ngIf="room.ImagesUrl[0] == null" src = "https://thumbs.dreamstime.com/z/cartoon-house-vector-illustration-white-background-56861518.jpg">
+          </ion-thumbnail>
+          <h2>Price: € {{ room.Price }}</h2>
+          <p>Room Type: {{ room.RoomType }}</p>
+          <p>Address: {{ room.Address }}</p>
+          <p>Published: {{ room.Date | date: 'short'}}</p>
+          <button ion-button clear icon-only item-end> <ion-icon name="arrow-forward"></ion-icon></button>
+        </ion-item>
+    
+      </ion-item>
+    </ion-list>
+  
+</ion-content>
+

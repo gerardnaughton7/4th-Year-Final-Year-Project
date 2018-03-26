@@ -1,3 +1,4 @@
+import { SearchResultRoomPage } from './../pages/search-result-room/search-result-room';
 import { SearchResultPropertyPage } from './../pages/search-result-property/search-result-property';
 import { UpdateMyRoomAdPage } from './../pages/update-my-room-ad/update-my-room-ad';
 import { UpdateMyPropertyAdPage } from './../pages/update-my-property-ad/update-my-property-ad';
@@ -69,7 +70,8 @@ firebase.initializeApp(FIREBASE_CONFIG);
     UpdateMyRoomAdPage,
     SearchPipe,
     SortPipe,
-    SearchResultPropertyPage
+    SearchResultPropertyPage,
+    SearchResultRoomPage
   ],
   imports: [
     BrowserModule,
@@ -99,7 +101,8 @@ firebase.initializeApp(FIREBASE_CONFIG);
     SearchPage,
     UpdateMyPropertyAdPage,
     UpdateMyRoomAdPage,
-    SearchResultPropertyPage
+    SearchResultPropertyPage,
+    SearchResultRoomPage
   ],
   providers: [
     StatusBar,
