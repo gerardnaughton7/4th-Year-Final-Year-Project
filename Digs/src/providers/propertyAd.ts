@@ -53,7 +53,11 @@ export class PropertyAd {
     error => {
       alert("ERROR UPDATING Property: " + error);
     });
- 
+
+  }
+  // Search Functionality - Searching on three params and then on four params
+  searchPropertyOnThreeParams(College, numRooms, Parking){
+    return this.http.get(this.apiURL + 'api/searchProperties/' + College + "/" + numRooms + "/" + Parking).map(res => res.json());
   }
  
 }

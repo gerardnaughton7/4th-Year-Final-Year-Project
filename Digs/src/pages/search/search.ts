@@ -1,6 +1,9 @@
+import { SearchResultPropertyPage } from './../search-result-property/search-result-property';
+import { PropertyAd } from './../../providers/propertyAd';
 import { ListOfPropertiesPage } from './../list-of-properties/list-of-properties';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { RoomAd } from '../../providers/roomAd';
 
 /**
  * Generated class for the SearchPage page.
@@ -24,7 +27,7 @@ export class SearchPage {
   Price: Number;
   isFilled: boolean = false;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private propertyAd: PropertyAd, private roomAd: RoomAd) {
     this.navFrom = navParams.get("navFrom");
     console.log("in search cons"+ navParams.get('navFrom'));
   }
@@ -38,6 +41,20 @@ export class SearchPage {
   }
 
   SearchAds(){
-    this.navCtrl.setRoot(ListOfPropertiesPage);
+    //check if the search is for rooms or propertys
+    if(this.navFrom == true)//if true its for rooms
+    {
+        
+    }
+    else//search for properties
+    {
+      this.propertyAd.searchPropertyOnThreeParams(this.College, this.NoOfRooms, this.Parking).subscribe(data => {
+        this.navCtrl.push(SearchResultPropertyPage, {data: data});
+      }),
+      error => {
+        alert("ERROR Retrieving Search Results: " + error);
+      };
+    }
+    
   }
 }
