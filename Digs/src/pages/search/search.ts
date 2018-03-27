@@ -1,7 +1,6 @@
 import { SearchResultRoomPage } from './../search-result-room/search-result-room';
 import { SearchResultPropertyPage } from './../search-result-property/search-result-property';
 import { PropertyAd } from './../../providers/propertyAd';
-import { ListOfPropertiesPage } from './../list-of-properties/list-of-properties';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { RoomAd } from '../../providers/roomAd';

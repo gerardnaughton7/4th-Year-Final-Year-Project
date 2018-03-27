@@ -2,14 +2,12 @@ import { Storage } from '@ionic/storage';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { MyPropertyAdsPage } from './../pages/my-property-ads/my-property-ads';
 import { MyRoomAdsPage } from './../pages/my-room-ads/my-room-ads';
-import { RegisterPage } from './../pages/register/register';
 import { LoginPage } from './../pages/login/login';
 import { ListOfRoomsPage } from './../pages/list-of-rooms/list-of-rooms';
 import { ListOfPropertiesPage } from './../pages/list-of-properties/list-of-properties';
 import { CreatePage } from './../pages/create/create';
-import { CreatePropertyAdPage } from './../pages/create-property-ad/create-property-ad';
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform, Events, ToastController, AlertController } from 'ionic-angular';
+import { Nav, Platform, Events, AlertController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { MessageboardPage } from './../pages/messageboard/messageboard';
@@ -32,7 +30,7 @@ export class MyApp {
   loggedInPages: Array<{title: string, component: any, icon: string}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public events: Events,
-                private afAuth: AngularFireAuth, private toast: ToastController, private alertCtrl: AlertController, private storage: Storage) {
+                private afAuth: AngularFireAuth, private alertCtrl: AlertController, private storage: Storage) {
 
     this.initializeApp();
          

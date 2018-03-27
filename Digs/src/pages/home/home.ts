@@ -2,12 +2,9 @@ import { RoomAd } from './../../providers/roomAd';
 import { ListOfRoomsPage } from './../list-of-rooms/list-of-rooms';
 import { ListOfPropertiesPage } from './../list-of-properties/list-of-properties';
 import { PropertyAd } from './../../providers/propertyAd';
-import { LoginPage } from './../login/login';
 import { Component } from '@angular/core';
 import { NavController, NavParams, ToastController } from 'ionic-angular';
-import { AngularFireAuth } from 'angularfire2/auth';
 import { Storage } from '@ionic/storage';
-import firebase from 'firebase';
 import { GooglePlus } from '@ionic-native/google-plus';
 
 @Component({
@@ -22,7 +19,7 @@ export class HomePage {
   properties: any;
   rooms: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private afAuth: AngularFireAuth, 
+  constructor(public navCtrl: NavController, public navParams: NavParams, 
               private toast: ToastController, public googleplus: GooglePlus, private storage: Storage, 
               private propertyAdService: PropertyAd, private roomAdService: RoomAd) {
     

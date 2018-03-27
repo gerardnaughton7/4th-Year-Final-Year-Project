@@ -1,11 +1,9 @@
 import { Storage } from '@ionic/storage';
 import { ListOfPropertiesPage } from './../list-of-properties/list-of-properties';
-import { RoomAd } from './../../providers/roomAd';
 import { Camera } from '@ionic-native/camera';
 import { ImagesProvider } from './../../providers/images/images';
 import { Md5 } from 'ts-md5/dist/md5';
 import { PropertyAd } from './../../providers/propertyAd';
-import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, ViewController, NavParams, ActionSheetController, ModalController  } from 'ionic-angular';
 import { InAppBrowser, InAppBrowserOptions } from "@ionic-native/in-app-browser";

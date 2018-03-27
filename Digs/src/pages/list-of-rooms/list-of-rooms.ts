@@ -1,8 +1,6 @@
 import { SearchPage } from './../search/search';
-import { ImagesProvider } from './../../providers/images/images';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController, ActionSheetController } from 'ionic-angular';
-import { Camera, CameraOptions } from '@ionic-native/camera';
+import { IonicPage, NavController, NavParams, ModalController} from 'ionic-angular';
 import { RoomAd } from './../../providers/roomAd';
 
 @IonicPage()

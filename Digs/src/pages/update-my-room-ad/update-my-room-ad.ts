@@ -1,6 +1,3 @@
-import { HomePage } from './../home/home';
-import { PreviewModalPage } from './../preview-room-modal/preview-modal';
-import { MyRoomAdsPage } from './../my-room-ads/my-room-ads';
 import { InAppBrowser, InAppBrowserOptions  } from '@ionic-native/in-app-browser';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';

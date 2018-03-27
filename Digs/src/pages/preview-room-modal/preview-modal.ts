@@ -1,5 +1,3 @@
-import { UpdateMyRoomAdPage } from './../update-my-room-ad/update-my-room-ad';
-import { RoomAd } from './../../providers/roomAd';
 import { LaunchNavigator } from '@ionic-native/launch-navigator';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
@@ -18,7 +16,7 @@ export class PreviewModalPage {
   imageViewer: ImageViewerController;
 
  
-  constructor(public navCtrl: NavController, public navParams: NavParams, private roomAd: RoomAd, private viewCtrl: ViewController, 
+  constructor(public navCtrl: NavController, public navParams: NavParams, private viewCtrl: ViewController, 
               private launchNavigator: LaunchNavigator, public imageViewerCtrl: ImageViewerController) {
     this.room = this.navParams.get('room');
     this.navFrom = this.navParams.get('navFrom');

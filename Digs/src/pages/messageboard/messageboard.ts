@@ -1,6 +1,6 @@
 import { CreatemessagePage } from './../createmessage/createmessage';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController, ActionSheetController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController} from 'ionic-angular';
 import { Message } from './../../providers/message';
 import { Storage } from '@ionic/storage';
 

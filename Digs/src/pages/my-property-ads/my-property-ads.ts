@@ -50,7 +50,7 @@ export class MyPropertyAdsPage {
     catch(e){
       console.log("Error deleting...: " + e);
     }
-    let hideFooterTimeout = setTimeout( () => { this.navCtrl.setRoot(MyPropertyAdsPage); }, 700);
+    let deleteTimeout = setTimeout( () => { this.navCtrl.setRoot(MyPropertyAdsPage); }, 500);
   
   }
 }

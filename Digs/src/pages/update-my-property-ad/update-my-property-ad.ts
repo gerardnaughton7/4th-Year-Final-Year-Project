@@ -1,5 +1,3 @@
-import { ListOfPropertiesPage } from './../list-of-properties/list-of-properties';
-import { MyPropertyAdsPage } from './../my-property-ads/my-property-ads';
 import { PropertyAd } from './../../providers/propertyAd';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';

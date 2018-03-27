@@ -1,8 +1,7 @@
 import { CreatePropertyAdPage } from './../create-property-ad/create-property-ad';
 import { CreateRoomAdPage } from './../create-room-ad/create-room-ad';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController} from 'ionic-angular';
-import { HomePage } from './../home/home';
+import { IonicPage, NavController, NavParams} from 'ionic-angular';
 
 @IonicPage()
 @Component({

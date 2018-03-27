@@ -62,7 +62,7 @@ export class MyRoomAdsPage {
     catch(e){
       console.log("Error deleting...: " + e);
     }
-    let hideFooterTimeout = setTimeout( () => { this.navCtrl.setRoot(MyRoomAdsPage); }, 700);
+    let deleteTimeout = setTimeout( () => { this.navCtrl.setRoot(MyRoomAdsPage); }, 500);
    
   }
 }

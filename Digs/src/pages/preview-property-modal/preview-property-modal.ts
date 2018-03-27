@@ -1,5 +1,3 @@
-import { UpdateMyPropertyAdPage } from './../update-my-property-ad/update-my-property-ad';
-import { PropertyAd } from './../../providers/propertyAd';
 import { LaunchNavigator } from '@ionic-native/launch-navigator';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
@@ -16,7 +14,7 @@ export class PreviewPropertyModalPage {
   navFrom: boolean;
   imageViewer: ImageViewerController;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,private propertyAd: PropertyAd, 
+  constructor(public navCtrl: NavController, public navParams: NavParams, 
               private viewCtrl: ViewController, private launchNavigator: LaunchNavigator, public imageViewerCtrl: ImageViewerController) {
     this.property = this.navParams.get('property');
     this.navFrom = this.navParams.get('navFrom');

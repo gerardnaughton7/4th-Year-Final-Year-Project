@@ -1,9 +1,7 @@
-import { StatusBar } from '@ionic-native/status-bar';
 import { Storage } from '@ionic/storage';
 import { ListOfRoomsPage } from './../list-of-rooms/list-of-rooms';
 import { ImagesProvider } from './../../providers/images/images';
 import { Camera } from '@ionic-native/camera';
-import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController, ActionSheetController, ModalController } from 'ionic-angular';
 import {RoomAd} from '../../providers/roomAd';
