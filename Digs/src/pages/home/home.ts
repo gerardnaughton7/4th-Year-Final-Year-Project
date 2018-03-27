@@ -1,3 +1,5 @@
+import { RegisterPage } from './../register/register';
+import { LoginPage } from './../login/login';
 import { RoomAd } from './../../providers/roomAd';
 import { ListOfRoomsPage } from './../list-of-rooms/list-of-rooms';
 import { ListOfPropertiesPage } from './../list-of-properties/list-of-properties';
@@ -57,6 +59,14 @@ export class HomePage {
         duration: 3000     
       }).present();
     }
+  }
+
+  goToLogin(){
+    this.navCtrl.push(LoginPage);
+  }
+
+  goToRegister(){
+    this.navCtrl.push(RegisterPage);
   }
 
   goToRooms(){

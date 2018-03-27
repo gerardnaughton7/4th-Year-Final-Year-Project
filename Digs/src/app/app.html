@@ -13,8 +13,22 @@
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
         <ion-icon item-start [name]="p.icon"></ion-icon>
         {{p.title}}
-      </button>  
+      </button>
     </ion-list>
+
+    <ion-list *ngIf="!showAccount">
+        <ion-list-header>
+          Register or Login
+        </ion-list-header>
+        <button menuClose ion-item (click)="login()">
+          <ion-icon item-start name="log-in"></ion-icon>
+          Login
+        </button> 
+        <button menuClose ion-item (click)="register()">
+          <ion-icon item-start name="create"></ion-icon>
+          Register
+        </button>   
+      </ion-list>
 
     <ion-list *ngIf="showAccount">
       <ion-list-header>

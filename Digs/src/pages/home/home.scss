@@ -7,10 +7,46 @@ page-home {
     }
 
     .bg {
-        background-image: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url('../assets/imgs/College.jpg');
+        background-image: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.4)), url('../assets/imgs/College.jpg');
         background-repeat: no-repeat;
-        background-position: center;
-        background-size: contain;
+        background-size: auto 100%;
     }
-    
+
+    .btn-footer-wrapper {
+        text-align: center;
+    }
+
+    .home-header{
+        border: solid 2px;
+        text-align: center;
+        border-radius: 10px;
+        margin-top: 45px;
+        color: white;
+        background: rgba(153, 0, 255, .3px);
+    }
+
+    .home-rooms{
+        border: solid 2px;
+        border-radius: 15px;
+        color: white;
+        text-align: center;
+        margin-top: 230px;
+        background: rgba(153, 0, 255, .3px);
+    }
+
+    .home-properties{
+        border: solid 2px;
+        border-radius: 15px;
+        color: white;
+        text-align: center;
+        margin-top: 3px;
+        background: rgba(153, 0, 255, .3px);
+    }
+
+    .loggedIn-footer{
+        border-radius: 5px;
+        color: white;
+        text-align: center;
+        background: rgba(153, 0, 255, .4px);
+    }
 }

@@ -25,25 +25,34 @@
 
 <ion-content padding class = "bg">
 
-  <ion-item *ngIf="email">
+  <ion-item class="home-header">
     <h1>Welcome To Digs</h1>
     <h2 *ngIf="displayName">{{ displayName }}</h2>
     <h3 *ngIf="email">{{ email }}</h3> 
   </ion-item>
 
-  <br />
-
-  <ion-item *ngIf="email" (click)="goToRooms()">
+  <ion-item class="home-rooms" (click)="goToRooms()">
     <ion-icon name="paper" item-start></ion-icon>
-    Number of Rooms
+    Number of Rooms Listed
     <ion-badge *ngIf = "rooms != null" item-end>{{ rooms.length }}</ion-badge>
   </ion-item>
 
-  <ion-item *ngIf="email" (click)="goToProperties()">
+  <ion-item class="home-properties" (click)="goToProperties()">
     <ion-icon name="paper" item-start></ion-icon>
-    Number of Properties
+    Number of Properties Listed
     <ion-badge *ngIf = "properties != null" item-end>{{ properties.length }}</ion-badge>
   </ion-item>
+
+  <ion-footer>
+    <div  *ngIf="!email" class="btn-footer-wrapper">
+        <button ion-button round outline (click)="goToLogin()">Login</button>
+        <button ion-button round outline (click)="goToRegister()">Register</button>
+    </div>
+
+    <ion-item class="loggedIn-footer" *ngIf="email">
+      <h3 *ngIf="email">Logged In: {{ email }}</h3> 
+    </ion-item>
+  </ion-footer>
 
 </ion-content>
 

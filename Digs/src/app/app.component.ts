@@ -13,6 +13,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { MessageboardPage } from './../pages/messageboard/messageboard';
 import { CreatemessagePage } from './../pages/createmessage/createmessage';
 import { HomePage } from '../pages/home/home';
+import { RegisterPage } from '../pages/register/register';
 
 
 @Component({
@@ -107,6 +108,14 @@ export class MyApp {
     alert.present();
 
     this.nav.setRoot(LoginPage);
+  }
+
+  login(){
+    this.nav.push(LoginPage);
+  }
+
+  register(){
+    this.nav.push(RegisterPage);
   }
 }
  
