@@ -61,11 +61,6 @@ export class HomePage {
       }).present();
     }
   }
-  
-  /*TODO *** Remove later - handy for debugging */
-  goToLogin(){
-    this.navCtrl.push(LoginPage);
-  }
 
   goToRooms(){
     this.navCtrl.push(ListOfRoomsPage);

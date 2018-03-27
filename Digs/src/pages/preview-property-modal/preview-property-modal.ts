@@ -44,11 +44,6 @@ export class PreviewPropertyModalPage {
     }
   }
 
-  deleteProperty(){
-    this.propertyAd.deleteProperty(this.property._id);
-    this.viewCtrl.dismiss();
-  }
-
   presentImage(myImage) {
     
     try {

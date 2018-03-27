@@ -60,7 +60,7 @@ export class MyApp {
       //{ title: 'Create Ad', component: CreatePage, icon: 'create' },
       //{ title: 'My Room Ads', component: MyRoomAdsPage, icon: 'list-box' },
      // { title: 'My Property Ads', component: MyPropertyAdsPage, icon: 'list-box' },
-      { title: 'Digs Message Board', component: MessageboardPage, icon: 'clipboard' },
+      { title: 'Digs Message Board', component: MessageboardPage, icon: 'chatboxes' },
       //{ title: 'Create New Message', component: CreatemessagePage, icon: 'create' }
     ];
 
