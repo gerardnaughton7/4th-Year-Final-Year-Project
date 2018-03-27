@@ -18,7 +18,7 @@
 
     <ion-item>
       <ion-label color="primary" start>Max Price: {{Price}}</ion-label>
-      <ion-range min="0" max="3000" [(ngModel)]="Price" name = "Price" color="primary">
+      <ion-range pin = "true" min="0" max="3000" step = "50" [(ngModel)]="Price" name = "Price" color="primary">
         <ion-label range-left>0</ion-label>
         <ion-label range-right>3000</ion-label>
       </ion-range>

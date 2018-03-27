@@ -14,16 +14,18 @@
 
 <ion-content padding>
 
-    <ion-list>
-       <ion-item>
-         <ion-note item-start>
-             Max Price €
-         </ion-note>
-        <ion-range pin ="true" max ="2000" step="10" [(ngModel)]="terms"></ion-range>
-      </ion-item>
-     </ion-list>
+  <ion-item>
+    <ion-label color = "primary">
+        Max Price €{{terms}}
+    </ion-label>
+    <ion-range pin ="true" max ="3000" step="50" [(ngModel)]="terms">
+      <ion-label range-left>0</ion-label>
+      <ion-label range-right>3000</ion-label>
+    </ion-range>
+  </ion-item>
+     
 
-  <p *ngIf = "properties != null">Found {{properties.length}} Properties</p>
+  <p *ngIf = "properties != null && (terms == 0 || terms == null)">Found {{properties.length}} Properties</p>
   <ion-refresher (ionRefresh)="doRefresh($event)">
     <ion-refresher-content
       pullingIcon = "arrow-dropdown"
@@ -34,7 +36,7 @@
   </ion-refresher>
 
   <ion-list>
-      <ion-item *ngFor="let property of properties | search : terms | sort: {property: column, order: order}">
+      <ion-item *ngFor="let property of properties | search : terms">
     
         <ion-item tappable (click)="openProperty(property)">
           <ion-thumbnail item-start>
