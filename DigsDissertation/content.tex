@@ -84,23 +84,13 @@ Some sample git commands used are as follows:
 \begin{itemize}
 
     \item git add .\par
-    Add folders or files to be tracked by github so later they can be
-    committed and pushed on to github account.
+    Add folders .....
 
 \end{itemize}
 
-
-A sample JUnit test case can be found below\cite{JUnit}:
-
-\begin{minted}{java}
-
-public class MyTests {
-
-\end{minted}
-
 \subsection{Ionic}
 
-\subsection{MongoDB}
+\subsection{Visual Studio Code}
 \cite{mLab}.\\
 \\
 A sample of the MongoDB stucture is as follows\cite{WilliamZola}:
@@ -110,12 +100,50 @@ A sample of the MongoDB stucture is as follows\cite{WilliamZola}:
 
 \end{minted}
 
-\section{Bootstrap}
+\section{NoSQL database}
+The ascent of Big Data made an interest for on a horizontally adaptable Data Management System. This prompted advancement of various types of Database Management System which all things considered go under NoSQL. NoSQL Databases are comprehensively separated into following sorts: Document, Key-value, Graph, Native object, Table type, Native XML and Hybrid Databases. All RDBMS databases depend on the same model, while, each of the NoSQL database takes after a distinctive model. NoSQL moves far from the robust institutionalized type of SQL database and empowers less complex information capacity arrangements. Therefore a NoSQL database is enhanced for the particular application.\cite{noSql}
+
+\subsection{NoSql database types}
+
+\begin{itemize}
+\item Key-Value Storage \par
+Key-Value Storages are straight forward and simple NoSQL frameworks, for example, Redis that are fundamentally a truly favour hash table. You have an esteem you need to get later, so you allocate it a key and in addition stuff it into the database, you can just inquiry a single object at any given moment and just by a single key.
+
+\item Document Storage \par
+Regularly, these are objects with a various levelled structure, for example, XML documents, JSON records, and some other kind of tree structure, yet the qualities of various nodes on the tree can be indexed. They have a much speed with respect to customary push construct SQL databases in light of query in light of the fact that they give up execution on joining. 
+
+\item Columnar Storage  \par
+These store the information in columns instead of lines, so refreshing and adding are costly, be that as it may, most questions are modest in light of the fact that each segment is basically certainly recorded. In any case, on the off chance that your inquiry can not utilize an index, you are in no better shape with a Columnar Store rather than a standard SQL database.
+
+\item Graph Storage  \par
+Diagram Databases (neo4j) make joins as shoddy as could be expected under the circumstances, on the grounds that even a straightforward row query would require many joins to recover. Tables can sort query would be slower than a standard SQL database in view of the greater part of the additional joins to retrieve the information. \cite{DataTypes}
+\end{itemize}
+
+\subsection{Advantages of NoSql}
+NoSQL databases are very versatile, dependable, have a basic data model, amazingly exposed query language, no system for taking care of consistency and trustworthiness among data, and no help for security at the database level. A standout amongst the most vital points of interest of NoSQL databases is that the databases can handle unstructured information. Unstructured data can be word reports, messages, sound, video, or even interpersonal social network information. Too, NoSQL databases tend to scale extremely well on commodity equipment. Some even claim that NoSQL databases empower better execution, which is urgent for organizations with a lot of data. To empower quicker execution, NoSQL databases ordinarily don't cling to ACID (atomicity, consistency, isolation, durability) restrictions that are utilized as a part of relational databases. While this is recorded as a star for NoSQL as far as execution and processing time; we take note of that this likewise has unfortunate outcomes that will be tended to later. A case of NoSQL database's execution is Facebook's usage (Cassandra) that is equipped for dealing with more than 100 million clients persistently. \cite{AdvantagesnoSql}
+
+\subsection{Examples of NoSQL}
+\begin{itemize}
+\item Key-Value Storage: \par
+MUMPS, CouchDB, FoundationDB, Redis, Aerospike, Dynamo, MemcacheDB, Riak, OrientDB, Fair Com c-treeACE, Redis.
+
+\item Apache CouchDB, MarkLogic, OrientDB, Clusterpoint, Couchbase, MongoDB.
+
+\item Columnar Storage:  \par
+Vertica, Cassandra, Hbase, Accumulo, Druid.
+
+\item Graph Storage:  \par
+Neo4J, OrientDB, Stardog, Allegro, InfiniteGraph, Virtuoso. 
+\end{itemize}
+
+
+
+\section{MongoDB}
 
 \section{JQuery}
 
-
 \section{JavaScript}
+
 
 \begin{minted}{js}
 // Function is called, return value will end up in x
