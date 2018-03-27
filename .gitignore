@@ -23,6 +23,7 @@ DigsBackEnd/DigsImageServer/dist
 # Sprints
 Sprints/ImageBackEndExample/node_modules
 Sprints/ImageBackEndExample/uploads
+Sprints/Review-King/node_modules
 
 # Coverage directory used by tools like istanbul
 coverage
