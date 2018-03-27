@@ -20,6 +20,10 @@ DigsBackEnd/DigsImageServer/node_modules
 DigsBackEnd/DigsImageServer/image-uploads
 DigsBackEnd/DigsImageServer/dist
 
+# Sprints
+Sprints/ImageBackEndExample/node_modules
+Sprints/ImageBackEndExample/uploads
+
 # Coverage directory used by tools like istanbul
 coverage
 
