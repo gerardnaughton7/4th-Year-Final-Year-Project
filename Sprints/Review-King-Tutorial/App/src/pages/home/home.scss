@@ -1,0 +1,27 @@
+.ios, .md{
+  page-home {
+    .list .item {
+      background-color: #F0F8FF;
+      border-width: 2px;
+      border-color: black;
+    }
+
+    ion-item {
+      background-color: #FFFFFF;
+      //border-bottom: none !important;
+      margin: 5px;
+     
+    }
+
+    ion-label {
+      white-space: normal;
+    }
+
+
+    .list {
+      margin-top:0%;
+    }
+  }
+}
+ 
+  

@@ -1,0 +1,36 @@
+<ion-header>
+  
+    <ion-navbar>
+      <ion-title>Edit Review</ion-title>
+      <ion-buttons end>
+        <button ion-button icon-only (click)="close();"><ion-icon name="close"></ion-icon></button>
+      </ion-buttons>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content padding>
+    <ion-list no-lines>
+      
+         <ion-item>
+           <ion-label floating>Title</ion-label>
+           <ion-input [(ngModel)]="title" type="text"></ion-input>
+         </ion-item>
+      
+         <ion-item>
+           <ion-label floating>Review</ion-label>
+           <ion-textarea [(ngModel)]="description"></ion-textarea>
+         </ion-item>
+      
+         <ion-item>
+           <ion-range min="0" max="100" pin="true" [(ngModel)]="rating">
+             <ion-icon range-left name="sad"></ion-icon>
+             <ion-icon range-right name="happy"></ion-icon>
+           </ion-range>
+         </ion-item>
+      
+       </ion-list> 
+  
+       <button ion-button full color="secondary" (click)="save();">Save</button>
+  </ion-content>
