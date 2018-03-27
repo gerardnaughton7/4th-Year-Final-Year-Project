@@ -9,7 +9,7 @@
           <img src="{{img}}" class="thumb-img" #myImage (click)="presentImage(myImage)">
         </ion-slide>
       </ion-slides>
-      <img *ngIf ="room.ImagesUrl[0] == null" src="https://thumbs.dreamstime.com/z/cartoon-house-vector-illustration-white-background-56861518.jpg" class="thumb-img" imageViewer>
+      <img *ngIf ="room.ImagesUrl[0] == null" src= "assets/imgs/default-room-image.jpg" class="thumb-img" imageViewer>
       <ion-card-content>
         <ion-card-title>
           €{{room.Price}}
@@ -19,6 +19,7 @@
         <p>Address: {{room.Address}}</p>
         <p>Location: {{room.LocationDes}}</p>
         <p>Availability: {{room.Availability}}</p>
+        <p>Description: {{room.Desciption}}</p>
         <p *ngIf="room.Contact == 'Phone'">Phone: {{room.Phone}}</p>
         <p *ngIf="room.Contact == 'Email'">Email: {{room.Email}}</p>
         <p>Parking: {{room.Parking}}</p>

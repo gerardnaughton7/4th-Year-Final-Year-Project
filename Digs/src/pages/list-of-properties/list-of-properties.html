@@ -41,11 +41,11 @@
         <ion-item tappable (click)="openProperty(property)">
           <ion-thumbnail item-start>
               <img *ngIf="property.ImagesUrl[0] != null" [src]="property.ImagesUrl[0]">
-              <img *ngIf="property.ImagesUrl[0] == null" src = "https://thumbs.dreamstime.com/z/cartoon-house-vector-illustration-white-background-56861518.jpg">
+              <img *ngIf="property.ImagesUrl[0] == null" src= "assets/imgs/student-house.png">
           </ion-thumbnail>
           <h2>Price: € {{ property.Price }}</h2>
-          <p>Number of Rooms: {{ property.SingleBeds + property.DoubleBeds + property.TwinBeds + property.EnSuite }}</p>
-          <p>Address: {{ property.Address }}</p>
+          <p>Number of Rooms: {{ property.NoRooms }}</p>
+          <p>College: {{ property.College }}</p>
           <p>Published: {{ property.Date | date: 'short' }}</p>
           <button ion-button clear icon-only item-end> <ion-icon name="arrow-forward"></ion-icon></button>
         </ion-item>

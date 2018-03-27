@@ -9,19 +9,20 @@
           <img src="{{img}}" class="thumb-img" #myImage (click)="presentImage(myImage)">
         </ion-slide>
       </ion-slides>
-      <img *ngIf ="property.ImagesUrl[0] == null" src="https://thumbs.dreamstime.com/z/cartoon-house-vector-illustration-white-background-56861518.jpg" class="thumb-img" imageViewer>
+      <img *ngIf ="property.ImagesUrl[0] == null" src= "assets/imgs/student-house.png" class="thumb-img" imageViewer>
       <ion-card-content>
         <ion-card-title>
           €{{property.Price}}
         </ion-card-title>
-        <p *ngIf="property.SingleBeds != null">No of Single Beds: {{property.SingleBeds}}</p> 
-        <p *ngIf="property.DoubleBeds != null">No of Double Beds: {{property.DoubleBeds}}</p>
-        <p *ngIf="property.TwinBeds != null">No of Twin Beds: {{property.TwinBeds}}</p>
-        <p *ngIf="property.EnSuite != null">No of En-Suite Beds: {{property.EnSuite}}</p>
+        <p *ngIf="property.SingleBeds != 0">No of Single Rooms: {{property.SingleBeds}}</p> 
+        <p *ngIf="property.DoubleBeds != 0">No of Double Rooms: {{property.DoubleBeds}}</p>
+        <p *ngIf="property.TwinBeds != 0">No of Twin Rooms: {{property.TwinBeds}}</p>
+        <p *ngIf="property.EnSuite != 0">No of En-Suite Rooms: {{property.EnSuite}}</p>
         <p>College: {{property.College}}</p>
         <p>Address: {{property.Address}}</p>
         <p>Location: {{property.LocationDes}}</p>
         <p>Availability: {{property.Availability}}</p>
+        <p>Description: {{property.Description}}</p>
         <p *ngIf="property.Contact == 'Phone'">Phone: {{property.Phone}}</p>
         <p *ngIf="property.Contact == 'Email'">Email: {{property.Email}}</p>
         <p>Parking: {{property.Parking}}</p>
