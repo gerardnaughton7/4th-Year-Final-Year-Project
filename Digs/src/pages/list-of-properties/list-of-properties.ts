@@ -1,7 +1,7 @@
 import { SearchPage } from './../search/search';
 import { PropertyAd } from './../../providers/propertyAd';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, LoadingController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -12,15 +12,20 @@ export class ListOfPropertiesPage {
 
   properties: any;
 
-  constructor(public navCtrl: NavController,public propertyAdService: PropertyAd, public navParams: NavParams, public modalCtrl: ModalController) {
+  constructor(public navCtrl: NavController,public propertyAdService: PropertyAd, public navParams: NavParams, 
+              public modalCtrl: ModalController, private loadingController: LoadingController) {
   }
 
   ionViewDidEnter() {
+    let loading = this.loadingController.create({content : "Retrieving Properties, please wait..."});
+    loading.present();
     this.propertyAdService.getProperties().subscribe((data) => {
       console.log(data);
       this.properties = data.reverse();
+      loading.dismissAll();
     },
     error => {
+      loading.dismiss();
       alert("ERROR Retrieving Property Ads: " + error);
     });
   }
@@ -31,12 +36,15 @@ export class ListOfPropertiesPage {
   }
 
   doRefresh(refresher) {
-
+    let loading = this.loadingController.create({content : "Retrieving Properties, please wait..."});
+    loading.present();
     this.propertyAdService.getProperties().subscribe(data => {
       this.properties = data.reverse();
+      loading.dismissAll();
     },
     error => {
       alert("ERROR Retrieving Property Ads: " + error);
+      loading.dismiss();
     });
     refresher.complete();
   }

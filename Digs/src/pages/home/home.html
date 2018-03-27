@@ -45,8 +45,8 @@
 
   <ion-footer>
     <div  *ngIf="!email" class="btn-footer-wrapper">
-        <button ion-button round outline (click)="goToLogin()">Login</button>
-        <button ion-button round outline (click)="goToRegister()">Register</button>
+        <button ion-button round (click)="goToLogin()">Login</button>
+        <button ion-button round (click)="goToRegister()">Register</button>
     </div>
 
     <ion-item class="loggedIn-footer" *ngIf="email">

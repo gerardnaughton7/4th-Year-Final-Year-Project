@@ -8,8 +8,10 @@ page-home {
 
     .bg {
         background-image: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.4)), url('../assets/imgs/College.jpg');
+        background-position: fixed;
+        background-attachment: fixed ;
         background-repeat: no-repeat;
-        background-size: auto 100%;
+        background-size:100% 100%;
     }
 
     .btn-footer-wrapper {
@@ -22,7 +24,7 @@ page-home {
         border-radius: 10px;
         margin-top: 45px;
         color: white;
-        background: rgba(153, 0, 255, .3px);
+        background: rgba(153, 0, 255, .6px);
     }
 
     .home-rooms{
@@ -31,7 +33,7 @@ page-home {
         color: white;
         text-align: center;
         margin-top: 230px;
-        background: rgba(153, 0, 255, .3px);
+        background: rgba(153, 0, 255, .6px);
     }
 
     .home-properties{
@@ -40,7 +42,7 @@ page-home {
         color: white;
         text-align: center;
         margin-top: 3px;
-        background: rgba(153, 0, 255, .3px);
+        background: rgba(153, 0, 255, .6px);
     }
 
     .loggedIn-footer{
@@ -49,4 +51,5 @@ page-home {
         text-align: center;
         background: rgba(153, 0, 255, .4px);
     }
+
 }
