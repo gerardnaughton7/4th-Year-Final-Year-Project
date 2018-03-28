@@ -16,7 +16,6 @@ export class Message {
   }
  
   getMessage(){
- 
     return this.http.get(this.apiURL + 'api/messages').map(res => res.json());
   }
  
@@ -34,9 +33,4 @@ export class Message {
       });
   }
  
-  deleteMessage(id){ 
-    this.http.delete(this.apiURL + 'messages/' + id).subscribe((res) => {
-      console.log(res.json());
-    });    
-  }
 }

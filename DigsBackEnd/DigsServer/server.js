@@ -70,10 +70,11 @@ var Property = mongoose.model('Property', {
 
 var Message = mongoose.model('Message', {
     UID: String,
-    AdID: String,
+    ID: String,
     Message: String,
     Name: String,
     Email: String,
+	Date: Date,
 });
  
 // Routes
@@ -258,6 +259,7 @@ app.post('/api/messages', function (req, res) {
 		Message: req.body.Message,
 		Name: req.body.Name,
 		Email: req.body.Email,
+		Date: req.body.Date,
 		done: false
 	}, function (err, message) {
 		if (err)
@@ -293,7 +295,7 @@ app.delete('/api/properties/:property_id', function(req, res) {
 
 app.delete('/api/messages/:message_id', function (req, res) {
 	Message.remove({
-		_id: req.params.message_id
+		"_id": req.params.message_id
 	}, function (err, message) {
 
 	});
@@ -464,7 +466,7 @@ app.get('/api/searchRooms/:col/:roomType/:parking/:price', function(req, res) {
 		res.json(rooms); // return all properties in JSON format
 	});
 });
-  
+
  
 // listen (start app with node server.js) ======================================
 app.listen(8080);

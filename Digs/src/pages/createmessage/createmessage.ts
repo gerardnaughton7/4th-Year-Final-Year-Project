@@ -1,3 +1,4 @@
+import { Storage } from '@ionic/storage';
 import { MessageboardPage } from './../messageboard/messageboard';
 import { Md5 } from 'ts-md5/dist/md5';
 import { Message } from './../../providers/message';
@@ -13,17 +14,21 @@ export class CreatemessagePage {
   
   time: any = new String(new Date());
   UID: String;
-  AdID: any = Md5.hashStr(this.time);
+  ID: any = Md5.hashStr(this.time);
   Message: String;
   Name: String;
   Email: String;
+  Date : Date;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-                public viewCtrl: ViewController, public messageProvider: Message) {
+                public viewCtrl: ViewController, public messageProvider: Message, public storage: Storage) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CreatemessagePage');
+    this.storage.get('email').then((val) => {
+      this.UID = val;
+    });
   }
 
   postMessage() {
@@ -31,10 +36,11 @@ export class CreatemessagePage {
     
     let message = {
       UID: this.UID,
-      AdID: this.AdID,
+      ID: this.ID,
       Message: this.Message,
       Name: this.Name,
-      Email: this.Email
+      Email: this.Email,
+      Date: new Date()
     };
 
     this.messageProvider.createMessage(message);  

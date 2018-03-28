@@ -17,13 +17,13 @@
 <ion-content padding>
   <form ngNativeValidate (ngSubmit)="postMessage()"> 
     <ion-item>
+        <ion-label color="primary" floating>Name*</ion-label>
+        <ion-textarea [(ngModel)]="Name" type="text" name = "Name" required></ion-textarea>
+    </ion-item>
+    
+    <ion-item>
         <ion-label color="primary" floating>Message*</ion-label>
         <ion-textarea [(ngModel)]="Message" type="text" name = "Message" required></ion-textarea>
-    </ion-item>
-
-    <ion-item>
-          <ion-label color="primary" floating>Name*</ion-label>
-          <ion-textarea [(ngModel)]="Name" type="text" name = "Name" required></ion-textarea>
     </ion-item>
 
     <ion-item>

@@ -26,13 +26,15 @@
 
 
   <ion-list>
-      <ion-item *ngFor="let message of messages">
-        <ion-item text-wrap>
-          <h2>Message: {{ message.Message }}</h2>
-          <p>Name: {{ message.Name }}</p>
-          <p>Email: {{ message.Email }}</p>
-        </ion-item>
-    
-      </ion-item>
-    </ion-list>
+    <ion-card text-wrap *ngFor="let message of messages">
+      <ion-card-header color = "primary">
+        Name: {{ message.Name }}
+      </ion-card-header>
+      <ion-card-content>
+        <p>Message: {{ message.Message }}</p>
+        <p>Email: {{ message.Email }}</p>
+        <p style= "text-align: right">{{message.Date | date: 'short'}}</p>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
 </ion-content>
