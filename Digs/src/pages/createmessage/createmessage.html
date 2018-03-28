@@ -15,23 +15,24 @@
 
 
 <ion-content padding>
-      
+  <form ngNativeValidate (ngSubmit)="postMessage()"> 
     <ion-item>
-        <ion-label color="primary" floating>Message</ion-label>
-        <ion-textarea [(ngModel)]="Message" type="text"></ion-textarea>
+        <ion-label color="primary" floating>Message*</ion-label>
+        <ion-textarea [(ngModel)]="Message" type="text" name = "Message" required></ion-textarea>
     </ion-item>
 
     <ion-item>
-          <ion-label color="primary" floating>Name</ion-label>
-          <ion-textarea [(ngModel)]="Name"></ion-textarea>
+          <ion-label color="primary" floating>Name*</ion-label>
+          <ion-textarea [(ngModel)]="Name" type="text" name = "Name" required></ion-textarea>
     </ion-item>
 
     <ion-item>
-          <ion-label color="primary" floating>Email Address</ion-label>
-          <ion-input [(ngModel)]="Email" type="email"></ion-input>
+          <ion-label color="primary" floating>Email Address*</ion-label>
+          <ion-input [(ngModel)]="Email" type="email" name = "Email" required></ion-input>
     </ion-item>
 
     <br/>
-    <button full ion-button color="primary" (click)="postMessage()">Post Message</button>
-  
-  </ion-content>
+    <button full ion-button color="primary" type="submit" name= "submit">Post Message</button>
+    <p [hidden]= "!(Message == null || Name == null || Email == null)" style=" text-align: center">* All Fields must be Entered</p>
+  </form>
+</ion-content>

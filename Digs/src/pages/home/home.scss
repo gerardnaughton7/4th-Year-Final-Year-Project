@@ -7,7 +7,7 @@ page-home {
     }
 
     .bg {
-        background-image: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.4)), url('../assets/imgs/College.jpg');
+        background-image: linear-gradient(rgba(255,255,255,.1), rgba(255,255,255,.1)), url('../assets/imgs/College.jpg');
         background-position: fixed;
         background-attachment: fixed ;
         background-repeat: no-repeat;
@@ -23,33 +23,33 @@ page-home {
         text-align: center;
         border-radius: 10px;
         margin-top: 45px;
-        color: white;
-        background: rgba(153, 0, 255, .6px);
+        color: rgba(153, 0, 255, 1px);
+        background: rgba(255,255,255, 0.9px);
     }
 
     .home-rooms{
         border: solid 2px;
         border-radius: 15px;
-        color: white;
+        color: rgba(153, 0, 255, 1px);
         text-align: center;
         margin-top: 230px;
-        background: rgba(153, 0, 255, .6px);
+        background: rgba(255,255,255, 0.9px);
     }
 
     .home-properties{
         border: solid 2px;
         border-radius: 15px;
-        color: white;
+        color: rgba(153, 0, 255, 1px);
         text-align: center;
         margin-top: 3px;
-        background: rgba(153, 0, 255, .6px);
+        background: rgba(255,255,255, 0.9px);
     }
 
     .loggedIn-footer{
         border-radius: 5px;
         color: white;
         text-align: center;
-        background: rgba(153, 0, 255, .4px);
+        background: rgba(153, 0, 255, 1);
     }
 
 }
