@@ -3,7 +3,7 @@ import { RegisterPage } from './../register/register';
 import { HomePage } from './../home/home';
 import { User } from './../../models/user';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 
 import { GooglePlus } from '@ionic-native/google-plus';
@@ -22,21 +22,14 @@ export class LoginPage {
   displayName: any;
   email: any;
   photoURL: any;
-
-  //Initialize a new User Object Here
   user = {} as User;
 
   passwordType: string = 'password';
   passwordIcon: string = 'eye-off';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, 
-    private afAuth: AngularFireAuth, public googlePlus: GooglePlus, 
-    public loadingController: LoadingController, private storage: Storage) {
-
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
+  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController,
+                private afAuth: AngularFireAuth, public googlePlus: GooglePlus, 
+                public loadingController: LoadingController, private storage: Storage) {
   }
 
   hideShowPassword() {
@@ -52,16 +45,22 @@ export class LoginPage {
       const result = await this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password);
       if(result){
         this.storage.set('email', user.email);
-
         this.navCtrl.setRoot(HomePage);
         loading.dismissAll();
       }     
     }
     catch(e){ 
       loading.dismiss(); 
-      alert("Error Logging In: " + e);      
+      console.log(e);
+      let alert = this.alertCtrl.create({
+        title: 'Login Failed.',
+        subTitle: "Please check your details and try again.",
+        buttons: ['Dismiss']
+      });
+      alert.present();  
     }  
   }
+  
 
   register(){
     this.navCtrl.push(RegisterPage);

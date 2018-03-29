@@ -100,13 +100,6 @@ export class MyApp {
     this.storage.remove('email');
     this.storage.remove('displayName');
     this.storage.remove('photoURL');
-    let alert = this.alertCtrl.create({
-      title: 'Logout',
-      subTitle: 'Successfully Logged Out ',
-      buttons: ['Dismiss']
-    });
-    alert.present();
-
     this.nav.setRoot(LoginPage);
   }
 

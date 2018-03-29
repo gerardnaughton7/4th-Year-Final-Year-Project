@@ -44,15 +44,14 @@
   </ion-item>
 
   <ion-footer>
-    <div  *ngIf="!email" class="btn-footer-wrapper">
-        <button ion-button round (click)="goToLogin()">Login</button>
-        <button ion-button round (click)="goToRegister()">Register</button>
+    <div *ngIf="!email" class="btn-footer-wrapper">
+      <button class="login-but" ion-button color="light" round style="color: rgb(153, 0, 255); border: solid 2px" (click)="goToLogin()" float-start>Login</button>
+      <button class="login-reg" ion-button color="light" round style="color: rgb(153, 0, 255); border: solid 2px" (click)="goToRegister()" float-end> Register</button>
     </div>
 
     <ion-item class="loggedIn-footer" *ngIf="email">
-      <h3 *ngIf="email">Logged In: {{ email }}</h3> 
+      <h4 *ngIf="email">Logged In: {{ email }}</h4> 
     </ion-item>
   </ion-footer>
 
 </ion-content>
-
