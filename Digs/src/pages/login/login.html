@@ -28,11 +28,13 @@
           <ion-item>
             <p><a (click)="resetPassword()">Forget Password?</a></p>
           </ion-item>
-          <button ion-button color="primary" block outline>LOGIN</button>
-          <button ion-button color="primary" type="button" block outline (click)="register()">Register</button>
+          <div class="login-btns">
+            <button ion-button color="primary" color="light" style="color: rgb(153, 0, 255); border: solid 2px; width: 47%;" round>LOGIN</button>
+            <button ion-button color="primary" color="light" style="color: rgb(153, 0, 255); border: solid 2px; width: 47%;" type="button" round (click)="register()">Register</button>
+          </div>
         </ion-list>
         <div text-center><b>OR</b></div>
-        <button ion-button color="danger" type="button" (click)="googleLogin()" ion-left block>
+        <button ion-button color="danger" type="button" (click)="googleLogin()" ion-left round block>
           <ion-icon name="logo-googleplus" style="padding-right: 6px;"></ion-icon>
           <div>Login With Google</div>
         </button>

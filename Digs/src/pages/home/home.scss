@@ -14,11 +14,6 @@ page-home {
         background-size:100% 100%;
     }
 
-    .btn-footer-wrapper {
-        margin-left: 17px;
-        margin-right: 19px;
-    }
-
     .home-header{
         border: solid 2px;
         text-align: center;
@@ -33,7 +28,7 @@ page-home {
         border-radius: 15px;
         color: rgba(153, 0, 255, 1px);
         text-align: center;
-        margin-top: 230px;
+        margin-top: 225px;
         background: rgba(255,255,255, 0.9px);
     }
 
@@ -46,11 +41,22 @@ page-home {
         background: rgba(255,255,255, 0.9px);
     }
 
-    .loggedIn-footer{
-        border-radius: 5px;
+    .footer {
+        background-color: rgb(153, 0, 255);
+    }
+
+    .footer2{
+        background-color: transparent;
+    }
+
+    .p{
         color: white;
         text-align: center;
-        background: rgba(153, 0, 255, 1);
+    }
+
+    .btn-footer-wrapper {
+        margin-left: 17px;
+        margin-right: 19px;
     }
 
 }

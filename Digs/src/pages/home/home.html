@@ -43,15 +43,17 @@
     <ion-badge *ngIf = "properties != null" item-end>{{ properties.length }}</ion-badge>
   </ion-item>
 
-  <ion-footer>
-    <div *ngIf="!email" class="btn-footer-wrapper">
+
+  <ion-footer *ngIf="email" class="footer">
+    <p class="p" *ngIf="email">Logged In: {{ email }} </p>
+  </ion-footer>
+
+  <ion-footer *ngIf="!email" class="footer2">
+    <div class="btn-footer-wrapper">
       <button class="login-but" ion-button color="light" round style="color: rgb(153, 0, 255); border: solid 2px" (click)="goToLogin()" float-start>Login</button>
       <button class="login-reg" ion-button color="light" round style="color: rgb(153, 0, 255); border: solid 2px" (click)="goToRegister()" float-end> Register</button>
     </div>
-
-    <ion-item class="loggedIn-footer" *ngIf="email">
-      <h4 *ngIf="email">Logged In: {{ email }}</h4> 
-    </ion-item>
-  </ion-footer>
+  </ion-footer> 
 
 </ion-content>
+
