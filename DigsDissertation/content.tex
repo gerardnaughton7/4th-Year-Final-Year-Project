@@ -89,6 +89,19 @@ Some sample git commands used are as follows:
 \end{itemize}
 
 \subsection{Ionic}
+Ionic is a framework with a stunningly designed graphical interface, styled for various platforms, for maximum similarity to native applications. AngularJS and sass are taken as a basis for the framework, AngularJS and sass are taken, which brought him great popularity among developers, as these technologies reduce the threshold of entry to a minimum. The core of the framework is Cordoba, so all the plugins of Cordoba will work fine on ionic.\par In addition to the platform and ready-made UI components, Ionic has a thoughtful command line interface that allows you o generate icons, splash screens, run the file in the browser with the app for debugging, and build applications with short commands in the console.\par Also worth noting is the detailed documentation with examples.\cite{Ionic}
+
+\subsubsection{Ionic UI}
+Ionic has dozens of ready-made components, which are constantly being refined and replenished with new ones. You can fully read them on the documentation page.\cite{IonicUI}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=10cm, height=7cm]{img/IonicUI.png}
+\caption{Ionic UI.}
+\end{figure}
+
+\subsubsection{OS oriented styles}
+Ionic is not just a good interface, it is adapted to the specifics of various operating systems and is thought through to the smallest detail. Animations, icons, fonts, all this with the same code will look like the operating system under which the application is built (Android or iOS, and starting with the second version and Windows Phone).\cite{IonicOS}
 
 \subsection{Visual Studio Code}
 \cite{mLab}.\\
@@ -143,21 +156,28 @@ Neo4J, OrientDB, Stardog, Allegro, InfiniteGraph, Virtuoso.
 \section{JQuery}
 
 \section{JavaScript}
-
+Javascript is a programming language with which web pages are given interactivity. It creates applications that are included in the HTML-code (for example, questionnaires or registration forms that are filled in by the user).\par The uniqueness of this programming language is that it is supported by almost all browsers and fully integrated with them, and all that can be done with it is done very simply. No other technology accommodates all these advantages together. To date, this technology is actively developing also developing a programming language Javascript2 \cite{JavaScript}
 
 \begin{minted}{js}
-// Function is called, return value will end up in x
-var x = myFunction(4, 3);   
-}
+// add two numbers
+<script>
+    var num1, num2, sum
+    num1 = prompt("Enter first number")
+    num2 = prompt("Enter second number")
+    sum = parseInt(num1) + parseInt(num2) // "+" means "add"
+    alert("Sum = " + sum)  // "+" means combine into a string
+</script>
 \end{minted}
+\cite{JavaScriptCode}
 
 \section{CSS}
-
+CSS (Cascading Style Sheets) - cascading style sheets. In fact, they serve to separate the page structure and its content from its appearance.\par If the page is completely written in HTML, then each element of the code determines not only the content element of the page, but also its way of displaying. For example, not only that there is a text "Hello" in such and such a place, but also that this text is highlighted in bold and red.\par With the use of css code, everything happens a little differently. With the help of html, only the order of the content elements of the page and their classes are described. The corresponding classes are written in the css file. Each of them is assigned a set of properties. Now, when we assign a class to an html element, then all the properties of this class are applied to it. Do not write all these properties every time. Now, when sites have many pages, you can not do without css. \cite{CSS}
 
 \begin{minted}{css}
 body {
-    background-color: lightblue;
-}
+  font-family: Verdana, 
+  Arial, sans-serif;
+  }
 \end{minted}
 
 \chapter{System Design}
