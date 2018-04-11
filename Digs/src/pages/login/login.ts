@@ -43,6 +43,7 @@ export class LoginPage {
     loading.present();
     try{         
       const result = await this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password);
+      console.log("Result: " + result);
       if(result){
         this.storage.set('email', user.email);
         this.navCtrl.setRoot(HomePage);
