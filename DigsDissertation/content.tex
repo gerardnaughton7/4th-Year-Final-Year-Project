@@ -229,32 +229,56 @@ body {
 
 \chapter{System Design}
 
+In this section, we will cover the overall design and architecture of our Application. We will do this through code snippets and visual aids to help you get a understanding of the Application design. The System design chapter will be broken up into 3 parts representing the 3 tier architecture. Data Tier represented by our Databases Mongo DB and Firebase, Logic Tier represented by NodeJS servers, Presentation Tier which will be represented by Ionic 3.
+The image below shows the overview of our Architecture:
+
 \begin{figure}[h]
 \centering
 \includegraphics[width=14cm, height=7cm]{img/Architecture}
 \caption{System Architecture.}
 \end{figure}
 
-\section{System Backend}
+\section{Data Tier}
 
-\subsection{Databases}
-We chose databases..
+The data tier represents the overall stored data and gives the ability to store, access, update and delete certain data. For our application we have two databases. One database is used to store our user accounts and the other is used to store our users published ads and forum posts.
+
+\subsection{FireBase}
+We chose Firebase to handle our user accounts as it was established in the ionic community for being a good database for login and registration functionality.
+
+\subsection{Mongo DB}
+
+We chose Mongo DB to store our clients ads, host ad images and forum messages as it offers a lot of flexibility. When developing a product no matter how much planning one does, requirements can always be subject to change. With this in mind we chose Mongo as it would allow us to change the structure of database as the project evolved. Mongo allows you to download and host your own Mongo DB server for free. This download comes with its own terminal which you can use to query your database which was very effective tool during development.
+
+\subsection{Hosting}
+
+To Host our Mongo DB we used AWS known as Amazon Web Services. AWS provides students with a free account which we have previously used for other project in our course. We created a AWS instance located on a server in Ireland and configured the in-bound and out-bound rules to allow communication between our node server and Mongo DB database. We simply could run our Mongo DB server on our instance by bringing up a terminal and navigating to our Mongo’s bin folder and use the command below:
+
+Mongo bin image 
+
+\subsection{Collections}
+
+Our Mongo DB would be structured into 3 collections.
+\begin{itemize}
+    \item properties - stores property models 
+    \item rooms - stores room models
+    \item messages – stores message models 
+    \item images – stores and hosts our images
+\end{itemize}
 
 
-\subsection{Security}
-
-\section{Front End }
-
-\subsection{Login/Register}
-\par The login 
+Our Mongo DB structures our models as JSON object in each collection. Here is a property JSON object example:
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=8cm, height=16cm]{img/loginScreen}
-\caption{Login Page}
+\includegraphics[width=14cm, height=7cm]{img/JSON.PNG}
+\caption{Property JSON.}
 \end{figure}
 
-\subsection{Room page...}
+I will cover how we connect Mongo DB to our NodeJS server in the next section.
+
+\section{Logic Tier}
+
+
 
 
 \chapter{System Evaluation}
