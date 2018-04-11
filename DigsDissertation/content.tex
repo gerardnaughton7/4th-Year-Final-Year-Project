@@ -14,16 +14,16 @@
 \chapter{Introduction}
 
 When choosing our project we wanted to pick something that was relevant to current everyday life. We wanted a project that also highlighted our skills and allowed us to learn and develop as part of a team. With this criteria in mind we started brain storming ideas for our project.
+
 We eventually decided on a App called Digs. Digs would be a Student Accommodation app. We recognized the current accommodation crisis throughout Ireland and thought it would benefit students and landlords to have a specific letting app for the student population. Also for students it was quiet disheartening to apply for accommodation and be rejected for being of student status. This is quiet common when renting and with our app they would only be applying for lettings specific to them.
 
-Having a student accommodation app as our starting point we started to research other apps and websites in the accommodation letting/renting category. The main one we focused on was the Daft App[cite***]. Daft would be the most popular accommodation app in Ireland and it provided us with a great deal of insight on what our app would need to have and also on what Daft lacks for the student market. 
+Having a student accommodation app as our starting point we started to research other apps and websites in the accommodation letting/renting category. The main one we focused on was the Daft App\cite{Daft}. Daft would be the most popular accommodation app in Ireland and it provided us with a great deal of insight on what our app would need to have and also on what Daft lacks for the student market. 
 
 We wanted a app that had essentially the same functionality as Daft but which was geared more towards student. We did this by focusing on the college campuses and not specific cities. We also created a forum for students to get in touch with one another, to either get a house together or to get someone for a room in the house they are already renting. These would compliment the normal functionality of a accommodation app such as, publish ads (either rooms or properties), search lists (rooms or properties), view rooms and properties and edit and delete your personal ads. This would also require log in and registration functionality.
 
-After deliberating over the objective of our application, we then turned to what technology we would use. We wanted to use a array of technologies to show our capabilities but also gain more knowledge and become better programmers over all. We settled on a 3 tier structure containing a Ionic 3 front tier(front end), NodeJs middle tier(middleware)  and Mongo/firebase database back tier(back end).
+After deliberating over the objective of our application, we then turned to what technology we would use. We wanted to use a array of technologies to show our capabilities but also gain more knowledge and become better programmers over all. We settled on a 3 tier structure containing a Ionic 3 presentation tier(front end), NodeJs logic tier(middleware)  and Mongo/firebase database data tier(back end).
 
 From what we hoped to achieve from creating this app was the knowledge of new technology, personal growth through team building and of course to produce something of substance and something we could be proud of.
-
 
 \chapter{Context}
 
@@ -71,28 +71,41 @@ Description of chapters
 Description of chapters
 
 \section{Agile Development}
-
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\par
+blabla\cite{FirstnameLastname}.\par
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\cite{NameOfreff}.
 
 \section{Testing}
+tttttttttttttttttttttttttttttt
+\cite{FirstnameLastname}.
 
 
 \chapter{Technology Review}
 
 \section{Development Environment}
-vscode
-notepadd++
-sharelatex
-postman
-github
 
 \subsection{GitHub}
+GitHub hosting project on the Internet. It can be used freely for Open Source projects. Now GitHub is the most popular hosting service for developers. It uses the Git version control system, hence the name GitHub.\par
 
-Some sample git commands used are as follows:
+The project is hosted on GitHub and is called a repository. Anyone can subscribe to an account on GitHub and create their own repositories. GitHub users can add other users to their project to work together.\par
+
+GitHub users have access to other open source projects this enables them to work on it themselves. Developers use this function to send patches and make their own code for other open source projects.\par 
+
+In addition to being just a hosting project, GitHub is also a great social networking site for developers and programmers. It allows users to follow each other, subscribes to project updates, like them, giving them an assessment, etc. These functions allow users to receive updates for projects in which they are interested, or stay in touch with colleagues and employees.\par
+
+GitHub is not only used for programming and software development. It is also used by many other types of projects. For example, open source tutorials, documentation projects, training resources and other projects in which users can work together.\cite{GitHub}\par
+
+Some sample examples of git commands:
 \begin{itemize}
 
     \item git add .\par
-    Add folders .....
-
+    Adds all modified and untracked files in the current directory
+    
+    \item git commit -m "Commit message"\par
+    To commit changes.
+    
+    \item git push origin master\par
+    To send changes to repository. 
 \end{itemize}
 
 \subsection{Ionic}
@@ -111,7 +124,14 @@ Ionic has dozens of ready-made components, which are constantly being refined an
 Ionic is not just a good interface, it is adapted to the specifics of various operating systems and is thought through to the smallest detail. Animations, icons, fonts, all this with the same code will look like the operating system under which the application is built (Android or iOS, and starting with the second version and Windows Phone).\cite{IonicOS}
 
 \subsection{Visual Studio Code}
+\cite{mLab}.\\
+\\
+A sample of the MongoDB stucture is as follows\cite{WilliamZola}:
+\begin{minted}{json}
+{
+    "_id" : 1
 
+\end{minted}
 
 \section{NoSQL database}
 The ascent of Big Data made an interest for on a horizontally adaptable Data Management System. This prompted advancement of various types of Database Management System which all things considered go under NoSQL. NoSQL Databases are comprehensively separated into following sorts: Document, Key-value, Graph, Native object, Table type, Native XML and Hybrid Databases. All RDBMS databases depend on the same model, while, each of the NoSQL database takes after a distinctive model. NoSQL moves far from the robust institutionalized type of SQL database and empowers less complex information capacity arrangements. Therefore a NoSQL database is enhanced for the particular application.\cite{noSql}
@@ -171,7 +191,7 @@ Javascript is a programming language with which web pages are given interactivit
 \cite{JavaScriptCode}
 
 \section{CSS}
-CSS (Cascading Style Sheets) - cascading style sheets. In fact, they serve to separate the page structure and its content from its appearance.\par If the page is completely written in HTML, then each element of the code determines not only the content element of the page, but also its way of displaying. For example, not only that there is a text "Hello" in such and such a place, but also that this text is highlighted in bold and red.\par With the use of css code, everything happens a little differently. With the help of html, only the order of the content elements of the page and their classes are described. The corresponding classes are written in the css file. Each of them is assigned a set of properties. Now, when we assign a class to an html element, then all the properties of this class are applied to it. Do not write all these properties every time. Now, when sites have many pages, you can not do without css. \cite{CSS}
+CSS (Cascading Style Sheets) - cascading style sheets. In fact, they serve to separate the page structure and its content from its appearance.\par If the page is completely written in HTML, then each element of the code determines not only the content element of the page but also its way of displaying. For example, not only that there is a text "Hello" in such and such a place, but also that this text is highlighted in bold and red.\par With the use of CSS code, everything happens a little differently. With the help of HTML, only the order of the content elements of the page and their classes are described. The corresponding classes are written in the CSS file. Each of them is assigned a set of properties. Now, when we assign a class to an HTML element, then all the properties of this class are applied to it. Do not write all these properties every time. Now, when sites have many pages, you can not do without CSS. \cite{CSS}
 
 \begin{minted}{css}
 body {
