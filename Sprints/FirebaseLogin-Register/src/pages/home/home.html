@@ -1,0 +1,61 @@
+<ion-content class="background">
+
+  <img id="main-logo" width="200" height="130" src="assets/imgs/digs.png">
+
+  <ion-card *ngIf="!floggedIn || !gloggedIn">
+    <ion-card-header>
+      LOGIN
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list no-lines>
+        <ion-item>
+          <ion-label floating>Email Address</ion-label>
+          <ion-input type="text" [(ngModel)]="user.email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Password</ion-label>
+          <ion-input type="password" [(ngModel)]="user.password"></ion-input>
+        </ion-item>
+        <ion-item>
+          <p><a>Forget Password?</a></p>
+        </ion-item>
+        <button ion-button color="danger" block outline (click)="login(user)">LOGIN</button>
+        <button ion-button color="primary" block outline (click)="register()">Register</button>
+      </ion-list>
+      <b>OR</b>
+      <button ion-button color="primary" ion-left block (click)="fblogin()">
+          <ion-icon name="logo-facebook" style="padding-right: 6px;"></ion-icon>
+          <div>Login With Facebook</div>
+        </button>
+      <button ion-button color="danger" ion-left block (click)="gLogin()">
+        <ion-icon name="logo-google" style="padding-right: 6px;"></ion-icon>
+        <div>Login With Google</div>
+      </button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="floggedIn && token == 1">
+      <ion-card-header>{{ userData.username }}</ion-card-header>
+      <img [src]="userData.picture">
+      <ion-card-content>
+        <p>Email: {{ userData.email }}</p>
+        <p>Fisrt Name: {{ userData.first_name }}</p>
+      </ion-card-content>
+      <button ion-button icon-left block (click)="fblogout()">
+          <ion-icon name="logo-facebook"></ion-icon>
+          Logout Of Facebook
+      </button>
+  </ion-card>
+
+  <ion-card *ngIf="gloggedIn && token == 2">
+      <ion-card-header>Success</ion-card-header>
+      <ion-card-content>
+        <p>Google Login Successful</p>
+      </ion-card-content>
+      <button ion-button icon-left block (click)="glogout()">
+          <ion-icon name="logo-google"></ion-icon>
+          Logout Of Google
+      </button>
+  </ion-card>
+
+</ion-content>

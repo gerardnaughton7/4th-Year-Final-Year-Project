@@ -1,0 +1,23 @@
+<ion-content padding>
+
+  <img id="main-logo" width="200" height="130" src="assets/imgs/digs.png">
+
+  <ion-card>
+    <ion-card-header>
+      REGISTER
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list no-lines>
+        <ion-item>
+          <ion-label floating>Email Address</ion-label>
+          <ion-input type="text" [(ngModel)]="user.email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Password</ion-label>
+          <ion-input type="password" [(ngModel)]="user.password"></ion-input>
+        </ion-item>
+        <button ion-button (click)="register(user)">Register</button>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
