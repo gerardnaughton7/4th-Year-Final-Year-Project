@@ -284,6 +284,40 @@ I will cover how we connect Mongo DB to our NodeJS server in the next section.
 
 \section{Logic Tier}
 
+Logic tier refers to your apps business logic. It his here we program your applications ability to manipulate data. These include creation, storing , updating and deletion of Data. To handle our business logic we use NodeJS. NodeJS was the obvious choice for our 3 tier architecture not only does it link up well with our Mongo DB  but also is easily integrated with our Ionic 3 presentation tier. NodeJS with its light-weight nature and its scalability due to its non-blocking I/O calls allowing tens of thousands of concurrent connections made it more than capable for our application.
+
+Using Java script for our logic tier and using type-script for our providers in our presentation tier made it really easy to transition between the two because of their similarities. For our Logic tier we host two NodeJS servers on our AWS account. Our digs server would handle our ad data and our images server would take care of saving and hosting our images.
+
+\subsection{Connecting the Data Tier}
+
+For creating the connection between the Data Tier and the Logic Tier we used Mongoose. Mongoose is a JavaScript library which allows us to define a schema with strongly typed data. Mongoose then allows you create models which map to a MongoDB Document via the Models schema definition.\cite{Mongoose}
+
+Not only does Mongoose allow you to define strong data models and the ability to manipulate them before saving, it also offers functions to create an easy connection to your database and to validate, save, delete and query your data. In the code snippets below from our digs server you will find examples of this:
+Here we show how we connected to our Database using Mongoose:
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=10cm, height=4cm]{img/MongooseSetUp.PNG}
+\caption{Mongoose Connection Example.}
+\end{figure}
+
+Here we can see our room data model and how we declare each data type:
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=7cm, height=7cm]{img/Models.PNG}
+\caption{Mongoose Models Example.}
+\end{figure}
+
+\subsection{Connecting the Presentation Tier}
+
+For the moment we are just dealing with the Logic Tier side. In the Logic tier we have configured our digs server to run on port 8080 and our images server to run on port 3000. It is on these ports where our servers will send and receive traffic to our presentation layer.
+
+Using our IP address, port number and routing address the presentation layer will be able to send http requests to our servers. Depending on the routing address provided will determine what action the server will take on our data tier. In the next section I will go through some of the functions and queries Mongo and Mongoose provide for accessing and querying of data.
+
+\subsection{Routing and Access of Data}
+
+
 
 
 
