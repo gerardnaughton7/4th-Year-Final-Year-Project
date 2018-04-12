@@ -96,10 +96,16 @@ Description of chapters
 
 
 \chapter{Methodology}
-Description of chapters
+Description of chapters....
 
 \section{Agile Development}
-During the life-cycle of our project we attempted to use an Agile like approach to the research, design and implementation stages of the project. In the initial stages of the project we discussed various methodologies we could use, for example Waterfall but we decided on Agile. This is because Agile offers continual improvement, flexibility and incremental delivery of the software. During the research process we used a Scrum like approach. Scrum is an Agile method in which a development cycle is carried out in what are known as sprints. The following section contains information about the various sprints we undertook.
+During the life-cycle of our project we attempted to use an Agile like approach to the research, design and implementation stages of the project. In the initial stages of the project we discussed various methodologies we could use, for example Waterfall but we decided on Agile. This is because Agile offers continual improvement, flexibility and incremental delivery of the software. \\
+
+\noindent During the research process of our project we used a Scrum like approach. Scrum is an Agile method in which a development cycle is carried out in what are known as sprints. \\
+
+\noindent During the development process of our Digs application we used a RAD like approach. RAD, Rapid Application Development, is an agile approach to software development which puts less emphasis on planning and more emphasis on actual development. \\
+
+\noindent The following section contains information about the various sprints we undertook in the research cycle of our project.
 
 \section{Sprints}
 Each of the sprints we completed during our research and planning phase of our project gave us, as a team, the opportunity to learn and adapt to the various needs of the project. Each sprint represents a vital aspect of the application i.e. Creating three tier architecture, accessing native phone capabilities through Cordova and learning how to integrate all these features together. We prioritised the sprints in the order as follows.
@@ -111,7 +117,13 @@ This was our first sprint and it was worked on by all three members in our team.
 This was a relatively small sprint and was completed by Patrick. The plan for this sprint was to create a small app which displayed images in a gallery style format. Using a plugin for ionic called ionic-img-viewer \cite{ImgViwer} an image is made larger when it is clicked. Images can be moved left and right in a gallery style and incorporate zoom functionality.
 
 \subsection{Sprint 3 Image Back-end}
-The next phase of the project was figuring out a way of using a mobile devices camera to take a picture, upload that picture to a node server and then save a reference to that image in a MongoDB database. To do this we split this process up into two sprints. The first sprint involved setting up the back end. We achieved this functionality by following a blog by Devdactic \cite{ImageBackEnd} where we set up our NodeJS back-end. Once completed our backend had the capability to upload and store images. This functionality was tested using software called Postman \cite{Postman}. Postman is a HTTP client service which helps developers test their API with various HTTP requests.
+The next phase of the project was figuring out a way of using a mobile devices camera to take a picture, upload that picture to a node server and then save a reference to that image in a MongoDB database. To do this we split this process up into two sprints. The first sprint involved setting up the back end. We achieved this functionality by following a blog by Devdactic \cite{ImageBackEnd} where we set up our NodeJS back-end. Once completed our backend had the capability to upload and store images. This functionality was tested using software called Postman \cite{Postman}. Postman is a HTTP client service which helps developers test their API with various HTTP requests. \\
+
+\subsection{Sprint 4 Image Front-End}
+
+\subsection{Sprint 5 Login/Register}
+
+\noindent The following section contains information about the RAD appraoch we undertook during the development phase of our Digs.
 
 \chapter{Technology Review}
 
@@ -274,11 +286,38 @@ Our Mongo DB would be structured into 3 collections.
 
 Our Mongo DB structures our models as JSON object in each collection. Here is a property JSON object example:
 
-\begin{figure}[h]
-\centering
-\includegraphics[width=14cm, height=7cm]{img/JSON.PNG}
-\caption{Property JSON.}
-\end{figure}
+\begin{minted}{json}
+    {
+        "_id": "5aba78dab36ff80e38c85347",
+        "UID": "test@gmail.com",
+        "AdID": "2ec810ba29cc91c0ffc19913ef75397f",
+        "PropertyType": "House",
+        "SingleBeds": 3,
+        "DoubleBeds": 1,
+        "TwinBeds": 0,
+        "EnSuite": 0,
+        "NoRooms": 4,
+        "Eircode": "H951CF",
+        "Address": "Galway city ",
+        "LocationDes": "City Suburbs",
+        "Price": 2300,
+        "Availability": "2018-09-27",
+        "Email": "patrickmoran121@gmail.com",
+        "Phone": 861234567,
+        "Contact": "Phone",
+        "Description": "Description house here",
+        "Parking": "Yes",
+        "Date": "2018-03-27T17:01:14.403Z",
+        "__v": 0,
+        "ImagesUrl": [
+            "http://54.73.1.214:3000/images/5aba78d836ceeb168c045761"
+        ],
+        "College": [
+            "GMIT",
+            "NUIG"
+        ]
+    },
+\end{minted}
 
 I will cover how we connect Mongo DB to our NodeJS server in the next section.
 
@@ -295,19 +334,40 @@ For creating the connection between the Data Tier and the Logic Tier we used Mon
 Not only does Mongoose allow you to define strong data models and the ability to manipulate them before saving, it also offers functions to create an easy connection to your database and to validate, save, delete and query your data. In the code snippets below from our digs server you will find examples of this:
 Here we show how we connected to our Database using Mongoose:
 
-\begin{figure}[h]
-\centering
-\includegraphics[width=10cm, height=4cm]{img/MongooseSetUp.PNG}
-\caption{Mongoose Connection Example.}
-\end{figure}
+\begin{minted}{js}
+var mongoose = require('mongoose');     
+var morgan = require('morgan');             
+var bodyParser = require('body-parser');    
+var methodOverride = require('method-override'); 
+var cors = require('cors');
+ 
+// Configuration
+mongoose.connect('mongodb://localhost/digsdb');
+\end{minted}
 
-Here we can see our room data model and how we declare each data type:
+\noindent Here we can see our room data model and how we declare each data type:
 
-\begin{figure}[h]
-\centering
-\includegraphics[width=7cm, height=7cm]{img/Models.PNG}
-\caption{Mongoose Models Example.}
-\end{figure}
+\begin{minted}{js}
+// Models
+var Room = mongoose.model('Room', {
+    UID: String,
+    AdID: String,
+    RoomType: String,
+	College: [String],
+	Address: String,
+    Eircode: String,
+    LocationDes: String,
+    Price: Number,
+    Availability: String,
+    Email: String,
+    Phone: Number,
+    Contact: String,
+    Description: String,
+    Parking: String,
+	ImagesUrl: [String],
+	Date: Date,
+});
+\end{minted}
 
 \subsection{Connecting the Presentation Tier}
 
