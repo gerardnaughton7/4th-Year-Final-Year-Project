@@ -127,7 +127,147 @@ The next phase of the project was figuring out a way of using a mobile devices c
 
 \chapter{Technology Review}
 
-\section{Development Environment}
+\section{Database}
+
+\subsection{NoSQL database}
+The ascent of Big Data made an interest for on a horizontally adaptable Data Management System. This prompted advancement of various types of Database Management System which all things considered go under NoSQL. NoSQL Databases are comprehensively separated into following sorts: Document, Key-value, Graph, Native object, Table type, Native XML and Hybrid Databases. All RDBMS databases depend on the same model, while, each of the NoSQL database takes after a distinctive model. NoSQL moves far from the robust institutionalized type of SQL database and empowers less complex information capacity arrangements. Therefore a NoSQL database is enhanced for the particular application.\cite{noSql}
+
+\subsubsection{NoSql database types}
+
+\begin{itemize}
+\item Key-Value Storage \par
+Key-Value Storages are straight forward and simple NoSQL frameworks, for example, Redis that are fundamentally a truly favour hash table. You have an esteem you need to get later, so you allocate it a key and in addition stuff it into the database, you can just inquiry a single object at any given moment and just by a single key.
+
+\item Document Storage \par
+Regularly, these are objects with a various levelled structure, for example, XML documents, JSON records, and some other kind of tree structure, yet the qualities of various nodes on the tree can be indexed. They have a much speed with respect to customary push construct SQL databases in light of query in light of the fact that they give up execution on joining. 
+
+\item Columnar Storage  \par
+These store the information in columns instead of lines, so refreshing and adding are costly, be that as it may, most questions are modest in light of the fact that each segment is basically certainly recorded. In any case, on the off chance that your inquiry can not utilize an index, you are in no better shape with a Columnar Store rather than a standard SQL database.
+
+\item Graph Storage  \par
+Diagram Databases (neo4j) make joins as shoddy as could be expected under the circumstances, on the grounds that even a straightforward row query would require many joins to recover. Tables can sort query would be slower than a standard SQL database in view of the greater part of the additional joins to retrieve the information. \cite{DataTypes}
+\end{itemize}
+
+\subsubsection{Advantages of NoSql}
+NoSQL databases are very versatile, dependable, have a basic data model, amazingly exposed query language, no system for taking care of consistency and trustworthiness among data, and no help for security at the database level. A standout amongst the most vital points of interest of NoSQL databases is that the databases can handle unstructured information. Unstructured data can be word reports, messages, sound, video, or even interpersonal social network information. Too, NoSQL databases tend to scale extremely well on commodity equipment. Some even claim that NoSQL databases empower better execution, which is urgent for organizations with a lot of data. To empower quicker execution, NoSQL databases ordinarily don't cling to ACID (atomicity, consistency, isolation, durability) restrictions that are utilized as a part of relational databases. While this is recorded as a star for NoSQL as far as execution and processing time; we take note of that this likewise has unfortunate outcomes that will be tended to later. A case of NoSQL database's execution is Facebook's usage (Cassandra) that is equipped for dealing with more than 100 million clients persistently. \cite{AdvantagesnoSql}
+
+\subsection{Examples of NoSQL}
+\begin{itemize}
+\item Key-Value Storage: \par
+MUMPS, CouchDB, FoundationDB, Redis, Aerospike, Dynamo, MemcacheDB, Riak, OrientDB, Fair Com c-treeACE, Redis.
+
+\item Apache CouchDB, MarkLogic, OrientDB, Clusterpoint, Couchbase, MongoDB.
+
+\item Columnar Storage:  \par
+Vertica, Cassandra, Hbase, Accumulo, Druid.
+
+\item Graph Storage:  \par
+Neo4J, OrientDB, Stardog, Allegro, InfiniteGraph, Virtuoso. 
+\end{itemize}
+
+\subsection{MongoDB}
+MongoDB is a cross-platform, document-oriented database that provides high performance and easy scalability. The basis of this database is the concept of collections and documents.\par
+MongoDB is ideal for projects that involve working with very large amounts of data and / or high scalability requirements, high performance even in cases where information is too complex and heterogeneous for modeling using a relational schema, or there is a need for real-time analysis \par
+In comparison, the contents of a relational database are tables, the MongoDB database consists of collections. Each collection has its own unique name - an arbitrary identifier consisting of no more than 128 different alphanumeric characters and an underscore.
+Unlike relational databases, MongoDB does not use a table with data types. MongoDB is a document-oriented system in which the central concept is a document. \par
+A document can be represented as an object storing some information. In a sense, it is like strings in relational DB, where lines store information about the element. \cite{MongoDB} \par For example, a typical document:
+
+\begin{minted}{js}
+	{
+    "name": "Andrei",
+    "surname": "Petruk",
+    "age": "40",
+    "college": {
+        "name" : "GMIT",
+        "year" : "2018",
+        }
+}
+\end{minted}
+
+\subsubsection{Document ID}
+For each document, a unique identifier called id is defined in MongoDB. When you add a document to the collection, this ID is automatically generated. However, the developer can explicitly set the identifier, rather than relying on the automatically generated ones, specifying the corresponding key and its value in the document.\par
+This field must have a unique value within the collection. And if we try to add two documents with the same identifier to the collection, we will get an error.\par
+If the identifier is not specified explicitly, then MongoDB creates a special binary value of 12 bytes.\cite{MongoDBID}
+
+\subsection{Firebase Authentication}
+The authentication service closely integrates with other Firebase services, uses industry standards such as OAuth 2.0 and OpenID Connect, so it can be easily integrated with your backend.\par
+The Firebase Authentication SDK provides methods for creating and managing users who use e-mail addresses and passwords to log on to the system.\par
+According to the documentation, the listener receives notifications in the following situations:
+\begin{itemize}
+\item When the FirebaseAuth object completes the initialization and the user is already authorized in the previous session or is redirected from the input stream of the other authentication provider.
+\item When the user logs in (the current user is installed)
+\item When the user exits (the current user becomes null)
+\item When the access token of the current user is updated. This can happen in the following cases:
+if the token expired
+\item The user re-authenticates
+\item The user changes his password.
+\end{itemize}
+In this case, Firebase issues new access tokens and marks the old ones as invalid. When changing the password, the user logs off automatically on each device, for security reasons. \cite{Firebase}
+
+\section{Server}
+
+\subsection{NodeJS}
+
+\section{Front End}
+
+\subsection{Ionic}
+Ionic is a framework with a stunningly designed graphical interface, styled for various platforms, for maximum similarity to native applications. AngularJS and sass are taken as a basis for the framework, which brought him great popularity among developers, as these technologies reduce the threshold of entry to a minimum. The core of the framework is Cordova, so all the plugins of Cordova will work fine on ionic.\par In addition to the platform and ready-made UI components, Ionic has a thoughtful command line interface that allows you to generate icons, splash screens, run the file in the browser with the app for debugging, and build applications with short commands in the console.\par Also worth noting is the detailed documentation with examples.\cite{Ionic}
+
+\subsubsection{Ionic UI}
+Ionic has dozens of ready-made components, which are constantly being refined and replenished with new ones. You can fully read them on the documentation page.\cite{IonicUI}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=10cm, height=7cm]{img/IonicUI.png}
+\caption{Ionic UI.}
+\end{figure}
+
+\subsubsection{OS oriented styles}
+Ionic is not just a good interface, it is adapted to the specifics of various operating systems and is thought through to the smallest detail. Animations, icons, fonts, all this with the same code will look like the operating system under which the application is built (Android or iOS, and starting with the second version and Windows Phone).\cite{IonicOS}
+
+\subsubsection{Cordova}
+
+\section{languages}
+
+\subsection{Angular}
+
+\subsection{Typescript}
+
+\subsection{JavaScript}
+Javascript is a programming language with which web pages are given interactivity. It creates applications that are included in the HTML-code (for example, questionnaires or registration forms that are filled in by the user).\par The uniqueness of this programming language is that it is supported by almost all browsers and fully integrated with them, and all that can be done with it is done very simply. No other technology accommodates all these advantages together. To date, this technology is actively developing also developing a programming language Javascript2 \cite{JavaScript}
+
+\begin{minted}{js}
+// add two numbers
+<script>
+    var num1, num2, sum
+    num1 = prompt("Enter first number")
+    num2 = prompt("Enter second number")
+    sum = parseInt(num1) + parseInt(num2) // "+" means "add"
+    alert("Sum = " + sum)  // "+" means combine into a string
+</script>
+\end{minted}
+\cite{JavaScriptCode}
+
+\subsection{CSS}
+CSS (Cascading Style Sheets) - cascading style sheets. In fact, they serve to separate the page structure and its content from its appearance.\par If the page is completely written in HTML, then each element of the code determines not only the content element of the page but also its way of displaying. For example, not only that there is a text "Hello" in such and such a place, but also that this text is highlighted in bold and red.\par With the use of CSS code, everything happens a little differently. With the help of HTML, only the order of the content elements of the page and their classes are described. The corresponding classes are written in the CSS file. Each of them is assigned a set of properties. Now, when we assign a class to an HTML element, then all the properties of this class are applied to it. Do not write all these properties every time. Now, when sites have many pages, you can not do without CSS. \cite{CSS}
+
+\begin{minted}{css}
+body {
+  font-family: Verdana, 
+  Arial, sans-serif;
+  }
+\end{minted}
+
+\subsection{Tex}
+
+\section{Software and tools used for development}
+
+\subsection{Visual Studio Code}
+\cite{VSCode}.
+
+\subsection{Postman}
+
+\subsection{Sharelatex}
 
 \subsection{GitHub}
 GitHub hosting project on the Internet. It can be used freely for Open Source projects. Now GitHub is the most popular hosting service for developers. It uses the Git version control system, hence the name GitHub.\par
@@ -153,97 +293,7 @@ Some sample examples of git commands:
     To send changes to repository. 
 \end{itemize}
 
-\subsection{Ionic}
-Ionic is a framework with a stunningly designed graphical interface, styled for various platforms, for maximum similarity to native applications. AngularJS and sass are taken as a basis for the framework, which brought him great popularity among developers, as these technologies reduce the threshold of entry to a minimum. The core of the framework is Cordoba, so all the plugins of Cordoba will work fine on ionic.\par In addition to the platform and ready-made UI components, Ionic has a thoughtful command line interface that allows you to generate icons, splash screens, run the file in the browser with the app for debugging, and build applications with short commands in the console.\par Also worth noting is the detailed documentation with examples.\cite{Ionic}
-
-\subsubsection{Ionic UI}
-Ionic has dozens of ready-made components, which are constantly being refined and replenished with new ones. You can fully read them on the documentation page.\cite{IonicUI}
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=10cm, height=7cm]{img/IonicUI.png}
-\caption{Ionic UI.}
-\end{figure}
-
-\subsubsection{OS oriented styles}
-Ionic is not just a good interface, it is adapted to the specifics of various operating systems and is thought through to the smallest detail. Animations, icons, fonts, all this with the same code will look like the operating system under which the application is built (Android or iOS, and starting with the second version and Windows Phone).\cite{IonicOS}
-
-\subsection{Visual Studio Code}
-\cite{mLab}.\\
-\\
-A sample of the MongoDB stucture is as follows\cite{WilliamZola}:
-\begin{minted}{json}
-{
-    "_id" : 1
-
-\end{minted}
-
-\section{NoSQL database}
-The ascent of Big Data made an interest for on a horizontally adaptable Data Management System. This prompted advancement of various types of Database Management System which all things considered go under NoSQL. NoSQL Databases are comprehensively separated into following sorts: Document, Key-value, Graph, Native object, Table type, Native XML and Hybrid Databases. All RDBMS databases depend on the same model, while, each of the NoSQL database takes after a distinctive model. NoSQL moves far from the robust institutionalized type of SQL database and empowers less complex information capacity arrangements. Therefore a NoSQL database is enhanced for the particular application.\cite{noSql}
-
-\subsection{NoSql database types}
-
-\begin{itemize}
-\item Key-Value Storage \par
-Key-Value Storages are straight forward and simple NoSQL frameworks, for example, Redis that are fundamentally a truly favour hash table. You have an esteem you need to get later, so you allocate it a key and in addition stuff it into the database, you can just inquiry a single object at any given moment and just by a single key.
-
-\item Document Storage \par
-Regularly, these are objects with a various levelled structure, for example, XML documents, JSON records, and some other kind of tree structure, yet the qualities of various nodes on the tree can be indexed. They have a much speed with respect to customary push construct SQL databases in light of query in light of the fact that they give up execution on joining. 
-
-\item Columnar Storage  \par
-These store the information in columns instead of lines, so refreshing and adding are costly, be that as it may, most questions are modest in light of the fact that each segment is basically certainly recorded. In any case, on the off chance that your inquiry can not utilize an index, you are in no better shape with a Columnar Store rather than a standard SQL database.
-
-\item Graph Storage  \par
-Diagram Databases (neo4j) make joins as shoddy as could be expected under the circumstances, on the grounds that even a straightforward row query would require many joins to recover. Tables can sort query would be slower than a standard SQL database in view of the greater part of the additional joins to retrieve the information. \cite{DataTypes}
-\end{itemize}
-
-\subsection{Advantages of NoSql}
-NoSQL databases are very versatile, dependable, have a basic data model, amazingly exposed query language, no system for taking care of consistency and trustworthiness among data, and no help for security at the database level. A standout amongst the most vital points of interest of NoSQL databases is that the databases can handle unstructured information. Unstructured data can be word reports, messages, sound, video, or even interpersonal social network information. Too, NoSQL databases tend to scale extremely well on commodity equipment. Some even claim that NoSQL databases empower better execution, which is urgent for organizations with a lot of data. To empower quicker execution, NoSQL databases ordinarily don't cling to ACID (atomicity, consistency, isolation, durability) restrictions that are utilized as a part of relational databases. While this is recorded as a star for NoSQL as far as execution and processing time; we take note of that this likewise has unfortunate outcomes that will be tended to later. A case of NoSQL database's execution is Facebook's usage (Cassandra) that is equipped for dealing with more than 100 million clients persistently. \cite{AdvantagesnoSql}
-
-\subsection{Examples of NoSQL}
-\begin{itemize}
-\item Key-Value Storage: \par
-MUMPS, CouchDB, FoundationDB, Redis, Aerospike, Dynamo, MemcacheDB, Riak, OrientDB, Fair Com c-treeACE, Redis.
-
-\item Apache CouchDB, MarkLogic, OrientDB, Clusterpoint, Couchbase, MongoDB.
-
-\item Columnar Storage:  \par
-Vertica, Cassandra, Hbase, Accumulo, Druid.
-
-\item Graph Storage:  \par
-Neo4J, OrientDB, Stardog, Allegro, InfiniteGraph, Virtuoso. 
-\end{itemize}
-
-
-
-\section{MongoDB}
-
-\section{JQuery}
-
-\section{JavaScript}
-Javascript is a programming language with which web pages are given interactivity. It creates applications that are included in the HTML-code (for example, questionnaires or registration forms that are filled in by the user).\par The uniqueness of this programming language is that it is supported by almost all browsers and fully integrated with them, and all that can be done with it is done very simply. No other technology accommodates all these advantages together. To date, this technology is actively developing also developing a programming language Javascript2 \cite{JavaScript}
-
-\begin{minted}{js}
-// add two numbers
-<script>
-    var num1, num2, sum
-    num1 = prompt("Enter first number")
-    num2 = prompt("Enter second number")
-    sum = parseInt(num1) + parseInt(num2) // "+" means "add"
-    alert("Sum = " + sum)  // "+" means combine into a string
-</script>
-\end{minted}
-\cite{JavaScriptCode}
-
-\section{CSS}
-CSS (Cascading Style Sheets) - cascading style sheets. In fact, they serve to separate the page structure and its content from its appearance.\par If the page is completely written in HTML, then each element of the code determines not only the content element of the page but also its way of displaying. For example, not only that there is a text "Hello" in such and such a place, but also that this text is highlighted in bold and red.\par With the use of CSS code, everything happens a little differently. With the help of HTML, only the order of the content elements of the page and their classes are described. The corresponding classes are written in the CSS file. Each of them is assigned a set of properties. Now, when we assign a class to an HTML element, then all the properties of this class are applied to it. Do not write all these properties every time. Now, when sites have many pages, you can not do without CSS. \cite{CSS}
-
-\begin{minted}{css}
-body {
-  font-family: Verdana, 
-  Arial, sans-serif;
-  }
-\end{minted}
+\subsection{Notpad++}
 
 \chapter{System Design}
 
