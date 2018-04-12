@@ -154,7 +154,7 @@ Some sample examples of git commands:
 \end{itemize}
 
 \subsection{Ionic}
-Ionic is a framework with a stunningly designed graphical interface, styled for various platforms, for maximum similarity to native applications. AngularJS and sass are taken as a basis for the framework, AngularJS and sass are taken, which brought him great popularity among developers, as these technologies reduce the threshold of entry to a minimum. The core of the framework is Cordoba, so all the plugins of Cordoba will work fine on ionic.\par In addition to the platform and ready-made UI components, Ionic has a thoughtful command line interface that allows you o generate icons, splash screens, run the file in the browser with the app for debugging, and build applications with short commands in the console.\par Also worth noting is the detailed documentation with examples.\cite{Ionic}
+Ionic is a framework with a stunningly designed graphical interface, styled for various platforms, for maximum similarity to native applications. AngularJS and sass are taken as a basis for the framework, which brought him great popularity among developers, as these technologies reduce the threshold of entry to a minimum. The core of the framework is Cordoba, so all the plugins of Cordoba will work fine on ionic.\par In addition to the platform and ready-made UI components, Ionic has a thoughtful command line interface that allows you to generate icons, splash screens, run the file in the browser with the app for debugging, and build applications with short commands in the console.\par Also worth noting is the detailed documentation with examples.\cite{Ionic}
 
 \subsubsection{Ionic UI}
 Ionic has dozens of ready-made components, which are constantly being refined and replenished with new ones. You can fully read them on the documentation page.\cite{IonicUI}
@@ -286,7 +286,7 @@ Our Mongo DB would be structured into 3 collections.
 
 Our Mongo DB structures our models as JSON object in each collection. Here is a property JSON object example:
 
-\begin{minted}{json}
+\begin{minted}[linenos,tabsize=2,breaklines]{json}
     {
         "_id": "5aba78dab36ff80e38c85347",
         "UID": "test@gmail.com",
@@ -334,7 +334,7 @@ For creating the connection between the Data Tier and the Logic Tier we used Mon
 Not only does Mongoose allow you to define strong data models and the ability to manipulate them before saving, it also offers functions to create an easy connection to your database and to validate, save, delete and query your data. In the code snippets below from our digs server you will find examples of this:
 Here we show how we connected to our Database using Mongoose:
 
-\begin{minted}{js}
+\begin{minted}[linenos,tabsize=2,breaklines]{js}
 var mongoose = require('mongoose');     
 var morgan = require('morgan');             
 var bodyParser = require('body-parser');    
@@ -347,7 +347,7 @@ mongoose.connect('mongodb://localhost/digsdb');
 
 \noindent Here we can see our room data model and how we declare each data type:
 
-\begin{minted}{js}
+\begin{minted}[linenos,tabsize=2,breaklines]{js}
 // Models
 var Room = mongoose.model('Room', {
     UID: String,
@@ -376,6 +376,192 @@ For the moment we are just dealing with the Logic Tier side. In the Logic tier w
 Using our IP address, port number and routing address the presentation layer will be able to send http requests to our servers. Depending on the routing address provided will determine what action the server will take on our data tier. In the next section I will go through some of the functions and queries Mongo and Mongoose provide for accessing and querying of data.
 
 \subsection{Routing and Access of Data}
+
+Here we will show some of our routing and mongoose functions which allow to us to query our data tier Mongo DB. \\
+
+Here we can see a Http Get request being performed on our Rooms Collection. This function is accessed though its routing address “/api/rooms” which we will see below:\\
+
+\begin{minted}[linenos,tabsize=2,breaklines]{js}
+
+// Get rooms
+app.get('/api/rooms', function(req, res) {
+
+	console.log("fetching rooms");
+	Room.find(function( err, rooms) {
+
+		if (err)
+			res.send(err)
+
+		res.json(rooms); 
+	});
+});
+
+\end{minted}
+
+
+This function will return an array of room objects from the database and send them to our Ionic application in JSON format.\\
+
+
+In our next function we can see our server performing a POST http request on our Properties collection. As you can see below the function is accessed through a similar routing address “/api/properties” except this time we use app.post rather than get. \\
+
+\begin{minted}[linenos,tabsize=2,breaklines]{js}
+
+// create properties and send back all properties after creation
+app.post('/api/properties', function(req, res) {
+
+	console.log("creating properties");
+	let d = Number(req.body.DoubleBeds);
+	let s = Number(req.body.SingleBeds);
+	let t = Number(req.body.TwinBeds);
+	let e = Number(req.body.EnSuite);
+	total = d + s + t + e;
+
+	Property.create({
+		UID: req.body.UID,
+		AdID: req.body.AdID,
+		PropertyType: req.body.PropertyType,
+		SingleBeds: req.body.SingleBeds,
+		DoubleBeds: req.body.DoubleBeds,
+		TwinBeds: req.body.TwinBeds,
+		EnSuite: req.body.EnSuite,
+		NoRooms: total,
+		College: req.body.College,
+		Eircode: req.body.Eircode,
+		Address: req.body.Address,
+		LocationDes: req.body.LocationDes,
+		Price: req.body.Price,
+		Availability: req.body.Availability,
+		Email: req.body.Email,
+		Phone: req.body.Phone,
+		Contact: req.body.Contact,
+		Description: req.body.Description,
+		Parking: req.body.Parking,
+		ImagesUrl: req.body.ImageURL,
+		Date: req.body.Date,
+		done : false
+	}, function(err, property) {
+		if (err)
+			res.send(err);
+
+		Property.find(function(err, properties) {
+			if (err)
+				res.send(err)
+			res.json(properties);
+		});
+	});
+
+});
+
+\end{minted}
+
+As you can see above we create a Property object with the data received from body of our http request and post to our properties collection. After we do this we then perform a get request and return the new refreshed array of property objects to our Ionic application.\\
+
+
+We now have shown how we can retrieve and create data from our Mongo DB. Next we shall manipulate existing items in our database through delete and update.\\
+
+
+Here we demonstrate our delete function on a specific room object in our Rooms collection. As you can see below we use a delete request and our routing address passes through a parameter like so “/api/rooms/room-id”.\\
+
+
+\begin{minted}[linenos,tabsize=2,breaklines]{js}
+
+// delete a room
+app.delete('/api/rooms/:room_id', function(req, res) {
+	Room.remove({
+		"_id" : req.params.room_id
+	}, function(err, room) {
+
+	});
+});
+
+\end{minted}
+
+
+Through this we can remove the room object using the mongoose remove function and the rooms unique identifier passed through in the parameter.\\
+
+
+Next we show our Update function, here we use a put request. To perform this action we receive the object ID we wish to update as a parameter and also receive the new updated object from the body of the http request.\\
+
+
+\begin{minted}[linenos,tabsize=2,breaklines]{js}
+
+// update Room ad
+app.put('/api/rooms/:UID', function(req, res) {
+	
+	let UID = req.body.UID;
+	
+	Room.remove({
+		"_id" : req.params.UID
+	}, function(err, room) {
+
+	});
+	
+	Room.create({
+		UID: req.body.UID,
+		AdID: req.body.AdID,
+		RoomType: req.body.RoomType,
+		College: req.body.College,
+		Eircode: req.body.Eircode,
+		Address: req.body.Address,
+		LocationDes: req.body.LocationDes,
+		Price: req.body.Price,
+		Availability: req.body.Availability,
+		Email: req.body.Email,
+		Phone: req.body.Phone,
+		Contact: req.body.Contact,
+		Description: req.body.Description,
+		Parking: req.body.Parking,
+		ImagesUrl: req.body.ImageURL,
+		Date: req.body.Date,
+		done : false
+	}, function(err, room) {
+		if (err)
+			res.send(err);
+
+		Room.find(function(err, rooms) {
+			if (err)
+				res.send(err)
+			res.json(rooms);
+		});
+	});
+});
+
+\end{minted}
+
+
+After updating the object we do the same as our previous POST request and perform a get request on our Room collection in order to return the new refreshed array of room objects to our Ionic application.\\
+
+
+Finally we have our search function. I will show an example below of searching for a property using the following criteria: College, Number of Rooms, Parking and Price.\\
+
+
+\begin{minted}[linenos,tabsize=2,breaklines]{js}
+
+//search function on college parking price and number of rooms properties
+app.get('/api/searchProperties/:col/:numRooms/:parking/:price', 
+
+function(req, res) {
+	let Col = req.params.col;
+	let numRooms = req.params.numRooms;
+	let Parking = req.params.parking;
+	let Price = req.params.price
+	console.log("fetching Search properties" + Col + numRooms);
+
+	Property.find({"College": Col, "NoRooms":numRooms, "Parking": Parking, "Price": {$lt: Price }}, function(err, properties) {
+
+		if (err)
+			res.send(err)
+
+		res.json(properties); 
+	});
+});
+
+\end{minted}
+
+
+As we can see above we perform another GET request but this time we take a list of parameters in our request in order to search our Properties collection. Using these and our mongoose find function we can search for property objects fitting the criteria passed through. For example : A property that is located beside GMIT, has 4 bedrooms, has no Parking and Price is less than 1200.\\
+
+Here concludes our Logic Tier, next we will discuss our Presentation Tier.
 
 
 
