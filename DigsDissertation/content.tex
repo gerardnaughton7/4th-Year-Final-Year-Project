@@ -170,10 +170,10 @@ MongoDB is a cross-platform, document-oriented database that provides high perfo
 MongoDB is ideal for projects that involve working with very large amounts of data and / or high scalability requirements, high performance even in cases where information is too complex and heterogeneous for modeling using a relational schema, or there is a need for real-time analysis \par
 In comparison, the contents of a relational database are tables, the MongoDB database consists of collections. Each collection has its own unique name - an arbitrary identifier consisting of no more than 128 different alphanumeric characters and an underscore.
 Unlike relational databases, MongoDB does not use a table with data types. MongoDB is a document-oriented system in which the central concept is a document. \par
-A document can be represented as an object storing some information. In a sense, it is like strings in relational DB, where lines store information about the element. \cite{MongoDB} \par For example, a typical document:
+A document can be represented as an object storing some information. In a sense, it is like strings in relational Data Bases, where lines store information about the element. \cite{MongoDB} \par For example, a typical document:
 
 \begin{minted}{js}
-	{
+{
     "name": "Andrei",
     "surname": "Petruk",
     "age": "40",
@@ -690,7 +690,33 @@ In the src folder Ionic 3 have structured our components into well thought out F
 
 Providers gives our Application access to our data tier through our servers. In here we provide the logic and perform http requests to our NodeJS Servers to either return , create , update or delete data. Rather than repeating ourselves for each provider we will give examples of how our provider works using the RoomAd.ts Provider.
 
+\subsection{Pages}
 
+Ionic 3 Pages are broken up into 4 parts:\\
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=3.5cm, height=4cm]{img/Pages}
+\caption{Page File Structure.}
+\end{figure}
+
+\noindent \textbf{Page.ts} : TypeScript file which handles the logic of the page. Here we code our individual functions and bring in our imports needed for functionality. For example here is how we import FireBase for our Login Page. 
+    
+\begin{minted}{ts}
+import { AngularFireAuth } from 'angularfire2/auth';
+\end{minted}
+
+\noindent \textbf{Page.scss} : SCSS file which defines the styling of the page.\\
+
+\noindent \textbf{Page.ts} : HTML file which creates the overall layout of the page. Adding forms, lists, buttons and images where needed. With the Ionic framework we can use angular directives on html elements such as buttons which offers us greater functionality and design. Here is an example of a angular directive on a html button:
+
+\begin{minted}{html}
+<button ion-button large>Large</button>
+\end{minted}
+
+\noindent \textbf{Page.module.ts} : This file is used for deep linking. In this file they create the underlying routing for our app.\cite{https://ionicframework.com/docs/api/IonicPageModule/} This file is automatically created when a page is generated. We dont use this file for our coding of the app.\\
+
+\noindent Below we will go through each of our apps pages features and functionality.
 
 
 \chapter{System Evaluation}
