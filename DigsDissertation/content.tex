@@ -207,6 +207,22 @@ In this case, Firebase issues new access tokens and marks the old ones as invali
 \section{Server}
 
 \subsection{NodeJS}
+Node or Node.js is a software platform based on the V8 engine (translating JavaScript into machine code), which turns JavaScript from a highly specialized language into a general-purpose language. Node.js adds the ability of JavaScript to interact with I / O devices through its API (written in C ++), connect other external libraries written in different languages, providing calls to them from JavaScript code. Node.js is used primarily on the server, acting as a web server, but it is possible to develop Node.js and desktop window applications (using NW.js, AppJS or Electron for Linux, Windows and Mac OS) and even program microcontrollers (for example, tessel and espruino). Node.js is based on event-oriented and asynchronous programming with non-blocking I / O. \par 
+An important thing to realize is that Node is not a web server. The platform itself does not do anything. It does not work like Apache. There are no configuration files in which it points you to HTML files. If you want the platform to be an HTTP server, you'll have to write an HTTP server (using built-in libraries).
+\cite{NodeJS}
+
+\subsubsection{Asynchronous calls}
+Asynchronous calls are especially important for web servers. It is quite typical for modern web applications to have access to databases. While waiting for the result to return from the database, Node can process more queries. This allows you to cope with thousands of parallel requests with little overhead compared to creating a separate thread for each connection. \cite{NodeJS}
+
+\subsubsection{npm}
+Node.js Package Manager is the package manager that is part of the Node.js.
+Now, instead of installing each library separately, we can run one command and install everything in one go.
+
+\begin{minted}{js}
+npm install
+\end{minted}
+
+When you run the command, npm will look for the package.json file in the current folder. If found, it will install each library from the list. \cite{NodeJS}
 
 \section{Front End}
 
@@ -226,6 +242,17 @@ Ionic has dozens of ready-made components, which are constantly being refined an
 Ionic is not just a good interface, it is adapted to the specifics of various operating systems and is thought through to the smallest detail. Animations, icons, fonts, all this with the same code will look like the operating system under which the application is built (Android or iOS, and starting with the second version and Windows Phone).\cite{IonicOS}
 
 \subsubsection{Cordova}
+Apache Cordova is a platform for developing open source mobile applications. It allows you to use standard web technologies such as HTML5, CSS3 and JavaScript for cross-platform development, avoiding the native development language for each of the mobile platforms. Applications are performed inside a wrapper targeted at each platform and rely on standard APIs to access device sensors, data, and network status. \cite{Cordova}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=10cm, height=7cm]{img/Cordova.jpg}
+\caption{Cordova Application}
+\end{figure}
+
+Cordova is a platform that allows you to develop mobile applications on different platforms, by embedding the browser in a mobile application. In fact, your application is a mini-browser that shows one single site - your application. All resources can be placed in the distribution package of the application to accelerate the download, and you can download from the server if necessary.\par
+By default, Cordova provides only basic browser capabilities that are available on this mobile device, but it allows you to extend the set of functions available in the browser by using plugins. Each plugin provides a unified interface that can be used from a browser on different platforms. And if the supported CSS / JS functions differently in each browser from the version of the operating system or platform, the Cordova functional tries to provide unified functionality for all supported versions of mobile OS.\par
+Even though this approach has its limitations in the form of the need to consider differences in mobile browsers, it still allows you to create high-quality cross-platform applications. \cite{Cordova}
 
 \section{languages}
 
