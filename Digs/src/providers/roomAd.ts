@@ -6,6 +6,8 @@ import 'rxjs/add/operator/map';
 export class RoomAd {
  
   email: String;
+
+  //AWS urls available for when we are testing
   //apiURL = 'http://localhost:8080/';
   apiURL = 'http://54.73.1.214:8080/'; //patrick
   //apiURL = 'http://52.56.193.204:8080/'; // andrei
@@ -14,15 +16,18 @@ export class RoomAd {
   constructor(public http: Http) {
   }
   
+  //Get all rooms function
   getRooms(){
     return this.http.get(this.apiURL + 'api/rooms').map(res => res.json());
   }
 
+  //Get User Room Function
   getMyRooms(email){
     console.log("now in getMyRooms(): " + email);
     return this.http.get(this.apiURL + 'api/myRooms/' + email).map(res => res.json());
   }
  
+  // Create Room Function
   createRoom(room){
  
     let headers = new Headers();
@@ -36,14 +41,15 @@ export class RoomAd {
       });
   }
  
+  //Delete Room Function
   deleteRoom(id){
- 
     this.http.delete(this.apiURL+'api/rooms/' + id).subscribe((res) => {
       console.log(res.json());
     });   
  
   }
 
+  //Update Room function
   updateRoom(update, id){
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
@@ -56,11 +62,12 @@ export class RoomAd {
  
   }
 
-  // Search Functionality - Searching on three params and then on four params
+  // Search Functionality - Searching on three params
   searchRoomOnThreeParams(College, RoomType, Parking){
     return this.http.get(this.apiURL + 'api/searchRooms/' + College + "/" + RoomType + "/" + Parking).map(res => res.json());
   }
 
+  // Search Functionality - Searching on three params and then on four params
   searchRoomOnFourParams(College, RoomType, Parking, Price){
     return this.http.get(this.apiURL + 'api/searchRooms/' + College + "/" + RoomType + "/" + Parking + "/" + Price).map(res => res.json());
   }

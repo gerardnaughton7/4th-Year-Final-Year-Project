@@ -529,7 +529,6 @@ app.delete('/api/rooms/:room_id', function(req, res) {
 
 Through this we can remove the room object using the mongoose remove function and the rooms unique identifier passed through in the parameter.\\
 
-
 Next we show our Update function, here we use a put request. To perform this action we receive the object ID we wish to update as a parameter and also receive the new updated object from the body of the http request.\\
 
 
@@ -609,10 +608,60 @@ function(req, res) {
 \end{minted}
 
 
-As we can see above we perform another GET request but this time we take a list of parameters in our request in order to search our Properties collection. Using these and our mongoose find function we can search for property objects fitting the criteria passed through. For example : A property that is located beside GMIT, has 4 bedrooms, has no Parking and Price is less than 1200.\\
+As we can see above we perform another GET request but this time we take a list of parameters in our routing address in order to search our Properties collection. Using these and our mongoose find function we can search for property objects fitting the criteria passed through. For example : A property that is located beside GMIT, has 4 bedrooms, has no Parking and Price is less than 1200.\\
 
 Here concludes our Logic Tier, next we will discuss our Presentation Tier.
 
+\section{Presentation Tier}
+
+In the Presentation Tier we will cover 3 sections. Firstly we will explain the Ionic 3 app structure, Secondly we will go through our Providers which we use to interact with our NodeJS server and through that our Mongo DB and finally we will go through each of our Digs Apps Pages, displaying what it looks like and its functionality.\\
+
+\subsection{Ionic 3 App Structure}
+
+\noindent Lets get started with the Ionic 3 Apps Structure. In the Figure 5.2 we can see the structure of our Ionic App.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=6cm, height=7cm]{img/IonicStructure}
+\caption{Ionic 3 Structure.}
+\end{figure}
+
+
+\noindent We will briefly explain each of the main folders and files:
+
+\begin{itemize}
+\item Node-modules – Here contains the packages required to run and develop this ionic App
+\item Platform – Here contains the technologies needed for a ionic. Ie CSS, JavaScript, Angular
+\item Platforms – Here contains the platforms which our Application is being made for. Ie IOS or Android
+\item Plugins – Here contains the plugins needed to give the capability to interact with the phones native capabilities.
+\item Resources – Here contains the Apps resources such as images, splashscreens and readMe
+\item Run – Run enables us to run our application
+\item WWW – Here is where our index.html lies and is the root component where the app will load. 
+\item Src – This is the folder where we will do most of our coding for our Ionic 3 app. In here we will be using scss, typescript, angularjs and java script.
+\end{itemize}
+
+In the src folder Ionic 3 have structured our components into well thought out Folders as seen in figure 5.3 below.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=5cm, height=5cm]{img/srcStructure}
+\caption{System Architecture.}
+\end{figure}
+
+\begin{itemize}
+\item App – This is where we set up the base of our app. In here we provide access to components(such as other pages, providers, bootstrap etc) for various pages in our App as well as creating the App shell. For example whether our App will be a side Menu Application structure.
+\item Assets – This contains our images and icons. 
+\item Models – In here we create our object models. For example our User Model which is made up of a String Email and a String Password.
+\item Pages – This is where the majority of our presentation tier code goes. Here we design each of our pages and its functionality. We will be going into each page in more detail below.
+\item Pipes – In our pipes folder we link up with our list arrays to perform a search depending on price of a accommodation.
+\item Providers – This is where we link our Application to our Logic Tier Servers. We have 4 providers handling our messages, images, properties and rooms. In the next section we will show you how we accomplish this.
+\item Theme – Theme allows us to set the over all design and look of our app through global scss.
+\item Validators – In here we provide functions to validate whether users input was correct. Ie valid email address.
+\end{itemize}
+
+\subsection{Providers}
+
+Providers gives our Application access to our data tier through our servers. In here we provide the logic and perform http requests to our NodeJS Servers to either return , create , update or delete data. Rather than repeating ourselves for each provider we will give examples of how our provider works using the RoomAd.ts Provider.
 
 
 
