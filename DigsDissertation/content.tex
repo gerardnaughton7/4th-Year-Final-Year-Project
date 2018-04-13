@@ -254,11 +254,84 @@ Cordova is a platform that allows you to develop mobile applications on differen
 By default, Cordova provides only basic browser capabilities that are available on this mobile device, but it allows you to extend the set of functions available in the browser by using plugins. Each plugin provides a unified interface that can be used from a browser on different platforms. And if the supported CSS / JS functions differently in each browser from the version of the operating system or platform, the Cordova functional tries to provide unified functionality for all supported versions of mobile OS.\par
 Even though this approach has its limitations in the form of the need to consider differences in mobile browsers, it still allows you to create high-quality cross-platform applications. \cite{Cordova}
 
+\subsection{Angular}
+Angular represents a framework from Google to create client applications. First, it is aimed at developing SPA-solutions single-page applications. In this respect, Angular is the successor of another AngularJS framework. At the same time, Angular is not a new version of AngularJS, but a fundamentally new framework.\par
+Angular 5 provides functionality such as two-way binding, which allows you to dynamically change data in one space, including templates, routing, and so on.\par
+One of the key features of Angular is that it uses TypeScript as its programming language. Therefore, before starting work, it is recommended that you familiarize yourself with the basics of this language.\par
+But we are not limited to TypeScript. If you want, you can write the Corner applications with languages such as Dart or JavaScript. However, TypeScript is still the main language for Angular. \par
+One of the key elements of the application are the components. The component controls the display of the presentation on the screen. \cite{Angular}
+
+\begin{minted}[linenos,tabsize=2,breaklines]{ts}
+import { Component } from '@angular/core';
+
+@Component({
+    selector: 'my-app',
+    template: `<label>Please enter Name:</label>
+                 <input [(ngModel)]="name" placeholder="name">
+                 <h1>Hello {{name}}!</h1>`
+})
+export class AppComponent { 
+    name: "";
+}
+\end{minted}
+
+Component class:
+
+\begin{minted}[linenos,tabsize=2,breaklines]{ts}
+export class AppComponent { 
+    name: "";
+}
+\end{minted}
+
+For a class to be used in other modules, it is defined with the export keyword. In the same class, only one variable is defined, which stores a string as a value.
+
+To create a component, you need to import the @Component decorator function from the @angular/core library. The decorator @Component allows us to identify the class as a component.
+
+If we did not apply the decorator @Component to the AppComponent class, the AppComponent class would not be considered a component.
+
+The decorator @Component takes as an argument the object with a configuration that specifies the framework, how to work with the component and its representation. \cite{Angular}
+
+
+
 \section{languages}
 
-\subsection{Angular}
-
 \subsection{Typescript}
+TypeScript is backwards compatible and compiled in JavaScript. In fact, after compilation, the program written using TypeScript can be executed in any modern browser or used in conjunction with the server platform Node.js. The code of the compiler that translates TypeScript in JavaScript is distributed under the Apache license. Its development is carried out in the public repository through the GitHub service.\par
+TypeScript differs from JavaScript in the ability to explicitly enforce static types, support the use of classes, as in traditional object-oriented languages, and support for connecting modules, which is designed to improve the development speed, facilitate readability, refactoring and reuse of code, search for errors at the stage of development and compilation. TypeScript also supposed accelerate the execution of programs. \cite{Typescript} \par
+
+\subsubsection{Services}
+If writing an application using Angular in JavaScript is much easier to use factories, then it is much easier for TypeScript to implement services. Therefore, when switching to TypeScript, most of the factories were replaced with services.\par
+To implement the service, we pre-announce the interface for the service that we are exporting. Then we create a class for the service that implements the service interface. And then we call the Angular method to add the service. \cite{Typescript}
+
+\begin{minted}[linenos,tabsize=2,breaklines]{ts}
+module MyApp {
+
+    "use strict";
+
+    export interface IMyService {
+        myMethod(param: string);
+    }
+
+    class MyService implements IMyService {
+
+        static $inject = ["Dependency"];
+
+        constructor(private dependency: IDependency) {
+        }
+
+        myMethod(param: string) {
+            return this.dependency.field + param;
+        }
+    }
+    angular.module("services").service("MyService", MyService);
+}
+\end{minted}
+
+The constructor parameters declared with private or public modifiers become class fields and get values corresponding to the values of the constructor parameters.
+
+\subsubsection{Components}
+Fragments of the same type of page layout can be conveniently combined into components. This allows you to simplify page layout, reuse the same code, facilitates refinement and improvement. It is enough to correct only the code or template of one component, and all the pages on which it is used will update accordingly.\cite{Typescript}
+
 
 \subsection{JavaScript}
 Javascript is a programming language with which web pages are given interactivity. It creates applications that are included in the HTML-code (for example, questionnaires or registration forms that are filled in by the user).\par The uniqueness of this programming language is that it is supported by almost all browsers and fully integrated with them, and all that can be done with it is done very simply. No other technology accommodates all these advantages together. To date, this technology is actively developing also developing a programming language Javascript2 \cite{JavaScript}
@@ -274,6 +347,21 @@ Javascript is a programming language with which web pages are given interactivit
 </script>
 \end{minted}
 \cite{JavaScriptCode}
+
+\subsection{HTML}
+HTML is a hypertext mark-up language, which is used to create documents on the Internet (web pages). The web page is created using HTML that contains all the necessary elements. On the HTML page, you can place a simple text, highlight it in bold or italic, insert a link, a table, a numbered or unnumbered list, pictures, divide the text into paragraphs and sections and specify headings for sections. Also, on the HTML page, you can insert a form with text fields, buttons, select options from the list, checkboxes and radio elements. In HTML5, you can embed video and audio files in a page, draw with canvas, make simple animations with new tags. \cite{html}
+
+\begin{minted}{html}
+<html>
+   <head>
+      <title>My HTML page</title>
+   </head>
+   <body>
+      <h1>Page title</h1>
+     <p>Page description</p>
+   </body>
+</html>
+\end{minted}
 
 \subsection{CSS}
 CSS (Cascading Style Sheets) - cascading style sheets. In fact, they serve to separate the page structure and its content from its appearance.\par If the page is completely written in HTML, then each element of the code determines not only the content element of the page but also its way of displaying. For example, not only that there is a text "Hello" in such and such a place, but also that this text is highlighted in bold and red.\par With the use of CSS code, everything happens a little differently. With the help of HTML, only the order of the content elements of the page and their classes are described. The corresponding classes are written in the CSS file. Each of them is assigned a set of properties. Now, when we assign a class to an HTML element, then all the properties of this class are applied to it. Do not write all these properties every time. Now, when sites have many pages, you can not do without CSS. \cite{CSS}
