@@ -25,7 +25,7 @@ export class MessageboardPage {
   ionViewDidEnter() {
     this.messageService.getMessage().subscribe((data) => {
       console.log("Data returned from ListRooms on Load: " + JSON.stringify(data));
-      this.messages = data; 
+      this.messages = data.reverse(); 
     },
     error => {
       alert("ERROR Retrieving Messages: " + error);
@@ -36,7 +36,7 @@ export class MessageboardPage {
   doRefresh(refresher) {
 
     this.messageService.getMessage().subscribe(data => {
-      this.messages = data;
+      this.messages = data.reverse();
     },
     error => {
       alert("ERROR Retrieving Messages: " + error);

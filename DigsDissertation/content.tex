@@ -140,7 +140,7 @@ Black box testing is a way of testing a piece of software without knowing the in
 \includegraphics[width=10cm, height=6cm]{img/black_box.PNG},
 \caption{Black Box Testing}
 \label{black_box}
-\end{figure} \\
+\end{figure} 
 
 
 \noindent The following two sections contain information about the various sprints we undertook in the research and development cycles of our project.
@@ -456,7 +456,7 @@ LaTeX goal is that it is better to leave document design for the document design
 \section{Software and tools used for development}
 
 \subsection{Sharelatex}
-ShareLaTeX is an online real time LaTeX editor which alows to work on text documents collaboratively without the need to setup additional software on your PC. It is an easy and convenient way to get started with LaTeX. \cite{Sharelatex}\par
+ShareLaTeX is an online real time LaTeX editor which allows to work on text documents collaboratively without the need to setup additional software on your PC. It is an easy and convenient way to get started with LaTeX. \cite{Sharelatex}\par
 We have chosen ShareLaTeX as we already had experience with it in our previous semester while using ShareLaTeX for the literature review.\par
 There is a lot of nice features in the premium version of ShaReLaTeX, like the ability to work on the same document for the group of people and possibility to upload your progress straight to GitHub. But we avoid the fees by sharing one account details between us and manually uploading our work to the GitHub repository.
 
@@ -835,7 +835,7 @@ In the Presentation Tier we will cover 3 sections. Firstly we will explain the I
 \item Src – This is the folder where we will do most of our coding for our Ionic 3 app. In here we will be using scss, typescript, angularjs and java script.
 \end{itemize}
 
-In the src folder Ionic 3 have structured our components into well thought out Folders as seen in figure 5.3 below.
+\noindent In the src folder Ionic 3 have structured our components into well thought out Folders as seen in figure 5.3 below.
 
 \begin{figure}[h]
 \centering
@@ -860,7 +860,7 @@ Providers gives our Application access to our data tier through our servers. In 
 
 \subsection{Pages}
 
-Ionic 3 Pages are broken up into 4 parts:\\
+Ionic 3 Pages are broken up into 4 parts as seen in Figure 5.4:\\
 
 \begin{figure}[h]
 \centering
@@ -885,6 +885,180 @@ import { AngularFireAuth } from 'angularfire2/auth';
 \noindent \textbf{Page.module.ts} : This file is used for deep linking. In this file they create the underlying routing for our app.\cite{https://ionicframework.com/docs/api/IonicPageModule/} This file is automatically created when a page is generated. We dont use this file for our coding of the app.\\
 
 \noindent Below we will go through each of our apps pages features and functionality.
+
+\subsubsection{Login Page}
+
+Login Page is the first page the user sees when the Application is launched for the first time since install. It is here where they can Login to there account(if they are an existing user) with either there email and password or Login using there google account. The user also has the option to tap our menu button in the top left corner of our header and navigate through our features available for users who don’t have an account.  When entering the email and password, validation is performed to ensure that the email is the right format, the password contains the right characters and length and all field are filled.  
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=2.9cm, height=4.6cm]{img/Login}
+\caption{Login Page.}
+\end{figure}
+
+\noindent The user is authenticated using Firebase Authentication which queries our Firebase API to check if we are an existing user or has a google account. If the user is successful the API returns details on the user, a session Key to grant access to our Apps key features and navigate the user to the Home Page. If the user forgets there password they can tap on the Forget Password link provided and this will bring them to the forget password page. If the user is new and would like to register they can tap the Register button to navigate to the Register page. 
+
+\subsubsection{Register Page}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=2.9cm, height=4.6cm]{img/Register}
+\caption{Register Page.}
+\end{figure}
+
+\noindent Here the user will be asked to enter their email and their password twice(to ensure correct password is entered) in order to register. As in the Login page the same validation is performed on the email and password fields. When the user taps Submit, the firebase API will store the user details, return a session key to grant access to our Apps Key features and navigate to the Home page.
+
+\subsubsection{Forgot Password Page}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=2.9cm, height=4.6cm]{img/Forget}
+\caption{Forget Password Page.}
+\end{figure}
+
+\noindent Here the user will be asked to enter there email address and to tap the reset button. If the email is a registered email address the user will be asked to check their email account and follow the instruction to reset their password upon receiving an email from DigsApp.
+
+\subsubsection{Side Menu}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=7.5cm, height=4.6cm]{img/Menu}
+\caption{Menu Pages.}
+\end{figure}
+
+Our side menu allows navigation to our Apps various pages. The menu is available for authorized users and unauthorized users. However unauthorized users will have limited options available to them. For example they will not be able to create room ads, create property ads, create messages for the message board and will not have access to the My Ads Pages.
+
+\subsubsection{Home Page}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=2.9cm, height=4.6cm]{img/Home}
+\caption{Home Page.}
+\end{figure}
+
+In the header of our Home page contains our menu button in the top left corner our title and in the right corner if you are logged in with google it will show your profile picture. In the body of the page contains a welcome message to the users, two buttons to our property and room lists which display the number of ads in each and at the bottom to button to either Login or Register for our App.
+
+\subsubsection{Rooms List Page and Properties List Page}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=7.5cm, height=4.6cm]{img/adLists}
+\caption{Room and Property List Pages.}
+\end{figure}
+
+
+Both of these Pages are very similar so I will cover them both in this section. In the top right corner in the header of these pages, the user can tap the search icon and navigate to our search page. In the body of these pages the user is shown the list of ads available, showing the main criteria to the user to make an informed decision on which ad to tap on. The two pages differ on the criteria shown and information they hold. For example the property list item would indicate how many rooms the property has while the room item would display the room type. At the top of list the user has the option to search the list by setting the Max price they are willing to pay. Our Lists Pages imports pipes search.ts file to perform this action. To refresh the list of Ads at any time, pull downwards on the list of ads and the Page will refresh with the most up to date list.
+
+\subsubsection{Room and Property preview Modals}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=7.5cm, height=4.6cm]{img/Modals}
+\caption{Room and Property preview Modals.}
+\end{figure}  
+
+Firstly I will explain a Modal. A Modal is like a pop-up screen but offers the same functionality as a regular page. To access this page the user would tap on one of the ads from either properties or rooms. This would populate the modal and display the full contents of the ad. In here it will allow the user to side scroll through the ads images, read about the ad in more detail and using the Find on Map button on the bottom of page view the location of the accommodation on google maps.
+
+\subsubsection{Search Page}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=2.9cm, height=4.6cm]{img/searchRoom}
+\caption{Search Room Page.}
+\end{figure}
+
+Here we have a adaptable search page depending on where the user has navigated from will depend on what criteria the user can search on. If the user taps on the search icon in the List of Rooms Page, the search page will show the search criteria to search for rooms. For example room type. If the user taps on the search icon in the List of Properties Page, the search page will show the search criteria to search for rooms. For example Number of Rooms. Each field is required  to perform a search apart from price that is optional. When the user tap the Search Ads button the will navigate to the Search Result Pages.
+
+\subsubsection{Search Result Property Page and Search Result Room Page}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=2.9cm, height=4.6cm]{img/searchResult}
+\caption{Search Result Room Page.}
+\end{figure}
+
+On these pages we display the results of our Searches. These pages are exactly the same as our List pages above apart from they do not have a Search button or the ability to search by setting max price. If the user wishes to search on Price they can simply press the back button and they will be in the Search Page once again. The user can still tap any of the item in the list and our preview Modals will display the ad in more detail.
+
+\subsubsection{Digs Message Board Page}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=2.9cm, height=4.6cm]{img/MessageBoard}
+\caption{Digs Message Board Page.}
+\end{figure}
+
+In the top right of the header of the Message Board Page you will see a button with a plus icon. If the user taps this button they will navigate to the Create Message Page. However this button is only available to the user if they are logged in. In the body of this page the user will be able to read and scroll down through the message board posts. To refresh the Message Board at any time, pull downwards on the list of Posts and the Page will refresh with the most up to date list.
+Above have shown all the available pages to the unauthorized user. The next pages will show pages only available for authorized users.
+
+\subsubsection{Create Ad Page}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=2.9cm, height=4.6cm]{img/CreateAd}
+\caption{Create Ad Page.}
+\end{figure}
+
+As seen in figure side menu the user can tap on the Create Ad, doing this will bring them to this page where the user can choose whether to Advertise Room or to Advertise a Property by taping one of the buttons shown.
+
+\subsubsection{Create Room Ad Page}
+
+On this page the user is presented with a form as shown in figure (create room ad) In this form the user will be required to fill each field. We also validate input on key areas such as phone numbers, email address etc. In the Eircode field we offer the user a link to the Eircode website, in case they don’t know there Eircode. 
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=7.5cm, height=4.6cm]{img/createRoom}
+\caption{Create Room Ad Page.}
+\end{figure}
+
+At the bottom of the form there are 2 buttons. The first button called Upload Image when pressed will present an action sheet asking the user whether they want to upload an image from library, use camera or cancel this action. With the use of the cordova plugins we can gain access to the phones native functions and upload an image from the users image library or capture an image with the phones camera and upload it. After the user has uploaded an image the upload image button changes and displays Add another Image and allows the user to repeat the upload image step again. The button below is the Publish Ad button, when taped it will save your ad to the Rooms Collection in our database and redirect you to the updated Room List Page. The Publish Ad button is only tappable when all required fields have been entered.
+
+\subsubsection{Create Property Ad Page}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=7.5cm, height=4.6cm]{img/createProperty}
+\caption{Create Property Ad Page.}
+\end{figure}
+
+As you can see from the Create Room Ad Page in point(5.somthing), the Create Property Ad Page is very similar. The only difference between the 2 pages is the input fields and that the Property Ad will be saved to the Properties Collection in the Database. In the Create Property Ad, we set the property type and ask the user for the number of each type of room in the property. We don’t ask these fields in our Create Room Ad Page.
+
+\subsubsection{Create Message Page}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=2.9cm, height=4.6cm]{img/CreateMessage}
+\caption{Create Message Page.}
+\end{figure}
+
+Here the user can post a message on our Message board. As like the other page this form requires all fields to be filled and valid input. When the user taps the button Post Message, your Message will be saved to the Messages collection and you will navigate back to the new updated message board.
+    
+\subsubsection{My Room Ads Page and My Property Ads Page}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=7.5cm, height=4.6cm]{img/myAds}
+\caption{My Room Ads Page}
+\end{figure}  
+
+On these pages the user can view a list of ads they have created/posted on the App. Using the users unique email address which is used as a key for each ad published we can find all the ads created by one particular user. As seen in the previous Room List Page and Property List Page the user can tap on a item in the list and a Modal will present the Ad in full. 
+The user can swipe left on each of their My Ads items and two buttons will become available, a delete button to delete this specific ad and a edit button to edit this specific ad. If the delete button is pressed the Ad will be deleted from our database and we will refresh the current page with the updated list. If the Edit Button is taped the user will navigate to either the Update My Property Ad Page or Update My Room Ad Page depending on the Ad type being selected.
+
+\subsubsection{Update My Property Ad and Update My Room Ad}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=7.5cm, height=4.6cm]{img/update}
+\caption{Update My Room Ad Page}
+\end{figure}  
+
+Here the user will be presented the same form as before for the create property and create room pages. The only difference is that the fields will already be populated with the information of the ad you wished to update. You can simply change the entries you wish to edit and re-publish the ad. This will update our collections in our database and redirect you back to the newly updated my ads list.
+
+
+
+
+
+
+
 
 
 \chapter{System Evaluation}
