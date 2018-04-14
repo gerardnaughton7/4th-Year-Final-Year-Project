@@ -96,41 +96,111 @@ Description of chapters
 
 
 \chapter{Methodology}
-Description of chapters....
+In this chapter we discuss the methodologies used in our project. A methodology is just a way to plan and control the development process of a piece of software. There are various methodologies to choose from including Extreme Programming, Rapid Application Development or Waterfall but for this project we use Agile as our main methodology.
 
 \section{Agile Development}
-During the life-cycle of our project we attempted to use an Agile like approach to the research, design and implementation stages of the project. In the initial stages of the project we discussed various methodologies we could use, for example Waterfall but we decided on Agile. This is because Agile offers continual improvement, flexibility and incremental delivery of the software. \\
+During the life cycle of our project we attempted to use an Agile like approach to the research, design and implementation stages of the project. In the initial stages of the project we discussed various methodologies we could use, for example Waterfall but we decided on Agile. This is because Agile offers continual improvement, flexibility and incremental delivery of the software.  \\
 
-\noindent During the research process of our project we used a Scrum like approach. Scrum is an Agile method in which a development cycle is carried out in what are known as sprints. \\
+\noindent During the research and development process of our project we used a Scrum like approach. Scrum is an Agile method in which a development cycle is carried out in what are known as sprints. Section \ref{reseacrh_sprints} and \ref{development_sprints} contains more information on each sprint of the research and development phase of the project. \\
 
-\noindent During the development process of our Digs application we used a RAD like approach. RAD, Rapid Application Development, is an agile approach to software development which puts less emphasis on planning and more emphasis on actual development. \\
+\noindent Throughout the life cycle of the project we held weekly meetings. In these meetings we would plan and discuss the features of our application. Before each sprint of our project, we used these meetings to plan our sprint cycle. Results from these meetings were then added as to-dos and added to a GitHub projects page. GitHub projects board help us prioritise and organise our work load. We found this to be an especially useful tool. Once an issue was created it was added into the To-do phase. Then, when we started working on a problem it got added to in-progress, then finally into the completed section once the task was done. A snapshot of our GitHub Projects page can be found in Figure \ref{github_projects}  \\
 
-\noindent The following section contains information about the various sprints we undertook in the research cycle of our project.
+\begin{figure}[h]
+\centering
+\includegraphics[width=10cm, height=7cm]{img/github_projects.PNG},
+\caption{GitHub Projects}
+\label{github_projects}
+\end{figure}
 
-\section{Sprints}
-Each of the sprints we completed during our research and planning phase of our project gave us, as a team, the opportunity to learn and adapt to the various needs of the project. Each sprint represents a vital aspect of the application i.e. Creating three tier architecture, accessing native phone capabilities through Cordova and learning how to integrate all these features together. We prioritised the sprints in the order as follows.
+\noindent We also had weekly contact with our project supervisor. Our supervisor was instrumental in advising us on our progress and helping us with issues with the project.
+
+\section{Version Control}
+Throughout the life cycle of our project we used GitHub. GitHub is a hosting service for version control. We created a GitHub repository, adding all the members of the team to work as collaborators. We found GitHub to be an extremely useful tool in the research and development of Digs. Even though we primarily used GitHub to manage source code, we also took advantage of some collaboration features that GitHub offers. We used wikis to track what we learned in the research stages of our project. A wiki is a website where multiple users can modify content directly from their browser. We used GitHub’s task management tool when a task was set and then used this tool to track that tasks progress.  We found this tool particularly useful as it helped break down the workload into small manageable tasks.
+
+\noindent As a team, working with source code on GitHub proved to be its most valuable feature. GitHub allows all members of the team to see all the commits made to the repository. We can see every update, previewing every change that was made and even rolling back a commit if necessary.
+
+\section{Testing}
+For our application, while we did not choose to use a framework (i.e. Junit) to test our application, we did however used both white and black box testing.
+
+\subsection{White Box Testing}
+White box testing is a way of testing software where the tester can see the internal workings of the software. White box testers have full knowledge of the internal makeup of the software and are usually software developers themselves. In our application, to white box test, one team member would write a feature (e.g. login) and then another team member would test that functionality. That team member would present input, follow the path through the code and then examine the output. A diagram of white box testing can be found in Fig \ref{white_box}.
+
+\subsection{Black Box Testing}
+Black box testing is a way of testing a piece of software without knowing the internal functionality of the software being tested. A black box tester has no knowledge of the internal design, structure or implementation of the software and are often not programmers themselves. In our application, to black box test, we would ask friends to use our application e.g. asking them to login with Google and then reporting their experience. With this type of testing, the tester is trying to break your application looking for faults. We found this type of testing especially useful as it gave us an insight into the way a user would use our application, something we previously would not have thought of when developing Digs. A diagram of black box testing can be found in Fig \ref{black_box}.\\
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=11cm, height=5cm]{img/white_box.PNG},
+\caption{White Box Testing}
+\label{white_box}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=10cm, height=6cm]{img/black_box.PNG},
+\caption{Black Box Testing}
+\label{black_box}
+\end{figure} \\
+
+
+\noindent The following two sections contain information about the various sprints we undertook in the research and development cycles of our project.
+
+\section{Sprints} \label{reseacrh_sprints}
+Each of the sprints we completed during the research of our project gave us, as a team, the opportunity to learn and adapt to the various needs of the project. Each sprint represents a vital aspect of the application i.e. Creating three tier architecture, accessing native phone capabilities through Cordova and learning how to integrate all these features together. We prioritised the reseacrh sprints in the order as follows.
 
 \subsection{Sprint 1 Review King}
-This was our first sprint and it was worked on by all three members in our team. Review King is an application we found on a blog by Josh Morony \cite{ReviewKing} in which he explains the process of building a simple review app using three tier technology. On the front end a user can write a small review and then add a score. That information is then sent to a node server which stores the information in a MongoDB database.  We felt it was very important that all three members understood the process involved in connecting these three layers together so we all worked on this sprint together.  
+This was our first sprint and it was worked on by all three members in our team. Review King is an application we found on a blog by Josh Morony \cite{ReviewKing} in which he explains the process of building a simple review app using three tier technology. On the front end a user can write a small review and then add a score. That information is then sent to a node server which stores the information in a MongoDB database. We felt it was very important that all three members understood the process involved in connecting these three layers together so we all worked on this sprint together.   
 
 \subsection{Sprint 2 Image Gallery}
-This was a relatively small sprint and was completed by Patrick. The plan for this sprint was to create a small app which displayed images in a gallery style format. Using a plugin for ionic called ionic-img-viewer \cite{ImgViwer} an image is made larger when it is clicked. Images can be moved left and right in a gallery style and incorporate zoom functionality.
+This was a relatively small sprint and was completed by Patrick. The plan for this sprint was to create a small app which displayed images in a gallery style format. Using a plugin for ionic called ionic-img-viewer \cite{ImgViwer}, an image is made larger when it is clicked. Images can also be moved left and right in a gallery style look while incorporating zoom functionality. 
 
 \subsection{Sprint 3 Image Back-end}
-The next phase of the project was figuring out a way of using a mobile devices camera to take a picture, upload that picture to a node server and then save a reference to that image in a MongoDB database. To do this we split this process up into two sprints. The first sprint involved setting up the back end. We achieved this functionality by following a blog by Devdactic \cite{ImageBackEnd} where we set up our NodeJS back-end. Once completed our backend had the capability to upload and store images. This functionality was tested using software called Postman \cite{Postman}. Postman is a HTTP client service which helps developers test their API with various HTTP requests. \\
+The next phase of the project was figuring out a way of using a mobile devices camera to take a picture, upload that picture to a node server and then save a reference to that image in a MongoDB database. To do this we split this process up into two sprints. Both Sprint 3 and 4 were worked on by all three members in our team as it was important for all members to understand the process involved in implementing these features. The first sprint involved setting up the back end. We achieved this functionality by following a blog by Devdactic \cite{ImageBackEnd} where we set up our NodeJS back-end. Once completed, our backend had the capability to upload and store images. This functionality was tested using software called Postman \cite{Postman}. Postman is a HTTP client service which helps developers test their API with various HTTP requests.
 
 \subsection{Sprint 4 Image Front-End}
+This was the second of a two-part sprint in which we developed the front end of a mobile app using the Ionic framework. This front end would then be able to upload and save a photo to a NodeJS server running locally on our machines. We achieved this functionality by following part 2 of a blog by Devdactic  \cite{ImageFrontEnd}. 
 
 \subsection{Sprint 5 Login/Register}
+In this sprint, implemented by Patrick, a small mobile application was developed where login and registration with firebase was implemented. We are using Firebase in our Digs app to securely authenticate our users with email and password registration and login. The user also has the option of logging into our app with Google Plus.
 
-\noindent The following section contains information about the RAD appraoch we undertook during the development phase of our Digs.
+\section{Development Sprints}\label{development_sprints}
+\subsection{Sprint 1 Create Pages}
+From the result of team meetings, we had decided on the number of pages our application would require. In the first development sprint, we created all the pages that we would need for our application. The sprint was completed by Gerard and Andrei and this formed the base skeleton of the Digs app.
+
+\subsection{Sprint 2 Menu Navigation}
+The next step was in implement a menu into our app. The result of this sprint was each that each page could now be navigated to, by either the main menu or by a button on a page. This sprint was completed by Gerard.
+
+\subsection{Sprint 3 Login/Registration}
+It was now time to implement the registration and login functionality to Digs. Patrick implemented this sprint as he had previous knowledge of implementing this functionality with Firebase from a previously completed research sprint.
+
+\subsection{Sprint 4 Implementing the Back End}
+In this sprint we implement our NodeJS server running on one of our AWS instances. This sprint was completed by Patrick and Andrei and in it we set up our API routes along with MongoDB to store text data in our database. The text data being stored would be the data from a created listing i.e. Room Type, Price, Location etc.
+
+\subsection{Sprint 5 Camera Functionality}
+This sprint was worked on by all three members of our team because taking and storing images is one of the prominent features of Digs. We first implemented the functionality on the front end. This allows a user to take a photo using the camera on their device or by selecting a photo from their devices internal storage. We then implemented our backend API to store those images mapping each image/s with its unique ad id. We then set up the functionality to send the full listing including images to our back-end which we set up in sprint 4.
+
+\subsection{Sprint 6 Displaying Listings}
+Once a listing was stored in our database, it was now time to display all the stored listings in our app. Gerard completed this sprint by successfully displaying a full list of properties and rooms including their images.
+
+\subsection{Sprint 7 Accessing Google Maps}
+To make it easier for the user to find the location of a listed property, we display to the user that properties location on the maps application installed on their device. This sprint, implemented by Patrick, uses a plugin from Cordova called launch navigator \cite{LaunchNav}. This plugin is used to navigate to a destination, in our case using an Eircode, by launching the native application apps on android, iOS and windows devices.
+
+\subsection{Sprint 8 Message Board }
+The next task, implemented by Andrei, was the Message board. The result of this sprint was the creation of a forum in which users can communicate with each other by creating and posting messages. Andrei first set up the backend to store these messages in MongoDB database and then displays the stored messages to the user. Message output includes the users name, message and date created.
+
+\subsection{Sprint 9 Validation}
+In this sprint Patrick and Gerard implemented form validation on the register, login, message board and create ad pages. For the matching passwords validation, we created a custom function which checks that the passwords are the same. For all other form validation, we use Angular directives to check that correct input is entered and that all fields are complete before the from can be processed. 
+
+\subsection{Sprint 10 Search Functionality}
+One of the last features of our application is the search functionality. Implemented by Gerard and Patrick, users can narrow down the listings they see by applying some search criteria. A user can put a limit on the max price, choose which college campuses are close by, what type of room they are looking for, the number of rooms the property has or if the property has parking as an option.
+
 
 \chapter{Technology Review}
 
 \section{Database}
 
 \subsection{NoSQL database}
-The ascent of Big Data made an interest for on a horizontally adaptable Data Management System. This prompted advancement of various types of Database Management System which all things considered go under NoSQL. NoSQL Databases are comprehensively separated into following sorts: Document, Key-value, Graph, Native object, Table type, Native XML and Hybrid Databases. All RDBMS databases depend on the same model, while, each of the NoSQL database takes after a distinctive model. NoSQL moves far from the robust institutionalized type of SQL database and empowers less complex information capacity arrangements. Therefore a NoSQL database is enhanced for the particular application.\cite{noSql}
+The ascent of Big Data made an interest for on a horizontally adaptable Data Management System. This prompted advancement of various types of Database Management System which all things considered go under NoSQL. NoSQL Databases are comprehensively separated into following sorts: Document, Key-value, Graph, Native object, Table type, Native XML and Hybrid Databases. All RDBMS databases depend on the same model, while, each of the NoSQL databases takes after a distinctive model. NoSQL moves far from the robust institutionalized type of SQL database and empowers less complex information capacity arrangements. Therefore a NoSQL database is enhanced for the particular application.\cite{noSql}
 
 \subsubsection{NoSql database types}
 
@@ -149,7 +219,7 @@ Diagram Databases (neo4j) make joins as shoddy as could be expected under the ci
 \end{itemize}
 
 \subsubsection{Advantages of NoSql}
-NoSQL databases are very versatile, dependable, have a basic data model, amazingly exposed query language, no system for taking care of consistency and trustworthiness among data, and no help for security at the database level. A standout amongst the most vital points of interest of NoSQL databases is that the databases can handle unstructured information. Unstructured data can be word reports, messages, sound, video, or even interpersonal social network information. Too, NoSQL databases tend to scale extremely well on commodity equipment. Some even claim that NoSQL databases empower better execution, which is urgent for organizations with a lot of data. To empower quicker execution, NoSQL databases ordinarily don't cling to ACID (atomicity, consistency, isolation, durability) restrictions that are utilized as a part of relational databases. While this is recorded as a star for NoSQL as far as execution and processing time; we take note of that this likewise has unfortunate outcomes that will be tended to later. A case of NoSQL database's execution is Facebook's usage (Cassandra) that is equipped for dealing with more than 100 million clients persistently. \cite{AdvantagesnoSql}
+NoSQL databases are very versatile, dependable, have a basic data model, amazingly exposed query language, no system for taking care of consistency and trustworthiness among data. A standout amongst the most vital points of interest of NoSQL databases is that the databases can handle unstructured information. Unstructured data can be word reports, messages, sound, video, or even interpersonal social network information. NoSQL databases tend to scale extremely well on commodity equipment. Some even claim that NoSQL databases empower better execution, which is urgent for organizations with a lot of data. To empower quicker execution, NoSQL databases ordinarily don't cling to ACID (atomicity, consistency, isolation, durability) restrictions that are utilized as a part of relational databases. While this is recorded as a star for NoSQL as far as execution and processing time; we take note of that this likewise has unfortunate outcomes that will be tended to later. A case of NoSQL database's execution is Facebook's usage (Cassandra) that is equipped for dealing with more than 100 million clients persistently. \cite{AdvantagesnoSql}
 
 \subsection{Examples of NoSQL}
 \begin{itemize}
