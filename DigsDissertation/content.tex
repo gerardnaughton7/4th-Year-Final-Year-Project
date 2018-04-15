@@ -510,7 +510,7 @@ The image below shows the overview of our Architecture:
 The data tier represents the overall stored data and gives the ability to store, access, update and delete certain data. For our application we have two databases. One database is used to store our user accounts and the other is used to store our users published ads and forum posts.
 
 \subsection{FireBase}
-We chose Firebase to handle our user accounts as it was established in the ionic community for being a good database for login and registration functionality.
+We chose Firebase to handle our user accounts as it was established in the ionic community for being a good database for login and registration functionality. We chose to use this free back end service as it offered ready made functionality such as password reset, email and password authentication and Google login. 
 
 \subsection{Mongo DB}
 
@@ -520,7 +520,9 @@ We chose Mongo DB to store our clients ads, host ad images and forum messages as
 
 To Host our Mongo DB we used AWS known as Amazon Web Services. AWS provides students with a free account which we have previously used for other project in our course. We created a AWS instance located on a server in Ireland and configured the in-bound and out-bound rules to allow communication between our node server and Mongo DB database. We simply could run our Mongo DB server on our instance by bringing up a terminal and navigating to our Mongo’s bin folder and use the command below:
 
-Mongo bin image 
+\begin{minted}[tabsize=2,breaklines]{bash}
+C:\Program Files\MongoDB\Server\3.4\bin>mongod
+\end{minted}
 
 \subsection{Collections}
 
@@ -1057,6 +1059,82 @@ The user can swipe left on each of their My Ads items and two buttons will becom
 
 \noindent Here the user will be presented the same form as before for the create property and create room pages in sections 5.3.3.12 and 5.3.3.13. The only difference is that the fields will already be populated with the information of the ad you wished to update. You can simply change the entries you wish to edit and re-publish the ad. This will update our collections in our database and redirect you back to the newly updated my ads list.
 
+\subsection{Styling}
+
+Our Ionic 3 application allows us to style our Digs app in many different ways. For the overall design scheme of the App we wanted to have clear cut lines and simplistic look. We didn’t want to overwhelm the user with a to busy interface. So we kept the look and feel of the App simplistic.\\
+
+\noindent For our colour scheme we went for white and purple. Having looked at many other apps trying to find inspiration. We found as a team that we were drawn to this colour combo. Having decided on our base colours, we were able to implement are colour scheme very easy with the use of the Theme folder in the Ionic 3 app. Here we have a variables.scss file which allows us to declare our most used colours under the headings of , primary, secondary, danger, light and dark. By doing this we now have access to this colour scheme throughout our app. Below is a code snippet of our variables.scss file:
+
+\begin{minted}{scss}
+$colors: (
+  primary:    rgb(153, 0, 255),
+  secondary:  rgb(17, 182, 30),
+  danger:     #f53d3d,
+  light:      rgb(255, 255, 255),
+  dark:       #502274
+);
+\end{minted}
+
+\noindent To add more colours simply create another variable name and add it to colour variables.\\
+
+\noindent Having set up our theme we then worked on our styling. We achieved this using in-line styling and our scss files for our pages. Ionic 3 comes with huge range of attributes for elements which helped us easily style buttons, ranges , forms and many other types of elements. For example here is example of some in-line styling performed on our register button in our home page:
+
+\begin{minted}[linenos,tabsize=2,breaklines]{html}
+<button class="login-but" ion-button color="light" round style="color: rgb(153, 0, 255); border: solid 2px" (click)="goToLogin()" float-start>Login</button>
+\end{minted}
+
+As you can see Ionic allows you to set attributes such as color, round and float-start. \\
+
+\noindent As explained in our Pages section 5bla bla bla each page comes with their own scss file. In here we can style elements in our page by either their name or class. This allows us to keep our code tidy and better organised. Here is an example of our Login scss file:
+
+\begin{minted}[linenos,tabsize=2,breaklines]{scss}
+.background{
+    background-image: linear-gradient(rgba(255,255,255,.1), rgba(255,255,255,.1)), url('../assets/imgs/room.jpg');
+    background-position: center;
+    background-size: 100% 100%;
+    width: 100%;
+    height: 100%;
+}
+\end{minted}
+
+As you can see above we set the background to an image in our imgs folder and by using linear gradient and controlling the opacity we were able to control how much the image stood out in the background. We were also able to position and size the background to our specific requirements. We used a mix of these in-line and scss styling throughout our project.\\
+
+\noindent We also used angular directives inside our html elements to control what was shown on our pages. This gave us great power and the ability to reuse pages rather than duplicating code. For example in our Search page depending on which type of list your searching we only display the fields for that particular search:
+
+\begin{minted}[linenos,tabsize=2,breaklines]{scss}
+<ion-item [hidden] ="navFrom">
+    <ion-label color="primary" floating>Number of Rooms*</ion-label>
+    <ion-input [(ngModel)]="NoOfRooms" type="number" name = "NoOfRooms"></ion-input>
+</ion-item>
+\end{minted}
+
+We use the [hidden] directive to hide this element unless the Boolean variable navFrom is equal to true.
+
+\subsection{Deployment}
+
+To Deploy our project we hosted our Database and Servers on Amazon Web Service(AWS) instances.\\
+
+\noindent To run our Mongo DB we would open a command prompt and cd to the location of our MongoDB bin folder and use the command Mongod as shown:
+
+\begin{minted}[linenos,tabsize=2,breaklines]{bash}
+C:\Program Files\MongoDB\Server\3.4\bin>mongod
+\end{minted}
+
+\noindent To run our digs server we would open command prompt and cd to the location of our DigsServer server.js file. In here we would run the command npm start. If this was the first time running this server we would type the command npm install  before the command npm start.
+
+\begin{minted}[linenos,tabsize=2,breaklines]{bash}
+C:\Users\gerar\Desktop\4th-Year-Final-Year-Project\DigsBackEnd\DigsServer>npm start
+C:\Users\gerar\Desktop\4th-Year-Final-Year-Project\DigsBackEnd\DigsServer>npm install
+\end{minted}
+
+\noindent To run our image server we repeat the same steps as for the Digs server.
+
+\begin{minted}[linenos,tabsize=2,breaklines]{bash}
+C:\Users\gerar\Desktop\4th-Year-Final-Year-Project\DigsBackEnd\DigsImageServer>npm install
+C:\Users\gerar\Desktop\4th-Year-Final-Year-Project\DigsBackEnd\DigsImageServer>npm start
+\end{minted}
+
+\noindent This will have our data tier and logic tier up and running. Now the user can download our Digs App Apk to their phone and install it.  
 
 
 
@@ -1093,13 +1171,7 @@ This Chapter evaluate the application
 \chapter{Conclusion}
 
 
-\begin{itemize}
-\item A Test
 
-\item A Test2
-\item A Test3
-\end{itemize}
-A Test4
 \section{Future Development}
 
 \chapter{Appendix}
