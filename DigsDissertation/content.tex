@@ -492,7 +492,7 @@ Some sample examples of git commands:
 
 \chapter{System Design}
 
-In this section, we will cover the overall design and architecture of our Application. We will do this through code snippets and visual aids to help you get a understanding of the Application design. The System design chapter will be broken up into 3 parts representing the 3 tier architecture. Data Tier represented by our Databases Mongo DB and Firebase, Logic Tier represented by NodeJS servers, Presentation Tier which will be represented by Ionic 3.
+In this section, we will cover the overall design and architecture of our Application. We will do this through code snippets and visual aids to help you get a understanding of the Application design. The System design chapter will be broken up into 4 parts. Data Tier represented by our Databases Mongo DB and Firebase, Logic Tier represented by NodeJS servers, Presentation Tier which will be represented by Ionic 3 App and our deployment of our app. 
 The image below shows the overview of our Architecture:
 
 \begin{figure}[h]
@@ -809,7 +809,7 @@ Here concludes our Logic Tier, next we will discuss our Presentation Tier.
 
 \section{Presentation Tier}
 
-In the Presentation Tier we will cover 3 sections. Firstly we will explain the Ionic 3 app structure, Secondly we will go through our Providers which we use to interact with our NodeJS server and through that our Mongo DB and finally we will go through each of our Digs Apps Pages, displaying what it looks like and its functionality.\\
+In the Presentation Tier we will cover 4 sections. Firstly we will explain the Ionic 3 app structure, Secondly we will go through our Providers which we use to interact with our NodeJS server and through that our Mongo DB, we will then go through each of our Digs Apps Pages, displaying what it looks like and its functionality and finally how we styled our application.\\
 
 \subsection{Ionic 3 App Structure}
 
@@ -916,7 +916,7 @@ Login Page is the first page the user sees when the Application is launched for 
 \caption{Forget Password Page.}
 \end{figure}
 
-\noindent Here the user will be asked to enter there email address and to tap the reset button. If the email is a registered email address the user will be asked to check their email account and follow the instruction to reset their password upon receiving an email from DigsApp.
+\noindent Here the user will be asked to enter their email address and to tap the reset button. If the email is a registered email address the user will be asked to check their email account and follow the instruction to reset their password upon receiving an email from DigsApp.
 
 \subsubsection{Side Menu}
 
@@ -926,7 +926,7 @@ Login Page is the first page the user sees when the Application is launched for 
 \caption{Menu Pages.}
 \end{figure}
 
-Our side menu allows navigation to our Apps various pages. The menu is available for authorized users and unauthorized users. However unauthorized users will have limited options available to them. For example they will not be able to create room ads, create property ads, create messages for the message board and will not have access to the My Ads Pages.
+\noindent Our side menu allows navigation to our Apps various pages. The menu is available for authorized users and unauthorized users. However unauthorized users will have limited options available to them. For example they will not be able to create room ads, create property ads, create messages for the message board and will not have access to the My Ads Pages.
 
 \subsubsection{Home Page}
 
@@ -936,7 +936,7 @@ Our side menu allows navigation to our Apps various pages. The menu is available
 \caption{Home Page.}
 \end{figure}
 
-In the header of our Home page contains our menu button in the top left corner our title and in the right corner if you are logged in with google it will show your profile picture. In the body of the page contains a welcome message to the users, two buttons to our property and room lists which display the number of ads in each and at the bottom to button to either Login or Register for our App.
+\noindent In the header of our Home page contains our menu button in the top left corner our title and in the right corner if you are logged in with google it will show your profile picture. In the body of the page contains a welcome message to the users, two buttons to our property and room lists which display the number of ads in each and at the bottom to button to either Login or Register for our App.
 
 \subsubsection{Rooms List Page and Properties List Page}
 
@@ -947,7 +947,7 @@ In the header of our Home page contains our menu button in the top left corner o
 \end{figure}
 
 
-Both of these Pages are very similar so I will cover them both in this section. In the top right corner in the header of these pages, the user can tap the search icon and navigate to our search page. In the body of these pages the user is shown the list of ads available, showing the main criteria to the user to make an informed decision on which ad to tap on. The two pages differ on the criteria shown and information they hold. For example the property list item would indicate how many rooms the property has while the room item would display the room type. At the top of list the user has the option to search the list by setting the Max price they are willing to pay. Our Lists Pages imports pipes search.ts file to perform this action. To refresh the list of Ads at any time, pull downwards on the list of ads and the Page will refresh with the most up to date list.
+\noindent Both of these Pages are very similar so I will cover them both in this section. In the top right corner in the header of these pages, the user can tap the search icon and navigate to our search page. In the body of these pages the user is shown the list of ads available, showing the main criteria to the user to make an informed decision on which ad to tap on. The two pages differ on the criteria shown and information they hold. For example the property list item would indicate how many rooms the property has while the room item would display the room type. At the top of list the user has the option to search the list by setting the Max price they are willing to pay. Our Lists Pages imports pipes search.ts file to perform this action. To refresh the list of Ads at any time, pull downwards on the list of ads and the Page will refresh with the most up to date list.
 
 \subsubsection{Room and Property preview Modals}
 
@@ -957,7 +957,7 @@ Both of these Pages are very similar so I will cover them both in this section. 
 \caption{Room and Property preview Modals.}
 \end{figure}  
 
-Firstly I will explain a Modal. A Modal is like a pop-up screen but offers the same functionality as a regular page. To access this page the user would tap on one of the ads from either properties or rooms. This would populate the modal and display the full contents of the ad. In here it will allow the user to side scroll through the ads images, read about the ad in more detail and using the Find on Map button on the bottom of page view the location of the accommodation on google maps.
+\noindent Firstly I will explain a Modal. A Modal is like a pop-up screen but offers the same functionality as a regular page. To access this page the user would tap on one of the ads from either properties or rooms. This would populate the modal and display the full contents of the ad. In here it will allow the user to side scroll through the ads images, read about the ad in more detail and using the Find on Map button on the bottom of page view the location of the accommodation on google maps.
 
 \subsubsection{Search Page}
 
@@ -977,7 +977,7 @@ Here we have a adaptable search page depending on where the user has navigated f
 \caption{Search Result Room Page.}
 \end{figure}
 
-On these pages we display the results of our Searches. These pages are exactly the same as our List pages above apart from they do not have a Search button or the ability to search by setting max price. If the user wishes to search on Price they can simply press the back button and they will be in the Search Page once again. The user can still tap any of the item in the list and our preview Modals will display the ad in more detail.
+\noindent On these pages we display the results of our Searches. These pages are exactly the same as our List pages in Section 5.3.3.6 apart from they do not have a Search button or the ability to search by setting max price. If the user wishes to search on Price they can simply press the back button and they will be in the Search Page once again. The user can still tap any of the item in the list and our preview Modals will display the ad in more detail.
 
 \subsubsection{Digs Message Board Page}
 
@@ -998,11 +998,11 @@ Above have shown all the available pages to the unauthorized user. The next page
 \caption{Create Ad Page.}
 \end{figure}
 
-As seen in figure side menu the user can tap on the Create Ad, doing this will bring them to this page where the user can choose whether to Advertise Room or to Advertise a Property by taping one of the buttons shown.
+As seen in Figure 5.8 displaying our Menu, the user can tap on the Create Ad, doing this will bring them to this page where the user can choose whether to Advertise Room or to Advertise a Property by taping one of the buttons shown.
 
 \subsubsection{Create Room Ad Page}
 
-On this page the user is presented with a form as shown in figure (create room ad) In this form the user will be required to fill each field. We also validate input on key areas such as phone numbers, email address etc. In the Eircode field we offer the user a link to the Eircode website, in case they don’t know there Eircode. 
+On this page the user is presented with a form as shown in Figure 5.16 In this form the user will be required to fill each field. We also validate input on key areas such as phone numbers, email address etc. In the Eircode field we offer the user a link to the Eircode website, in case they don’t know there Eircode. 
 
 \begin{figure}[h]
 \centering
@@ -1010,7 +1010,7 @@ On this page the user is presented with a form as shown in figure (create room a
 \caption{Create Room Ad Page.}
 \end{figure}
 
-At the bottom of the form there are 2 buttons. The first button called Upload Image when pressed will present an action sheet asking the user whether they want to upload an image from library, use camera or cancel this action. With the use of the cordova plugins we can gain access to the phones native functions and upload an image from the users image library or capture an image with the phones camera and upload it. After the user has uploaded an image the upload image button changes and displays Add another Image and allows the user to repeat the upload image step again. The button below is the Publish Ad button, when taped it will save your ad to the Rooms Collection in our database and redirect you to the updated Room List Page. The Publish Ad button is only tappable when all required fields have been entered.
+\noindent At the bottom of the form there are 2 buttons. The first button called Upload Image when pressed will present an action sheet asking the user whether they want to upload an image from library, use camera or cancel this action. With the use of the cordova plugins we can gain access to the phones native functions and upload an image from the users image library or capture an image with the phones camera and upload it. After the user has uploaded an image the upload image button changes and displays Add another Image and allows the user to repeat the upload image step again. The button below is the Publish Ad button, when taped it will save your ad to the Rooms Collection in our database and redirect you to the updated Room List Page. The Publish Ad button is only tappable when all required fields have been entered.
 
 \subsubsection{Create Property Ad Page}
 
@@ -1020,7 +1020,7 @@ At the bottom of the form there are 2 buttons. The first button called Upload Im
 \caption{Create Property Ad Page.}
 \end{figure}
 
-As you can see from the Create Room Ad Page in point(5.somthing), the Create Property Ad Page is very similar. The only difference between the 2 pages is the input fields and that the Property Ad will be saved to the Properties Collection in the Database. In the Create Property Ad, we set the property type and ask the user for the number of each type of room in the property. We don’t ask these fields in our Create Room Ad Page.
+As you can see from the Create Room Ad Page in section 5.3.3.12, the Create Property Ad Page is very similar. The only difference between the 2 pages is the input fields and that the Property Ad will be saved to the Properties Collection in the Database. In the Create Property Ad, we set the property type and ask the user for the number of each type of room in the property. We don’t ask these fields in our Create Room Ad Page.
 
 \subsubsection{Create Message Page}
 
@@ -1030,7 +1030,7 @@ As you can see from the Create Room Ad Page in point(5.somthing), the Create Pro
 \caption{Create Message Page.}
 \end{figure}
 
-Here the user can post a message on our Message board. As like the other page this form requires all fields to be filled and valid input. When the user taps the button Post Message, your Message will be saved to the Messages collection and you will navigate back to the new updated message board.
+\noindent Here the user can post a message on our Message board. As like the other page this form requires all fields to be filled and valid input. When the user taps the button Post Message, your Message will be saved to the Messages collection and you will navigate back to the new updated message board.
     
 \subsubsection{My Room Ads Page and My Property Ads Page}
 
@@ -1051,7 +1051,7 @@ The user can swipe left on each of their My Ads items and two buttons will becom
 \caption{Update My Room Ad Page}
 \end{figure}  
 
-Here the user will be presented the same form as before for the create property and create room pages. The only difference is that the fields will already be populated with the information of the ad you wished to update. You can simply change the entries you wish to edit and re-publish the ad. This will update our collections in our database and redirect you back to the newly updated my ads list.
+\noindent Here the user will be presented the same form as before for the create property and create room pages in sections 5.3.3.12 and 5.3.3.13. The only difference is that the fields will already be populated with the information of the ad you wished to update. You can simply change the entries you wish to edit and re-publish the ad. This will update our collections in our database and redirect you back to the newly updated my ads list.
 
 
 
