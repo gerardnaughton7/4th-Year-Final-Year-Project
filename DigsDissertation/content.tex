@@ -203,42 +203,6 @@ One of the last features of our application is the search functionality. Impleme
 
 \section{Database}
 
-\subsection{NoSQL database}
-The ascent of Big Data made an interest for on a horizontally adaptable Data Management System. This prompted advancement of various types of Database Management System which all things considered go under NoSQL. NoSQL Databases are comprehensively separated into following sorts: Document, Key-value, Graph, Native object, Table type, Native XML and Hybrid Databases. All RDBMS databases depend on the same model, while, each of the NoSQL databases takes after a distinctive model. NoSQL moves far from the robust institutionalized type of SQL database and empowers less complex information capacity arrangements. Therefore a NoSQL database is enhanced for the particular application.\cite{noSql}
-
-\subsubsection{NoSql database types}
-
-\begin{itemize}
-\item Key-Value Storage \par
-Key-Value Storages are straight forward and simple NoSQL frameworks, for example, Redis that are fundamentally a truly favour hash table. You have an esteem you need to get later, so you allocate it a key and in addition stuff it into the database, you can just inquiry a single object at any given moment and just by a single key.
-
-\item Document Storage \par
-Regularly, these are objects with a various levelled structure, for example, XML documents, JSON records, and some other kind of tree structure, yet the qualities of various nodes on the tree can be indexed. They have a much speed with respect to customary push construct SQL databases in light of query in light of the fact that they give up execution on joining. 
-
-\item Columnar Storage  \par
-These store the information in columns instead of lines, so refreshing and adding are costly, be that as it may, most questions are modest in light of the fact that each segment is basically certainly recorded. In any case, on the off chance that your inquiry can not utilize an index, you are in no better shape with a Columnar Store rather than a standard SQL database.
-
-\item Graph Storage  \par
-Diagram Databases (neo4j) make joins as shoddy as could be expected under the circumstances, on the grounds that even a straightforward row query would require many joins to recover. Tables can sort query would be slower than a standard SQL database in view of the greater part of the additional joins to retrieve the information. \cite{DataTypes}
-\end{itemize}
-
-\subsubsection{Advantages of NoSql}
-NoSQL databases are very versatile, dependable, have a basic data model, amazingly exposed query language, no system for taking care of consistency and trustworthiness among data. A standout amongst the most vital points of interest of NoSQL databases is that the databases can handle unstructured information. Unstructured data can be word reports, messages, sound, video, or even interpersonal social network information. NoSQL databases tend to scale extremely well on commodity equipment. Some even claim that NoSQL databases empower better execution, which is urgent for organizations with a lot of data. To empower quicker execution, NoSQL databases ordinarily don't cling to ACID (atomicity, consistency, isolation, durability) restrictions that are utilized as a part of relational databases. While this is recorded as a star for NoSQL as far as execution and processing time; we take note of that this likewise has unfortunate outcomes that will be tended to later. A case of NoSQL database's execution is Facebook's usage (Cassandra) that is equipped for dealing with more than 100 million clients persistently. \cite{AdvantagesnoSql}
-
-\subsection{Examples of NoSQL}
-\begin{itemize}
-\item Key-Value Storage: \par
-MUMPS, CouchDB, FoundationDB, Redis, Aerospike, Dynamo, MemcacheDB, Riak, OrientDB, Fair Com c-treeACE, Redis.
-
-\item Apache CouchDB, MarkLogic, OrientDB, Clusterpoint, Couchbase, MongoDB.
-
-\item Columnar Storage:  \par
-Vertica, Cassandra, Hbase, Accumulo, Druid.
-
-\item Graph Storage:  \par
-Neo4J, OrientDB, Stardog, Allegro, InfiniteGraph, Virtuoso. 
-\end{itemize}
-
 \subsection{MongoDB}
 MongoDB is a cross-platform, document-oriented database that provides high performance and easy scalability. The basis of this database is the concept of collections and documents.\par
 MongoDB is ideal for projects that involve working with very large amounts of data and / or high scalability requirements, high performance even in cases where information is too complex and heterogeneous for modeling using a relational schema, or there is a need for real-time analysis \par
@@ -277,6 +241,42 @@ if the token expired
 \item The user changes his password.
 \end{itemize}
 In this case, Firebase issues new access tokens and marks the old ones as invalid. When changing the password, the user logs off automatically on each device, for security reasons. \cite{Firebase}
+
+\subsection{NoSQL database}
+The ascent of Big Data made an interest for on a horizontally adaptable Data Management System. This prompted advancement of various types of Database Management System which all things considered go under NoSQL. NoSQL Databases are comprehensively separated into following sorts: Document, Key-value, Graph, Native object, Table type, Native XML and Hybrid Databases. All RDBMS databases depend on the same model, while, each of the NoSQL databases takes after a distinctive model. NoSQL moves far from the robust institutionalized type of SQL database and empowers less complex information capacity arrangements. Therefore a NoSQL database is enhanced for the particular application.\cite{noSql}
+
+\subsubsection{NoSql database types}
+
+\begin{itemize}
+\item Key-Value Storage \par
+Key-Value Storages are straight forward and simple NoSQL frameworks, for example, Redis that are fundamentally a truly favour hash table. You have an esteem you need to get later, so you allocate it a key and in addition stuff it into the database, you can just inquiry a single object at any given moment and just by a single key.
+
+\item Document Storage \par
+Regularly, these are objects with a various levelled structure, for example, XML documents, JSON records, and some other kind of tree structure, yet the qualities of various nodes on the tree can be indexed. They have a much speed with respect to customary push construct SQL databases in light of query in light of the fact that they give up execution on joining. 
+
+\item Columnar Storage  \par
+These store the information in columns instead of lines, so refreshing and adding are costly, be that as it may, most questions are modest in light of the fact that each segment is basically certainly recorded. In any case, on the off chance that your inquiry can not utilize an index, you are in no better shape with a Columnar Store rather than a standard SQL database.
+
+\item Graph Storage  \par
+Diagram Databases (neo4j) make joins as shoddy as could be expected under the circumstances, on the grounds that even a straightforward row query would require many joins to recover. Tables can sort query would be slower than a standard SQL database in view of the greater part of the additional joins to retrieve the information. \cite{DataTypes}
+\end{itemize}
+
+\subsubsection{Advantages of NoSql}
+NoSQL databases are very versatile, dependable, have a basic data model, amazingly exposed query language, no system for taking care of consistency and trustworthiness among data. A standout amongst the most vital points of interest of NoSQL databases is that the databases can handle unstructured information. Unstructured data can be word reports, messages, sound, video, or even interpersonal social network information. NoSQL databases tend to scale extremely well on commodity equipment. Some even claim that NoSQL databases empower better execution, which is urgent for organizations with a lot of data. To empower quicker execution, NoSQL databases ordinarily don't cling to ACID (atomicity, consistency, isolation, durability) restrictions that are utilized as a part of relational databases. While this is recorded as a star for NoSQL as far as execution and processing time; we take note of that this likewise has unfortunate outcomes that will be tended to later. A case of NoSQL database's execution is Facebook's usage (Cassandra) that is equipped for dealing with more than 100 million clients persistently. \cite{AdvantagesnoSql}
+
+\subsection{Examples of NoSQL}
+\begin{itemize}
+\item Key-Value Storage: \par
+MUMPS, CouchDB, FoundationDB, Redis, Aerospike, Dynamo, MemcacheDB, Riak, OrientDB, Fair Com c-treeACE, Redis.
+
+\item Apache CouchDB, MarkLogic, OrientDB, Clusterpoint, Couchbase, MongoDB.
+
+\item Columnar Storage:  \par
+Vertica, Cassandra, Hbase, Accumulo, Druid.
+
+\item Graph Storage:  \par
+Neo4J, OrientDB, Stardog, Allegro, InfiniteGraph, Virtuoso. 
+\end{itemize}
 
 \section{Server}
 
@@ -464,9 +464,73 @@ ShareLaTeX is an online real time LaTeX editor which allows to work on text docu
 We have chosen ShareLaTeX as we already had experience with it in our previous semester while using ShareLaTeX for the literature review.\par
 There is a lot of nice features in the premium version of ShaReLaTeX, like the ability to work on the same document for the group of people and possibility to upload your progress straight to GitHub. But we avoid the fees by sharing one account details between us and manually uploading our work to the GitHub repository.
 
+\subsubsection{History of document changes}
+ShareLaTeX saves the full history of all changes, so you can always track who made the change and when. Thanks to this you will always be aware of the work done by your collaborators.
+Errors occur regardless of whether you work alone or together with collaborators. You can always easily return to previous versions, which eliminates the risk of losing work or making undesirable changes. \cite{Sharelatex}\par
+
 \subsection{Visual Studio Code}
+For its long history of existence, Microsoft has released many development tools. But many developers will say that this is the best editor that Microsoft ever has built. Visual Studio Code working on three platforms, Linux, OS X and Windows. Without throwing at all the functions of a mature Visual Studio IDE. Microsoft decided to rethink the approach on which the main toolkit of the programmer is built and started with the most important - the code editor. Visual Studio Code is an editor, but it has IDE functions that rely on extensions.\par
+Now with Visual Studio Code is possible to use different languages such as JavaScript, TypeScript, C sharp, and so on. Also, you can use Visual Studio to create ASP.NET 5 or Node.js web projects, work with package managers npm and even carry out debugging. An excellent intellisense, support for code snippets, refactoring, navigation, multi-windowing, git support and much more. In some ways, Visual Studio Code even more convenient than the full version of Visual Studio and much lighter for the hardware requirements. \cite{VSintro} 
+
+\subsubsection{VS Code extension}
+Without the Visual Studio Code extensions, it's only suitable for simple editing of files, for proper work you will need the accompanying tools that depend on your goals and tasks:
+
+\begin{itemize}
+\item git - version control system
+
+\item NodeJS (includes NPM) - a platform for creating scalable network applications
+
+\item Express - a framework for Node applications
+
+\item generator-aspnet - yeoman generator for ASP.NET 5 applications, run npm install -g generator-aspnet for installation
+
+\item hottowel - yeoman generator for fast creation of AngularJS applications, run npm install -g generator-hottowel for installation
+
+\item gulp - a toolkit for creating and performing tasks associated with the assembly of project tasks
+
+\item mocha - the framework for creating unit tests for JavaScript / Node
+
+\item bower - client package manager
+
+\item TypeScript - TypeScript language, adds modularity, classes and other nice things into your JavaScript code
+
+\item TypeScript definition manager - TypeScript definitions for popular JavaScript libraries, include support for IntelliSense in the VS Code \cite{VSC}
+\end{itemize}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=14cm, height=11cm]{img/VSExtentions.png}
+\caption{Visual studio Code extensions}
+\end{figure}
+
+\subsubsection{Files, folders and projects}
+VS Code works with files and folders containing the projects. In the simplest case, you can open the file for editing simply by running ./code index.html. A more interesting case is opening a folder. VS Code itself determines the type of project, depending on the contents of the folder. For example, if the folder contains the files package.json, project.json, tsconfig.json, or .sln and .proj files then the VS code includes many new features that include IntelliSence hints, code navigation, execution of commands and much more. \cite{VSC}
+
+\subsubsection{Command Palette}
+The most important tool for interacting with the editor in VS Code is the command palette. You can call it via the keyboard, by pressing the combination Ctrl + Shift + P. A lot of commands listed in the palette are also attached to the keys. \cite{VStricks} \par
+
+\subsubsection{Autosave}
+By default, VS Code works in the explicit save mode, which you can perform by pressing the Ctrl + S combination. This mode is compatible with most status monitoring tools. You can turn on the autosave mode by pressing Ctrl + Shift + P and type auto. \cite{VStricks} \par
+
+\subsubsection{IntelliSence Tips}
+Wherever you are in your code, clicking on Ctrl + Space will display the IntelliSence prompt. When typing the code, the editor will show it automatically. \cite{VStricks} \par
+
+\begin{figure}
+\centering
+\includegraphics[width=14cm, height=6cm]{img/IntelliSence.png}
+\caption{Visual studio Code IntelliSence}
+\end{figure}
 
 \subsection{Postman}
+Postman is an API / web services testing tool that has a powerful HTTP client support. It has an easy-to-use query designer that allows you to write test cases and manage data and response time for effective testing and management of test cases API, simplifies the work with the API, supporting developers at every stage of its workflow and is available for Mac OS X, Windows and Linux.\par
+Key features:
+\begin{itemize}
+\item Allows you to organize APIs in functions called Postman assemblies.
+\item Facilitates collaboration and sharing of API data and controls.
+\item Allows you to write logic tests in Postman Interface. \cite{Postman}
+\end{itemize}
+
+In our project, we used postman for testing our back-end server functionality, especially the ability of the server to store pictures for property advertisements. Most useful feature for us was the possibility of testing, at the early stage without having actual front-end application.
 
 \subsection{GitHub}
 GitHub hosting project on the Internet. It can be used freely for Open Source projects. Now GitHub is the most popular hosting service for developers. It uses the Git version control system, hence the name GitHub.\par
@@ -477,7 +541,7 @@ GitHub users have access to other open source projects this enables them to work
 
 In addition to being just a hosting project, GitHub is also a great social networking site for developers and programmers. It allows users to follow each other, subscribes to project updates, like them, giving them an assessment, etc. These functions allow users to receive updates for projects in which they are interested, or stay in touch with colleagues and employees.\par
 
-GitHub is not only used for programming and software development. It is also used by many other types of projects. For example, open source tutorials, documentation projects, training resources and other projects in which users can work together.\cite{GitHub}\par
+GitHub is not only used for programming and software development. It is also used by many other types of projects. For example, open source tutorials, documentation projects, training resources and other projects in which users can work together. \cite{GitHub}\par
 
 Some sample examples of git commands:
 \begin{itemize}
@@ -491,8 +555,6 @@ Some sample examples of git commands:
     \item git push origin master\par
     To send changes to repository. 
 \end{itemize}
-
-\subsection{Notpad++}
 
 \chapter{System Design}
 
