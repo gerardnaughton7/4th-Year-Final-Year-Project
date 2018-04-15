@@ -1,9 +1,16 @@
 %!TEX root = project.tex
 
-\chapter*{About this project}
+\chapter*{Abstract}
 
-\paragraph{Abstract}
+For our final year project we decided to create a Accommodation App called Digs specifically for students. Currently there is a accommodations crisis across Ireland and we felt an App like ours was badly needed. Working as a team and following an agile methodology we developed an App that allows users to view accommodation ads and post accommodation listings on our app. Adding specific features such as, adding college as a search criteria and creating a message board for student to group together and find accommodation gears our app specifically for student. We created a 3 tier application, using Mongo Db and Firebase as the our Data Tier, NodeJS for our Logic Tier and Ionic 3 for our Presentation Tier.\\
 
+\noindent \textbf{Authors:}
+
+\begin{itemize}
+    \item Patrick Moran
+    \item Gerard Naughton
+    \item Andrei Petruk
+\end{itemize}
 
 \chapter*{\centering Acknowledgements}
 
@@ -102,7 +109,7 @@ architecture and design of Digs. We explain why we chose these specific technolo
 
 
 \subsection{System Evaluation}
-
+In this chapter we evaluate our system in the areas of Robustness, Testing, Scalability, Results against Objectives and Limitations.
 
 
 \subsection{Conclusion}
@@ -212,7 +219,7 @@ One of the last features of our application is the search functionality. Impleme
 
 \chapter{Technology Review}
 
-\section{Database}
+\section{Data Tier}
 
 \subsection{MongoDB}
 MongoDB is a cross-platform, document-oriented database that provides high performance and easy scalability. The basis of this database is the concept of collections and documents.\par
@@ -289,7 +296,7 @@ Vertica, Cassandra, Hbase, Accumulo, Druid.
 Neo4J, OrientDB, Stardog, Allegro, InfiniteGraph, Virtuoso. 
 \end{itemize}
 
-\section{Server}
+\section{Logic Tier}
 
 \subsection{NodeJS}
 Node or Node.js is a software platform based on the V8 engine (translating JavaScript into machine code), which turns JavaScript from a highly specialized language into a general-purpose language. Node.js adds the ability of JavaScript to interact with I / O devices through its API (written in C ++), connect other external libraries written in different languages, providing calls to them from JavaScript code. Node.js is used primarily on the server, acting as a web server, but it is possible to develop Node.js and desktop window applications (using NW.js, AppJS or Electron for Linux, Windows and Mac OS) and even program microcontrollers (for example, tessel and espruino). Node.js is based on event-oriented and asynchronous programming with non-blocking I / O. \par 
@@ -309,7 +316,7 @@ npm install
 
 When you run the command, npm will look for the package.json file in the current folder. If found, it will install each library from the list. \cite{NodeJS}
 
-\section{Front End}
+\section{Presentation Tier}
 
 \subsection{Ionic}
 Ionic is a framework with a stunningly designed graphical interface, styled for various platforms, for maximum similarity to native applications. AngularJS and sass are taken as a basis for the framework, which brought him great popularity among developers, as these technologies reduce the threshold of entry to a minimum. The core of the framework is Cordova, so all the plugins of Cordova will work fine on ionic.\par In addition to the platform and ready-made UI components, Ionic has a thoughtful command line interface that allows you to generate icons, splash screens, run the file in the browser with the app for debugging, and build applications with short commands in the console.\par Also worth noting is the detailed documentation with examples.\cite{Ionic}
