@@ -49,7 +49,7 @@ The general context of our application resolves around students having a platfor
   \item Parking Availability
 \end{itemize}
 
-\section{Objectives}
+\section{Objectives} \label{objectives}
 The main objective of our application is to help students who may be struggling with the current accommodation crisis in Ireland. We also wanted to make it easier for students and landlords, who are looking to rent or let. The following is a list of the main pages in our application along with the objectives for each page. 
 
 \begin{enumerate}
@@ -1220,29 +1220,81 @@ C:\Users\gerar\Desktop\4th-Year-Final-Year-Project\DigsBackEnd\DigsImageServer>n
 
 
 \chapter{System Evaluation}
-This Chapter evaluate the application
+
+In this chapter we evaluate our system in the following areas:
 \begin{itemize}
-    \item Scalability
     \item Robustness
-    \item Maintainability
-    \item Extensibility
+    \item Testing
+    \item Scalability
+    \item Results Against Objectives
+    \item Limitations
 \end{itemize}
 
-\par \textbf{Scalability:} 
+\section{Robustness}
+Unfortunately, we have not been able to test our application fully for robustness. For example, load testing and stress testing. However, what we do know from testing our application, as laid out in the following section, is that we have not come across any errors, glitches or application failure so far. 
 
-\par \textbf{Robustness:}.
+\section{Testing} \label{testing}
+Through continuous white box testing and regular black box testing we believe Digs has reached the expectations we set out at the start of our project. To achieve these desired results we tested our application, using white box testing, in the following ways.
 
-\par \textbf{Maintainability:}
+\begin{enumerate}
+  \item Ionic Serve
+  \item Simulator Testing
+  \item Device Testing
+\end{enumerate}
 
-\par \textbf{Extensibility:} T
+\subsection{Ionic Serve}
+Testing our application in a desktop browser was just a matter of running the following command in the project’s root folder.
 
-\section{Testing}
+\begin{minted}{bash}
+ionic serve --lab
+\end{minted}
 
-\section{Outcomes VS. Objectives}
+As a result, a live-reload server of our project will load. When we make a change in our HTML, JavaScript or CSS, the change will automatically reload in the browser when the file your editing is saved. Using the -–lab option on the ionic serve command, we can also view how each change made would appear on Android, iOS and Windows platform.
+
+\subsection{Simulator Testing}
+Another form of testing we used was simulator testing. This is where we tested Digs in an android phone emulator environment see Figure \ref{android_sim}. The android emulator simulates an android phone and other devices in the android family. We chose to use android as our main testing platform as it was the easiest to setup with no restrictions. For example, to test on an iOS emulator you would need an Apple computer along with xCode installed and an Apple device to test it.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=7.5cm, height=12cm]{img/android_sim.PNG},
+\caption{Android Simulator}
+\label{android_sim}
+\end{figure}
+
+\noindent The following commands was used to run our application with an android emulator.
+
+\begin{minted}{bash}
+ionic cordova run android
+\end{minted}
+
+\subsection{Device Testing}
+The last testing method we used was to test the application on an actual device. To test the application on an android device we would first build an android apk file and then install it on an android device. The command used to build an android apk file is:
+
+\begin{minted}{bash}
+ionic cordova build android
+\end{minted}
+
+\section{Scalability}
+Our Digs application was designed to be very scalable. Currently, we can only store small quantities of data. This is because we chose to setup an AWS micro instance. AWS micro instances have 1gb of RAM, 1 CPU, 30gb of storage and are free-tier eligible. However, if the volume of data was to increase in the future we can easily scale up to a larger AWS instance improving performance and storage.\\
+
+\noindent Another aspect of our project scalability is our NodeJS server in our logic tier. NodeJS is an ideal solution when considering scalability in your application. This is because Node can process many simultaneous connections due to its non-blocking, event driven I/O system.
+
+\section{Results Against Objectives}
+When we compare the objectives laid out in Chapter \ref{objectives} to the application we have created, we believe we have met these requirements. As for helping students in the accommodation crisis we cannot confirm this until our application is launched for public use and a business model created. \\
+
+\noindent We also wanted to create an app that was student orientated and user friendly. To do this we implemented college campus as a field and a search option for our listings. We also created a message board for students to communicate with each other to find accommodation. These aspects differentiate our application from other accommodation apps available. 
 
 \section{Limitations}
+The following are some limitations we experienced while developing our Digs app.
 
-\section{Opportunities}
+\subsection{Native look and feel}
+Even though developing cross-platform applications with the Ionic framework has become more refined in the last few years, it is still quite difficult to create an application with a native look and feel to it, for example developing an Android application with Java and Android Studio.
+
+\subsection{Lack of Apple Products for Testing}
+As discussed in the previous section \ref{testing}, we had some limitations testing our cross-platform application on the iOS platform. This was because no one in our team had access to an Apple mobile or computer.  
+
+\subsection{Service Limitations}
+In our application we are using firebase and AWS as services for free. We are using these free services, which both have limitations, as we are currently only developing the application as a prototype and because we are all students.
 
 \chapter{Conclusion}
 
@@ -1252,6 +1304,7 @@ This Chapter evaluate the application
 
 \chapter{Appendix}
 
-\textbf{Project Source Code Link: }link to github \\
-\textbf{Project Documentation Link: } \\
+\textbf{Project Source Code Link:}\\ \href{https://github.com/gerardnaughton7/4th-Year-Final-Year-Project}{https://github.com/gerardnaughton7/4th-Year-Final-Year-Project}
 
+\textbf{Project Documentation Link:}\\
+\href{}{}
