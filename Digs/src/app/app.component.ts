@@ -31,7 +31,7 @@ export class MyApp {
   loggedInPages: Array<{title: string, component: any, icon: string}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public events: Events,
-                private afAuth: AngularFireAuth, private alertCtrl: AlertController, private storage: Storage) {
+                private afAuth: AngularFireAuth, private storage: Storage) {
 
     this.initializeApp();
          
