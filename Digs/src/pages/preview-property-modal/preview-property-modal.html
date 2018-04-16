@@ -7,7 +7,7 @@
 
         <ion-item>
           <h2 style="color: rgb(153, 0, 255);">€{{property.Price}}</h2>
-          <p>Available: {{ property.Availability}}</p>
+          <p><b>Available: </b>{{ property.Availability}}</p>
         </ion-item>
       
         <ion-slides *ngIf="property.ImagesUrl[0] != null" class="image-slider" loop="false" autoplay="3000" pager="true" paginationType="bullets" zoom="true" effect="slide" slidesPerView="1">
@@ -18,16 +18,16 @@
         <img *ngIf ="property.ImagesUrl[0] == null" src= "assets/imgs/default-room-image.jpg" class="thumb-img" imageViewer>
       
         <ion-card-content>
-          <p *ngIf="property.SingleBeds != 0">No of Single Rooms: {{property.SingleBeds}}</p> 
-          <p *ngIf="property.DoubleBeds != 0">No of Double Rooms: {{property.DoubleBeds}}</p>
-          <p *ngIf="property.TwinBeds != 0">No of Twin Rooms: {{property.TwinBeds}}</p>
-          <p *ngIf="property.EnSuite != 0">No of En-Suite Rooms: {{property.EnSuite}}</p>
-          <p>Nearest College {{property.College}}</p>
-          <p>Located {{property.LocationDes}}</p>
-          <p>Address: {{property.Address}}</p>
-          <p>Description: {{ property.Description}}</p>
-          <p *ngIf="property.Contact == 'Phone'">Contact {{property.Phone}}</p>
-          <p *ngIf="property.Contact == 'Email'">Contact {{property.Email}}</p>
+          <p *ngIf="property.SingleBeds != 0"><b>No of Single Rooms: </b>{{property.SingleBeds}}</p> 
+          <p *ngIf="property.DoubleBeds != 0"><b>No of Double Rooms: </b>{{property.DoubleBeds}}</p>
+          <p *ngIf="property.TwinBeds != 0"><b>No of Twin Rooms: </b>{{property.TwinBeds}}</p>
+          <p *ngIf="property.EnSuite != 0"><b>No of En-Suite Rooms: </b>{{property.EnSuite}}</p>
+          <p><b>College</b> {{property.College}}</p>
+          <p><b>Located </b>{{property.LocationDes}}</p>
+          <p><b>Address: </b>{{property.Address}}</p>
+          <p><b>Description: </b>{{ property.Description}}</p>
+          <p *ngIf="property.Contact == 'Phone'"><b>Contact</b> {{property.Phone}}</p>
+          <p *ngIf="property.Contact == 'Email'"><b>Contact</b> {{property.Email}}</p>
         </ion-card-content>
       
         <ion-row>
@@ -45,34 +45,5 @@
           </ion-col>
         </ion-row>   
       </ion-card>
-    <!-- <ion-card>
-      <ion-slides *ngIf="property.ImagesUrl[0] != null" class="image-slider" loop="false" autoplay="3000" pager="true" paginationType="bullets" zoom="true" effect="slide" slidesPerView="1">
-        <ion-slide *ngFor="let img of property.ImagesUrl">
-          <img src="{{img}}" class="thumb-img" #myImage (click)="presentImage(myImage)">
-        </ion-slide>
-      </ion-slides>
-      <img *ngIf ="property.ImagesUrl[0] == null" src= "assets/imgs/student-house.png" class="thumb-img" imageViewer>
-      <ion-card-content>
-        <ion-card-title>
-          €{{property.Price}}
-        </ion-card-title>
-        <p *ngIf="property.SingleBeds != 0">No of Single Rooms: {{property.SingleBeds}}</p> 
-        <p *ngIf="property.DoubleBeds != 0">No of Double Rooms: {{property.DoubleBeds}}</p>
-        <p *ngIf="property.TwinBeds != 0">No of Twin Rooms: {{property.TwinBeds}}</p>
-        <p *ngIf="property.EnSuite != 0">No of En-Suite Rooms: {{property.EnSuite}}</p>
-        <p>College: {{property.College}}</p>
-        <p>Address: {{property.Address}}</p>
-        <p>Location: {{property.LocationDes}}</p>
-        <p>Availability: {{property.Availability}}</p>
-        <p>Description: {{property.Description}}</p>
-        <p *ngIf="property.Contact == 'Phone'">Phone: {{property.Phone}}</p>
-        <p *ngIf="property.Contact == 'Email'">Email: {{property.Email}}</p>
-        <p>Parking: {{property.Parking}}</p>
-      </ion-card-content>
-      <button ion-button icon-end block (click)="findOnMap()">
-        Find on Map
-        <ion-icon name="map"></ion-icon>
-      </button>
-    </ion-card>  -->
   </div>
 </ion-content>

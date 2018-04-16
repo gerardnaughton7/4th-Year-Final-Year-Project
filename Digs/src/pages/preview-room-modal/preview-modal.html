@@ -8,7 +8,7 @@
 
       <ion-item>
         <h2 style="color: rgb(153, 0, 255);">€{{room.Price}}</h2>
-        <p>Available: {{ room.Availability}}</p>
+        <p><b>Available: </b>{{ room.Availability}}</p>
       </ion-item>
     
       <ion-slides *ngIf="room.ImagesUrl[0] != null" class="image-slider" loop="false" autoplay="3000" pager="true" paginationType="bullets" zoom="true" effect="slide" slidesPerView="1">
@@ -19,13 +19,13 @@
       <img *ngIf ="room.ImagesUrl[0] == null" src= "assets/imgs/default-room-image.jpg" class="thumb-img" imageViewer>
     
       <ion-card-content>
-        <p>Room Type {{room.RoomType}}</p>
-        <p>Nearest College {{room.College}}</p>
-        <p>Located {{room.LocationDes}}</p>
-        <p>Address: {{room.Address}}</p>
-        <p>Description: {{ room.Description}}</p>
-        <p *ngIf="room.Contact == 'Phone'">Contact {{room.Phone}}</p>
-        <p *ngIf="room.Contact == 'Email'">Contact {{room.Email}}</p>
+        <p><b>Room Type </b> {{room.RoomType}}</p>
+        <p><b>Nearest College </b>{{room.College}}</p>
+        <p><b>Located </b>{{room.LocationDes}}</p>
+        <p><b>Address: </b>{{room.Address}}</p>
+        <p><b>Description: </b>{{ room.Description}}</p>
+        <p *ngIf="room.Contact == 'Phone'"><b>Contact </b>{{room.Phone}}</p>
+        <p *ngIf="room.Contact == 'Email'"><b>Contact </b>{{room.Email}}</p>
       </ion-card-content>
     
       <ion-row>
