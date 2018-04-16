@@ -69,7 +69,7 @@ export class CreatePropertyAdPage {
       Price: this.Price,
       Availability: this.Availability,
       Email: this.Email,
-      Phone: this.Phone,
+      Phone: new String(this.Phone),
       Contact: this.Contact,
       Description: this.Description,
       Parking: this.Parking,
