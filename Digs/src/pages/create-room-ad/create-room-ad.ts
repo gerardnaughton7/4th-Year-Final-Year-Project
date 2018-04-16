@@ -52,7 +52,6 @@ export class CreateRoomAdPage {
     this.imagesProvider.getImageAdID(this.AdID)
     .map(res => res.json())
     .subscribe(data => {
-
       let room = {
         UID: this.email,
         AdID: this.AdID,
@@ -64,7 +63,7 @@ export class CreateRoomAdPage {
         Price: this.Price,
         Availability: this.Availability,
         Email: this.Email,
-        Phone: this.Phone,
+        Phone: new String(this.Phone),
         Contact: this.Contact,
         Description: this.Description,
         Parking: this.Parking,

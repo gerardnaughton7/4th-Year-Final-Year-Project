@@ -33,7 +33,6 @@ export class UpdateMyRoomAdPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, private inAppBrowser: InAppBrowser, 
               private roomAdService: RoomAd) {
     this.room = navParams.get('room');
-    console.log("In Update Room, Price passed over: " + this.room.Price);
     this.RoomType = this.room.RoomType;
     this.College = this.room.College;
     this.Address = this.room.Address;
