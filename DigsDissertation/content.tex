@@ -2,7 +2,7 @@
 
 \chapter*{Abstract}
 
-For our final year project we decided to create a Accommodation App called Digs specifically for students. Currently there is a accommodations crisis across Ireland and we felt an App like ours was badly needed. Working as a team and following an agile methodology we developed an App that allows users to view accommodation ads and post accommodation listings on our app. Adding specific features such as, adding college as a search criteria and creating a message board for student to group together and find accommodation gears our app specifically for student. We created a 3 tier application, using Mongo Db and Firebase as the our Data Tier, NodeJS for our Logic Tier and Ionic 3 for our Presentation Tier.\\
+For our final year project, we wanted to develop an app that would challenge and hone our technical skills whilst creatively addressing a current issue. Students are particularly vulnerable in the current accommodation crisis across Ireland, as they are restricted by budget, time-pressures, proximity to campus and are commonly excluded from most properties. In addition, many students requiring accommodation are often arriving alone to a new area. The search for accommodation is typically time-consuming and stressful and comes with repeated rejection. We conceived of an accommodation app called Digs tailored specifically for students that would simultaneously provide a forum to empower students to grasp more renting opportunities by clubbing together. Working as a team and following an agile methodology, we developed an app that allows users to view student accommodation ads and post accommodation listings. We created a three tier application, using Mongo Db and Firebase as our Data Tier, NodeJS for our Logic Tier and Ionic 3 for our Presentation Tier. Adding specific features such as, adding college campus as a search criterion and creating a message board for students to group together and find accommodation helped us complete our objectives by gearing our app specifically for students.\\
 
 \noindent \textbf{Authors:}
 
@@ -82,16 +82,10 @@ The main objective of our application is to help students who may be struggling 
 \end{enumerate}
 
 \section{Project Links}
-Below are the links for our project. They include the URL link to our GitHub repository and the URL link to our Dissertation.
 
 \paragraph{Link to Repository}
 \begin{itemize}
 \item \href{https://github.com/gerardnaughton7/4th-Year-Final-Year-Project}{https://github.com/gerardnaughton7/4th-Year-Final-Year-Project} 
-\end{itemize}
-
-\paragraph{Direct Link to Dissertation Pdf}
-\begin{itemize}
-    \item \href{https://github.com/gerardnaughton7/4th-Year-Final-Year-Project/tree/master/DigsDissertation/}{https://github.com/gerardnaughton7/4th-Year-Final-Year-Project/tree/master/DigsDissertation/}
 \end{itemize}
 
 \section{Chapters Review}
@@ -222,11 +216,11 @@ One of the last features of our application is the search functionality. Impleme
 \section{Data Tier}
 
 \subsection{MongoDB}
-MongoDB is a cross-platform, document-oriented database that provides high performance and easy scalability. The basis of this database is the concept of collections and documents.\par
-MongoDB is ideal for projects that involve working with very large amounts of data and / or high scalability requirements, high performance even in cases where information is too complex and heterogeneous for modeling using a relational schema, or there is a need for real-time analysis \par
-In comparison, the contents of a relational database are tables, the MongoDB database consists of collections. Each collection has its own unique name - an arbitrary identifier consisting of no more than 128 different alphanumeric characters and an underscore.
+MongoDB is a cross-platform, document-oriented database that provides high performance and is easily scalabe. MongoDB is structured using collections and documents.\par
+MongoDB is ideal for projects that involve working with very large amounts of data or where the requirements need to be scalable. MongoDB is also ideal where information is too complex, there is a need for real-time analysis or where a model of data does not need to be predefined as opposed to a relational database. \par
+When comparing MongoDB to a relational database, the contents of a relational database are tables and MongoDB databases consist of collections. Each collection has its own unique name - an arbitrary identifier consisting of no more than 128 different alphanumeric characters and an underscore.
 Unlike relational databases, MongoDB does not use a table with data types. MongoDB is a document-oriented system in which the central concept is a document. \par
-A document can be represented as an object storing some information. In a sense, it is like strings in relational Data Bases, where lines store information about the element. \cite{MongoDB} \par For example, a typical document:
+A document can be represented as an object storing some information. In a sense, it is like strings in relational database, where lines store information about the element. \cite{MongoDB} \par An example of a typical MongoDB document:
 
 \begin{minted}{js}
 {
@@ -246,41 +240,26 @@ This field must have a unique value within the collection. And if we try to add 
 If the identifier is not specified explicitly, then MongoDB creates a special binary value of 12 bytes.\cite{MongoDBID}
 
 \subsection{Firebase Authentication}
-The authentication service closely integrates with other Firebase services, uses industry standards such as OAuth 2.0 and OpenID Connect, so it can be easily integrated with your backend.\par
-The Firebase Authentication SDK provides methods for creating and managing users who use e-mail addresses and passwords to log on to the system.\par
+This authentication service closely integrates with other Firebase services, uses industry standards such as OAuth 2.0 and OpenID Connect, so that it can be easily integrated with your backend.\par
+The Firebase Authentication SDK provides methods for creating and managing users who use email and password to log on to the system.\par
 According to the documentation, the listener receives notifications in the following situations:
 \begin{itemize}
 \item When the FirebaseAuth object completes the initialization and the user is already authorized in the previous session or is redirected from the input stream of the other authentication provider.
-\item When the user logs in (the current user is installed)
-\item When the user exits (the current user becomes null)
-\item When the access token of the current user is updated. This can happen in the following cases:
-if the token expired
-\item The user re-authenticates
-\item The user changes his password.
+\item When the user logs in (the current user is installed).
+\item When the user exits (the current user becomes null).
+\item When the access token of the current user is updated. This can happen if the token expired.
+\item The user re-authenticates.
+\item The user changes their password.
 \end{itemize}
-In this case, Firebase issues new access tokens and marks the old ones as invalid. When changing the password, the user logs off automatically on each device, for security reasons. \cite{Firebase}
+In this case, Firebase issues new access tokens and marks the old ones as invalid. For security reasons, when a user changes their password, that user is automatically logged out of each device they are logged into. \cite{Firebase}
 
 \subsection{NoSQL database}
-The ascent of Big Data made an interest for on a horizontally adaptable Data Management System. This prompted advancement of various types of Database Management System which all things considered go under NoSQL. NoSQL Databases are comprehensively separated into following sorts: Document, Key-value, Graph, Native object, Table type, Native XML and Hybrid Databases. All RDBMS databases depend on the same model, while, each of the NoSQL databases takes after a distinctive model. NoSQL moves far from the robust institutionalized type of SQL database and empowers less complex information capacity arrangements. Therefore a NoSQL database is enhanced for the particular application.\cite{noSql}
-
-\subsubsection{NoSql database types}
-
-\begin{itemize}
-\item Key-Value Storage \par
-Key-Value Storages are straight forward and simple NoSQL frameworks, for example, Redis that are fundamentally a truly favour hash table. You have an esteem you need to get later, so you allocate it a key and in addition stuff it into the database, you can just inquiry a single object at any given moment and just by a single key.
-
-\item Document Storage \par
-Regularly, these are objects with a various levelled structure, for example, XML documents, JSON records, and some other kind of tree structure, yet the qualities of various nodes on the tree can be indexed. They have a much speed with respect to customary push construct SQL databases in light of query in light of the fact that they give up execution on joining. 
-
-\item Columnar Storage  \par
-These store the information in columns instead of lines, so refreshing and adding are costly, be that as it may, most questions are modest in light of the fact that each segment is basically certainly recorded. In any case, on the off chance that your inquiry can not utilize an index, you are in no better shape with a Columnar Store rather than a standard SQL database.
-
-\item Graph Storage  \par
-Diagram Databases (neo4j) make joins as shoddy as could be expected under the circumstances, on the grounds that even a straightforward row query would require many joins to recover. Tables can sort query would be slower than a standard SQL database in view of the greater part of the additional joins to retrieve the information. \cite{DataTypes}
-\end{itemize}
+The rise of Big Data made an interest for a horizontally adaptable Data Management System. This prompted advancement of various types of Database Management System which all things considered go under NoSQL. NoSQL Databases are comprehensively separated into following sorts: Document, Key-value, Graph, Native object, Table type, Native XML and Hybrid Databases. All Relational Database Management Systems depend on a very strict model to adhere to, while each of the NoSQL databases takes after a distinctive model. NoSQL moves far from the robust institutionalized type of SQL database and empowers less complex information capacity arrangements. Therefore a NoSQL database is enhanced for the particular application.\cite{noSql}
 
 \subsubsection{Advantages of NoSql}
-NoSQL databases are very versatile, dependable, have a basic data model, amazingly exposed query language, no system for taking care of consistency and trustworthiness among data. A standout amongst the most vital points of interest of NoSQL databases is that the databases can handle unstructured information. Unstructured data can be word reports, messages, sound, video, or even interpersonal social network information. NoSQL databases tend to scale extremely well on commodity equipment. Some even claim that NoSQL databases empower better execution, which is urgent for organizations with a lot of data. To empower quicker execution, NoSQL databases ordinarily don't cling to ACID (atomicity, consistency, isolation, durability) restrictions that are utilized as a part of relational databases. While this is recorded as a star for NoSQL as far as execution and processing time; we take note of that this likewise has unfortunate outcomes that will be tended to later. A case of NoSQL database's execution is Facebook's usage (Cassandra) that is equipped for dealing with more than 100 million clients persistently. \cite{AdvantagesnoSql}
+NoSQL databases are versatile, dependable and scalable. One of the main advantages of NoSQL is that it can handle unstructured data. Unstructured data can be word reports, messages, sound, video, or even interpersonal social network information. NoSQL databases can handle object-oriented programming that is flexible and easy to use.\\
+
+To ensure quick execution, NoSQL databases don't rely in ACID (Atomicity, Consistency, Isolation, Durability) transactions in comparison to relational databases. \cite{AdvantagesnoSql}
 
 \subsection{Examples of NoSQL}
 \begin{itemize}
@@ -299,9 +278,9 @@ Neo4J, OrientDB, Stardog, Allegro, InfiniteGraph, Virtuoso.
 \section{Logic Tier}
 
 \subsection{NodeJS}
-Node or Node.js is a software platform based on the V8 engine (translating JavaScript into machine code), which turns JavaScript from a highly specialized language into a general-purpose language. Node.js adds the ability of JavaScript to interact with I / O devices through its API (written in C ++), connect other external libraries written in different languages, providing calls to them from JavaScript code. Node.js is used primarily on the server, acting as a web server, but it is possible to develop Node.js and desktop window applications (using NW.js, AppJS or Electron for Linux, Windows and Mac OS) and even program microcontrollers (for example, tessel and espruino). Node.js is based on event-oriented and asynchronous programming with non-blocking I / O. \par 
-An important thing to realize is that Node is not a web server. The platform itself does not do anything. It does not work like Apache. There are no configuration files in which it points you to HTML files. If you want the platform to be an HTTP server, you'll have to write an HTTP server (using built-in libraries).
-\cite{NodeJS}
+
+NodeJs or Node was developed by Ryan Dahl in 2009.
+Node.js is a server-side platform based on the google V8 engine which translates JavaScript into machine code. Developed as a asynchronous event driven javascript runtime. This design makes it perfect for building light-weight, scalable network applications. Due to it non-blocking I/O calls not only allows to handle thousands of concurrent connections but also alleviates us from having to worry about locking/deadlock as we dont use threads.\cite{NodeJS}
 
 \subsubsection{Asynchronous calls}
 Asynchronous calls are especially important for web servers. It is quite typical for modern web applications to have access to databases. While waiting for the result to return from the database, Node can process more queries. This allows you to cope with thousands of parallel requests with little overhead compared to creating a separate thread for each connection. \cite{NodeJS}
@@ -319,7 +298,7 @@ When you run the command, npm will look for the package.json file in the current
 \section{Presentation Tier}
 
 \subsection{Ionic}
-Ionic is a framework with a stunningly designed graphical interface, styled for various platforms, for maximum similarity to native applications. AngularJS and sass are taken as a basis for the framework, which brought him great popularity among developers, as these technologies reduce the threshold of entry to a minimum. The core of the framework is Cordova, so all the plugins of Cordova will work fine on ionic.\par In addition to the platform and ready-made UI components, Ionic has a thoughtful command line interface that allows you to generate icons, splash screens, run the file in the browser with the app for debugging, and build applications with short commands in the console.\par Also worth noting is the detailed documentation with examples.\cite{Ionic}
+Ionic is a framework with a stunningly designed graphical interface, styled for various platforms, for maximum similarity to native applications. AngularJS and sass are taken as a basis for the framework, which brought them great popularity among developers, as these technologies reduce the threshold of entry to a minimum. The core of the framework is Cordova, so all the plugins of Cordova will work fine on ionic.\par In addition to the platform and ready-made UI components, Ionic has a thoughtful command line interface that allows you to generate icons, splash screens, run the file in the browser with the app for debugging, and build applications with short commands in the console.\par Also worth noting is the detailed documentation with examples.\cite{Ionic}
 
 \subsubsection{Ionic UI}
 Ionic has dozens of ready-made components, which are constantly being refined and replenished with new ones. You can fully read them on the documentation page.\cite{IonicUI}
@@ -389,10 +368,10 @@ The decorator @Component takes as an argument the object with a configuration th
 
 \subsection{Typescript}
 TypeScript is backwards compatible and compiled in JavaScript. In fact, after compilation, the program written using TypeScript can be executed in any modern browser or used in conjunction with the server platform Node.js. The code of the compiler that translates TypeScript in JavaScript is distributed under the Apache license. Its development is carried out in the public repository through the GitHub service.\par
-TypeScript differs from JavaScript in the ability to explicitly enforce static types, support the use of classes, as in traditional object-oriented languages, and support for connecting modules, which is designed to improve the development speed, facilitate readability, refactoring and reuse of code, search for errors at the stage of development and compilation. TypeScript also supposed accelerate the execution of programs. \cite{Typescript} \par
+TypeScript differs from JavaScript in the ability to explicitly enforce static types, support the use of classes, as in traditional object-oriented languages, and support for connecting modules, which is designed to improve the development speed, facilitate readability, refactoring and reuse of code, search for errors at the stage of development and compilation. TypeScript also accelerates the execution of programs. \cite{Typescript} \par
 
 \subsubsection{Services}
-If writing an application using Angular in JavaScript is much easier to use factories, then it is much easier for TypeScript to implement services. Therefore, when switching to TypeScript, most of the factories were replaced with services.\par
+When Angular switched to typescript from javascript it moved away from using factories to using services.\par
 To implement the service, we pre-announce the interface for the service that we are exporting. Then we create a class for the service that implements the service interface. And then we call the Angular method to add the service. \cite{Typescript}
 
 \begin{minted}[linenos,tabsize=2,breaklines]{ts}
@@ -426,7 +405,7 @@ Fragments of the same type of page layout can be conveniently combined into comp
 
 
 \subsection{JavaScript}
-Javascript is a programming language with which web pages are given interactivity. It creates applications that are included in the HTML-code (for example, questionnaires or registration forms that are filled in by the user).\par The uniqueness of this programming language is that it is supported by almost all browsers and fully integrated with them, and all that can be done with it is done very simply. No other technology accommodates all these advantages together. To date, this technology is actively developing also developing a programming language Javascript2 \cite{JavaScript}
+Javascript is a programming language with which web pages are given interactivity. It creates applications that are included in the HTML-code (for example, questionnaires or registration forms that are filled in by the user).\par The uniqueness of this programming language is that it is supported by almost all browsers and fully integrated with them and all that can be done with it is done very simply. No other technology accommodates all these advantages together. To date, this technology is currently working on language Javascript2. \cite{JavaScript}
 
 \begin{minted}{js}
 // add two numbers
@@ -455,19 +434,36 @@ HTML is a hypertext mark-up language, which is used to create documents on the I
 </html>
 \end{minted}
 
-\subsection{CSS}
-CSS (Cascading Style Sheets) - cascading style sheets. In fact, they serve to separate the page structure and its content from its appearance.\par If the page is completely written in HTML, then each element of the code determines not only the content element of the page but also its way of displaying. For example, not only that there is a text "Hello" in such and such a place, but also that this text is highlighted in bold and red.\par With the use of CSS code, everything happens a little differently. With the help of HTML, only the order of the content elements of the page and their classes are described. The corresponding classes are written in the CSS file. Each of them is assigned a set of properties. Now, when we assign a class to an HTML element, then all the properties of this class are applied to it. Do not write all these properties every time. Now, when sites have many pages, you can not do without CSS. \cite{CSS}
+\subsection{SCSS}
+SCSS(Sassy Cascading Style Sheets) is a super set of css. So let me fisrst explain css as it covers alot of what Sccss does. CSS - cascading style sheets. In fact, they serve to separate the page structure and its content from its appearance.\par If the page is completely written in HTML, then each element of the code determines not only the content element of the page but also its way of displaying. For example, not only that there is a text "Hello" in such and such a place, but also that this text is highlighted in bold and red.\par With the use of CSS code, everything happens a little differently. With the help of HTML, only the order of the content elements of the page and their classes are described. The corresponding classes are written in the CSS file. Each of them is assigned a set of properties. Now, when we assign a class to an HTML element, then all the properties of this class are applied to it. This greatly reduces the repetition of code. Now, when sites have many pages, you can not do without CSS. \cite{CSS} Having covered CSS we now have the basics of SCSS. The only commanding difference between the two is that SCSS allows the use of declaring specific variables which you can use throughout the SCSS file. This saves the user a great deal of time and also allows for more uniform results on the html page. Here is examples of CSS and SCSS:
 
 \begin{minted}{css}
+
+/*CSS*/
 body {
   font-family: Verdana, 
   Arial, sans-serif;
   }
 \end{minted}
 
+\begin{minted}{scss}
+
+/*SCSS*/
+$magenta: #4ccbfce;
+$margin: 22px;
+
+.content-navigation {
+  border-color: $magenta;
+  color: darken($blue, 9%);
+}
+
+.border {
+  padding: $margin / 2; margin: $margin / 2; border-color: $magenta;
+\end{minted}
+
 \subsection{LaTeX}
-LaTeX is a typing system based on a special scripting programming language. LaTeX is not so simple and intuitive as, for example, Microsoft Word, but once you have learned it you will not go back to Microsoft Word in the future. The fact is that LaTeX has long been a de facto standard for the collection of scientific articles, course and diploma papers, technical specifications, textbooks, etc. The main advantage of LaTeX is the completely identical appearance of the finished pages in all operating systems and the unsurpassed up to now. In addition, the scripting language LaTeX is a universal language for the exchange of formulas. Mathematicians from different countries easily understand each other if they write formulas in this language.
-LaTeX goal is that it is better to leave document design for the document designers and to let authors get on with writing documents. In LaTeX, your  input will look like this: \cite{LaTeX}
+LaTeX is a typing system based on a special scripting programming language. LaTeX is not so simple and intuitive as, for example, Microsoft Word, but once you have learned it you will not go back to Microsoft Word in the future. The fact is that LaTeX has long been a de facto standard for the collection of scientific articles, course and diploma papers, technical specifications, textbooks, etc. The main advantage of LaTeX is the completely identical appearance of the finished pages in all operating systems and this is unsurpassed up to now. In addition, the scripting language LaTeX is a universal language for the exchange of formulas. Mathematicians from different countries easily understand each other if they write formulas in this language.
+LaTeX goal is that it is better to leave document design for the document designers and to let authors get on with writing documents. In LaTeX, your ,input will look like this: \cite{LaTeX}
 
 \begin{figure}[h]
 \centering
@@ -479,7 +475,7 @@ LaTeX goal is that it is better to leave document design for the document design
 
 \subsection{Sharelatex}
 ShareLaTeX is an online real time LaTeX editor which allows to work on text documents collaboratively without the need to setup additional software on your PC. It is an easy and convenient way to get started with LaTeX. \cite{Sharelatex}\par
-We have chosen ShareLaTeX as we already had experience with it in our previous semester while using ShareLaTeX for the literature review.\par
+We have chosen ShareLaTeX as we already had experience with it in our previous semester while using ShareLaTeX for our literature review assignment.\par
 There is a lot of nice features in the premium version of ShaReLaTeX, like the ability to work on the same document for the group of people and possibility to upload your progress straight to GitHub. But we avoid the fees by sharing one account details between us and manually uploading our work to the GitHub repository.
 
 \subsubsection{History of document changes}
@@ -487,7 +483,7 @@ ShareLaTeX saves the full history of all changes, so you can always track who ma
 Errors occur regardless of whether you work alone or together with collaborators. You can always easily return to previous versions, which eliminates the risk of losing work or making undesirable changes. \cite{Sharelatex}\par
 
 \subsection{Visual Studio Code}
-For its long history of existence, Microsoft has released many development tools. But many developers will say that this is the best editor that Microsoft ever has built. Visual Studio Code working on three platforms, Linux, OS X and Windows. Without throwing at all the functions of a mature Visual Studio IDE. Microsoft decided to rethink the approach on which the main toolkit of the programmer is built and started with the most important - the code editor. Visual Studio Code is an editor, but it has IDE functions that rely on extensions.\par
+Microsoft has released many development tools. But many developers will say that this is the best editor that Microsoft has built. Visual Studio Code working on three platforms, Linux, OS X and Windows. Without throwing all the functions of a mature Visual Studio IDE. Microsoft decided to rethink the approach on which the main toolkit of the programmer is built and started with the most important - the code editor. Visual Studio Code is an editor, but it has IDE functions that rely on extensions.\par
 Now with Visual Studio Code is possible to use different languages such as JavaScript, TypeScript, C sharp, and so on. Also, you can use Visual Studio to create ASP.NET 5 or Node.js web projects, work with package managers npm and even carry out debugging. An excellent intellisense, support for code snippets, refactoring, navigation, multi-windowing, git support and much more. In some ways, Visual Studio Code even more convenient than the full version of Visual Studio and much lighter for the hardware requirements. \cite{VSintro} 
 
 \subsubsection{VS Code extension}
@@ -548,16 +544,14 @@ Key features:
 \item Allows you to write logic tests in Postman Interface. \cite{Postman}
 \end{itemize}
 
-In our project, we used postman for testing our back-end server functionality, especially the ability of the server to store pictures for property advertisements. Most useful feature for us was the possibility of testing, at the early stage without having actual front-end application.
+In our project, we used postman for testing our back-end server functionality with our database. Most useful feature for us was the possibility of testing, at the early stage without having actual front-end application.
 
 \subsection{GitHub}
-GitHub hosting project on the Internet. It can be used freely for Open Source projects. Now GitHub is the most popular hosting service for developers. It uses the Git version control system, hence the name GitHub.\par
+GitHub is a hosting service which allows users to host, share and collaborate on projects together. It can be used freely for Open Source projects. Projects hosted on Github are called repositories. It is here users can view their projects, pull down a version of this project to their device or add to the project depending if you are either the owner of repository or a collaborator on the repository.
 
-The project is hosted on GitHub and is called a repository. Anyone can subscribe to an account on GitHub and create their own repositories. GitHub users can add other users to their project to work together.\par
+\par Collaborating on projects especially coding projects can get very complicated as others peoples work can conflict and disrupt the process. Luckily Github takes care of this with its distributed version control. Allowing the user to revert back to changes at any stage of the project, branch to different work trees and also merges branches back together.
 
-GitHub users have access to other open source projects this enables them to work on it themselves. Developers use this function to send patches and make their own code for other open source projects.\par 
-
-In addition to being just a hosting project, GitHub is also a great social networking site for developers and programmers. It allows users to follow each other, subscribes to project updates, like them, giving them an assessment, etc. These functions allow users to receive updates for projects in which they are interested, or stay in touch with colleagues and employees.\par
+\par In addition to being just a hosting project, GitHub is also a great social networking site for developers and programmers. It allows users to follow each other, subscribes to project updates, like them, giving them an assessment, etc. These functions allow users to receive updates for projects in which they are interested, or stay in touch with colleagues and employees. Github has been described as a portfolio for programmers work and many employers would ask potential employees for their Github profile link to review their work.\par
 
 GitHub is not only used for programming and software development. It is also used by many other types of projects. For example, open source tutorials, documentation projects, training resources and other projects in which users can work together. \cite{GitHub}\par
 
@@ -1216,13 +1210,6 @@ C:\Users\gerar\Desktop\4th-Year-Final-Year-Project\DigsBackEnd\DigsImageServer>n
 
 \noindent This will have our data tier and logic tier up and running. Now the user can download our Digs App Apk to their phone and install it.  
 
-
-
-
-
-
-
-
 \chapter{System Evaluation}
 
 In this chapter we evaluate our system in the following areas:
@@ -1235,10 +1222,10 @@ In this chapter we evaluate our system in the following areas:
 \end{itemize}
 
 \section{Robustness}
-Unfortunately, we have not been able to test our application fully for robustness. For example, load testing and stress testing. However, what we do know from testing our application, as laid out in the following section, is that we have not come across any errors, glitches or application failure so far. 
+Unfortunately due to time constraints, we have not been able to test our application fully for robustness. For example, load testing and stress testing . However, what we do know from testing our application, as laid out in the following section, is that we have not come across any errors, glitches or application failure so far.
 
 \section{Testing} \label{testing}
-Through continuous white box testing and regular black box testing we believe Digs has reached the expectations we set out at the start of our project. To achieve these desired results we tested our application, using white box testing, in the following ways.
+Through continuous white box testing and regular black box testing we believe Digs has reached the expectations we set out at the start of our project. To achieve these desired results we tested our application using white box testing in the following ways.
 
 \begin{enumerate}
   \item Ionic Serve
@@ -1253,10 +1240,12 @@ Testing our application in a desktop browser was just a matter of running the fo
 ionic serve --lab
 \end{minted}
 
-As a result, a live-reload server of our project will load. When we make a change in our HTML, JavaScript or CSS, the change will automatically reload in the browser when the file your editing is saved. Using the -–lab option on the ionic serve command, we can also view how each change made would appear on Android, iOS and Windows platform.
+As a result, a live-reload server of our project will load. When we make a change in our HTML, JavaScript or CSS, the change will automatically reload in the browser when the file bring edited is saved. Using the -–lab option on the ionic serve command, we can also view how each change made would appear on Android, iOS and Windows platform.
 
 \subsection{Simulator Testing}
-Another form of testing we used was simulator testing. This is where we tested Digs in an android phone emulator environment see Figure \ref{android_sim}. The android emulator simulates an android phone and other devices in the android family. We chose to use android as our main testing platform as it was the easiest to setup with no restrictions. For example, to test on an iOS emulator you would need an Apple computer along with xCode installed and an Apple device to test it.
+Another form of testing we used was simulator testing. This is where we tested Digs in an android phone emulator environment (Figure 6.1). The android emulator simulates an android phone and other devices in the android family. We chose to use android as our main testing platform as it is a widely popular platform and was the easiest to setup with no restrictions. For example, to test on an iOS emulator requires an Apple computer along with xCode installed and an Apple device in order to test it.
+The following commands were used to run our application with an android emulator.
+
 
 \begin{figure}[h!]
 \centering
@@ -1272,21 +1261,21 @@ ionic cordova run android
 \end{minted}
 
 \subsection{Device Testing}
-The last testing method we used was to test the application on an actual device. To test the application on an android device we would first build an android apk file and then install it on an android device. The command used to build an android apk file is:
+The last testing method we used was to test the application on an actual device. To test the application on an android device we first built an android apk file and then installed it on an android device. The command used to build an android apk file is:
 
 \begin{minted}{bash}
 ionic cordova build android
 \end{minted}
 
-\section{Scalability}
-Our Digs application was designed to be very scalable. Currently, we can only store small quantities of data. This is because we chose to setup an AWS micro instance. AWS micro instances have 1gb of RAM, 1 CPU, 30gb of storage and are free-tier eligible. However, if the volume of data was to increase in the future we can easily scale up to a larger AWS instance improving performance and storage.\\
+\section{Scalability}\label{Scalability}
+Our Digs application was designed to be very scalable. Currently, only store small quantities of data can be stored. This is because we chose to setup an AWS micro instance. AWS micro instances have 1 GB of RAM, 1 CPU, 30 GB of storage and are free-tier eligible. However, if the volume of data was to increase in the future, this can be easily scaled up to a larger AWS instance to improve performance and storage.\\
 
 \noindent Another aspect of our project scalability is our NodeJS server in our logic tier. NodeJS is an ideal solution when considering scalability in your application. This is because Node can process many simultaneous connections due to its non-blocking, event driven I/O system.
 
 \section{Results Against Objectives}
-When we compare the objectives laid out in Chapter \ref{objectives} to the application we have created, we believe we have met these requirements. As for helping students in the accommodation crisis we cannot confirm this until our application is launched for public use and a business model created. \\
+When we compare the objectives laid out in Chapter \ref{objectives} to the application we have created, we believe we have met these requirements. Regarding helping students in the accommodation crisis we cannot confirm this until our application is launched for public use and a business model created. \\
 
-\noindent We also wanted to create an app that was student orientated and user friendly. To do this we implemented college campus as a field and a search option for our listings. We also created a message board for students to communicate with each other to find accommodation. These aspects differentiate our application from other accommodation apps available. 
+\noindent We also wanted to create an app that was student-orientated and user-friendly. To do this we implemented college campus as both a field and a search option for our listings. We also created a message board for students to communicate with each other to find accommodation. These aspects differentiate our application from other accommodation apps available. 
 
 \section{Limitations}
 The following are some limitations we experienced while developing our Digs app.
@@ -1295,14 +1284,14 @@ The following are some limitations we experienced while developing our Digs app.
 Even though developing cross-platform applications with the Ionic framework has become more refined in the last few years, it is still quite difficult to create an application with a native look and feel to it, for example developing an Android application with Java and Android Studio.
 
 \subsection{Lack of Apple Products for Testing}
-As discussed in the previous section \ref{testing}, we had some limitations testing our cross-platform application on the iOS platform. This was because no one in our team had access to an Apple mobile or computer.  
+As discussed in the previous section \ref{testing}, we had some limitations testing our cross-platform application on the iOS platform. This was because no one in our team had access to an Apple mobile or computer. Implementing this in future would increase the potential reach of our app to many more clients. 
 
 \subsection{Service Limitations}
-In our application we are using firebase and AWS as services for free. We are using these free services, which both have limitations, as we are currently only developing the application as a prototype and because we are all students.
+In our application we are using firebase and AWS as services for free. We are using these free services, which both have limitations explained in \ref{Scalability}, as we are currently only developing the application as a prototype and because we are all students.
 
 \chapter{Conclusion}
 
-We can honestly say as a team, that this project was a journey. Not in all our 4 years in Galway Mayo Institute of Technology have we taken on a project of such scale and complexity. We have had ups and downs but over all our project has run pretty smoothly.\\
+We can honestly say as a team, that this project was a journey. Not in all our four years in Galway-Mayo Institute of Technology have we taken on a project of such scale and complexity. We have had ups and downs but over all our project has run pretty smoothly.\\
 
 \noindent Our App objective was to develop an accommodation app specifically designed for students to find accommodation for themselves and for letters/landlords and students to advertise accommodation specifically for students. We created an app which does just this.\\
 
@@ -1320,13 +1309,15 @@ We can honestly say as a team, that this project was a journey. Not in all our 4
     \item Logged in users can edit and delete ads they have created
 \end{itemize}
 
-As stated above in our chapter Introduction our overall objective was to create a project “that highlighted our existing skills and allowed us to learn new skills and develop as part of a team”. Through bringing technologies such as Mongo DB, NodeJS, Firebase and Ionic3 together in one application we have been able to showcase our existing skills developed over the last 4 years in GMIT and learn new ones which we can add to our portfolio.\\
+We believe this app can help alleviate some of the stress and burden involved in finding student accommodation, particularly for those who are arriving to a new area. We hope this will save them time, stress and hopefully enable them to find suitable accommodation with new-found friends, as well as helping landlords/letters to easily advertise to this specific market.\\
 
-\noindent As for learning how to work as a team not only through technology but also as people we found this project a great learning exercise. We all had our strengths and weaknesses which is common in all teams but through good communication and management of our time and resources we worked to produce a project that all 3 of us are proud of.
+\noindent As stated above in our Introduction chapter our overall objective was to create a project “that highlighted our existing skills and allowed us to learn new skills and develop as part of a team”. Through bringing technologies such as Mongo DB, NodeJS, Firebase and Ionic3 together in one application we have been able to showcase our existing skills developed over the last four years in GMIT and learn new ones which we can add to our portfolio.\\
+
+\noindent As for learning how to work as a team not only through technology but also as people we found this project a great learning exercise. We all had our strengths and weaknesses which is common in all teams but through good communication and management of our time and resources we worked to produce a project that all three of us are proud of.
 
 \section{Future Development}
 
-For future development I have split it into 2 parts, Business development and  App development.
+We would like to see this app develop to its full potential by implementing a business development plan whilst also enhancing the technical capabilities of the app.
 
 \subsection{Business Development}
 
@@ -1335,15 +1326,13 @@ As our Application is solely geared towards the student market we thought it wou
 \subsection{App Development}
 
 \begin{itemize}
-    \item Save Ads – Eventually we would like the user to be able to save an ad as a favourite in order to view it again later.
-    \item Further testing – As mention in chapter 5 System Evaluation we have tested our App but would like to test our app for robustness which means load testing and stress testing our application.
-    \item Get app on the store – As like every App developer our end goal is to get our App on the store and into public use. We would aim to get our app on the Android store first, as requirements are not as stringent and eventually available for the Apple Store.
-    \item Create a Web application – As to not limit ourselves to just Android and Apple user, we would also like to create a web application with the same functions and features as our Digs app.
+    \item Save Ads – We would like the user to be able to save an ad as a favourite in order to view it again later.
+    \item Further testing – As mention in chapter 5 System Evaluation, we would like to further test our app for robustness which means load testing and stress testing our application.
+    \item Get app on the store – Like every App developer our end goal is to get our App on the store and into public use. We would aim to get our Digs app on the Android store first, as requirements are not as stringent and eventually make it available for the Apple Store.
+    \item Create a Web application – So not to limit ourselves to just Android and Apple user, we would also like to create a web application with the same functions and features as our Digs app.
 \end{itemize}
 
 \chapter{Appendix}
 
 \textbf{Project Source Code Link:}\\ \href{https://github.com/gerardnaughton7/4th-Year-Final-Year-Project}{https://github.com/gerardnaughton7/4th-Year-Final-Year-Project}
 
-\textbf{Project Documentation Link:}\\
-\href{}{}
