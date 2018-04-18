@@ -54,14 +54,16 @@
       <ion-label color="primary" floating>Address*</ion-label>
       <ion-input [(ngModel)]="Address" type="text" name = "Address"required></ion-input>
     </ion-item>
-    
+
     <ion-item>
       <ion-label color="primary" floating>Eircode*</ion-label>
       <ion-input [(ngModel)]="Eircode" name = "Eircode" required></ion-input>
-      <button ion-button icon-only clear item-end type="button" class="info-circle" (click)="moreInfo()">
-        <p style="margin-right: 10px">Find Your Eircode</p>
-        <ion-icon name="information-circle"></ion-icon>
-      </button>
+
+      <ion-note item-end>
+        <button icon-only clear ion-button type="button" (click)="moreInfo()">
+          <ion-icon name="information-circle"></ion-icon>
+          Find Your Eircode
+        </button></ion-note>
     </ion-item>
     
     <ion-item>

@@ -56,7 +56,7 @@ export class CreatePropertyAdPage {
   }
 
   /**
-   * Publishes the listing using the ImagesProvide Service
+   * Publishes the listing using the Images Provider Service
    */
   publishAd() {
 
@@ -84,7 +84,7 @@ export class CreatePropertyAdPage {
         ImageURL: data,
         Date: new Date()
       };
-      // Use the property ad service to publish the listing to the back-end
+      // Use the property ad service to send the listing to the back-end
       this.propertyAdService.createProperty(property); 
       // Return to the List of Properties Page 
       this.navCtrl.setRoot(ListOfPropertiesPage);

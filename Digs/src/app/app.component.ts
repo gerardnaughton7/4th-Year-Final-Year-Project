@@ -7,7 +7,7 @@ import { ListOfRoomsPage } from './../pages/list-of-rooms/list-of-rooms';
 import { ListOfPropertiesPage } from './../pages/list-of-properties/list-of-properties';
 import { CreatePage } from './../pages/create/create';
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform, Events, AlertController } from 'ionic-angular';
+import { Nav, Platform, Events, AlertController, ToastController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { MessageboardPage } from './../pages/messageboard/messageboard';
@@ -31,7 +31,7 @@ export class MyApp {
   loggedInPages: Array<{title: string, component: any, icon: string}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public events: Events,
-                private afAuth: AngularFireAuth, private storage: Storage) {
+                private afAuth: AngularFireAuth, private storage: Storage, private toast: ToastController) {
 
     this.initializeApp();
          
@@ -51,18 +51,19 @@ export class MyApp {
       this.rootPage = LoginPage;
     });
 
-    // used for an example of ngFor and navigation
+    /**
+     * Pages That Are Always Shown
+     */
     this.pages = [
       { title: 'Home', component: HomePage, icon: 'home'},
       { title: 'List Of Rooms', component: ListOfRoomsPage, icon: 'list-box' },
       { title: 'List Of Properties', component: ListOfPropertiesPage, icon: 'list-box' },
-      //{ title: 'Create Ad', component: CreatePage, icon: 'create' },
-      //{ title: 'My Room Ads', component: MyRoomAdsPage, icon: 'list-box' },
-     // { title: 'My Property Ads', component: MyPropertyAdsPage, icon: 'list-box' },
-      { title: 'Digs Message Board', component: MessageboardPage, icon: 'chatboxes' },
-      //{ title: 'Create New Message', component: CreatemessagePage, icon: 'create' }
+      { title: 'Digs Message Board', component: MessageboardPage, icon: 'chatboxes' }
     ];
 
+    /**
+     * Pages That are shown when a user is logged in
+     */
     this.loggedInPages = [
       { title: 'Create Ad', component: CreatePage, icon: 'create' },
       { title: 'My Room Ads', component: MyRoomAdsPage, icon: 'list-box' },
@@ -94,12 +95,17 @@ export class MyApp {
 
     this.storage.get('email').then((val) => {
       this.email = val;
-      console.log("Logging Out!!!: " + this.email);
+
+      this.toast.create({
+        message: "Successfully Logged Out " + this.email,
+        duration: 3000     
+      }).present();
     });
-    
+
     this.storage.remove('email');
     this.storage.remove('displayName');
     this.storage.remove('photoURL');
+
     this.nav.setRoot(LoginPage);
   }
 

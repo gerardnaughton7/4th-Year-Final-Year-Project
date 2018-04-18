@@ -63,7 +63,10 @@ export class ListOfRoomsPage {
     },
     error => {
       loading.dismiss();
-      alert("ERROR Retrieving Room Ads: " + error);
+      this.toast.create({
+        message: "Unable To Retrieve Rooms at this Time",
+        duration: 3000     
+      }).present();
     });
     refresher.complete();
   }

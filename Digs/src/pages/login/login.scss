@@ -1,3 +1,13 @@
+/* Only Targets iOS Platfrom */
+.ios{
+    page-login {
+        ion-card.card{
+            margin-top: 25px;
+        }
+    }
+}
+
+/* CSS For All*/
 page-login {
     #main-logo{
         height: 150px;
@@ -20,7 +30,7 @@ page-login {
     ion-card.card{
         margin-top: 40px;
         background: rgba(232, 230, 230, 0.8px);
-        border-radius: 10px;
+        border-radius: 15px;
         margin-bottom: 5px;
     }
 
@@ -33,5 +43,6 @@ page-login {
         position: relative !important;
         top: 22px !important;
         margin: 0 auto !important;
-     }
+    }
+
 }
