@@ -8,6 +8,9 @@ import {RoomAd} from '../../providers/roomAd';
 import {Md5} from 'ts-md5/dist/md5';
 import { InAppBrowser, InAppBrowserOptions } from "@ionic-native/in-app-browser";
 
+/**
+ * @author Patrick Moran, Gerard Naughton, Andrei Petruk
+ */
 @IonicPage()
 @Component({
   selector: 'page-create-room-ad',
@@ -36,17 +39,22 @@ export class CreateRoomAdPage {
 
   constructor(public navCtrl: NavController,public roomAdService: RoomAd, public navParams: NavParams, private modalCtrl: ModalController,
               public viewCtrl: ViewController, private actionSheetCtrl: ActionSheetController,private imagesProvider: ImagesProvider, 
-              private camera: Camera, private storage: Storage, private inAppBrowser: InAppBrowser) {
-                
+              private camera: Camera, private storage: Storage, private inAppBrowser: InAppBrowser) {               
   }
 
   ionViewDidLoad() {
+    /**
+     * Retrieve logged in user email from local storage
+     */
     this.storage.get('email').then((val) => {
       this.email = val;
     });
     
   }
 
+  /**
+   * Publishes the listing using the ImagesProvide Service
+   */
   publishAd() {
 
     this.imagesProvider.getImageAdID(this.AdID)
@@ -70,12 +78,16 @@ export class CreateRoomAdPage {
         ImageURL: data,
         Date: new Date()
       };
-      
+      // Use the room ad service to publish the listing to the back-end
       this.roomAdService.createRoom(room);  
+      // Return to the List of Rooms Page 
       this.navCtrl.setRoot(ListOfRoomsPage);
     });
   }
 
+  /**
+   * Presents ActionSheet with Options to use Camera or Load From Storage 
+   */
   uploadOption() {
     let actionSheet = this.actionSheetCtrl.create({
       title: 'Select Image Source',
@@ -105,6 +117,9 @@ export class CreateRoomAdPage {
     this.imageButton = "Add Another Image";
   }
 
+ /**
+   * Retrieves an image from the users device and passes the image to the upload modal page with the adId
+   */
   takePicture(sourceType){
     // Create options for the Camera Dialog
     var options = {
@@ -117,10 +132,13 @@ export class CreateRoomAdPage {
     
     // Get the data of an image
     this.camera.getPicture(options).then((imagePath) => {
+      // Create a new modal passing the image and adId to the constructor of the Upload Modal Page
       let modal = this.modalCtrl.create('UploadModalPage', { data: imagePath, adID: this.AdID });
+      // Present the Modal
       modal.present();
       
       modal.onDidDismiss(data => {
+        // The Modal Page has been dismissed by the user
         console.log("TP + Data Returned: " + JSON.stringify(data));
       });
 
@@ -129,6 +147,9 @@ export class CreateRoomAdPage {
     });
   }
 
+  /**
+   * Opens the in app browser and displays the eircode finder website.
+   */
   moreInfo(){
     const options: InAppBrowserOptions = {
       zoom: 'no'

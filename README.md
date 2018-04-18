@@ -41,7 +41,7 @@ For our final year project we decided to create an Accommodation App called Digs
 [Top](#contents) 
 
 # Dissertation<a name = "dissertation"></a>
-Click [here]() to view our Project Dissertation.
+Click [here](https://github.com/gerardnaughton7/4th-Year-Final-Year-Project/blob/master/DigsDissertation.pdf) to view our Project Dissertation.
 
 
 [Top](#contents) 
@@ -119,6 +119,5 @@ npm install
 ```bash
 ionic serve --lab
 ```
-
 
 [Top](#contents) 

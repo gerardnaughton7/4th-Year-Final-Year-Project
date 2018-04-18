@@ -8,6 +8,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, ViewController, NavParams, ActionSheetController, ModalController  } from 'ionic-angular';
 import { InAppBrowser, InAppBrowserOptions } from "@ionic-native/in-app-browser";
 
+/**
+ * @author Patrick Moran, Gerard Naughton, Andrei Petruk
+ */
 @IonicPage()
 @Component({
   selector: 'page-create-property-ad',
@@ -39,48 +42,58 @@ export class CreatePropertyAdPage {
   Date: Date;
 
   constructor(public navCtrl: NavController,public propertyAdService: PropertyAd, public navParams: NavParams, private modalCtrl: ModalController,
-    public viewCtrl: ViewController, private actionSheetCtrl: ActionSheetController,private imagesProvider: ImagesProvider, 
-    private camera: Camera, private storage: Storage, private inAppBrowser: InAppBrowser) {
+              public viewCtrl: ViewController, private actionSheetCtrl: ActionSheetController,private imagesProvider: ImagesProvider, 
+              private camera: Camera, private storage: Storage, private inAppBrowser: InAppBrowser) {
   }
 
   ionViewDidLoad() {
+    /**
+     * Retrieve logged in users email from local storage
+     */
     this.storage.get('email').then((val) => {
       this.email = val;
-    });
-    
+    });    
   }
 
+  /**
+   * Publishes the listing using the ImagesProvide Service
+   */
   publishAd() {
 
     this.imagesProvider.getImageAdID(this.AdID).map(res => res.json()).subscribe(data => {
 
-    let property = {
-      UID: this.email,
-      AdID: this.AdID,
-      PropertyType: this.PropertyType,
-      SingleBeds: this.SingleBeds,
-      DoubleBeds: this.DoubleBeds,
-      TwinBeds: this.TwinBeds,
-      EnSuite: this.EnSuite,
-      College: this.College,
-      Address: this.Address,
-      Eircode: this.Eircode,
-      LocationDes: this.LocationDes,
-      Price: this.Price,
-      Availability: this.Availability,
-      Email: this.Email,
-      Phone: new String(this.Phone),
-      Contact: this.Contact,
-      Description: this.Description,
-      Parking: this.Parking,
-      ImageURL: data,
-      Date: new Date()
-    };
-    this.propertyAdService.createProperty(property);  
-    this.navCtrl.setRoot(ListOfPropertiesPage);
-  });
+      let property = {
+        UID: this.email,
+        AdID: this.AdID,
+        PropertyType: this.PropertyType,
+        SingleBeds: this.SingleBeds,
+        DoubleBeds: this.DoubleBeds,
+        TwinBeds: this.TwinBeds,
+        EnSuite: this.EnSuite,
+        College: this.College,
+        Address: this.Address,
+        Eircode: this.Eircode,
+        LocationDes: this.LocationDes,
+        Price: this.Price,
+        Availability: this.Availability,
+        Email: this.Email,
+        Phone: new String(this.Phone),
+        Contact: this.Contact,
+        Description: this.Description,
+        Parking: this.Parking,
+        ImageURL: data,
+        Date: new Date()
+      };
+      // Use the property ad service to publish the listing to the back-end
+      this.propertyAdService.createProperty(property); 
+      // Return to the List of Properties Page 
+      this.navCtrl.setRoot(ListOfPropertiesPage);
+    });
   }
 
+  /**
+   * Presents ActionSheet with Options to use Camera or Load From Storage 
+   */
   uploadOption() {
     let actionSheet = this.actionSheetCtrl.create({
       title: 'Select Image Source',
@@ -110,6 +123,9 @@ export class CreatePropertyAdPage {
     this.imageButton = "Add Another Image";
   }
 
+  /**
+   * Retrieves an image from the users device and passes the image to the upload modal page with the adId
+   */
   takePicture(sourceType){
     // Create options for the Camera Dialog
     var options = {
@@ -120,21 +136,25 @@ export class CreatePropertyAdPage {
       correctOrientation: true
     };
     
-    // Get the data of an image
     this.camera.getPicture(options).then((imagePath) => {
+      // Create a new modal passing the image and adId to the constructor of the Upload Modal Page
       let modal = this.modalCtrl.create('UploadModalPage', { data: imagePath, adID: this.AdID });
+      // Present the Modal
       modal.present();
       
       modal.onDidDismiss(data => {
+        // The Modal Page has been dismissed by the user
         console.log("TP + Data Returned: " + JSON.stringify(data));
       });
 
     }, (err) => {
       console.log('Error: ', err);
     });
-
   }
 
+  /**
+   * Opens the in app browser and displays the eircode finder website.
+   */
   moreInfo(){
     const options: InAppBrowserOptions = {
       zoom: 'no'
@@ -142,5 +162,4 @@ export class CreatePropertyAdPage {
     // Opening a URL and returning an InAppBrowserObject
     const browser = this.inAppBrowser.create("https://finder.eircode.ie/#/", '_self', options);
   }
-
 }

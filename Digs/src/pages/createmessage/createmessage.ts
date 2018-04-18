@@ -5,6 +5,9 @@ import { Message } from './../../providers/message';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, ViewController, NavParams} from 'ionic-angular';
 
+/**
+ * @author Patrick Moran, Gerard Naughton, Andrei Petruk
+ */
 @IonicPage()
 @Component({
   selector: 'page-createmessage',
@@ -25,14 +28,18 @@ export class CreatemessagePage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CreatemessagePage');
+    /**
+     * Retrieve logged in user email from local storage
+     */
     this.storage.get('email').then((val) => {
       this.UID = val;
     });
   }
 
+  /**
+   * Send a message to the back-end using the message provider service.
+   */
   postMessage() {
-    console.log("In Post Message Function");
     
     let message = {
       UID: this.UID,
@@ -43,7 +50,9 @@ export class CreatemessagePage {
       Date: new Date()
     };
 
+    // Pass the message to the message provider
     this.messageProvider.createMessage(message);  
+    // Navigate to the Message Board Page
     this.navCtrl.setRoot(MessageboardPage);
   }
 

@@ -1,8 +1,12 @@
 import { SearchPage } from './../search/search';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, LoadingController, ToastController } from 'ionic-angular';
 import { RoomAd } from './../../providers/roomAd';
+import { isType } from '@angular/core/src/type';
 
+/**
+ * @author Patrick Moran, Gerard Naughton, Andrei Petruk
+ */
 @IonicPage()
 @Component({
   selector: 'page-list-of-rooms',
@@ -13,10 +17,13 @@ export class ListOfRoomsPage {
   rooms: any;
 
   constructor(public navCtrl: NavController,public roomAdService: RoomAd, public navParams: NavParams, 
-              public modalCtrl: ModalController, private loadingController: LoadingController) {
+              public modalCtrl: ModalController, private loadingController: LoadingController, private toast: ToastController) {
     
   }
 
+  /**
+   * Retrieve a list of all Rooms.
+   */
   ionViewDidEnter() {
     let loading = this.loadingController.create({content : "Retrieving Rooms, please wait..."});
     loading.present();
@@ -27,16 +34,26 @@ export class ListOfRoomsPage {
     },
     error => {
       loading.dismiss();
-      alert("ERROR Retrieving Room Ads: " + error);
+      this.toast.create({
+        message: "Unable To Retrieve Rooms at this Time",
+        duration: 3000     
+      }).present();
     });
-
   }
 
+  /**
+   * Opens a modal which presents the room to the user.
+   * @param {object} room 
+   */
   openRoom(room) {
     let modal = this.modalCtrl.create('PreviewModalPage', { room: room });
     modal.present();
   }
 
+  /**
+   * Pull down refresh which retrieves the list of rooms.
+   * @param {Event} refresher 
+   */
   doRefresh(refresher) {
     let loading = this.loadingController.create({content : "Retrieving Rooms, please wait..."});
     loading.present();
@@ -51,6 +68,9 @@ export class ListOfRoomsPage {
     refresher.complete();
   }
 
+  /**
+   * Navigate To The Search Page.
+   */
   navToSearchPage(){
     this.navCtrl.push(SearchPage, {navFrom: true});
   }
