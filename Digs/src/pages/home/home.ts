@@ -1,3 +1,4 @@
+import { AboutPopoverPage } from './../about-popover/about-popover';
 import { RegisterPage } from './../register/register';
 import { LoginPage } from './../login/login';
 import { RoomAd } from './../../providers/roomAd';
@@ -5,7 +6,7 @@ import { ListOfRoomsPage } from './../list-of-rooms/list-of-rooms';
 import { ListOfPropertiesPage } from './../list-of-properties/list-of-properties';
 import { PropertyAd } from './../../providers/propertyAd';
 import { Component } from '@angular/core';
-import { NavController, NavParams, ToastController } from 'ionic-angular';
+import { NavController, NavParams, ToastController, PopoverController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { GooglePlus } from '@ionic-native/google-plus';
 
@@ -29,7 +30,7 @@ export class HomePage {
    */
   constructor(public navCtrl: NavController, public navParams: NavParams, 
               private toast: ToastController, public googleplus: GooglePlus, private storage: Storage, 
-              private propertyAdService: PropertyAd, private roomAdService: RoomAd) {
+              private propertyAdService: PropertyAd, private roomAdService: RoomAd, private popoverCtrl: PopoverController) {
     
     // Retrieve list of properties            
     this.propertyAdService.getProperties().subscribe((data) => {
@@ -87,5 +88,10 @@ export class HomePage {
    */
   goToProperties(){
     this.navCtrl.push(ListOfPropertiesPage);
+  }
+
+  presentPopover(event: Event) {
+    let popover = this.popoverCtrl.create(AboutPopoverPage);
+    popover.present({ ev: event });
   }
 }

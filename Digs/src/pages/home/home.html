@@ -4,7 +4,6 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Digs Home</ion-title>
-
     
     <ion-buttons *ngIf="email" end>
         <div *ngIf="photoURL; else regularUser">
@@ -18,6 +17,12 @@
             <img src="assets/imgs/default-avatar.png"> 
           </ion-avatar>        
         </ng-template>
+    </ion-buttons>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="presentPopover($event)">
+        <ion-icon name="more"></ion-icon>
+      </button>
     </ion-buttons>
    
   </ion-navbar>

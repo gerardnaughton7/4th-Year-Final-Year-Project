@@ -45,6 +45,7 @@ import { LaunchNavigator } from '@ionic-native/launch-navigator';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 import { IonicStorageModule } from '@ionic/storage';
+import { AboutPopoverPage } from '../pages/about-popover/about-popover';
 
 firebase.initializeApp(FIREBASE_CONFIG);
 
@@ -69,7 +70,8 @@ firebase.initializeApp(FIREBASE_CONFIG);
     UpdateMyRoomAdPage,
     SearchPipe,
     SearchResultPropertyPage,
-    SearchResultRoomPage
+    SearchResultRoomPage,
+    AboutPopoverPage
   ],
   imports: [
     BrowserModule,
@@ -100,7 +102,8 @@ firebase.initializeApp(FIREBASE_CONFIG);
     UpdateMyPropertyAdPage,
     UpdateMyRoomAdPage,
     SearchResultPropertyPage,
-    SearchResultRoomPage
+    SearchResultRoomPage,
+    AboutPopoverPage
   ],
   providers: [
     StatusBar,
