@@ -1,3 +1,4 @@
+import { AboutPage } from './../about/about';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 
@@ -36,7 +37,8 @@ export class AboutPopoverPage {
    * Navigate to the About Page
    */
   goAbout(){
-
+    this.navCtrl.push(AboutPage);
+    this.viewCtrl.dismiss();
   }
 
 }

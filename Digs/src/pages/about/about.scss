@@ -1,0 +1,51 @@
+page-about {
+
+  #main-logo{
+    height: 150px;
+    width: auto;
+    margin-top: 20px;
+    align-content: center;
+    margin-left: 38px;
+    margin-right: auto;
+    margin-bottom: auto;
+    display: block;
+  } 
+
+  #content {
+    position: relative;
+    margin-top: 60px;
+    background-color: white;
+    box-shadow: 0px -1px 10px rgba(0,0,0,0.4);
+    padding-top: 200px;
+    padding-bottom: 30px;
+
+  }
+
+  #profile-info {
+    position: absolute;
+    top: -95px;
+    width: 100%;
+    text-align: center;
+  }
+
+  #profile-description {
+    font-size: 15px;
+    color: #888;
+  }
+
+  #profile-image {
+    display: block;
+    border-radius: 100px;
+    border: 1px solid #fff;
+    width: 128px;
+    height: 128px;
+    margin: 30px auto 0;
+    box-shadow: 0px 0px 4px rgba(0,0,0,0.7);
+  }
+
+  h3{
+    text-align: center;
+    color: #888;
+  }
+
+}

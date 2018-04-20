@@ -1,3 +1,4 @@
+import { AboutPage } from './../pages/about/about';
 import { SearchResultRoomPage } from './../pages/search-result-room/search-result-room';
 import { SearchResultPropertyPage } from './../pages/search-result-property/search-result-property';
 import { UpdateMyRoomAdPage } from './../pages/update-my-room-ad/update-my-room-ad';
@@ -23,27 +24,21 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MessageboardPage } from './../pages/messageboard/messageboard';
 import { CreatemessagePage } from './../pages/createmessage/createmessage';
 import { SearchPipe } from '../pipes/search/search';
-
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { LoginPage } from '../pages/login/login';
-
 import { HttpModule } from '@angular/http';
 import { Camera } from '@ionic-native/camera';
 import { FileTransfer } from '@ionic-native/file-transfer';
-
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule} from 'angularfire2/auth';
 import { GooglePlus } from '@ionic-native/google-plus';
-
 import firebase from 'firebase';
 import { IonicImageViewerModule} from 'ionic-img-viewer'
 import { LaunchNavigator } from '@ionic-native/launch-navigator';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
-
 import { IonicStorageModule } from '@ionic/storage';
 import { AboutPopoverPage } from '../pages/about-popover/about-popover';
 
@@ -71,7 +66,8 @@ firebase.initializeApp(FIREBASE_CONFIG);
     SearchPipe,
     SearchResultPropertyPage,
     SearchResultRoomPage,
-    AboutPopoverPage
+    AboutPopoverPage,
+    AboutPage
   ],
   imports: [
     BrowserModule,
@@ -103,7 +99,8 @@ firebase.initializeApp(FIREBASE_CONFIG);
     UpdateMyRoomAdPage,
     SearchResultPropertyPage,
     SearchResultRoomPage,
-    AboutPopoverPage
+    AboutPopoverPage,
+    AboutPage
   ],
   providers: [
     StatusBar,
