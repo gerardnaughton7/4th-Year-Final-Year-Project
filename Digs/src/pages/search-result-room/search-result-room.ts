@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 
+/**
+ * @author Patrick Moran, Gerard Naughton, Andrei Petruk
+ */
 @IonicPage()
 @Component({
   selector: 'page-search-result-room',
@@ -11,13 +14,12 @@ export class SearchResultRoomPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private modalCtrl: ModalController) {
     this.rooms = navParams.get("data");
-    console.log(JSON.stringify(this.rooms));
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SearchResultRoomPage');
-  }
-
+  /**
+   * Opens a Modal which Presents the room listing to the user
+   * @param {object} room 
+   */
   openRoom(room){
     let modal = this.modalCtrl.create('PreviewModalPage', { room: room });
     modal.present();

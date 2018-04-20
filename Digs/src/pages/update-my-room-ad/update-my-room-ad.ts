@@ -3,6 +3,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { RoomAd } from '../../providers/roomAd';
 
+/**
+ * @author Patrick Moran, Gerard Naughton, Andrei Petruk
+ */
 @IonicPage()
 @Component({
   selector: 'page-update-my-room-ad',
@@ -32,6 +35,9 @@ export class UpdateMyRoomAdPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private inAppBrowser: InAppBrowser, 
               private roomAdService: RoomAd) {
+    /**
+     * Retrieve The Room listing passed to this constructor
+     */
     this.room = navParams.get('room');
     this.RoomType = this.room.RoomType;
     this.College = this.room.College;
@@ -47,10 +53,9 @@ export class UpdateMyRoomAdPage {
     this.Parking = this.room.Parking;
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad UpdateMyRoomAdPage');
-  }
-
+  /**
+   * Opens the in app browser and displays the eircode finder website.
+   */
   moreInfo(){
     const options: InAppBrowserOptions = {
       zoom: 'no'
@@ -59,6 +64,9 @@ export class UpdateMyRoomAdPage {
     const browser = this.inAppBrowser.create("https://finder.eircode.ie/#/", '_self', options); 
   }
 
+  /**
+   * Publishes the updated listing using the Room Ad Service
+   */
   publishUpdate(){
     let updatedRoom = {
       UID: this.room.UID,
@@ -78,8 +86,8 @@ export class UpdateMyRoomAdPage {
       ImageURL: this.room.ImagesUrl,
       Date: new Date()
     };
+    // Use the room ad service to publish the updated listing to the back-end
     this.roomAdService.updateRoom(updatedRoom, this.room._id);     
     this.navCtrl.pop();
   }
-
 }

@@ -99,12 +99,14 @@ export class LoginPage {
           duration: 3000     
         }).present();
         this.navCtrl.setRoot(HomePage);
+      }, err => {
+        this.toast.create({
+          message: "Unable to Login with Google-plus - Please try again",
+          duration: 3000     
+        }).present();
       });
     }, err => {
-      this.toast.create({
-        message: "Unable to Login with Google-plus - Please try again",
-        duration: 3000     
-      }).present();
+
     });
   }
    

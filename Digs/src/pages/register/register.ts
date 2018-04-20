@@ -1,12 +1,14 @@
 import { User } from './../../models/user';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { LoginPage } from '../login/login';
 import { Validators, FormBuilder, FormGroup} from '@angular/forms';
 import { matchingPasswords, emailValidator } from '../../validators/validators';
 
-
+/**
+ * @author Patrick Moran, Gerard Naughton, Andrei Petruk
+ */
 @IonicPage()
 @Component({
   selector: 'page-register',
@@ -17,8 +19,11 @@ export class RegisterPage {
   validations_form: FormGroup;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private afAuth: AngularFireAuth, 
-              public formBuilder: FormBuilder, private loadingController: LoadingController) {
+              public formBuilder: FormBuilder, private loadingController: LoadingController, private toast: ToastController) {
     
+    /**
+     * Validate The Form Using a FormBuilder
+     */   
     this.validations_form = formBuilder.group({
       email: ['', Validators.compose([Validators.required,  emailValidator])],
       password: ['', Validators.required],
@@ -27,10 +32,10 @@ export class RegisterPage {
 
   }
 
-  ionViewDidLoad() {
-
-  }
-
+  /**
+   * Register the User with Firebase 
+   * @param {object} value 
+   */
   async onSubmit(value: Object) {
     let loading = this.loadingController.create({content : "Registering, please wait..."});
     loading.present();    
@@ -43,7 +48,10 @@ export class RegisterPage {
     catch(e){
       console.error("Error Registering: " + e);
       loading.dismiss();
-      alert("Error Registering: " + e);
+      this.toast.create({
+        message: "Error Registering User - Please Try Again",
+        duration: 3000     
+      }).present();
       this.validations_form.reset();
     }
   }

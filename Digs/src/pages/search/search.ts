@@ -2,9 +2,12 @@ import { SearchResultRoomPage } from './../search-result-room/search-result-room
 import { SearchResultPropertyPage } from './../search-result-property/search-result-property';
 import { PropertyAd } from './../../providers/propertyAd';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { RoomAd } from '../../providers/roomAd';
 
+/**
+ * @author Patrick Moran, Gerard Naughton, Andrei Petruk
+ */
 @IonicPage()
 @Component({
   selector: 'page-search',
@@ -20,16 +23,21 @@ export class SearchPage {
   Price: Number;
   isFilled: boolean = false;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private propertyAd: PropertyAd, private roomAd: RoomAd) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private propertyAd: PropertyAd, 
+              private roomAd: RoomAd, private toast: ToastController) {
+    /**
+     * Retrieve boolean passed when Page Is loaded.
+     */
     this.navFrom = navParams.get("navFrom");
   }
 
-  ionViewDidEnter(){
-   this.navFrom = this.navParams.get("navFrom");
-  }
-
+  /**
+   * Search Ads Function
+   */
   SearchAds(){
-    //check if the search is for rooms or propertys
+    /**
+     * Check if the search is for rooms or properties
+     */
     if(this.navFrom == true)//if true its for rooms
     {
       if(this.Price != null || this.Price == 0){
@@ -37,29 +45,37 @@ export class SearchPage {
           this.navCtrl.push(SearchResultRoomPage, {data: data});
         }),
         error => {
-          alert("ERROR Retrieving Search Results: " + error);
+          this.toast.create({
+            message: "Error Retrieving Results - Please Try Again",
+            duration: 3000     
+          }).present();
         };
 
       }
       else{
-        console.log("here!");
         this.roomAd.searchRoomOnThreeParams(this.College, this.RoomType, this.Parking).subscribe(data => {
           this.navCtrl.push(SearchResultRoomPage, {data: data});
         }),
         error => {
-          alert("ERROR Retrieving Search Results: " + error);
+          this.toast.create({
+            message: "Error Retrieving Results - Please Try Again",
+            duration: 3000     
+          }).present();
         };
       }
         
     }
-    else//search for properties
+    else//Search for properties
     {
       if(this.Price != null || this.Price == 0){
         this.propertyAd.searchPropertyOnFourParams(this.College, this.NoOfRooms, this.Parking, this.Price).subscribe(data => {
           this.navCtrl.push(SearchResultPropertyPage, {data: data});
         }),
         error => {
-          alert("ERROR Retrieving Search Results: " + error);
+          this.toast.create({
+            message: "Error Retrieving Results - Please Try Again",
+            duration: 3000     
+          }).present();
         };
       }
       else{
@@ -67,11 +83,12 @@ export class SearchPage {
           this.navCtrl.push(SearchResultPropertyPage, {data: data});
         }),
         error => {
-          alert("ERROR Retrieving Search Results: " + error);
+          this.toast.create({
+            message: "Error Retrieving Results - Please Try Again",
+            duration: 3000     
+          }).present();
         };
       }
-  
-    }
-    
+    }   
   }
 }

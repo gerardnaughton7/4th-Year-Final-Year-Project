@@ -1,9 +1,11 @@
 import { LaunchNavigator } from '@ionic-native/launch-navigator';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, ToastController } from 'ionic-angular';
 import { ImageViewerController } from 'ionic-img-viewer';
 
-
+/**
+ * @author Patrick Moran, Gerard Naughton, Andrei Petruk
+ */
 @IonicPage()
 @Component({
   selector: 'page-preview-modal',
@@ -17,16 +19,26 @@ export class PreviewModalPage {
 
  
   constructor(public navCtrl: NavController, public navParams: NavParams, private viewCtrl: ViewController, 
-              private launchNavigator: LaunchNavigator, public imageViewerCtrl: ImageViewerController) {
+              private launchNavigator: LaunchNavigator, public imageViewerCtrl: ImageViewerController, private toast: ToastController) {
+    
+    /**
+     * Retrieve values passed to constructor when Modal is loaded.
+     */           
     this.room = this.navParams.get('room');
     this.navFrom = this.navParams.get('navFrom');
     this.imageViewer = imageViewerCtrl;
   }
  
+  /**
+   * Close The View
+   */
   close() {
     this.viewCtrl.dismiss();
   }
 
+  /**
+   * Find Listing Location on devices navigation app using the Eircode provided.
+   */
   findOnMap(){
     if(this.room.Eircode != null){
       this.launchNavigator.navigate(this.room.Eircode)
@@ -36,10 +48,17 @@ export class PreviewModalPage {
       );
     }
     else{
-      alert("No Eircode Supplied!");
+      this.toast.create({
+        message: "No Eircode Provided",
+        duration: 3000     
+      }).present();
     }
   }
 
+  /**
+   * Displays the selected image in fullscreen using the ionic-img-viewer plugin.
+   * @param myImage 
+   */
   presentImage(myImage) {
     
     try {

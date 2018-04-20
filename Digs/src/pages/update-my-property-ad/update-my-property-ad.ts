@@ -3,6 +3,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { InAppBrowser, InAppBrowserOptions } from "@ionic-native/in-app-browser";
 
+/**
+ * @author Patrick Moran, Gerard Naughton, Andrei Petruk
+ */
 @IonicPage()
 @Component({
   selector: 'page-update-my-property-ad',
@@ -35,7 +38,9 @@ export class UpdateMyPropertyAdPage {
   Date: Date;
   constructor(public navCtrl: NavController, public navParams: NavParams, private propertyAdService: PropertyAd,
               private inAppBrowser: InAppBrowser) {
-                
+    /**
+     * Retrieve The property listing passed to this constructor
+     */
     this.property = navParams.get('property');
     this.PropertyType = this.property.PropertyType;
     this.SingleBeds = this.property.SingleBeds;
@@ -53,10 +58,10 @@ export class UpdateMyPropertyAdPage {
     this.Description = this.property.Description;
     this.Parking = this.property.Parking;
   }
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad UpdateMyPropertyAdPage');
-  }
 
+  /**
+   * Publishes the updated listing using the Property Ads Service
+   */
   publishUpdate(){
     let updatedProperty = {
       UID: this.property.UID,
@@ -80,10 +85,14 @@ export class UpdateMyPropertyAdPage {
       ImageURL: this.property.ImagesUrl,
       Date: new Date()
     };
+    // Use the property ad service to publish the updated listing to the back-end
     this.propertyAdService.updateProperty(updatedProperty, this.property._id); 
     this.navCtrl.pop();
   }
 
+  /**
+   * Opens the in app browser and displays the eircode finder website.
+   */
   moreInfo(){
     const options: InAppBrowserOptions = {
       zoom: 'no'

@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { ImagesProvider } from './../../providers/images/images';
 import { IonicPage, NavController, NavParams, ViewController, LoadingController } from 'ionic-angular';
 
+/**
+ * @author Patrick Moran, Gerard Naughton, Andrei Petruk
+ */
 @IonicPage()
 @Component({
   selector: 'page-upload-modal',
@@ -18,9 +21,13 @@ export class UploadModalPage {
       this.adID = this.navParams.get("adID");
   }
  
+  /**
+   * Uploads An Image To the Back-End
+   */
   saveImage() {
     let loading = this.loadingController.create({content : "Uploading Image, please wait..."});
     loading.present();
+    // Send the image to our node server using the images provider service.
     this.imagesProvider.uploadImage(this.imageData, this.adID).then(res => {
       this.viewCtrl.dismiss({reload: true});
       loading.dismiss();
@@ -30,8 +37,10 @@ export class UploadModalPage {
     });
   }
  
+  /**
+   * Dismiss the Current View
+   */
   dismiss() {
     this.viewCtrl.dismiss();
   }
- 
 }
