@@ -116,9 +116,9 @@
       </ion-select>
     </ion-item>
     
-    <button full ion-button color="primary" type ="button" name="imageUpload" (click)="uploadOption()">{{imageButton}}</button>
+    <button full ion-button color="light" round style="color: rgb(153, 0, 255); border: solid 2px" (click)="navToCreateRoom()" type ="button" name="imageUpload" (click)="uploadOption()">{{imageButton}}</button>
     <br/>
-    <button full ion-button color="primary" type="submit" name= "submit" [disabled]="PropertyType == null|| Availability == null || College == null || LocationDes == null || Contact == null || Parking == null">Publish Ad</button>
+    <button full ion-button color="light" round style="color: rgb(153, 0, 255); border: solid 2px" (click)="navToCreateRoom()" type="submit" name= "submit" [disabled]="PropertyType == null|| Availability == null || College == null || LocationDes == null || Contact == null || Parking == null">Publish Ad</button>
       <p [hidden]= "!(Parking == null || PropertyType == null || College == null || Availability == null || LocationDes == null || Contact == null)" style=" text-align: center">* All Fields must be Entered</p>
   </form>
 
