@@ -207,7 +207,7 @@ app.post('/api/properties', function(req, res) {
 	let s = Number(req.body.SingleBeds);
 	let t = Number(req.body.TwinBeds);
 	let e = Number(req.body.EnSuite);
-	total = d + s + t + e;
+	let total = d + s + t + e;
 
 	// create a property, information comes from request from Ionic
 	Property.create({
@@ -236,7 +236,6 @@ app.post('/api/properties', function(req, res) {
 	}, function(err, property) {
 		if (err)
 			res.send(err);
-
 		// get and return all the properties after you create another
 		Property.find(function(err, properties) {
 			if (err)
@@ -246,6 +245,7 @@ app.post('/api/properties', function(req, res) {
 	});
 
 });
+
 
 // create messages and send back all properties after creation
 app.post('/api/messages', function (req, res) {
