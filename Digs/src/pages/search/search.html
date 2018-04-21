@@ -59,11 +59,11 @@
         </ion-select>
       </ion-item>
       <div *ngIf="navFrom">
-        <button full ion-button color="primary" type="submit" name= "submit" [disabled]="Parking == null || RoomType == null || College == null">Search Ads</button>
+        <button full ion-button color="primary" round type="submit" name= "submit" [disabled]="Parking == null || RoomType == null || College == null">Search Ads</button>
         <p [hidden]= "!(Parking == null || RoomType == null || College == null)" style="text-align: center">*Required Fields must be Entered</p>
       </div>
       <div *ngIf="!navFrom">
-      <button full ion-button color="primary" type="submit" name= "submit" [disabled]="Parking == null || NoOfRooms == null || College == null">Search Ads</button>
+      <button full ion-button color="primary" round type="submit" name= "submit" [disabled]="Parking == null || NoOfRooms == null || College == null">Search Ads</button>
         <p [hidden]= "!(Parking == null || NoOfRooms == null || College == null)" style=" text-align: center">*Required Fields must be Entered</p>
       </div>
   </form>
