@@ -1,49 +1,96 @@
-<ion-content padding>
-  <div >
+<ion-content>
+  <div>
     <ion-item class="close-fake" no-lines (click)="close()">
       <ion-icon name="close"></ion-icon>
     </ion-item>
+    
     <ion-card>
 
-        <ion-item>
-          <h2 style="color: rgb(153, 0, 255);">€{{property.Price}}</h2>
-          <p><b>Available: </b>{{ property.Availability}}</p>
+      <ion-item>
+        <h1 style="color: rgb(153, 0, 255);">€{{property.Price}}</h1>
+        <p><b>Available: </b>{{ property.Availability}}</p>
+        <button ion-button icon-left clear small item-right (click)="findOnMap()">
+          <ion-icon name="locate"></ion-icon>
+          <div>Find On Map</div>
+        </button>
+      </ion-item>
+    
+      <ion-slides *ngIf="property.ImagesUrl[0] != null" class="image-slider" loop="false" autoplay="3000" pager="true" paginationType="bullets" zoom="true" effect="slide" slidesPerView="1">
+        <ion-slide *ngFor="let img of property.ImagesUrl">
+          <img src="{{img}}" class="thumb-img" #myImage>
+          <ion-fab right bottom>
+            <button ion-fab (click)="presentImage(myImage)">
+              <ion-icon name="expand"></ion-icon>
+            </button>
+          </ion-fab>
+        </ion-slide>
+      </ion-slides>
+      <img *ngIf ="property.ImagesUrl[0] == null" src= "assets/imgs/default-room-image.jpg" class="thumb-img" imageViewer>
+    
+      <ion-card-content>
+        <ion-item  *ngIf="property.SingleBeds != 0">
+          <ion-icon name="home" item-left small></ion-icon>
+          <h3>No of Single Rooms</h3>
+          <p>{{property.SingleBeds}}</p>
         </ion-item>
-      
-        <ion-slides *ngIf="property.ImagesUrl[0] != null" class="image-slider" loop="false" autoplay="3000" pager="true" paginationType="bullets" zoom="true" effect="slide" slidesPerView="1">
-          <ion-slide *ngFor="let img of property.ImagesUrl">
-            <img src="{{img}}" class="thumb-img" #myImage (click)="presentImage(myImage)">
-          </ion-slide>
-        </ion-slides>
-        <img *ngIf ="property.ImagesUrl[0] == null" src= "assets/imgs/default-room-image.jpg" class="thumb-img" imageViewer>
-      
-        <ion-card-content>
-          <p *ngIf="property.SingleBeds != 0"><b>No of Single Rooms: </b>{{property.SingleBeds}}</p> 
-          <p *ngIf="property.DoubleBeds != 0"><b>No of Double Rooms: </b>{{property.DoubleBeds}}</p>
-          <p *ngIf="property.TwinBeds != 0"><b>No of Twin Rooms: </b>{{property.TwinBeds}}</p>
-          <p *ngIf="property.EnSuite != 0"><b>No of En-Suite Rooms: </b>{{property.EnSuite}}</p>
-          <p><b>College</b> {{property.College}}</p>
-          <p><b>Located </b>{{property.LocationDes}}</p>
-          <p><b>Address: </b>{{property.Address}}</p>
-          <p><b>Description: </b>{{ property.Description}}</p>
-          <p *ngIf="property.Contact == 'Phone'"><b>Contact</b> {{property.Phone}}</p>
-          <p *ngIf="property.Contact == 'Email'"><b>Contact</b> {{property.Email}}</p>
-        </ion-card-content>
-      
-        <ion-row>
-          <ion-col>
-            <button ion-button icon-left clear small>
-              <ion-icon name="car"></ion-icon>
-              <div>{{property.Parking}}</div>
-            </button>
-          </ion-col>
-          <ion-col>
-            <button ion-button icon-left clear small (click)="findOnMap()">
-              <ion-icon name="locate"></ion-icon>
-              <div>Find On Map</div>
-            </button>
-          </ion-col>
-        </ion-row>   
-      </ion-card>
+
+        <ion-item *ngIf="property.DoubleBeds != 0">
+          <ion-icon name="home" item-left small></ion-icon>
+          <h3>No of Double Rooms</h3>
+          <p>{{property.DoubleBeds}}</p>
+        </ion-item>
+
+        <ion-item *ngIf="property.TwinBeds != 0">
+          <ion-icon name="home" item-left small></ion-icon>
+          <h3>No of Twin Rooms</h3>
+          <p>{{property.TwinBeds}}</p>
+        </ion-item>
+
+        <ion-item *ngIf="property.EnSuite != 0">
+          <ion-icon name="home" item-left small></ion-icon>
+          <h3>No of En-Suite Rooms</h3>
+          <p>{{property.EnSuite}}</p>
+        </ion-item>
+
+        <ion-item>
+          <ion-icon name="school" item-left small></ion-icon>
+          <h3>College</h3>
+          <p>{{property.College}}</p>
+        </ion-item>
+
+        <ion-item>
+          <ion-icon name="map" item-left small></ion-icon>
+          <h3>Located</h3>
+          <p>{{property.LocationDes}}</p>
+        </ion-item>
+
+        <ion-item>
+          <ion-icon name="list" item-left small></ion-icon>
+          <h3>Address</h3>
+          <p>{{property.Address}}</p>
+        </ion-item>
+
+        <ion-item text-wrap>
+          <ion-icon name="text" item-left small></ion-icon>
+          <h3>Description</h3>
+          <p>{{property.Description}}</p>
+        </ion-item>
+
+        <ion-item>
+          <ion-icon name="car" item-left small></ion-icon>
+          <h3>Parking</h3>
+          <p>{{property.Parking}}</p>
+        </ion-item>
+
+        <ion-item>
+          <ion-icon name="contact" item-left small></ion-icon>
+          <h3 *ngIf="property.Contact == 'Phone'">Contact 
+            <p>{{property.Phone}}</p></h3>
+
+          <h3 *ngIf="property.Contact == 'Email'">Contact
+            <p>{{property.Email}}</p></h3>
+        </ion-item>
+      </ion-card-content>  
+    </ion-card>
   </div>
 </ion-content>

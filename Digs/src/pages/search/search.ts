@@ -80,6 +80,7 @@ export class SearchPage {
       }
       else{
         this.propertyAd.searchPropertyOnThreeParams(this.College, this.NoOfRooms, this.Parking).subscribe(data => {
+          console.log(JSON.stringify(data));
           this.navCtrl.push(SearchResultPropertyPage, {data: data});
         }),
         error => {

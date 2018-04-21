@@ -19,10 +19,10 @@
         <ion-slide *ngFor="let img of room.ImagesUrl">
           <img src="{{img}}" class="thumb-img" #myImage >
           <ion-fab right bottom>
-              <button ion-fab (click)="presentImage(myImage)">
-                <ion-icon name="expand"></ion-icon>
-              </button>
-            </ion-fab>
+            <button ion-fab (click)="presentImage(myImage)">
+              <ion-icon name="expand"></ion-icon>
+            </button>
+          </ion-fab>
         </ion-slide>
       </ion-slides>
       <img *ngIf ="room.ImagesUrl[0] == null" src= "assets/imgs/default-room-image.jpg" class="thumb-img" imageViewer>
@@ -59,10 +59,10 @@
         </ion-item>
 
         <ion-item>
-            <ion-icon name="car" item-left small></ion-icon>
-            <h3>Parking</h3>
-            <p>{{room.Parking}}</p>
-          </ion-item>
+          <ion-icon name="car" item-left small></ion-icon>
+          <h3>Parking</h3>
+          <p>{{room.Parking}}</p>
+        </ion-item>
 
         <ion-item>
           <ion-icon name="contact" item-left small></ion-icon>

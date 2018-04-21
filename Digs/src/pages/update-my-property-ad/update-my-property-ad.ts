@@ -60,7 +60,7 @@ export class UpdateMyPropertyAdPage {
   }
 
   /**
-   * Publishes the updated listing using the Property Ads Service
+   * Publishes the updated listing using the Property Ad Service
    */
   publishUpdate(){
     let updatedProperty = {
