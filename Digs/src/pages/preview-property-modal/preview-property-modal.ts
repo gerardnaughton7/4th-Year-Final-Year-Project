@@ -1,6 +1,6 @@
 import { LaunchNavigator } from '@ionic-native/launch-navigator';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, ToastController, Platform } from 'ionic-angular';
 import { ImageViewerController } from 'ionic-img-viewer';
 
 /**
@@ -16,16 +16,24 @@ export class PreviewPropertyModalPage {
   property: any;
   navFrom: boolean;
   imageViewer: ImageViewerController;
+  backButtonUnregister: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
               private viewCtrl: ViewController, private launchNavigator: LaunchNavigator, 
-              public imageViewerCtrl: ImageViewerController, private toast: ToastController) {
+              public imageViewerCtrl: ImageViewerController, private toast: ToastController, private platform: Platform) {
+    this.backButtonUnregister = platform.registerBackButtonAction(() => {
+      this.navCtrl.pop();
+    });
     /**
      * Retrieve values passed to constructor when Modal is loaded.
      */
     this.property = this.navParams.get('property');
     this.navFrom = this.navParams.get('navFrom');
     this.imageViewer = imageViewerCtrl;
+  }
+
+  ionViewWillLeave() {
+    this.backButtonUnregister();
   }
 
   /**

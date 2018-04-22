@@ -104,7 +104,7 @@ The following images are previews of various pages in our application.
 
 | Android  | iOS |
 | :-------------: | :-------------: |
-| <img src="ReadmeImages/home_android.png" width="350" height="600"/>  | <img src="ReadmeImages/home_ios.png" width="350" height="600" />  |
+| <img src="ReadmeImages/home_android.jpg" width="350" height="600"/>  | <img src="ReadmeImages/home_ios.png" width="350" height="600" />  |
 
 [Top](#contents) 
 
