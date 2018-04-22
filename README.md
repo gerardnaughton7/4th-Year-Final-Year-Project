@@ -10,6 +10,7 @@
 * [Project Wiki](#wiki)
 * [Architecture](#arc) 
 * [Features](#features)
+* [App Preview](#preview)
 * [Deployment](#deploy)
 
 
@@ -17,13 +18,13 @@
 
 | Project Details   |     |
 | --- | --- |
-| `Course` | BSc (Hons) in Software Development  |
-| `Module` |  Applied Project and Minor Dissertation |
-| `College`| [GMIT](http://www.gmit.ie/) Galway |
-| `Students` | [Patrick Moran](https://www.linkedin.com/in/patrick-moran-7a349014b/)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; G00179039<br/>[Gereard Naughton](https://www.linkedin.com/in/gerard-naughton-732193150/)&nbsp; G00209309<br/>[Andrei Petruk](https://www.linkedin.com/in/andrei-petruk-33b135ab/)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;G00328108 |
-| `Project Supervisor` | Daniel Cregg |
-| `Module Supervisor` | John Healy |
-| `Project Title` | Digs |
+| **Course** | BSc (Hons) in Software Development  |
+| **Module** |  Applied Project and Minor Dissertation |
+| **College** | [GMIT](http://www.gmit.ie/) Galway |
+| **Students** | [Patrick Moran](https://www.linkedin.com/in/patrick-moran-7a349014b/)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; G00179039<br/>[Gereard Naughton](https://www.linkedin.com/in/gerard-naughton-732193150/)&nbsp; G00209309<br/>[Andrei Petruk](https://www.linkedin.com/in/andrei-petruk-33b135ab/)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;G00328108 |
+| **Project Supervisor** | Daniel Cregg |
+| **Module Supervisor** | John Healy |
+| **Project Title** | Digs |
 
 
 
@@ -42,7 +43,9 @@ For our final year project we decided to create an Accommodation App called Digs
 [Top](#contents) 
 
 # Dissertation<a name = "dissertation"></a>
-Click [here](https://github.com/gerardnaughton7/4th-Year-Final-Year-Project/blob/master/DigsDissertation.pdf) to view our Project Dissertation.
+Click below to view our Dissertation PDF or click [here](https://github.com/gerardnaughton7/4th-Year-Final-Year-Project/tree/master/DigsDissertation) to view the latex files used to create it. 
+
+[<img src="ReadmeImages/dissertation.PNG" style="border: 2px solid; border-color: black"></img>](https://github.com/gerardnaughton7/4th-Year-Final-Year-Project/blob/master/DigsDissertation.pdf)
 
 
 [Top](#contents) 
@@ -86,12 +89,67 @@ The following are the main features of our project:
 
 [Top](#contents) 
 
+# App Preview<a name = "preview"></a>
+The following images are previews of various pages in our application.  
+
+* Login Page
+
+| Android  | iOS |
+| :-------------: | :-------------: |
+| <img src="ReadmeImages/login_android.png" width="210" height="380" />  | <img src="ReadmeImages/login_ios.png" width="210" height="380" />  |
+
+[Top](#contents) 
+
+* Home Page
+
+| Android  | iOS |
+| :-------------: | :-------------: |
+| <img src="ReadmeImages/home_android.png" width="210" height="380"/>  | <img src="ReadmeImages/home_ios.png" width="210" height="380" />  |
+
+[Top](#contents) 
+
+* Room/Property Listings
+
+| Android  | iOS |
+| :-------------: | :-------------: |
+| <img src="ReadmeImages/rooms_android.png" width="210" height="380" />  | <img src="ReadmeImages/rooms_ios.png" width="210" height="380"/>  |
+
+[Top](#contents) 
+
+* Create Ad
+
+| Android  | iOS |
+| :-------------: | :-------------: |
+| <img src="ReadmeImages/create_android.png" width="210" height="380"/>  | <img src="ReadmeImages/create_ios.png" width="210" height="380"/>  |
+
+
+[Top](#contents)
+
+* Search
+
+| Android  | iOS |
+| :-------------: | :-------------: |
+| <img src="ReadmeImages/search_android.png" width="210" height="380"/>  | <img src="ReadmeImages/search_ios.png" width="210" height="380"/>  |
+
+
+[Top](#contents)
+
+* Message Board
+
+| Android  | iOS |
+| :-------------: | :-------------: |
+| <img src="ReadmeImages/message_android.png" width="210" height="380"/>  | <img src="ReadmeImages/message_ios.png" width="210" height="380"/>  |
+
+
+[Top](#contents)
+
 # Deployment<a name = "deploy"></a>
 ### Deploy on Android Device
 * This repository contains our [Digs.apk]() file
 * Download this apk and install it on your android device.
 
 ## Deploy Locally
+
 
 Prerequisites
 * Mongo Installed - Click [here](https://www.mongodb.com/download-center?jmp=tutorials&_ga=2.180285351.2088142531.1523826631-1629278295.1507240892#community) for instructions.

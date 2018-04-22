@@ -65,7 +65,8 @@ export class ListOfRoomsPage {
       loading.dismiss();
       this.toast.create({
         message: "Unable To Retrieve Rooms at this Time",
-        duration: 3000     
+        duration: 3000,
+        cssClass: "toast"     
       }).present();
     });
     refresher.complete();

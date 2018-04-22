@@ -38,13 +38,13 @@
 
   <ion-item class="home-rooms" (click)="goToRooms()">
     <ion-icon name="paper" item-start></ion-icon>
-    Number of Rooms Listed
+    <p style="color:rgb(153, 0, 255); font-size: 10pt; text-align: left">Number of Rooms Listed</p>
     <ion-badge *ngIf = "rooms != null" item-end>{{ rooms.length }}</ion-badge>
   </ion-item>
 
   <ion-item class="home-properties" (click)="goToProperties()">
     <ion-icon name="paper" item-start></ion-icon>
-    Number of Properties Listed
+    <p style="color:rgb(153, 0, 255); font-size: 10pt; text-align: left">Number of Properties Listed</p>
     <ion-badge *ngIf = "properties != null" item-end>{{ properties.length }}</ion-badge>
   </ion-item>
 

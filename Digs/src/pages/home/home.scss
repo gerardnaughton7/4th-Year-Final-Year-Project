@@ -1,3 +1,9 @@
+.ios{
+    .home-rooms{
+        margin-top: 240px;     
+    }
+}
+
 page-home {
     ion-avatar img {
         width: 35px !important;
@@ -27,7 +33,6 @@ page-home {
         border: solid 2px;
         border-radius: 15px;
         color: rgba(153, 0, 255, 1px);
-        text-align: center;
         margin-top: 225px;
         background: rgba(255,255,255, 0.9px);
     }
@@ -36,7 +41,6 @@ page-home {
         border: solid 2px;
         border-radius: 15px;
         color: rgba(153, 0, 255, 1px);
-        text-align: center;
         margin-top: 3px;
         background: rgba(255,255,255, 0.9px);
     }
