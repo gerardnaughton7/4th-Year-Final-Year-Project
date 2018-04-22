@@ -1,23 +1,20 @@
 page-about {
 
   #main-logo{
-    height: 150px;
-    width: auto;
-    margin-top: 20px;
-    align-content: center;
-    margin-left: 40px;
-    margin-right: auto;
-    margin-bottom: auto;
+    height: 160px;
+    margin-top: 10px;
     display: block;
+    margin-left: auto;
+    margin-right: auto
   } 
 
   #content {
     position: relative;
-    margin-top: 60px;
+    margin-top: 80px;
     background-color: white;
     box-shadow: 0px -1px 10px rgba(0,0,0,0.4);
     padding-top: 200px;
-    padding-bottom: 30px;
+    padding-bottom: 55px;
 
   }
 
@@ -29,7 +26,8 @@ page-about {
   }
 
   #profile-description {
-    font-size: 15px;
+    padding: 6px;
+    font-size: 14px;   
     color: #888;
   }
 

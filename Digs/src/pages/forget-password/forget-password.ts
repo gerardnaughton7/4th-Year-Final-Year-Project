@@ -31,7 +31,8 @@ export class ForgetPasswordPage {
       let toast = this.toastCtrl.create({
         message: 'Success - Check your email for instructions.',
         duration: 3000,
-        position: 'bottom'
+        position: 'bottom',
+        cssClass: "toast"
       });
       toast.present();
       this.navCtrl.push(LoginPage);
@@ -39,7 +40,8 @@ export class ForgetPasswordPage {
       let toast = this.toastCtrl.create({
         message: 'Password Reset Failed, Please try again',
         duration: 3000,
-        position: 'bottom'
+        position: 'bottom',
+        cssClass: "toast"
       });
       toast.present();
     })

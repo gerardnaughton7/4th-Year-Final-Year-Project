@@ -58,7 +58,8 @@ export class LoginPage {
         this.storage.set('email', user.email);
         this.toast.create({
          message: "Welcome To Digs App " + user.email,
-         duration: 3000     
+         duration: 3000,
+         cssClass: "toast"    
        }).present();
        // Navigate to HomePage
         this.navCtrl.setRoot(HomePage);
@@ -67,12 +68,11 @@ export class LoginPage {
     }
     catch(e){ 
       loading.dismiss(); 
-      let alert = this.alertCtrl.create({
-        title: 'Login Failed.',
-        subTitle: "Please check your details and try again.",
-        buttons: ['Dismiss']
-      });
-      alert.present();  
+      this.toast.create({
+        message: "Invalid Login - Please Try Again",
+        duration: 3000,
+        cssClass: "toast" 
+      }).present();
     }  
   }
 
@@ -96,13 +96,15 @@ export class LoginPage {
 
         this.toast.create({
           message: "Welcome To Digs App " + res.email,
-          duration: 3000     
+          duration: 3000,
+          cssClass: "toast"     
         }).present();
         this.navCtrl.setRoot(HomePage);
       }, err => {
         this.toast.create({
           message: "Unable to Login with Google-plus - Please try again",
-          duration: 3000     
+          duration: 3000,
+          cssClass: "toast"   
         }).present();
       });
     }, err => {

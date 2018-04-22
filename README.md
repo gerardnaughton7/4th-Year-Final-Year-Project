@@ -7,7 +7,8 @@
 * [Introduction](#intro)
 * [Video Demo](#demo)
 * [Dissertation](#dissertation)
-* [Project Wiki](#wiki) 
+* [Project Wiki](#wiki)
+* [Architecture](#arc) 
 * [Features](#features)
 * [Deployment](#deploy)
 
@@ -48,6 +49,25 @@ Click [here](https://github.com/gerardnaughton7/4th-Year-Final-Year-Project/blob
 
 # Project Wiki<a name = "wiki"></a>
 Click [here](https://github.com/gerardnaughton7/4th-Year-Final-Year-Project/wiki) to view our Project Wiki.
+
+[Top](#contents) 
+
+# Architecture<a name = "arc"></a>
+The following is an overview of the Technologies/Architecture used creating Digs.   
+
+<p align="center"><img src="https://github.com/gerardnaughton7/4th-Year-Final-Year-Project/blob/master/DigsDissertation/img/Architecture.PNG"></p>
+
+### Presentation Tier
+
+* [Ionic 3 Framework](https://ionicframework.com/docs/)
+* [Angular 4 Framework](https://angular.io/)
+* [Firebase Authentication](https://firebase.google.com/)
+
+### Logic Tier
+* [NodeJS](https://nodejs.org/en/)
+
+### Data Tier
+* [MongoDB](https://www.mongodb.com/company) Database 
 
 [Top](#contents) 
 

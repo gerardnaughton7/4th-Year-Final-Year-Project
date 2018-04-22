@@ -42,6 +42,11 @@ export class RegisterPage {
     try{
       //Result object of creating a user with an email and password
       const result = await this.afAuth.auth.createUserWithEmailAndPassword(value['email'], value['password']);
+      this.toast.create({
+        message: "Successfully Registered - Please Log In",
+        duration: 3000,
+        cssClass: "toast"   
+      }).present();
       this.navCtrl.push(LoginPage);
       loading.dismissAll();
     }
@@ -50,7 +55,8 @@ export class RegisterPage {
       loading.dismiss();
       this.toast.create({
         message: "Error Registering User - Please Try Again",
-        duration: 3000     
+        duration: 3000,
+        cssClass: "toast"   
       }).present();
       this.validations_form.reset();
     }

@@ -1,12 +1,11 @@
 page-register {
+
     #main-logo{
-        height: 180px;
-        width: auto;
-        margin-top: 25px;
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: auto;
+        height: 160px;
+        margin-top: 20px;
         display: block;
+        margin-left: auto;
+        margin-right: auto
     }
 
     .background{
@@ -18,7 +17,7 @@ page-register {
     }
 
     ion-card.card{
-        margin-top: 45px;
+        margin-top: 50px;
         background: rgba(232, 230, 230, 0.8px);  
         border-radius: 10px;
         margin-bottom: 5px;
@@ -35,4 +34,8 @@ page-register {
         margin-right: auto;
         margin-top: 2px;
       }
+}
+
+.toast{
+    text-align: center;
 }

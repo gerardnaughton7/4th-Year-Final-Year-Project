@@ -34,7 +34,8 @@ export class ListOfPropertiesPage {
       loading.dismiss();
       this.toast.create({
         message: "Unable To Retrieve Properties at this Time",
-        duration: 3000     
+        duration: 3000,
+        cssClass: "toast"       
       }).present();
     });
   }
