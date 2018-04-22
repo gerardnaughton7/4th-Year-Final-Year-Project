@@ -45,7 +45,7 @@ For our final year project we decided to create an Accommodation App called Digs
 # Dissertation<a name = "dissertation"></a>
 Click below to view our Dissertation PDF or click [here](https://github.com/gerardnaughton7/4th-Year-Final-Year-Project/tree/master/DigsDissertation) to view the latex files used to create it. 
 
-[<img src="ReadmeImages/dissertation.PNG" style="border: 2px solid; border-color: black"></img>](https://github.com/gerardnaughton7/4th-Year-Final-Year-Project/blob/master/DigsDissertation.pdf)
+<kbd>[<img src="ReadmeImages/dissertation.PNG"></img>](https://github.com/gerardnaughton7/4th-Year-Final-Year-Project/blob/master/DigsDissertation.pdf)</kbd>
 
 
 [Top](#contents) 
@@ -58,7 +58,7 @@ Click [here](https://github.com/gerardnaughton7/4th-Year-Final-Year-Project/wiki
 # Architecture<a name = "arc"></a>
 The following is an overview of the Technologies/Architecture used creating Digs.   
 
-<p align="center"><img src="https://github.com/gerardnaughton7/4th-Year-Final-Year-Project/blob/master/DigsDissertation/img/Architecture.PNG"></p>
+<p align="center"><kbd><img src="https://github.com/gerardnaughton7/4th-Year-Final-Year-Project/blob/master/DigsDissertation/img/Architecture.PNG"></p></kbd>
 
 ### Presentation Tier
 
@@ -96,7 +96,7 @@ The following images are previews of various pages in our application.
 
 | Android  | iOS |
 | :-------------: | :-------------: |
-| <img src="ReadmeImages/login_android.png" width="210" height="380" />  | <img src="ReadmeImages/login_ios.png" width="210" height="380" />  |
+| <img src="ReadmeImages/login_android.png" width="350" height="600"/>  | <img src="ReadmeImages/login_ios.png" width="350" height="600"/>  |
 
 [Top](#contents) 
 
@@ -104,7 +104,7 @@ The following images are previews of various pages in our application.
 
 | Android  | iOS |
 | :-------------: | :-------------: |
-| <img src="ReadmeImages/home_android.png" width="210" height="380"/>  | <img src="ReadmeImages/home_ios.png" width="210" height="380" />  |
+| <img src="ReadmeImages/home_android.png" width="350" height="600"/>  | <img src="ReadmeImages/home_ios.png" width="350" height="600" />  |
 
 [Top](#contents) 
 
@@ -112,7 +112,7 @@ The following images are previews of various pages in our application.
 
 | Android  | iOS |
 | :-------------: | :-------------: |
-| <img src="ReadmeImages/rooms_android.png" width="210" height="380" />  | <img src="ReadmeImages/rooms_ios.png" width="210" height="380"/>  |
+| <img src="ReadmeImages/rooms_android.png" width="350" height="600" />  | <img src="ReadmeImages/rooms_ios.png" width="350" height="600"/>  |
 
 [Top](#contents) 
 
@@ -120,7 +120,7 @@ The following images are previews of various pages in our application.
 
 | Android  | iOS |
 | :-------------: | :-------------: |
-| <img src="ReadmeImages/create_android.png" width="210" height="380"/>  | <img src="ReadmeImages/create_ios.png" width="210" height="380"/>  |
+| <img src="ReadmeImages/create_android.png" width="350" height="600"/>  | <img src="ReadmeImages/create_ios.png" width="350" height="600"/>  |
 
 
 [Top](#contents)
@@ -129,7 +129,7 @@ The following images are previews of various pages in our application.
 
 | Android  | iOS |
 | :-------------: | :-------------: |
-| <img src="ReadmeImages/search_android.png" width="210" height="380"/>  | <img src="ReadmeImages/search_ios.png" width="210" height="380"/>  |
+| <img src="ReadmeImages/search_android.png" width="350" height="600"/>  | <img src="ReadmeImages/search_ios.png" width="350" height="600"/>  |
 
 
 [Top](#contents)
@@ -138,7 +138,7 @@ The following images are previews of various pages in our application.
 
 | Android  | iOS |
 | :-------------: | :-------------: |
-| <img src="ReadmeImages/message_android.png" width="210" height="380"/>  | <img src="ReadmeImages/message_ios.png" width="210" height="380"/>  |
+| <img src="ReadmeImages/message_android.png" width="350" height="600"/>  | <img src="ReadmeImages/message_ios.png" wwidth="350" height="600"/>  |
 
 
 [Top](#contents)
