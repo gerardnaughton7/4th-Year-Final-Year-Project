@@ -3,6 +3,9 @@ import 'rxjs/add/operator/map';
 import { Http } from '@angular/http';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 
+/**
+ * @author Patrick Moran, Gerard Naughton, Andrei Petruk
+ */
 @Injectable()
 export class ImagesProvider {
   //apiURL = 'http://localhost:3000/';
@@ -14,22 +17,36 @@ export class ImagesProvider {
 
   constructor(public http: Http, private transfer: FileTransfer) {
     this.data = null;
-   }
+  }
 
+  /**
+   * Retrieve images from back-end in JSON
+   */
   getImages() {
     return this.http.get(this.apiURL + 'images').map(res => res.json());
   }
 
-  getImageAdID(adID){  
-      
+  /**
+   * Retrieve an images ad id from the back-end
+   * @param adID 
+   */
+  getImageAdID(adID){        
     return this.http.get(this.apiURL + 'images/getAdID/' + adID);
-
   }
 
+  /**
+   * Delete an image from back-end using the image id
+   * @param img 
+   */
   deleteImage(img) {
     return this.http.delete(this.apiURL + 'images/' + img._id);
   }
 
+  /**
+   * Upload an image to the back-end
+   * @param img 
+   * @param adID 
+   */
   uploadImage(img, adID) {
 
     // Destination URL

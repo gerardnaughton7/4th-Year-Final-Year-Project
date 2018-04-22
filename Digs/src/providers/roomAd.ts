@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
  
+/**
+ * @author Patrick Moran, Gerard Naughton, Andrei Petruk
+ */
 @Injectable()
 export class RoomAd {
  
@@ -16,32 +19,43 @@ export class RoomAd {
   constructor(public http: Http) {
   }
   
-  //Get all rooms function
+  /**
+   * Retrieve rooms from the back-end as json
+   */
   getRooms(){
     return this.http.get(this.apiURL + 'api/rooms').map(res => res.json());
   }
 
-  //Get User Room Function
+  /**
+   * Retrieve rooms using email provided 
+   * @param email 
+   */
   getMyRooms(email){
     console.log("now in getMyRooms(): " + email);
     return this.http.get(this.apiURL + 'api/myRooms/' + email).map(res => res.json());
   }
  
-  // Create Room Function
+  /**
+   * Post a room listing to the back-end
+   * @param room 
+   */
   createRoom(room){
  
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     this.http.post(this.apiURL+'api/rooms', JSON.stringify(room), {headers: headers})
       .subscribe(res => {
-        console.log(res.json());
+        
       },
       error => {
-        alert("ERROR CREATING ROOM: " + error);
+        console.log("ERROR CREATING ROOM: " + error);
       });
   }
  
-  //Delete Room Function
+  /**
+   * Delete a room from the back-end using an id
+   * @param id 
+   */
   deleteRoom(id){
     this.http.delete(this.apiURL+'api/rooms/' + id).subscribe((res) => {
       console.log(res.json());
@@ -49,27 +63,41 @@ export class RoomAd {
  
   }
 
-  //Update Room function
+  /**
+   * Update a specific room listing identified by an id
+   * @param update 
+   * @param id 
+   */
   updateRoom(update, id){
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     this.http.put(this.apiURL + 'api/rooms/' + id, JSON.stringify(update), {headers: headers}).subscribe(res => {
-      console.log(res.json());
+      
     },
     error => {
-      alert("ERROR UPDATING Property: " + error);
+      console.log("ERROR UPDATING Property: " + error);
     });
  
   }
 
-  // Search Functionality - Searching on three params
+  /**
+   * Query the back-end for a room listing with 3 parameters: college, room-type, parking
+   * @param College 
+   * @param RoomType 
+   * @param Parking 
+   */
   searchRoomOnThreeParams(College, RoomType, Parking){
     return this.http.get(this.apiURL + 'api/searchRooms/' + College + "/" + RoomType + "/" + Parking).map(res => res.json());
   }
 
-  // Search Functionality - Searching on three params and then on four params
+  /**
+   * Query the back-end for a room listing with 4 parameters: college, room-type, parking, price
+   * @param College 
+   * @param RoomType 
+   * @param Parking 
+   * @param Price 
+   */
   searchRoomOnFourParams(College, RoomType, Parking, Price){
     return this.http.get(this.apiURL + 'api/searchRooms/' + College + "/" + RoomType + "/" + Parking + "/" + Price).map(res => res.json());
   }
- 
 }

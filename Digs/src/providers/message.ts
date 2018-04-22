@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
  
+/**
+ * @author Patrick Moran, Gerard Naughton, Andrei Petruk
+ */
 @Injectable()
 export class Message {
  
@@ -15,21 +18,26 @@ export class Message {
     this.data = null;
   }
  
+  /**
+   * Retrieve messages from the back-end as json
+   */
   getMessage(){
     return this.http.get(this.apiURL + 'api/messages').map(res => res.json());
   }
  
+  /**
+   * Post A Message to the back-end
+   * @param message 
+   */
   createMessage(message){
-    console.log("In Message Provider - about to post a message to api");
- 
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     this.http.post(this.apiURL + 'api/messages', JSON.stringify(message), {headers: headers})
       .subscribe(res => {
-        console.log(res.json());
+        
       },
       error => {
-        alert("ERROR CREATING Message: " + error);
+        console.log("Error retrieving messages: " + error);
       });
   }
  
