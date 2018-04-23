@@ -1,6 +1,6 @@
 import { SearchPage } from './../search/search';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController, LoadingController, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, LoadingController, ToastController, Platform } from 'ionic-angular';
 import { RoomAd } from './../../providers/roomAd';
 import { isType } from '@angular/core/src/type';
 
@@ -17,7 +17,7 @@ export class ListOfRoomsPage {
   rooms: any;
 
   constructor(public navCtrl: NavController,public roomAdService: RoomAd, public navParams: NavParams, 
-              public modalCtrl: ModalController, private loadingController: LoadingController, private toast: ToastController) {
+              public modalCtrl: ModalController, private loadingController: LoadingController, private toast: ToastController, public platform: Platform) {
     
   }
 
@@ -28,7 +28,6 @@ export class ListOfRoomsPage {
     let loading = this.loadingController.create({content : "Retrieving Rooms, please wait..."});
     loading.present();
     this.roomAdService.getRooms().subscribe((data) => {
-      console.log("Data returned from ListRooms on Load: " + JSON.stringify(data));
       this.rooms = data.reverse(); 
       loading.dismissAll();
     },

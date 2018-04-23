@@ -7,7 +7,7 @@ import { ListOfRoomsPage } from './../pages/list-of-rooms/list-of-rooms';
 import { ListOfPropertiesPage } from './../pages/list-of-properties/list-of-properties';
 import { CreatePage } from './../pages/create/create';
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform, Events, AlertController, ToastController } from 'ionic-angular';
+import { Nav, Platform, Events, AlertController, ToastController, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { MessageboardPage } from './../pages/messageboard/messageboard';
@@ -26,12 +26,13 @@ export class MyApp {
   showAccount : any = false;
   email: string = '';
   googleUser: any;
+  counter = 0;
 
   pages: Array<{title: string, component: any, icon: string}>;
   loggedInPages: Array<{title: string, component: any, icon: string}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public events: Events,
-                private afAuth: AngularFireAuth, private storage: Storage, private toast: ToastController) {
+                private afAuth: AngularFireAuth, private storage: Storage, private toast: ToastController, public menu: MenuController) {
 
     this.initializeApp();
          
@@ -78,6 +79,29 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+
+      this.platform.registerBackButtonAction(() => {
+        if(this.menu.isOpen()){
+           this.menu.close()
+        } 
+        else if(this.nav.canGoBack()){
+          console.log("Back...");
+          this.nav.pop();
+        }else{
+          if(this.counter == 0){
+            this.counter++;
+            this.toast.create({
+              message: "Press Back Again To Exit App",
+              duration: 3000,
+              cssClass: "toast"       
+            }).present();
+            setTimeout(() => { this.counter = 0 }, 3000)
+          }
+          else{
+            this.platform.exitApp();
+          }
+        }
+      });
     });
   }
 
