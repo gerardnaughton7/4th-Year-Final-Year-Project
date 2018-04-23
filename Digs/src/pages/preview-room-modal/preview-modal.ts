@@ -18,14 +18,18 @@ export class PreviewModalPage {
   imageViewer: ImageViewerController;
   backButtonUnregister: any;
 
- 
   constructor(public navCtrl: NavController, public navParams: NavParams, private viewCtrl: ViewController, 
               private launchNavigator: LaunchNavigator, public imageViewerCtrl: ImageViewerController, private toast: ToastController,
               private platform: Platform) {
     
+    /**
+     * Allow the back device back button to close the modal
+     * Adapted: https://stackoverflow.com/a/45652398
+     */
     this.backButtonUnregister = platform.registerBackButtonAction(() => {
       this.navCtrl.pop();
     });
+    
     /**
      * Retrieve values passed to constructor when Modal is loaded.
      */           

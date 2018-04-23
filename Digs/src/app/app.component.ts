@@ -80,12 +80,14 @@ export class MyApp {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
 
+      /** Close App if back button is pressed twice within 3 seconds
+       *  Adapted: https://pointdeveloper.com/ionic-double-tap-back-button-exit/
+       */
       this.platform.registerBackButtonAction(() => {
         if(this.menu.isOpen()){
            this.menu.close()
         } 
         else if(this.nav.canGoBack()){
-          console.log("Back...");
           this.nav.pop();
         }else{
           if(this.counter == 0){
