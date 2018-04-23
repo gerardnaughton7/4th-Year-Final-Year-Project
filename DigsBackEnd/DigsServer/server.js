@@ -305,6 +305,11 @@ app.delete('/api/messages/:message_id', function (req, res) {
 app.put('/api/properties/:UID', function(req, res) {
 	
 	let UID = req.body.UID;
+	let d = Number(req.body.DoubleBeds);
+	let s = Number(req.body.SingleBeds);
+	let t = Number(req.body.TwinBeds);
+	let e = Number(req.body.EnSuite);
+	let total = d + s + t + e;
 	//delete old ad
 	Property.remove({
 		"_id" : req.params.UID
@@ -320,6 +325,7 @@ app.put('/api/properties/:UID', function(req, res) {
 		SingleBeds: req.body.SingleBeds,
 		DoubleBeds: req.body.DoubleBeds,
 		TwinBeds: req.body.TwinBeds,
+		NoRooms: total,
 		EnSuite: req.body.EnSuite,
 		College: req.body.College,
 		Eircode: req.body.Eircode,
