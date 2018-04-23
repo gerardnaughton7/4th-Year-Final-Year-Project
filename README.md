@@ -37,7 +37,12 @@ For our final year project we decided to create an Accommodation App called Digs
 [Top](#contents) 
 
 # Video Demo<a name = "demo"></a>
-[![IMAGE ALT TEXT HERE](images/screen.png)]()
+
+## Quick 2 Minute video
+[![IMAGE ALT TEXT HERE](ReadmeImages/video.PNG)](https://youtu.be/-_PzyPdflOI)
+
+## More in depth video
+[![IMAGE ALT TEXT HERE](ReadmeImages/video.PNG)](https://youtu.be/OjgK4KCnwSo)
 
 
 [Top](#contents) 
